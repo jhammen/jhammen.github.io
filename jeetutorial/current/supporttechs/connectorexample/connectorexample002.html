@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/supporttechs/pages/connectorexample/connectorexample002.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_the_trading_example"><a class="anchor" href="#_the_trading_example"></a>The trading Example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>trading</code> example demonstrates how to implement and use a simple outbound resource adapter that submits requests to a legacy EIS using a TCP socket.
+The example demonstrates the scenario in <a href="#_the_trading_example_2">Figure 1, &#8220;The trading Example&#8221;</a> and consists of the following modules:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>trading-eis</code>: A Java SE program that simulates a legacy EIS</p>
+</li>
+<li>
+<p><code>trading-rar</code>: The outbound resource adapter implementation</p>
+</li>
+<li>
+<p><code>trading-war</code>: A web application that uses the resource adapter</p>
+</li>
+<li>
+<p><code>trading-ear</code>: An enterprise archive that contains the resource adapter and the web application</p>
+</li>
+</ul>
+</div>
+<div id="_the_trading_example_2" class="imageblock">
+<div class="content">
+<img src="../../common/_images/jakartaeett_dt_054.svg" alt="This figure shows the trading example components: a deployed WAR and RAR that communicate with the EIS over a TCP socket.">
+</div>
+<div class="title">Figure 1. The trading Example</div>
+</div>
+<div class="paragraph">
+<p>The <code>trading-eis</code> module is an auxiliary project that resembles a legacy stock trading execution platform.
+It contains a Java SE program that listens for trading requests in plain text on a TCP socket.
+The program replies to trading requests with a status value, a confirmation number, and the dollar amounts for the requested shares and fees.
+For example, a request-response pair would look like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">&gt;&gt; BUY 1000 ZZZZ MARKET
+&lt;&lt; EXECUTED #1234567 TOTAL 50400.00 FEE 252.00</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>trading-rar</code> module implements the outbound contract of the Jakarta Connectors to submit requests and obtain responses from the legacy stock trading execution platform.
+The <code>trading-rar</code> module provides and implements a custom client interface for Jakarta EE applications to use.
+This interface is simpler than the Common Client Interface (CCI).</p>
+</div>
+<div class="paragraph">
+<p>The <code>trading-war</code> module is a web application with a Jakarta Faces interface and a managed bean.
+This application enables clients to submit trades to the EIS using the resource adapter provided by the <code>trading-rar</code> module.
+The <code>trading-war</code> module uses the custom client interface provided by the resource adapter to obtain connections to the EIS.</p>
+</div>
+<div class="sect2">
+<h3 id="_using_the_outbound_resource_adapter"><a class="anchor" href="#_using_the_outbound_resource_adapter"></a>Using the Outbound Resource Adapter</h3>
+<div class="paragraph">
+<p>In most cases, Jakarta EE application developers use outbound resource adapters developed by a third party.
+Outbound resource adapters either implement the Common Client Interface (CCI) or provide a custom interface for applications to interact with the EIS.
+Outbound resource adapters provide Jakarta EE applications with the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Connection factories</p>
+</li>
+<li>
+<p>Connection handles</p>
+</li>
+<li>
+<p>Other interfaces and objects specific to the EIS domain</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Jakarta EE applications obtain an instance of the connection factory via resource injection and then use the factory object to obtain connection handles to the EIS.
+The connection handles enable the application to make requests and obtain information from the EIS.</p>
+</div>
+<div class="paragraph">
+<p>The <code>trading-rar</code> module provides a custom client interface that consists of the classes listed in <a href="#_classes_and_interfaces_in_the_trading_rar_module">Classes and Interfaces in the trading-rar module</a>.</p>
+</div>
+<table id="_classes_and_interfaces_in_the_trading_rar_module" class="tableblock frame-all grid-all" style="width: 80%;">
+<caption class="title">Classes and Interfaces in the trading-rar module</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">API Component</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TradeOrder</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents a trade order for the EIS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TradeResponse</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents a response from the EIS to a trade request</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TradeConnection</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Represents a connection handle to the EIS</p>
+</div>
+<div class="paragraph">
+<p>Provides a method for applications to submit trades to the EIS</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TradeConnectionFactory</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables applications to obtain connection handles to the EIS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TradeProcessingException</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates that a problem occurred processing a trade request</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <code>ResourceAccessBean</code> managed bean in the <code>trading-war</code> module configures a connection factory for the <code>trading-rar</code> resource adapter by using the <code>@ConnectionFactoryDefinition</code> annotation as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Named
+@SessionScoped
+@ConnectionFactoryDefinition(
+    name = "java:comp/env/eis/TradeConnectionFactory",
+    interfaceName = "ee.jakarta.tutorial.trading.rar.api.TradeConnectionFactory",
+    resourceAdapter = "#trading-rar",
+    minPoolSize = 5,
+    transactionSupport =
+            TransactionSupport.TransactionSupportLevel.NoTransaction
+)
+public class ResourceAccessBean implements Serializable { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>name</code> parameter specifies the JNDI name for the connection factory.
+This example registers the connection factory in the <code>java:comp</code> scope.
+You can use the <code>ConnectionFactoryDefinition</code> annotation to specify a different scope, such as <code>java:global</code>, <code>java:app</code>, or <code>java:module</code>.
+The <code>AdministeredObjectDefinition</code> annotation also enables you to register administered connector objects in the JNDI namespace.</p>
+</div>
+<div class="paragraph">
+<p>The <code>interfaceName</code> parameter specifies the interface implemented by the connection factory included in the resource adapter.
+In this example, this is a custom interface.</p>
+</div>
+<div class="paragraph">
+<p>The <code>resourceAdapter</code> parameter specifies the name of the resource adapter that contains the connection factory implementation.
+The <code>#</code> prefix in <code>#trading-rar</code> indicates that <code>trading-rar</code> is an embedded resource adapter that is bundled in the same EAR as this web application.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can also configure a connection factory for a previously deployed outbound resource adapter using the administration commands from your application server.
+However, this is a vendor-specific procedure.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The managed bean obtains a connection factory object using resource injection as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">...
+public class ResourceAccessBean implements Serializable {
+    @Resource(lookup = "java:comp/env/eis/TradeConnectionFactory")
+    private TradeConnectionFactory connectionFactory;
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The managed bean uses the connection factory to obtain connection handles as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">TradeConnection connection = connectionFactory.getConnection();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The resource adapter returns a connection handle associated with a physical connection to the EIS.
+Once a connection handle is available, the managed bean submits a trade and obtains the response as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">TradeOrder order = new TradeOrder();
+order.setNShares(1000);
+order.setTicker(TradeOrder.Ticker.YYYY);
+order.setOrderType(TradeOrder.OrderType.BUY);
+order.setOrderClass(TradeOrder.OrderClass.MARKET);
+...
+try {
+    TradeResponse response = connection.submitOrder(order);
+    ...
+} catch (TradeProcessingException ex) { ... }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_implementing_the_outbound_resource_adapter"><a class="anchor" href="#_implementing_the_outbound_resource_adapter"></a>Implementing the Outbound Resource Adapter</h3>
+<div class="paragraph">
+<p>The <code>trading-rar</code> module implements the outbound contract and a custom client interface for the simple legacy stock trading platform EIS used in this example.
+The architecture of the outbound resource adapter is shown in <a href="#_architecture_of_the_trading_example">Figure 2, &#8220;Architecture of the trading Example&#8221;</a>.</p>
+</div>
+<div id="_architecture_of_the_trading_example" class="imageblock">
+<div class="content">
+<img src="../../common/_images/jakartaeett_dt_055.svg" alt="This figure shows the classes in each of the modules of the trading example.">
+</div>
+<div class="title">Figure 2. Architecture of the trading Example</div>
+</div>
+<div class="paragraph">
+<p>The <code>trading-rar</code> module implements the interfaces listed in <a href="#_interfaces_implemented_in_the_trading_rar_module">Interfaces Implemented in the trading-rar Module</a>.</p>
+</div>
+<table id="_interfaces_implemented_in_the_trading_rar_module" class="tableblock frame-all grid-all" style="width: 99%;">
+<caption class="title">Interfaces Implemented in the trading-rar Module</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Package</th>
+<th class="tableblock halign-left valign-top">Interface</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.resource.spi</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ResourceAdapter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the lifecycle methods of the resource adapter</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.resource.spi</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ManagedConnectionFactory</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines a connection factory that the connection manager from the application server uses to obtain physical connections to the EIS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.resource.spi</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ManagedConnection</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines a physical connection to the EIS that can be managed by the connection manager</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>trading.rar.api</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TradeConnectionFactory</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines a connection factory that applications use to obtain connection handles</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>trading.rar.api</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TradeConnection</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines a connection handle that applications use to interact with the EIS</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>When the <code>trading-ear</code> archive is deployed and a connection pool resource is configured as described in <a href="#_using_the_outbound_resource_adapter">Using the Outbound Resource Adapter</a>, the application server creates <code>TradeConnectionFactory</code> objects that applications can obtain using resource injection.
+The <code>TradeConnectionFactory</code> implementation delegates creating connections to the connection manager provided by the application server.</p>
+</div>
+<div class="paragraph">
+<p>The connection manager uses the <code>ManagedConnectionFactory</code> implementation to obtain physical connections to the EIS and maintains a pool of active physical connections.
+When an application requests a connection handle, the connection manager associates a connection from the pool with a new connection handle that the application can use.
+Connection pooling improves application performance and simplifies resource adapter development.</p>
+</div>
+<div class="paragraph">
+<p>For more details, see the code and the comments in the <code>trading-rar</code> module.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_running_the_trading_example"><a class="anchor" href="#_running_the_trading_example"></a>Running the trading Example</h3>
+<div class="paragraph">
+<p>You can use either NetBeans IDE or Maven to build, package, deploy, and run the <code>trading</code> example.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_trading_example_using_netbeans_ide"><a class="anchor" href="#_to_run_the_trading_example_using_netbeans_ide"></a>To Run the trading Example Using NetBeans IDE</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>From the File menu, choose Open Project.</p>
+</li>
+<li>
+<p>In the Open Project dialog box, navigate to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/connectors</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Select the <code>trading</code> folder.</p>
+</li>
+<li>
+<p>Click Open Project.</p>
+</li>
+<li>
+<p>In the Projects tab, expand the <code>trading</code> node.</p>
+</li>
+<li>
+<p>Right-click the <code>trading-eis</code> module and select Open Project.</p>
+</li>
+<li>
+<p>Right-click the <code>trading-eis</code> project and select Run.</p>
+<div class="paragraph">
+<p>The messages from the EIS appear in the Output tab:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">Trade execution server listening on port 4004.</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Right-click the <code>trading-ear</code> project and select Build.</p>
+<div class="paragraph">
+<p>This command packages the resource adapter and the web application in an EAR file and deploys it to GlassFish Server.</p>
+</div>
+</li>
+<li>
+<p>Open the following URL in a web browser:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/trading/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The web interface enables you to connect to the EIS and submit trades.
+The server log shows the requests from the web application and the call sequence that provides connection handles from the resource adapter.</p>
+</div>
+</li>
+<li>
+<p>Before undeploying the <code>trading-ear</code> application, close the <code>trading-eis</code> application from the status bar.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_trading_example_using_maven"><a class="anchor" href="#_to_run_the_trading_example_using_maven"></a>To Run the trading Example Using Maven</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>In a terminal window, go to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/connectors/trading/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enter the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command builds and packages the resource adapter and the web application into an EAR archive and deploys it to GlassFish Server.</p>
+</div>
+</li>
+<li>
+<p>In the same terminal window, go to the <code>trading-eis</code> directory:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cd trading-eis</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enter the following command to run the trade execution platform:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn exec:java</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The messages from the EIS appear in the terminal window:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">Trade execution server listening on port 4004.</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Open the following URL in a web browser:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/trading/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The web interface enables you to connect to the EIS and submit trades.
+The server log shows the requests from the web application and the call sequence that provides connection handles from the resource adapter.</p>
+</div>
+</li>
+<li>
+<p>Before undeploying the <code>trading-ear</code> application, press Ctrl+C on the terminal window to close the <code>trading-eis</code> application.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

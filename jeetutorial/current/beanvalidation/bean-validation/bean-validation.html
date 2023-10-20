@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Introduction to Jakarta Bean Validation :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">Jakarta EE Tutorial</a></li>
+    <li>Jakarta EE Web Profile</li>
+    <li>Jakarta Validation</li>
+    <li><a href="bean-validation.html">Introduction to Jakarta Bean Validation</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/beanvalidation/pages/bean-validation/bean-validation.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Introduction to Jakarta Bean Validation</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We are working on a fresh, updated Jakarta EE Tutorial. This section hasn&#8217;t yet been updated.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This chapter describes Jakarta Bean Validation available as part of the Jakarta EE platform and the facility for validating objects, object members, methods, and constructors.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview_of_jakarta_bean_validation"><a class="anchor" href="#_overview_of_jakarta_bean_validation"></a>Overview of Jakarta Bean Validation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Validating input received from the user to maintain data integrity is an important part of application logic.
+Validation of data can take place at different layers in even the simplest of applications, as shown in <a href="../../web/faces-facelets/faces-facelets.html#_developing_a_simple_facelets_application_the_guessnumber_jsf_example_application" class="xref page">Developing a Simple Facelets Application: The guessnumber-jsf Example Application</a>.
+The <code>guessnumber-faces</code> example application validates the user input (in the <code>h:inputText</code> tag) for numerical data at the presentation layer and for a valid range of numbers at the business layer.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta Bean Validation provides a facility for validating objects, object members, methods, and constructors.
+In Jakarta EE environments, Jakarta Bean Validation integrates with Jakarta EE containers and services to allow developers to easily define and enforce validation constraints.
+Jakarta Bean Validation is available as part of the Jakarta EE platform.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_jakarta_bean_validation_constraints"><a class="anchor" href="#_using_jakarta_bean_validation_constraints"></a>Using Jakarta Bean Validation Constraints</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Jakarta Bean Validation model is supported by constraints in the form of annotations placed on a field, method, or class of a JavaBeans component, such as a managed bean.</p>
+</div>
+<div class="paragraph">
+<p>Constraints can be built in or user defined.
+User-defined constraints are called custom constraints.
+Several built-in constraints are available in the <code>jakarta.validation.constraints</code> package.
+<a href="#built_in_jakarta_bean_validation_constraints">Built-In Jakarta Bean Validation Constraints</a> lists all the built-in constraints.
+See <a href="../bean-validation-advanced/bean-validation-advanced.html#_creating_custom_constraints" class="xref page">Creating Custom Constraints</a> for information on creating custom constraints.</p>
+</div>
+<table id="built_in_jakarta_bean_validation_constraints" class="tableblock frame-all grid-all" style="width: 99%;">
+<caption class="title">Built-In Jakarta Bean Validation Constraints</caption>
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 59.5959%;">
+<col style="width: 18.1819%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Constraint</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@AssertFalse</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the field or property must be <code>false</code>.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@AssertFalse
+boolean isUnsupported;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@AssertTrue</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the field or property must be <code>true</code>.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@AssertTrue
+boolean isActive;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@DecimalMax</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the field or property must be a decimal value lower than or equal to the number in the value element.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@DecimalMax("30.00")
+BigDecimal discount;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@DecimalMin</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the field or property must be a decimal value greater than or equal to the number in the value element.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@DecimalMin("5.00")
+BigDecimal discount;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Digits</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the field or property must be a number within a specified range.
+The <code>integer</code> element specifies the maximum integral digits for the number, and the <code>fraction</code> element specifies the maximum fractional digits for the number.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Digits(integer=6, fraction=2)
+BigDecimal price;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Email</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the field or property must be a valid email address.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Email
+String emailaddress;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Future</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the field or property must be a date in the future.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Future
+Date eventDate;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@FutureOrPresent</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TThe value of the field or property must be a date or time in present or future.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@FutureOrPresent
+Time travelTime;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Max</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the field or property must be an integer value lower than or equal to the number in the value element.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Max(10)
+int quantity;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Min</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the field or property must be an integer value greater than or equal to the number in the value element.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Min(5)
+int quantity;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Negative</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the field or property must be a negative number.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Negative
+int basementFloor;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@NegativeOrZero</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the field or property must be negative or zero.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@NegativeOrZero
+int debtValue;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@NotBlank</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the field or property must contain atleast one non-white space character.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@NotBlank
+String message;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@NotEmpty</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the field or property must not be empty. The length of the characters or array, and the size of a collection or map are evaluated.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@NotEmpty
+String message;;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@NotNull</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the field or property must not be null.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@NotNull
+String username;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Null</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the field or property must be null.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Null
+String unusedString;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Past</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the field or property must be a date in the past.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Past
+Date birthday;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@PastOrPresent</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the field or property must be a date or time in the past or present.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@PastOrPresent
+Date travelDate;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Pattern</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the field or property must match the regular expression defined in the <code>regexp</code> element.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Pattern(regexp="\\(\\d{3}\\)\\d{3}-\\d{4}")
+String phoneNumber;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Positive</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the field or property must be a positive number.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Positive
+BigDecimal area;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@PositiveOrZero</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the field or property must be a positive number or zero.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@PositiveOrZero
+int totalGoals;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Size</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The size of the field or property is evaluated and must match the specified boundaries.
+If the field or property is a <code>String</code>, the size of the string is evaluated.
+If the field or property is a <code>Collection</code>, the size of the <code>Collection</code> is evaluated.
+If the field or property is a <code>Map</code>, the size of the <code>Map</code> is evaluated.
+If the field or property is an array, the size of the array is evaluated.
+Use one of the optional <code>max</code> or <code>min</code> elements to specify the boundaries.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Size(min=2, max=240)
+String briefMessage;</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>In the following example, a constraint is placed on a field using the built-in <code>@NotNull</code> constraint:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class Name {
+    @NotNull
+    private String firstname;
+
+    @NotNull
+    private String lastname;
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also place more than one constraint on a single JavaBeans component object.
+For example, you can place an additional constraint for size of field on the <code>firstname</code> and the <code>lastname</code> fields:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class Name {
+    @NotNull
+    @Size(min=1, max=16)
+    private String firstname;
+
+    @NotNull
+    @Size(min=1, max=16)
+    private String lastname;
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following example shows a method with a user-defined constraint that checks user-defined constraint that checks for a predefined phone number pattern, such as a country specific phone number:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@USPhoneNumber
+public String getPhone() {
+    return phone;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For a built-in constraint, a default implementation is available.
+A user-defined or custom constraint needs a validation implementation.
+In the preceding example, the <code>@USPhoneNumber</code> custom constraint needs an implementation class.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_repeating_annotations"><a class="anchor" href="#_repeating_annotations"></a>Repeating Annotations</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>From Bean Validation 2.0 onwards, you can specify the same constraint several times on a validation target using repeating annotation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class Account {
+
+    @Max (value = 2000, groups = Default.class, message = "max.value")
+    @Max (value = 5000, groups = GoldCustomer.class, message = "max.value")
+    private long withdrawalAmount;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>All in-built constraints from <code>jakarta.validation.constraints</code> package support repeatable annotations.
+Similarly, custom constraints can use <code>@Repeatable</code> annotation.
+In the following sample, depending on whether the group is <code>PeakHour</code> or <code>NonPeakHour</code>, the car instance is validated as either two passengers or three passengers based car, and then listed as eligible in the car pool lane:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">/**
+ * Validate whether a car is eligible for car pool lane
+ */
+@Documented
+@Constraint(validatedBy = CarPoolValidator.class)
+@Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE })
+@Retention(RUNTIME)
+@Repeatable(List.class)
+public @interface CarPool {
+
+    String message() default "{CarPool.message}";
+
+    Class&lt;?&gt;[] groups() default {};
+
+    int value();
+
+    Class&lt;? extends Payload&gt;[] payload() default {};
+
+    /**
+     * Defines several @CarPool annotations on the same element
+     * @see (@link CarPool}
+     */
+    @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE })
+    @Retention(RUNTIME)
+    @Documented
+    @interface List {
+        CarPool[] value();
+    }
+}
+public class Car{
+
+  private String registrationNumber;
+
+  @CarPool(value = 2, group = NonPeakHour.class)
+  @CarPool(value = 3, group = {Default.class, PeakHour.class})
+  private int totalPassengers;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Any validation failures are gracefully handled and can be displayed by the <code>h:messages</code> tag.</p>
+</div>
+<div class="paragraph">
+<p>Any managed bean that contains Bean Validation annotations automatically gets validation constraints placed on the fields on a Jakarta Faces application&#8217;s web pages.</p>
+</div>
+<div class="paragraph">
+<p>For more information on using validation constraints, see the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../bean-validation-advanced/bean-validation-advanced.html#_bean_validation_advanced_topics" class="xref page">Bean Validation: Advanced Topics</a></p>
+</li>
+<li>
+<p><a href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html#_validating_resource_data_with_bean_validation" class="xref page">Validating Resource Data with Bean Validation</a></p>
+</li>
+<li>
+<p><a href="../../persist/persistence-intro/persistence-intro.html#_validating_persistent_fields_and_properties" class="xref page">Validating Persistent Fields and Properties</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_validating_null_and_empty_strings"><a class="anchor" href="#_validating_null_and_empty_strings"></a>Validating Null and Empty Strings</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Java programming language distinguishes between null and empty strings.
+An empty string is a string instance of zero length, whereas a null string has no value at all.</p>
+</div>
+<div class="paragraph">
+<p>An empty string is represented as <code>""</code>.
+It is a character sequence of zero characters.
+A null string is represented by <code>null</code>.
+It can be described as the absence of a string instance.</p>
+</div>
+<div class="paragraph">
+<p>Managed bean elements represented as a Jakarta Faces text component such as <code>inputText</code> are initialized with the value of the empty string by the Jakarta Faces implementation.
+Validating these strings can be an issue when user input for such fields is not required.
+Consider the following example, in which the string <code>testString</code> is a bean variable that will be set using input entered by the user.
+In this case, the user input for the field is not required.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">if (testString==null) {
+    doSomething();
+} else {
+    doAnotherThing();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By default, the <code>doAnotherThing</code> method is called even when the user enters no data, because the <code>testString</code> element has been initialized with the value of an empty string.</p>
+</div>
+<div class="paragraph">
+<p>In order for the Bean Validation model to work as intended, you must set the context parameter <code>jakarta.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL</code> to <code>true</code> in the web deployment descriptor file, <code>web.xml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;context-param&gt;
+    &lt;param-name&gt;jakarta.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL&lt;/param-name&gt;
+    &lt;param-value&gt;true&lt;/param-value&gt;
+&lt;/context-param&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This parameter enables the Jakarta Faces implementation to treat empty strings as null.</p>
+</div>
+<div class="paragraph">
+<p>Suppose, on the other hand, that you have a <code>@NotNull</code> constraint on an element, meaning that input is required.
+In this case, an empty string will pass this validation constraint.
+However, if you set the context parameter <code>jakarta.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL</code> to <code>true</code>, the value of the managed bean attribute is passed to the Jakarta Bean Validation runtime as a null value, causing the <code>@NotNull</code> constraint to fail.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_validating_constructors_and_methods"><a class="anchor" href="#_validating_constructors_and_methods"></a>Validating Constructors and Methods</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Jakarta Bean Validation constraints may be placed on the parameters of nonstatic methods and constructors and on the return values of nonstatic methods.
+Static methods and constructors will not be validated.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class Employee {
+...
+  public Employee (@NotNull String name) { ... }
+
+  public void setSalary(
+      @NotNull
+      @Digits(integer=6, fraction=2) BigDecimal salary,
+      @NotNull
+      @ValidCurrency
+      String currencyType) {
+    ...
+  }
+...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, the <code>Employee</code> class has a constructor constraint requiring a name and has two sets of method parameter constraints.
+The amount of the salary for the employee must not be null, cannot be greater than six digits to the left of the decimal point, and cannot have more than two digits to the right of the decimal place.
+The currency type must not be null and is validated using a custom constraint.</p>
+</div>
+<div class="paragraph">
+<p>If you add method constraints to classes in an object hierarchy, special care must be taken to avoid unintended behavior by subtypes.
+See <a href="../bean-validation-advanced/bean-validation-advanced.html#_using_method_constraints_in_type_hierarchies" class="xref page">Using Method Constraints in Type Hierarchies</a> for more information.</p>
+</div>
+<div class="sect2">
+<h3 id="_cross_parameter_constraints"><a class="anchor" href="#_cross_parameter_constraints"></a>Cross-Parameter Constraints</h3>
+<div class="paragraph">
+<p>Constraints that apply to multiple parameters are called cross-parameter constraints, and may be applied at the method or constructor level.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ConsistentPhoneParameters
+@NotNull
+public Employee (String name, String officePhone, String mobilePhone) {
+  ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, a custom cross-parameter constraint, <code>@ConsistentPhoneParameters</code>, validates that the format of the phone numbers passed into the constructor match.
+The <code>@NotNull</code> constraint applies to all the parameters in the constructor.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cross-parameter constraint annotations are applied directly to the method or constructor.
+Return value constraints are also applied directly to the method or constructor.
+To avoid confusion as to where the constraint applies, parameter or return value, choose a name for any custom constraints that identifies where the constraint applies.
+For instance, the preceding example applies a custom constraint, <code>@ConsistentPhoneParameters</code>, that indicates that it applies to the parameters of the method or constructor.</p>
+</div>
+<div class="paragraph">
+<p>When you create a custom constraint that applies to both method parameters and return values, the <code>validationAppliesTo</code> element of the constraint annotation may be set to <code>ConstraintTarget.RETURN_VALUE</code> or <code>ConstraintTarget.PARAMETERS</code> to explicitly set the target of the validation constraint.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_validating_type_arguments_of_parameterized_types"><a class="anchor" href="#_validating_type_arguments_of_parameterized_types"></a>Validating Type Arguments of Parameterized Types</h3>
+<div class="paragraph">
+<p>From Bean Validation 2.0 onwards, you can apply constraints to the type arguments of parameterized types.
+For example: <code>List&lt;@NotNull Long&gt; numbers;</code> Constraints can be applied to elements of container types such as <code>List</code>, <code>Map</code>, <code>Optional</code>, and others.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">List&lt;@Email String&gt; emails;
+public Map&lt;@NotNull String, @USPhoneNumber String&gt; getAddressesByType() { }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this sample, <code>@Email</code> is an in-built constraint supported by Bean Validation, and <code>@USPhoneNumber</code> is a user-defined constraint.
+See <a href="../bean-validation-advanced/bean-validation-advanced.html#_using_the_built_in_constraints_to_make_a_new_constraint" class="xref page">Using the Built-In Constraints to Make a New Constraint</a>.</p>
+</div>
+<div class="paragraph">
+<p><code>@USPhoneNumber</code> has <code>ElementType.TYPE_USE</code> as one of its <code>@Target</code>, and therefore it is possible to use <code>@USPhoneNumber</code> constraint for validating type arguments of parameterized types.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_identifying_parameter_constraint_violations"><a class="anchor" href="#_identifying_parameter_constraint_violations"></a>Identifying Parameter Constraint Violations</h3>
+<div class="paragraph">
+<p>If a <code>ConstraintViolationException</code> occurs during a method call, the Bean Validation runtime returns a parameter index to identify which parameter caused the constraint violation.
+The parameter index is in the form <code>arg<em>PARAMETER_INDEX</em></code>, where <em>PARAMETER_INDEX</em> is an integer that starts at 0 for the first parameter of the method or constructor.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_adding_constraints_to_method_return_values"><a class="anchor" href="#_adding_constraints_to_method_return_values"></a>Adding Constraints to Method Return Values</h3>
+<div class="paragraph">
+<p>To validate the return value for a method, you can apply constraints directly to the method or constructor declaration.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@NotNull
+public Employee getEmployee() { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cross-parameter constraints are also applied at the method level.
+Custom constraints that could be applied to both the return value and the method parameters have an ambiguous constraint target.
+To avoid this ambiguity, add a <code>validationAppliesTo</code> element to the constraint annotation definition with the default set to either <code>ConstraintTarget.RETURN_VALUE</code> or <code>ConstraintTarget.PARAMETERS</code> to explicitly set the target of the validation constraint.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Manager(validationAppliesTo=ConstraintTarget.RETURN_VALUE)
+public Employee getManager(Employee employee) { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See <a href="../bean-validation-advanced/bean-validation-advanced.html#_removing_ambiguity_in_constraint_targets" class="xref page">Removing Ambiguity in Constraint Targets</a> for more information.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_further_information_about_jakarta_bean_validation"><a class="anchor" href="#_further_information_about_jakarta_bean_validation"></a>Further Information about Jakarta Bean Validation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For more information on Jakarta Bean Validation, see</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Jakarta Bean Validation 3.0 Specification:<br>
+<a href="https://jakarta.ee/specifications/bean-validation/3.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/bean-validation/3.0/</a></p>
+</li>
+<li>
+<p>Bean Validation Specification website:<br>
+<a href="https://beanvalidation.org/" class="bare" target="_blank" rel="noopener">https://beanvalidation.org/</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

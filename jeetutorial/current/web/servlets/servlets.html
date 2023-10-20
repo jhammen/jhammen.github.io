@@ -1,0 +1,2960 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Jakarta Servlet Technology :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">Jakarta EE Tutorial</a></li>
+    <li>Jakarta EE Web Profile</li>
+    <li>Jakarta Servlets</li>
+    <li><a href="servlets.html">Jakarta Servlet Technology</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/web/pages/servlets/servlets.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Jakarta Servlet Technology</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We are working on a fresh, updated Jakarta EE Tutorial. This section hasn&#8217;t yet been updated.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Jakarta Servlet technology provides dynamic, user-oriented content in web applications using a request-response programming model.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_is_a_servlet"><a class="anchor" href="#_what_is_a_servlet"></a>What Is a Servlet?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A servlet is a Java programming language class used to extend the capabilities of servers that host applications accessed by means of a request-response programming model.
+Although servlets can respond to any type of request, they are commonly used to extend the applications hosted by web servers.
+For such applications, Jakarta Servlet technology defines HTTP-specific servlet classes.</p>
+</div>
+<div class="paragraph">
+<p>The <code>jakarta.servlet</code> and <code>jakarta.servlet.http</code> packages provide interfaces and classes for writing servlets.
+All servlets must implement the <code>Servlet</code> interface, which defines lifecycle methods.
+When implementing a generic service, you can use or extend the <code>GenericServlet</code> class provided with the Jakarta Servlet API.
+The <code>HttpServlet</code> class provides methods, such as <code>doGet</code> and <code>doPost</code>, for handling HTTP-specific services.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_servlet_lifecycle"><a class="anchor" href="#_servlet_lifecycle"></a>Servlet Lifecycle</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The lifecycle of a servlet is controlled by the container in which the servlet has been deployed.
+When a request is mapped to a servlet, the container performs the following steps.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If an instance of the servlet does not exist, the web container:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Loads the servlet class</p>
+</li>
+<li>
+<p>Creates an instance of the servlet class</p>
+</li>
+<li>
+<p>Initializes the servlet instance by calling the <code>init</code> method (initialization is covered in <a href="#_creating_and_initializing_a_servlet">Creating and Initializing a Servlet</a>)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The container invokes the <code>service</code> method, passing request and response objects.
+Service methods are discussed in <a href="#_writing_service_methods">Writing Service Methods</a>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If it needs to remove the servlet, the container finalizes the servlet by calling the servlet&#8217;s <code>destroy</code> method.
+For more information, see <a href="#_finalizing_a_servlet">Finalizing a Servlet</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_handling_servlet_lifecycle_events"><a class="anchor" href="#_handling_servlet_lifecycle_events"></a>Handling Servlet Lifecycle Events</h3>
+<div class="paragraph">
+<p>You can monitor and react to events in a servlet&#8217;s lifecycle by defining listener objects whose methods get invoked when lifecycle events occur.
+To use these listener objects, you must define and specify the listener class.</p>
+</div>
+<div class="sect3">
+<h4 id="_defining_the_listener_class"><a class="anchor" href="#_defining_the_listener_class"></a>Defining the Listener Class</h4>
+<div class="paragraph">
+<p>You define a listener class as an implementation of a listener interface.
+<a href="#_servlet_lifecycle_events">Servlet Lifecycle Events</a> lists the events that can be monitored and the corresponding interface that must be implemented.
+When a listener method is invoked, it is passed an event that contains information appropriate to the event.
+For example, the methods in the <code>HttpSessionListener</code> interface are passed an <code>HttpSessionEvent</code>, which contains an <code>HttpSession</code>.</p>
+</div>
+<table id="_servlet_lifecycle_events" class="tableblock frame-all grid-all" style="width: 90%;">
+<caption class="title">Servlet Lifecycle Events</caption>
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object</th>
+<th class="tableblock halign-left valign-top">Event</th>
+<th class="tableblock halign-left valign-top">Listener Interface and Event Class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web context</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Initialization and destruction</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.ServletContextListener</code> and <code>ServletContextEvent</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web context</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attribute added, removed, or replaced</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.ServletContextAttributeListener</code> and <code>ServletContextAttributeEvent</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Session</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creation, invalidation, activation, passivation, and timeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.http.HttpSessionListener</code>, <code>jakarta.servlet.http.HttpSessionActivationListener</code>, and <code>HttpSessionEvent</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Session</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attribute added, removed, or replaced</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.http.HttpSessionAttributeListener</code> and <code>HttpSessionBindingEvent</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A servlet request has started being processed by web components</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.ServletRequestListener</code> and <code>ServletRequestEvent</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attribute added, removed, or replaced</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.ServletRequestAttributeListener</code> and <code>ServletRequestAttributeEvent</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Use the <code>@WebListener</code> annotation to define a listener to get events for various operations on the particular web application context.
+Classes annotated with <code>@WebListener</code> must implement one of the following interfaces:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">jakarta.servlet.ServletContextListener
+jakarta.servlet.ServletContextAttributeListener
+jakarta.servlet.ServletRequestListener
+jakarta.servlet.ServletRequestAttributeListener
+jakarta.servlet..http.HttpSessionListener
+jakarta.servlet..http.HttpSessionAttributeListener</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For example, the following code snippet defines a listener that implements two of these interfaces:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import jakarta.servlet.ServletContextAttributeListener;
+import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.annotation.WebListener;
+
+@WebListener()
+public class SimpleServletListener implements ServletContextListener,
+        ServletContextAttributeListener {
+    ...
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_handling_servlet_errors"><a class="anchor" href="#_handling_servlet_errors"></a>Handling Servlet Errors</h3>
+<div class="paragraph">
+<p>Any number of exceptions can occur when a servlet executes.
+When an exception occurs, the web container generates a default page containing the following message:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">A Servlet Exception Has Occurred</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>But you can also specify that the container should return a specific error page for a given exception.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sharing_information"><a class="anchor" href="#_sharing_information"></a>Sharing Information</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Web components, like most objects, usually work with other objects to accomplish their tasks.
+Web components can do so by doing the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Using private helper objects (for example, JavaBeans components).</p>
+</li>
+<li>
+<p>Sharing objects that are attributes of a public scope.</p>
+</li>
+<li>
+<p>Using a database.</p>
+</li>
+<li>
+<p>Invoking other web resources.
+The Jakarta Servlet technology mechanisms that allow a web component to invoke other web resources are described in <a href="#_invoking_other_web_resources">Invoking Other Web Resources</a>.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_using_scope_objects"><a class="anchor" href="#_using_scope_objects"></a>Using Scope Objects</h3>
+<div class="paragraph">
+<p>Collaborating web components share information by means of objects that are maintained as attributes of four scope objects.
+You access these attributes by using the <code>getAttribute</code> and <code>setAttribute</code> methods of the class representing the scope.
+<a href="#_scope_objects">Scope Objects</a> lists the scope objects.</p>
+</div>
+<table id="_scope_objects" class="tableblock frame-all grid-all" style="width: 90%;">
+<caption class="title">Scope Objects</caption>
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 27.7777%;">
+<col style="width: 55.5557%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Scope Object</th>
+<th class="tableblock halign-left valign-top">Class</th>
+<th class="tableblock halign-left valign-top">Accessible From</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web context</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.ServletContext</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web components within a web context.
+See <a href="#_accessing_the_web_context">Accessing the Web Context</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Session</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.http.HttpSession</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web components handling a request that belongs to the session.
+See <a href="#_maintaining_client_state">Maintaining Client State</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subtype of <code>jakarta.servlet.ServletRequest</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web components handling the request.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.jsp.JspContext</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Jakarta Server Pages page that creates the object.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_controlling_concurrent_access_to_shared_resources"><a class="anchor" href="#_controlling_concurrent_access_to_shared_resources"></a>Controlling Concurrent Access to Shared Resources</h3>
+<div class="paragraph">
+<p>In a multithreaded server, shared resources can be accessed concurrently.
+In addition to scope object attributes, shared resources include in-memory data, such as instance or class variables, and external objects, such as files, database connections, and network connections.</p>
+</div>
+<div class="paragraph">
+<p>Concurrent access can arise in several situations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Multiple web components accessing objects stored in the web context.</p>
+</li>
+<li>
+<p>Multiple web components accessing objects stored in a session.</p>
+</li>
+<li>
+<p>Multiple threads within a web component accessing instance variables.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A web container will typically create a thread to handle each request.
+To ensure that a servlet instance handles only one request at a time, a servlet can implement the <code>SingleThreadModel</code> interface.
+If a servlet implements this interface, no two threads will execute concurrently in the servlet&#8217;s service method.
+A web container can implement this guarantee by synchronizing access to a single instance of the servlet or by maintaining a pool of web component instances and dispatching each new request to a free instance.
+This interface does not prevent synchronization problems that result from web components' accessing shared resources, such as static class variables or external objects.</p>
+</div>
+<div class="paragraph">
+<p>When resources can be accessed concurrently, they can be used in an inconsistent fashion.
+You prevent this by controlling the access using the synchronization techniques described in the Threads lesson at <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/" class="bare" target="_blank" rel="noopener">https://docs.oracle.com/javase/tutorial/essential/concurrency/</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creating_and_initializing_a_servlet"><a class="anchor" href="#_creating_and_initializing_a_servlet"></a>Creating and Initializing a Servlet</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use the <code>@WebServlet</code> annotation to define a servlet component in a web application.
+This annotation is specified on a class and contains metadata about the servlet being declared.
+The annotated servlet must specify at least one URL pattern.
+This is done by using the <code>urlPatterns</code> or <code>value</code> attribute on the annotation.
+All other attributes are optional, with default settings.
+Use the <code>value</code> attribute when the only attribute on the annotation is the URL pattern; otherwise, use the <code>urlPatterns</code> attribute when other attributes are also used.</p>
+</div>
+<div class="paragraph">
+<p>Classes annotated with <code>@WebServlet</code> must extend the <code>jakarta.servlet.http.HttpServlet</code> class.
+For example, the following code snippet defines a servlet with the URL pattern <code>/report</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+
+@WebServlet("/report")
+public class MoodServlet extends HttpServlet {
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The web container initializes a servlet after loading and instantiating the servlet class and before delivering requests from clients.
+To customize this process to allow the servlet to read persistent configuration data, initialize resources, and perform any other one-time activities, you can either override the <code>init</code> method of the <code>Servlet</code> interface or specify the <code>initParams</code> attribute of the <code>@WebServlet</code> annotation.
+The <code>initParams</code> attribute contains a <code>@WebInitParam</code> annotation.
+If it cannot complete its initialization process, a servlet throws an <code>UnavailableException</code>.</p>
+</div>
+<div class="paragraph">
+<p>Use an initialization parameter to provide data needed by a particular servlet.
+By contrast, a context parameter provides data that is available to all components of a web application.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_writing_service_methods"><a class="anchor" href="#_writing_service_methods"></a>Writing Service Methods</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The service provided by a servlet is implemented in the <code>service</code> method of a <code>GenericServlet</code>, in the <code>do<em>Method</em></code> methods (where <em>Method</em> can take the value <code>Get</code>, <code>Delete</code>, <code>Options</code>, <code>Post</code>, <code>Put</code>, or <code>Trace</code>) of an <code>HttpServlet</code> object, or in any other protocol-specific methods defined by a class that implements the <code>Servlet</code> interface.
+The term service method is used for any method in a servlet class that provides a service to a client.</p>
+</div>
+<div class="paragraph">
+<p>The general pattern for a service method is to extract information from the request, access external resources, and then populate the response, based on that information.
+For HTTP servlets, the correct procedure for populating the response is to do the following:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Retrieve an output stream from the response.</p>
+</li>
+<li>
+<p>Fill in the response headers.</p>
+</li>
+<li>
+<p>Write any body content to the output stream.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Response headers must always be set before the response has been committed.
+The web container will ignore any attempt to set or add headers after the response has been committed.
+The next two sections describe how to get information from requests and generate responses.</p>
+</div>
+<div class="sect2">
+<h3 id="_getting_information_from_requests"><a class="anchor" href="#_getting_information_from_requests"></a>Getting Information from Requests</h3>
+<div class="paragraph">
+<p>A request contains data passed between a client and the servlet.
+All requests implement the <code>ServletRequest</code> interface.
+This interface defines methods for accessing the following information:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Parameters, which are typically used to convey information between clients and servlets</p>
+</li>
+<li>
+<p>Object-valued attributes, which are typically used to pass information between the web container and a servlet or between collaborating servlets</p>
+</li>
+<li>
+<p>Information about the protocol used to communicate the request and about the client and server involved in the request</p>
+</li>
+<li>
+<p>Information relevant to localization</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can also retrieve an input stream from the request and manually parse the data.
+To read character data, use the <code>BufferedReader</code> object returned by the request&#8217;s <code>getReader</code> method.
+To read binary data, use the <code>ServletInputStream</code> returned by <code>getInputStream</code>.</p>
+</div>
+<div class="paragraph">
+<p>HTTP servlets are passed an HTTP request object, <code>HttpServletRequest</code>, which contains the request URL, HTTP headers, query string, and so on.
+An HTTP request URL contains the following parts:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://[host]:[port][request-path]?[query-string]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The request path is further composed of the following elements.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Context path: A concatenation of a forward slash (<code>/</code>) with the context root of the servlet&#8217;s web application.</p>
+</li>
+<li>
+<p>Servlet path: The path section that corresponds to the component alias that activated this request.
+This path starts with a forward slash (<code>/</code>).</p>
+</li>
+<li>
+<p>Path info: The part of the request path that is not part of the context path or the servlet path.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can use the <code>getContextPath</code>, <code>getServletPath</code>, and <code>getPathInfo</code> methods of the <code>HttpServletRequest</code> interface to access this information.
+Except for URL encoding differences between the request URI and the path parts, the request URI is always comprised of the context path plus the servlet path plus the path info.</p>
+</div>
+<div class="paragraph">
+<p>Query strings are composed of a set of parameters and values.
+Individual parameters are retrieved from a request by using the <code>getParameter</code> method.
+There are two ways to generate query strings.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A query string can explicitly appear in a web page.</p>
+</li>
+<li>
+<p>A query string is appended to a URL when a form with a <code>GET</code> HTTP method is submitted.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_constructing_responses"><a class="anchor" href="#_constructing_responses"></a>Constructing Responses</h3>
+<div class="paragraph">
+<p>A response contains data passed between a server and the client.
+All responses implement the <code>ServletResponse</code> interface.
+This interface defines methods that allow you to do the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Retrieve an output stream to use to send data to the client.
+To send character data, use the <code>PrintWriter</code> returned by the response&#8217;s <code>getWriter</code> method.
+To send binary data in a Multipurpose Internet Mail Extensions (MIME) body response, use the <code>ServletOutputStream</code> returned by <code>getOutputStream</code>.
+To mix binary and text data, as in a multipart response, use a <code>ServletOutputStream</code> and manage the character sections manually.</p>
+</li>
+<li>
+<p>Indicate the content type (for example, <code>text/html</code>) being returned by the response with the <code>setContentType(String)</code> method.
+This method must be called before the response is committed.
+A registry of content type names is kept by the Internet Assigned Numbers Authority (IANA) at <a href="https://www.iana.org/assignments/media-types/" class="bare" target="_blank" rel="noopener">https://www.iana.org/assignments/media-types/</a>.</p>
+</li>
+<li>
+<p>Indicate whether to buffer output with the <code>setBufferSize(int)</code> method.
+By default, any content written to the output stream is immediately sent to the client.
+Buffering allows content to be written before anything is sent back to the client, thus providing the servlet with more time to set appropriate status codes and headers or forward to another web resource.
+The method must be called before any content is written or before the response is committed.</p>
+</li>
+<li>
+<p>Set localization information, such as locale and character encoding.
+See <a href="../webi18n/webi18n.html#_internationalizing_and_localizing_web_applications" class="xref page">Internationalizing and Localizing Web Applications</a> for details.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>HTTP response objects, <code>jakarta.servlet.http.HttpServletResponse</code>, have fields representing HTTP headers, such as the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Status codes, which are used to indicate the reason a request is not satisfied or that a request has been redirected.</p>
+</li>
+<li>
+<p>Cookies, which are used to store application-specific information at the client.
+Sometimes, cookies are used to maintain an identifier for tracking a user&#8217;s session (see <a href="#_session_tracking">Session Tracking</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_filtering_requests_and_responses"><a class="anchor" href="#_filtering_requests_and_responses"></a>Filtering Requests and Responses</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A filter is an object that can transform the header and content (or both) of a request or response.
+Filters differ from web components in that filters usually do not themselves create a response.
+Instead, a filter provides functionality that can be "attached" to any kind of web resource.
+Consequently, a filter should not have any dependencies on a web resource for which it is acting as a filter; this way, it can be composed with more than one type of web resource.</p>
+</div>
+<div class="paragraph">
+<p>The main tasks that a filter can perform are as follows.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Query the request and act accordingly.</p>
+</li>
+<li>
+<p>Block the request-and-response pair from passing any further.</p>
+</li>
+<li>
+<p>Modify the request headers and data.
+You do this by providing a customized version of the request.</p>
+</li>
+<li>
+<p>Modify the response headers and data.
+You do this by providing a customized version of the response.</p>
+</li>
+<li>
+<p>Interact with external resources.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Applications of filters include authentication, logging, image conversion, data compression, encryption, tokenizing streams, XML transformations, and so on.</p>
+</div>
+<div class="paragraph">
+<p>You can configure a web resource to be filtered by a chain of zero, one, or more filters in a specific order.
+This chain is specified when the web application containing the component is deployed and is instantiated when a web container loads the component.</p>
+</div>
+<div class="sect2">
+<h3 id="_programming_filters"><a class="anchor" href="#_programming_filters"></a>Programming Filters</h3>
+<div class="paragraph">
+<p>The filtering API is defined by the <code>Filter</code>, <code>FilterChain</code>, and <code>FilterConfig</code> interfaces in the <code>jakarta.servlet</code> package.
+You define a filter by implementing the <code>Filter</code> interface.</p>
+</div>
+<div class="paragraph">
+<p>Use the <code>@WebFilter</code> annotation to define a filter in a web application.
+This annotation is specified on a class and contains metadata about the filter being declared.
+The annotated filter must specify at least one URL pattern.
+This is done by using the <code>urlPatterns</code> or <code>value</code> attribute on the annotation.
+All other attributes are optional, with default settings.
+Use the <code>value</code> attribute when the only attribute on the annotation is the URL pattern; use the <code>urlPatterns</code> attribute when other attributes are also used.</p>
+</div>
+<div class="paragraph">
+<p>Classes annotated with the <code>@WebFilter</code> annotation must implement the <code>jakarta.servlet.Filter</code> interface.</p>
+</div>
+<div class="paragraph">
+<p>To add configuration data to the filter, specify the <code>initParams</code> attribute of the <code>@WebFilter</code> annotation.
+The <code>initParams</code> attribute contains a <code>@WebInitParam</code> annotation.
+The following code snippet defines a filter, specifying an initialization parameter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import jakarta.servlet.Filter;
+import jakarta.servlet.annotation.WebFilter;
+import jakarta.servlet.annotation.WebInitParam;
+
+@WebFilter(filterName = "TimeOfDayFilter", urlPatterns = {"/*"},
+initParams = {@WebInitParam(name = "mood", value = "awake")})
+public class TimeOfDayFilter implements Filter {
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The most important method in the <code>Filter</code> interface is <code>doFilter</code>, which is passed request, response, and filter chain objects.
+This method can perform the following actions.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Examine the request headers.</p>
+</li>
+<li>
+<p>Customize the request object if the filter wishes to modify request headers or data.</p>
+</li>
+<li>
+<p>Customize the response object if the filter wishes to modify response headers or data.</p>
+</li>
+<li>
+<p>Invoke the next entity in the filter chain.
+If the current filter is the last filter in the chain that ends with the target web component or static resource, the next entity is the resource at the end of the chain; otherwise, it is the next filter that was configured in the WAR.
+The filter invokes the next entity by calling the <code>doFilter</code> method on the chain object, passing in the request and response it was called with or the wrapped versions it may have created.
+Alternatively, the filter can choose to block the request by not making the call to invoke the next entity.
+In the latter case, the filter is responsible for filling out the response.</p>
+</li>
+<li>
+<p>Examine response headers after invoking the next filter in the chain.</p>
+</li>
+<li>
+<p>Throw an exception to indicate an error in processing.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In addition to <code>doFilter</code>, you must implement the <code>init</code> and <code>destroy</code> methods.
+The <code>init</code> method is called by the container when the filter is instantiated.
+If you wish to pass initialization parameters to the filter, you retrieve them from the <code>FilterConfig</code> object passed to <code>init</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_programming_customized_requests_and_responses"><a class="anchor" href="#_programming_customized_requests_and_responses"></a>Programming Customized Requests and Responses</h3>
+<div class="paragraph">
+<p>There are many ways for a filter to modify a request or a response.
+For example, a filter can add an attribute to the request or can insert data in the response.</p>
+</div>
+<div class="paragraph">
+<p>A filter that modifies a response must usually capture the response before it is returned to the client.
+To do this, you pass a stand-in stream to the servlet that generates the response.
+The stand-in stream prevents the servlet from closing the original response stream when it completes and allows the filter to modify the servlet&#8217;s response.</p>
+</div>
+<div class="paragraph">
+<p>To pass this stand-in stream to the servlet, the filter creates a response wrapper that overrides the <code>getWriter</code> or <code>getOutputStream</code> method to return this stand-in stream.
+The wrapper is passed to the <code>doFilter</code> method of the filter chain.
+Wrapper methods default to calling through to the wrapped request or response object.</p>
+</div>
+<div class="paragraph">
+<p>To override request methods, you wrap the request in an object that extends either <code>ServletRequestWrapper</code> or <code>HttpServletRequestWrapper</code>.
+To override response methods, you wrap the response in an object that extends either <code>ServletResponseWrapper</code> or <code>HttpServletResponseWrapper</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_specifying_filter_mappings"><a class="anchor" href="#_specifying_filter_mappings"></a>Specifying Filter Mappings</h3>
+<div class="paragraph">
+<p>A web container uses filter mappings to decide how to apply filters to web resources.
+A filter mapping matches a filter to a web component by name or to web resources by URL pattern.
+The filters are invoked in the order in which filter mappings appear in the filter mapping list of a WAR.
+You specify a filter mapping list for a WAR in its deployment descriptor by either using NetBeans IDE or coding the list by hand with XML.</p>
+</div>
+<div class="paragraph">
+<p>If you want to log every request to a web application, you map the hit counter filter to the URL pattern <code>/*</code>.</p>
+</div>
+<div class="paragraph">
+<p>You can map a filter to one or more web resources, and you can map more than one filter to a web resource.
+This is illustrated in <a href="#_filter_to_servlet_mapping">Figure 1, &#8220;Filter-to-Servlet Mapping&#8221;</a>, in which filter F1 is mapped to servlets S1, S2, and S3; filter F2 is mapped to servlet S2; and filter F3 is mapped to servlets S1 and S2.</p>
+</div>
+<div id="_filter_to_servlet_mapping" class="imageblock">
+<div class="content">
+<img src="../../common/_images/jakartaeett_dt_018.svg" alt="Diagram of filter-to-servlet mapping with filters F1-F3 and servlets S1-S3. F1 filters S1-S3, then F2 filters S2, then F3 filters S1 and S2.">
+</div>
+<div class="title">Figure 1. Filter-to-Servlet Mapping</div>
+</div>
+<div class="paragraph">
+<p>Recall that a filter chain is one of the objects passed to the <code>doFilter</code> method of a filter.
+This chain is formed indirectly by means of filter mappings.
+The order of the filters in the chain is the same as the order in which filter mappings appear in the web application deployment descriptor.</p>
+</div>
+<div class="paragraph">
+<p>When a filter is mapped to servlet S1, the web container invokes the <code>doFilter</code> method of F1.
+The <code>doFilter</code> method of each filter in S1&#8217;s filter chain is invoked by the preceding filter in the chain by means of the <code>chain.doFilter</code> method.
+Because S1&#8217;s filter chain contains filters F1 and F3, F1&#8217;s call to <code>chain.doFilter</code> invokes the <code>doFilter</code> method of filter F3.
+When F3&#8217;s <code>doFilter</code> method completes, control returns to F1&#8217;s <code>doFilter</code> method.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_specify_filter_mappings_using_netbeans_ide"><a class="anchor" href="#_to_specify_filter_mappings_using_netbeans_ide"></a>To Specify Filter Mappings Using NetBeans IDE</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Expand the application&#8217;s project node in the <strong>Project</strong> tab.</p>
+</li>
+<li>
+<p>Expand the <strong>Web Pages</strong> and <strong>WEB-INF</strong> nodes under the project node.</p>
+</li>
+<li>
+<p>Double-click <code>web.xml</code>.</p>
+</li>
+<li>
+<p>Click <strong>Filters</strong> at the top of the editor window.</p>
+</li>
+<li>
+<p>Expand the <strong>Servlet Filters</strong> node in the editor window.</p>
+</li>
+<li>
+<p>Click <strong>Add Filter Element</strong> to map the filter to a web resource by name or by URL pattern.</p>
+</li>
+<li>
+<p>In the Add Servlet Filter dialog box, enter the name of the filter in the <strong>Filter Name</strong> field.</p>
+</li>
+<li>
+<p>Click <strong>Browse</strong> to locate the servlet class to which the filter applies.</p>
+<div class="paragraph">
+<p>You can include wildcard characters so that you can apply the filter to more than one servlet.</p>
+</div>
+</li>
+<li>
+<p>Click <strong>OK</strong>.</p>
+</li>
+<li>
+<p>To constrain how the filter is applied to requests, follow these steps:</p>
+<div class="openblock">
+<div class="content">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expand the <strong>Filter Mappings</strong> node.</p>
+</li>
+<li>
+<p>Select the filter from the list of filters.</p>
+</li>
+<li>
+<p>Click <strong>Add</strong>.</p>
+</li>
+<li>
+<p>In the Add Filter Mapping dialog box, select one of the following dispatcher types:</p>
+</li>
+</ol>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+REQUEST
+</td>
+<td class="hdlist2">
+<p>Only when the request comes directly from the client</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+ASYNC
+</td>
+<td class="hdlist2">
+<p>Only when the asynchronous request comes from the client</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+FORWARD
+</td>
+<td class="hdlist2">
+<p>Only when the request has been forwarded to a component (see <a href="#_transferring_control_to_another_web_component">Transferring Control to Another Web Component</a>)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+INCLUDE
+</td>
+<td class="hdlist2">
+<p>Only when the request is being processed by a component that has been included (see <a href="#_including_other_resources_in_the_response">Including Other Resources in the Response</a>)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+ERROR
+</td>
+<td class="hdlist2">
+<p>Only when the request is being processed with the error page mechanism (see <a href="#_handling_servlet_errors">Handling Servlet Errors</a>)</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can direct the filter to be applied to any combination of the preceding situations by selecting multiple dispatcher types.
+If no types are specified, the default option is <strong>REQUEST</strong>.</p>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_invoking_other_web_resources"><a class="anchor" href="#_invoking_other_web_resources"></a>Invoking Other Web Resources</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Web components can invoke other web resources both indirectly and directly.
+A web component indirectly invokes another web resource by embedding a URL that points to another web component in content returned to a client.
+While it is executing, a web component directly invokes another resource by either including the content of another resource or forwarding a request to another resource.</p>
+</div>
+<div class="paragraph">
+<p>To invoke a resource available on the server that is running a web component, you must first obtain a <code>RequestDispatcher</code> object by using the <code>getRequestDispatcher("URL")</code> method.
+You can get a <code>RequestDispatcher</code> object from either a request or the web context; however, the two methods have slightly different behavior.
+The method takes the path to the requested resource as an argument.
+A request can take a relative path (that is, one that does not begin with a <code>/</code>), but the web context requires an absolute path.
+If the resource is not available or if the server has not implemented a <code>RequestDispatcher</code> object for that type of resource, <code>getRequestDispatcher</code> will return null.
+Your servlet should be prepared to deal with this condition.</p>
+</div>
+<div class="sect2">
+<h3 id="_including_other_resources_in_the_response"><a class="anchor" href="#_including_other_resources_in_the_response"></a>Including Other Resources in the Response</h3>
+<div class="paragraph">
+<p>It is often useful to include another web resource, such as banner content or copyright information, in the response returned from a web component.
+To include another resource, invoke the <code>include</code> method of a <code>RequestDispatcher</code> object:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">include(request, response);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the resource is static, the <code>include</code> method enables programmatic server-side includes.
+If the resource is a web component, the effect of the method is to send the request to the included web component, execute the web component, and then include the result of the execution in the response from the containing servlet.
+An included web component has access to the request object but is limited in what it can do with the response object.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It can write to the body of the response and commit a response.</p>
+</li>
+<li>
+<p>It cannot set headers or call any method, such as <code>setCookie</code>, that affects the headers of the response.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_transferring_control_to_another_web_component"><a class="anchor" href="#_transferring_control_to_another_web_component"></a>Transferring Control to Another Web Component</h3>
+<div class="paragraph">
+<p>In some applications, you might want to have one web component do preliminary processing of a request and have another component generate the response.
+For example, you might want to partially process a request and then transfer to another component, depending on the nature of the request.</p>
+</div>
+<div class="paragraph">
+<p>To transfer control to another web component, you invoke the <code>forward</code> method of a <code>RequestDispatcher</code>.
+When a request is forwarded, the request URL is set to the path of the forwarded page.
+The original URI and its constituent parts are saved as the following request attributes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">jakarta.servlet.forward.request_uri
+jakarta.servlet.forward.context_path
+jakarta.servlet.forward.servlet_path
+jakarta.servlet.forward.path_info
+jakarta.servlet.forward.query_string</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>forward</code> method should be used to give another resource responsibility for replying to the user.
+If you have already accessed a <code>ServletOutputStream</code> or <code>PrintWriter</code> object within the servlet, you cannot use this method; doing so throws an <code>IllegalStateException</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_accessing_the_web_context"><a class="anchor" href="#_accessing_the_web_context"></a>Accessing the Web Context</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The context in which web components execute is an object that implements the <code>ServletContext</code> interface.
+You retrieve the web context by using the <code>getServletContext</code> method.
+The web context provides methods for accessing</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Initialization parameters</p>
+</li>
+<li>
+<p>Resources associated with the web context</p>
+</li>
+<li>
+<p>Object-valued attributes</p>
+</li>
+<li>
+<p>Logging capabilities</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The counter&#8217;s access methods are synchronized to prevent incompatible operations by servlets that are running concurrently.
+A filter retrieves the counter object by using the context&#8217;s <code>getAttribute</code> method.
+The incremented value of the counter is recorded in the log.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_maintaining_client_state"><a class="anchor" href="#_maintaining_client_state"></a>Maintaining Client State</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Many applications require that a series of requests from a client be associated with one another.
+For example, a web application can save the state of a user&#8217;s shopping cart across requests.
+Web-based applications are responsible for maintaining such state, called a session, because HTTP is stateless.
+To support applications that need to maintain state, Jakarta Servlet technology provides an API for managing sessions and allows several mechanisms for implementing sessions.</p>
+</div>
+<div class="sect2">
+<h3 id="_accessing_a_session"><a class="anchor" href="#_accessing_a_session"></a>Accessing a Session</h3>
+<div class="paragraph">
+<p>Sessions are represented by an <code>HttpSession</code> object.
+You access a session by calling the <code>getSession</code> method of a request object.
+This method returns the current session associated with this request; or, if the request does not have a session, this method creates one.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_associating_objects_with_a_session"><a class="anchor" href="#_associating_objects_with_a_session"></a>Associating Objects with a Session</h3>
+<div class="paragraph">
+<p>You can associate object-valued attributes with a session by name.
+Such attributes are accessible by any web component that belongs to the same web context and is handling a request that is part of the same session.</p>
+</div>
+<div class="paragraph">
+<p>Recall that your application can notify web context and session listener objects of servlet lifecycle events (<a href="#_handling_servlet_lifecycle_events">Handling Servlet Lifecycle Events</a>).
+You can also notify objects of certain events related to their association with a session, such as the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>When the object is added to or removed from a session.
+To receive this notification, your object must implement the <code>jakarta.servlet.http.HttpSessionBindingListener</code> interface.</p>
+</li>
+<li>
+<p>When the session to which the object is attached will be passivated or activated.
+A session will be passivated or activated when it is moved between virtual machines or saved to and restored from persistent storage.
+To receive this notification, your object must implement the <code>jakarta.servlet.http.HttpSessionActivationListener</code> interface.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_session_management"><a class="anchor" href="#_session_management"></a>Session Management</h3>
+<div class="paragraph">
+<p>Because an HTTP client has no way to signal that it no longer needs a session, each session has an associated timeout so that its resources can be reclaimed.
+The timeout period can be accessed by using a session&#8217;s <code>getMaxInactiveInterval</code> and <code>setMaxInactiveInterval</code> methods.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To ensure that an active session is not timed out, you should periodically access the session by using service methods because this resets the session&#8217;s time-to-live counter.</p>
+</li>
+<li>
+<p>When a particular client interaction is finished, you use the session&#8217;s <code>invalidate</code> method to invalidate a session on the server side and remove any session data.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_to_set_the_timeout_period_using_netbeans_ide"><a class="anchor" href="#_to_set_the_timeout_period_using_netbeans_ide"></a>To Set the Timeout Period Using NetBeans IDE</h4>
+<div class="paragraph">
+<p>To set the timeout period in the deployment descriptor using NetBeans IDE, follow these steps.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open the project if you haven&#8217;t already.</p>
+</li>
+<li>
+<p>Expand the node of your project in the <strong>Projects</strong> tab.</p>
+</li>
+<li>
+<p>Expand the <strong>Web Pages</strong> and <strong>WEB-INF</strong> nodes that are under the project node.</p>
+</li>
+<li>
+<p>Double-click <code>web.xml</code>.</p>
+</li>
+<li>
+<p>Click <strong>General</strong> at the top of the editor.</p>
+</li>
+<li>
+<p>In the <strong>Session Timeout</strong> field, enter an integer value.</p>
+<div class="paragraph">
+<p>The integer value represents the number of minutes of inactivity that must pass before the session times out.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_session_tracking"><a class="anchor" href="#_session_tracking"></a>Session Tracking</h3>
+<div class="paragraph">
+<p>To associate a session with a user, a web container can use several methods, all of which involve passing an identifier between the client and the server.
+The identifier can be maintained on the client as a cookie, or the web component can include the identifier in every URL that is returned to the client.</p>
+</div>
+<div class="paragraph">
+<p>If your application uses session objects, you must ensure that session tracking is enabled by having the application rewrite URLs whenever the client turns off cookies.
+You do this by calling the response&#8217;s <code>encodeURL(URL)</code> method on all URLs returned by a servlet.
+This method includes the session ID in the URL only if cookies are disabled; otherwise, the method returns the URL unchanged.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_finalizing_a_servlet"><a class="anchor" href="#_finalizing_a_servlet"></a>Finalizing a Servlet</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The web container may determine that a servlet should be removed from service (for example, when a container wants to reclaim memory resources or when it is being shut down).
+In such a case, the container calls the <code>destroy</code> method of the <code>Servlet</code> interface.
+In this method, you release any resources the servlet is using and save any persistent state.
+The <code>destroy</code> method releases the database object created in the <code>init</code> method.</p>
+</div>
+<div class="paragraph">
+<p>A servlet&#8217;s service methods should all be complete when a servlet is removed.
+The server tries to ensure this by calling the <code>destroy</code> method only after all service requests have returned or after a server-specific grace period, whichever comes first.
+If your servlet has operations that may run longer than the server&#8217;s grace period, the operations could still be running when <code>destroy</code> is called.
+You must make sure that any threads still handling client requests complete.</p>
+</div>
+<div class="paragraph">
+<p>The remainder of this section explains how to do the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Keep track of how many threads are currently running the <code>service</code> method.</p>
+</li>
+<li>
+<p>Provide a clean shutdown by having the <code>destroy</code> method notify long-running threads of the shutdown and wait for them to complete.</p>
+</li>
+<li>
+<p>Have the long-running methods poll periodically to check for shutdown and, if necessary, stop working, clean up, and return.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_tracking_service_requests"><a class="anchor" href="#_tracking_service_requests"></a>Tracking Service Requests</h3>
+<div class="paragraph">
+<p>To track service requests:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Include a field in your servlet class that counts the number of service methods that are running.</p>
+<div class="paragraph">
+<p>The field should have synchronized access methods to increment, decrement, and return its value:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class ShutdownExample extends HttpServlet {
+    private int serviceCounter = 0;
+    ...
+    // Access methods for serviceCounter
+    protected synchronized void enteringServiceMethod() {
+        serviceCounter++;
+    }
+    protected synchronized void leavingServiceMethod() {
+        serviceCounter--;
+    }
+    protected synchronized int numServices() {
+        return serviceCounter;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>service</code> method should increment the service counter each time the method is entered and should decrement the counter each time the method returns.
+This is one of the few times that your <code>HttpServlet</code> subclass should override the <code>service</code> method.
+The new method should call <code>super.service</code> to preserve the functionality of the original <code>service</code> method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">protected void service(HttpServletRequest req,
+                       HttpServletResponse resp)
+                       throws ServletException,IOException {
+    enteringServiceMethod();
+    try {
+        super.service(req, resp);
+    } finally {
+        leavingServiceMethod();
+    }
+}</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_notifying_methods_to_shut_down"><a class="anchor" href="#_notifying_methods_to_shut_down"></a>Notifying Methods to Shut Down</h3>
+<div class="paragraph">
+<p>To ensure a clean shutdown, your <code>destroy</code> method should not release any shared resources until all the service requests have completed:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Check the service counter.</p>
+</li>
+<li>
+<p>Notify long-running methods that it is time to shut down.</p>
+<div class="paragraph">
+<p>For this notification, another field is required.
+The field should have the usual access methods:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class ShutdownExample extends HttpServlet {
+    private boolean shuttingDown;
+    ...
+    //Access methods for shuttingDown
+    protected synchronized void setShuttingDown(boolean flag) {
+        shuttingDown = flag;
+    }
+    protected synchronized boolean isShuttingDown() {
+        return shuttingDown;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here is an example of the <code>destroy</code> method using these fields to provide a clean shutdown:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public void destroy() {
+    /* Check to see whether there are still service methods /*
+    /* running, and if there are, tell them to stop. */
+    if (numServices() &gt; 0) {
+        setShuttingDown(true);
+    }
+
+    /* Wait for the service methods to stop. */
+    while (numServices() &gt; 0) {
+        try {
+            Thread.sleep(interval);
+        } catch (InterruptedException e) {
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_creating_polite_long_running_methods"><a class="anchor" href="#_creating_polite_long_running_methods"></a>Creating Polite Long-Running Methods</h3>
+<div class="paragraph">
+<p>The final step in providing a clean shutdown is to make any long-running methods behave politely.
+Methods that might run for a long time should check the value of the field that notifies them of shutdowns and should interrupt their work, if necessary:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public void doPost(...) {
+    ...
+    for(i = 0; ((i &lt; lotsOfStuffToDo) &amp;&amp;
+         !isShuttingDown()); i++) {
+        try {
+            partOfLongRunningOperation(i);
+        } catch (InterruptedException e) {
+            ...
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_uploading_files_with_jakarta_servlet_technology"><a class="anchor" href="#_uploading_files_with_jakarta_servlet_technology"></a>Uploading Files with Jakarta Servlet Technology</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Supporting file uploads is a very basic and common requirement for many web applications.
+In prior versions of the Servlet specification, implementing file upload required the use of external libraries or complex input processing.
+The Jakarta Servlet specification now helps to provide a viable solution to the problem in a generic and portable way.
+Jakarta Servlet technology now supports file upload out of the box, so any web container that implements the specification can parse multipart requests and make mime attachments available through the <code>HttpServletRequest</code> object.</p>
+</div>
+<div class="paragraph">
+<p>A new annotation, <code>jakarta.servlet.annotation.MultipartConfig</code>, is used to indicate that the servlet on which it is declared expects requests to be made using the <code>multipart/form-data</code> MIME type.
+Servlets that are annotated with <code>@MultipartConfig</code> can retrieve the <code>Part</code> components of a given <code>multipart/form-data</code> request by calling the <code>request.getPart(String name)</code> or <code>request.getParts()</code> method.</p>
+</div>
+<div class="sect2">
+<h3 id="_the_multipartconfig_annotation"><a class="anchor" href="#_the_multipartconfig_annotation"></a>The @MultipartConfig Annotation</h3>
+<div class="paragraph">
+<p>The <code>@MultipartConfig</code> annotation supports the following optional attributes.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>location</code>: An absolute path to a directory on the file system.
+The <code>location</code> attribute does not support a path relative to the application context.
+This location is used to store files temporarily while the parts are processed or when the size of the file exceeds the specified <code>fileSizeThreshold</code> setting.
+The default location is <code>""</code>.</p>
+</li>
+<li>
+<p><code>fileSizeThreshold</code>: The file size in bytes after which the file will be temporarily stored on disk.
+The default size is 0 bytes.</p>
+</li>
+<li>
+<p><code>maxFileSize</code>: The maximum size allowed for uploaded files, in bytes.
+If the size of any uploaded file is greater than this size, the web container will throw an exception (<code>IllegalStateException</code>).
+The default size is unlimited.</p>
+</li>
+<li>
+<p><code>maxRequestSize</code>: The maximum size allowed for a <code>multipart/form-data</code> request, in bytes.
+The web container will throw an exception if the overall size of all uploaded files exceeds this threshold.
+The default size is unlimited.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For, example, the <code>@MultipartConfig</code> annotation could be constructed as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@MultipartConfig(location="/tmp", fileSizeThreshold=1024*1024,
+    maxFileSize=1024*1024*5, maxRequestSize=1024*1024*5*5)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Instead of using the <code>@MultipartConfig</code> annotation to hard-code these attributes in your file upload servlet, you could add the following as a child element of the servlet configuration element in the <code>web.xml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;multipart-config&gt;
+    &lt;location&gt;/tmp&lt;/location&gt;
+    &lt;max-file-size&gt;20848820&lt;/max-file-size&gt;
+    &lt;max-request-size&gt;418018841&lt;/max-request-size&gt;
+    &lt;file-size-threshold&gt;1048576&lt;/file-size-threshold&gt;
+&lt;/multipart-config&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_getparts_and_getpart_methods"><a class="anchor" href="#_the_getparts_and_getpart_methods"></a>The getParts and getPart Methods</h3>
+<div class="paragraph">
+<p>The Servlet specification supports two additional <code>HttpServletRequest</code> methods:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Collection&lt;Part&gt; getParts()</code></p>
+</li>
+<li>
+<p><code>Part getPart(String name)</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>request.getParts()</code> method returns collections of all <code>Part</code> objects.
+If you have more than one input of type file, multiple <code>Part</code> objects are returned.
+Because <code>Part</code> objects are named, the <code>getPart(String name)</code> method can be used to access a particular <code>Part</code>.
+Alternatively, the <code>getParts()</code> method, which returns an <code>Iterable&lt;Part&gt;</code>, can be used to get an <code>Iterator</code> over all the <code>Part</code> objects.</p>
+</div>
+<div class="paragraph">
+<p>The <code>jakarta.servlet.http.Part</code> interface is a simple one, providing methods that allow introspection of each <code>Part</code>.
+The methods do the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Retrieve the name, size, and content-type of the <code>Part</code></p>
+</li>
+<li>
+<p>Query the headers submitted with a <code>Part</code></p>
+</li>
+<li>
+<p>Delete a <code>Part</code></p>
+</li>
+<li>
+<p>Write a <code>Part</code> out to disk</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example, the <code>Part</code> interface provides the <code>write(String filename)</code> method to write the file with the specified name.
+The file can then be saved in the directory that is specified with the <code>location</code> attribute of the <code>@MultipartConfig</code> annotation or, in the case of the <code>fileupload</code> example, in the location specified by the Destination field in the form.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_asynchronous_processing"><a class="anchor" href="#_asynchronous_processing"></a>Asynchronous Processing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Web containers in application servers normally use a server thread per client request.
+Under heavy load conditions, containers need a large amount of threads to serve all the client requests.
+Scalability limitations include running out of memory or exhausting the pool of container threads.
+To create scalable web applications, you must ensure that no threads associated with a request are sitting idle, so the container can use them to process new requests.</p>
+</div>
+<div class="paragraph">
+<p>There are two common scenarios in which a thread associated with a request can be sitting idle.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The thread needs to wait for a resource to become available or process data before building the response.
+For example, an application may need to query a database or access data from a remote web service before generating the response.</p>
+</li>
+<li>
+<p>The thread needs to wait for an event before generating the response.
+For example, an application may have to wait for a Jakarta Messaging message, new information from another client, or new data available in a queue before generating the response.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These scenarios represent blocking operations that limit the scalability of web applications.
+Asynchronous processing refers to assigning these blocking operations to a new thread and retuning the thread associated with the request immediately to the container.</p>
+</div>
+<div class="sect2">
+<h3 id="_asynchronous_processing_in_servlets"><a class="anchor" href="#_asynchronous_processing_in_servlets"></a>Asynchronous Processing in Servlets</h3>
+<div class="paragraph">
+<p>Jakarta EE provides asynchronous processing support for servlets and filters.
+If a servlet or a filter reaches a potentially blocking operation when processing a request, it can assign the operation to an asynchronous execution context and return the thread associated with the request immediately to the container without generating a response.
+The blocking operation completes in the asynchronous execution context in a different thread, which can generate a response or dispatch the request to another servlet.</p>
+</div>
+<div class="paragraph">
+<p>To enable asynchronous processing on a servlet, set the parameter <code>asyncSupported</code> to <code>true</code> on the <code>@WebServlet</code> annotation as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@WebServlet(urlPatterns={"/asyncservlet"}, asyncSupported=true)
+public class AsyncServlet extends HttpServlet { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>jakarta.servlet.AsyncContext</code> class provides the functionality that you need to perform asynchronous processing inside service methods.
+To obtain an instance of <code>AsyncContext</code>, call the <code>startAsync()</code> method on the request object of your service method; for example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public void doGet(HttpServletRequest req, HttpServletResponse resp) {
+   ...
+   AsyncContext acontext = req.startAsync();
+   ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This call puts the request into asynchronous mode and ensures that the response is not committed after exiting the service method.
+You have to generate the response in the asynchronous context after the blocking operation completes or dispatch the request to another servlet.</p>
+</div>
+<div class="paragraph">
+<p><a href="#_functionality_provided_by_the_asynccontext_class">Functionality Provided by the AsyncContext Class</a> describes the basic functionality provided by the <code>AsyncContext</code> class.</p>
+</div>
+<table id="_functionality_provided_by_the_asynccontext_class" class="tableblock frame-all grid-all" style="width: 90%;">
+<caption class="title">Functionality Provided by the AsyncContext Class</caption>
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 77.7778%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Method Signature</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>void start(Runnable run)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The container provides a different thread in which the blocking operation can be processed.</p>
+</div>
+<div class="paragraph">
+<p>You provide code for the blocking operation as a class that implements the <code>Runnable</code> interface.
+You can provide this class as an inner class when calling the <code>start</code> method or use another mechanism to pass the <code>AsyncContext</code> instance to your class.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ServletRequest getRequest()</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the request used to initialize this asynchronous context.
+In the example above, the request is the same as in the service method.</p>
+<p class="tableblock">You can use this method inside the asynchronous context to obtain parameters from the request.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ServletResponse getResponse()</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the response used to initialize this asynchronous context.
+In the example above, the response is the same as in the service method.</p>
+<p class="tableblock">You can use this method inside the asynchronous context to write to the response with the results of the blocking operation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>void complete()</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Completes the asynchronous operation and closes the response associated with this asynchronous context.</p>
+<p class="tableblock">You call this method after writing to the response object inside the asynchronous context.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>void dispatch(String path)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dispatches the request and response objects to the given path.</p>
+<p class="tableblock">You use this method to have another servlet write to the response after the blocking operation completes.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_waiting_for_a_resource"><a class="anchor" href="#_waiting_for_a_resource"></a>Waiting for a Resource</h3>
+<div class="paragraph">
+<p>This section demonstrates how to use the functionality provided by the <code>AsyncContext</code> class for the following use case:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A servlet receives a parameter from a GET request.</p>
+</li>
+<li>
+<p>The servlet uses a resource, such as a database or a web service, to retrieve information based on the value of the parameter.
+The resource can be slow at times, so this may be a blocking operation.</p>
+</li>
+<li>
+<p>The servlet generates a response using the result from the resource.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The following code shows a basic servlet that does not use asynchronous processing:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@WebServlet(urlPatterns={"/syncservlet"})
+public class SyncServlet extends HttpServlet {
+   private MyRemoteResource resource;
+   @Override
+   public void init(ServletConfig config) {
+      resource = MyRemoteResource.create("config1=x,config2=y");
+   }
+
+   @Override
+   public void doGet(HttpServletRequest request,
+                     HttpServletResponse response) {
+      response.setContentType("text/html;charset=UTF-8");
+      String param = request.getParameter("param");
+      String result = resource.process(param);
+      /* ... print to the response ... */
+   }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following code shows the same servlet using asynchronous processing:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@WebServlet(urlPatterns={"/asyncservlet"}, asyncSupported=true)
+public class AsyncServlet extends HttpServlet {
+   /* ... Same variables and init method as in SyncServlet ... */
+   @Override
+   public void doGet(HttpServletRequest request,
+                     HttpServletResponse response) {
+      response.setContentType("text/html;charset=UTF-8");
+      final AsyncContext acontext = request.startAsync();
+      acontext.start(new Runnable() {
+         public void run() {
+            String param = acontext.getRequest().getParameter("param");
+            String result = resource.process(param);
+            HttpServletResponse response = acontext.getResponse();
+            /* ... print to the response ... */
+            acontext.complete();
+         }
+      });
+   }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>AsyncServlet</code> adds <code>asyncSupported=true</code> to the <code>@WebServlet</code> annotation. The rest of the differences are inside the service method.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>request.startAsync()</code> causes the request to be processed asynchronously; the response is not sent to the client at the end of the service method.</p>
+</li>
+<li>
+<p><code>acontext.start(new Runnable() {&#8230;&#8203;})</code> gets a new thread from the container.</p>
+</li>
+<li>
+<p>The code inside the <code>run()</code> method of the inner class executes in the new thread.
+The inner class has access to the asynchronous context to read parameters from the request and write to the response.
+Calling the <code>complete()</code> method of the asynchronous context commits the response and sends it to the client.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The service method of <code>AsyncServlet</code> returns immediately, and the request is processed in the asynchronous context.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_nonblocking_io"><a class="anchor" href="#_nonblocking_io"></a>Nonblocking I/O</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Web containers in application servers normally use a server thread per client request.
+To develop scalable web applications, you must ensure that threads associated with client requests are never sitting idle waiting for a blocking operation to complete.
+<a href="#_asynchronous_processing">Asynchronous Processing</a> provides a mechanism to execute application-specific blocking operations in a new thread, returning the thread associated with the request immediately to the container.
+Even if you use asynchronous processing for all the application-specific blocking operations inside your service methods, threads associated with client requests can be momentarily sitting idle because of input/output considerations.</p>
+</div>
+<div class="paragraph">
+<p>For example, if a client is submitting a large HTTP POST request over a slow network connection, the server can read the request faster than the client can provide it.
+Using traditional I/O, the container thread associated with this request would be sometimes sitting idle waiting for the rest of the request.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta EE provides nonblocking I/O support for servlets and filters when processing requests in asynchronous mode.
+The following steps summarize how to use nonblocking I/O to process requests and write responses inside service methods.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Put the request in asynchronous mode as described in <a href="#_asynchronous_processing">Asynchronous Processing</a>.</p>
+</li>
+<li>
+<p>Obtain an input stream and/or an output stream from the request and response objects in the service method.</p>
+</li>
+<li>
+<p>Assign a read listener to the input stream and/or a write listener to the output stream.</p>
+</li>
+<li>
+<p>Process the request and the response inside the listener&#8217;s callback methods.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><a href="#_nonblocking_io_support_in_servletoutputstream">Nonblocking I/O Support in jakarta.servlet.ServletOutputStream</a> describe the methods available in the servlet input and output streams for nonblocking I/O support.
+<a href="#_listener_interfaces_for_nonblocking_io_support">Listener Interfaces for Nonblocking I/O Support</a> describes the interfaces for read listeners and write listeners.</p>
+</div>
+<table id="_nonblocking_io_support_in_servletinputstream" class="tableblock frame-all grid-all stretch">
+<caption class="title">Nonblocking I/O Support in jakarta.servlet.ServletInputStream</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Method</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>void setReadListener(ReadListener rl)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Associates this input stream with a listener object that contains callback methods to read data asynchronously.
+You provide the listener object as an anonymous class or use another mechanism to pass the input stream to the read listener object.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean isReady()</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns true if data can be read without blocking.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean isFinished()</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns true when all the data has been read.</p></td>
+</tr>
+</tbody>
+</table>
+<table id="_nonblocking_io_support_in_servletoutputstream" class="tableblock frame-all grid-all stretch">
+<caption class="title">Nonblocking I/O Support in jakarta.servlet.ServletOutputStream</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Method</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>void setWriteListener(WriteListener wl)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Associates this output stream with a listener object that contains callback methods to write data asynchronously.
+You provide the write listener object as an anonymous class or use another mechanism to pass the output stream to the write listener object.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean isReady()</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns true if data can be written without blocking.</p></td>
+</tr>
+</tbody>
+</table>
+<table id="_listener_interfaces_for_nonblocking_io_support" class="tableblock frame-all grid-all stretch">
+<caption class="title">Listener Interfaces for Nonblocking I/O Support</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 30%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Interface</th>
+<th class="tableblock halign-left valign-top">Methods</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ReadListener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>void onDataAvailable()</code></p>
+<p class="tableblock"><code>void onAllDataRead()</code></p>
+<p class="tableblock"><code>void onError(Throwable t)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A <code>ServletInputStream</code> instance calls these methods on its listener when there is data available to read, when all the data has been read, or when there is an error.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WriteListener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>void onWritePossible()</code></p>
+<p class="tableblock"><code>void onError(Throwable t)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A <code>ServletOutputStream</code> instance calls these methods on its listener when it is possible to write data without blocking or when there is an error.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_reading_a_large_http_post_request_using_nonblocking_io"><a class="anchor" href="#_reading_a_large_http_post_request_using_nonblocking_io"></a>Reading a Large HTTP POST Request Using Nonblocking I/O</h3>
+<div class="paragraph">
+<p>The code in this section shows how to read a large HTTP POST request inside a servlet by putting the request in asynchronous mode (as described in <a href="#_asynchronous_processing">Asynchronous Processing</a>) and using the nonblocking I/O functionality from <a href="#_nonblocking_io_support_in_servletinputstream">Nonblocking I/O Support in jakarta.servlet.ServletInputStream</a> and <a href="#_listener_interfaces_for_nonblocking_io_support">Listener Interfaces for Nonblocking I/O Support</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@WebServlet(urlPatterns={"/asyncioservlet"}, asyncSupported=true)
+public class AsyncIOServlet extends HttpServlet {
+   @Override
+   public void doPost(HttpServletRequest request,
+                      HttpServletResponse response)
+                      throws IOException {
+      final AsyncContext acontext = request.startAsync();
+      final ServletInputStream input = request.getInputStream();
+
+      input.setReadListener(new ReadListener() {
+         byte buffer[] = new byte[4*1024];
+         StringBuilder sbuilder = new StringBuilder();
+         @Override
+         public void onDataAvailable() {
+            try {
+               do {
+                  int length = input.read(buffer);
+                  sbuilder.append(new String(buffer, 0, length));
+               } while(input.isReady());
+            } catch (IOException ex) { ... }
+         }
+         @Override
+         public void onAllDataRead() {
+            try {
+               acontext.getResponse().getWriter()
+                                     .write("...the response...");
+            } catch (IOException ex) { ... }
+            acontext.complete();
+         }
+         @Override
+         public void onError(Throwable t) { ... }
+      });
+   }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This example declares the web servlet with asynchronous support using the <code>@WebServlet</code> annotation parameter <code>asyncSupported=true</code>.
+The service method first puts the request in asynchronous mode by calling the <code>startAsync()</code> method of the request object, which is required in order to use nonblocking I/O.
+Then, the service method obtains an input stream associated with the request and assigns a read listener defined as an inner class.
+The listener reads parts of the request as they become available and then writes some response to the client when it finishes reading the request.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_server_push"><a class="anchor" href="#_server_push"></a>Server Push</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Server push is the ability of the server to anticipate what will be needed by the client in advance of the client&#8217;s request.
+It lets the server pre-populate the browser&#8217;s cache in advance of the browser asking for the resource to put in the cache.</p>
+</div>
+<div class="paragraph">
+<p>Server push is the most visible of the improvements in HTTP/2 to appear in the servlet API.
+All of the new features in HTTP/2, including server push, are aimed at improving the performance of the web browsing experience.</p>
+</div>
+<div class="paragraph">
+<p>Server push derives its contribution to improved browser performance from the fact that servers know what additional assets (such as images, stylesheets, and scripts) go along with initial requests.
+For example, servers might know that whenever a browser requests <code>index.html</code>, it will shortly thereafter request <code>header.gif</code>, <code>footer.gif</code>, and <code>style.css</code>.
+Servers can preemptively start sending the bytes of these assets along with the bytes of the <code>index.html</code>.</p>
+</div>
+<div class="paragraph">
+<p>To use server push, obtain a reference to a <code>PushBuilder</code> from an <code>HttpServletRequest</code>, edit the builder as desired, then call <code>push()</code>.
+See the <a href="https://jakarta.ee/specifications/platform/9/apidocs/" target="_blank" rel="noopener">javadoc</a> for the class <code>jakarta.servlet.http.PushBuilder</code> and the method <code>jakarta.servlet.http.HttpServletRequest.newPushBuilder()</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_protocol_upgrade_processing"><a class="anchor" href="#_protocol_upgrade_processing"></a>Protocol Upgrade Processing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In HTTP/1.1, clients can request to switch to a different protocol on the current connection by using the <code>Upgrade</code> header field.
+If the server accepts the request to switch to the protocol indicated by the client, it generates an HTTP response with status 101 (switching protocols).
+After this exchange, the client and the server communicate using the new protocol.</p>
+</div>
+<div class="paragraph">
+<p>For example, a client can make an HTTP request to switch to the XYZP protocol as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-http hljs" data-lang="http">GET /xyzpresource HTTP/1.1
+Host: localhost:8080
+Accept: text/html
+Upgrade: XYZP
+Connection: Upgrade
+OtherHeaderA: Value</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The client can specify parameters for the new protocol using HTTP headers.
+The server can accept the request and generate a response as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-http hljs" data-lang="http">HTTP/1.1 101 Switching Protocols
+Upgrade: XYZP
+Connection: Upgrade
+OtherHeaderB: Value
+
+(XYZP data)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Jakarta EE supports the HTTP protocol upgrade functionality in servlets, as described in <a href="#_protocol_upgrade_support">Protocol Upgrade Support</a>.</p>
+</div>
+<table id="_protocol_upgrade_support" class="tableblock frame-all grid-all" style="width: 80%;">
+<caption class="title">Protocol Upgrade Support</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Class or Interface</th>
+<th class="tableblock halign-left valign-top">Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HttpServletRequest</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HttpUpgradeHandler upgrade(Class handler)</code></p>
+<p class="tableblock">The upgrade method starts the protocol upgrade processing.
+This method instantiates a class that implements the <code>HttpUpgradeHandler</code> interface and delegates the connection to it.</p>
+<p class="tableblock">You call the <code>upgrade</code> method inside a service method when accepting a request from a client to switch protocols.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HttpUpgradeHandler</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>void init(WebConnection wc)</code></p>
+<p class="tableblock">The <code>init</code> method is called when the servlet accepts the request to switch protocols.
+You implement this method and obtain input and output streams from the <code>WebConnection</code> object to implement the new protocol.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HttpUpgradeHandler</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>void destroy()</code></p>
+<p class="tableblock">The <code>destroy</code> method is called when the client disconnects.
+You implement this method and free any resources associated with processing the new protocol.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WebConnection</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ServletInputStream getInputStream()</code></p>
+<p class="tableblock">The <code>getInputStream</code> method provides access to the input stream of the connection.
+You can use <a href="#_nonblocking_io">Nonblocking I/O</a> with the returned stream to implement the new protocol.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WebConnection</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ServletOutputStream getOutputStream()</code></p>
+<p class="tableblock">The <code>getOutputStream</code> method provides access to the output stream of the connection.
+You can use <a href="#_nonblocking_io">Nonblocking I/O</a> with the returned stream to implement the new protocol.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The following code demonstrates how to accept an HTTP protocol upgrade request from a client:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@WebServlet(urlPatterns={"/xyzpresource"})
+public class XYZPUpgradeServlet extends HttpServlet {
+   @Override
+   public void doGet(HttpServletRequest request,
+                     HttpServletResponse response) {
+      if ("XYZP".equals(request.getHeader("Upgrade"))) {
+         /* Accept upgrade request */
+         response.setStatus(101);
+         response.setHeader("Upgrade", "XYZP");
+         response.setHeader("Connection", "Upgrade");
+         response.setHeader("OtherHeaderB", "Value");
+         /* Delegate the connection to the upgrade handler */
+         XYZPUpgradeHandler = request.upgrade(XYZPUpgradeHandler.class);
+         /* (the service method returns immedately) */
+      } else {
+         /* ... write error response ... */
+      }
+   }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>XYZPUpgradeHandler</code> class handles the connection:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class XYZPUpgradeHandler implements HttpUpgradeHandler {
+   @Override
+   public void init(WebConnection wc) {
+      ServletInputStream input = wc.getInputStream();
+      ServletOutputStream output = wc.getOutputStream();
+      /* ... implement XYZP using these streams (protocol-specific) ... */
+   }
+   @Override
+   public void destroy() { ... }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The class that implements <code>HttpUpgradeHandler</code> uses the streams from the current connection to communicate with the client using the new protocol.
+See the Servlet 5.0 specification at <a href="https://jakarta.ee/specifications/servlet/5.0" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/servlet/5.0</a> for details on HTTP protocol upgrade support.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_http_trailer"><a class="anchor" href="#_http_trailer"></a>HTTP Trailer</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>HTTP trailer is a collection of a special type of HTTP headers that comes after the response body.
+The trailer response header allows the sender to include additional fields at the end of chunked messages in order to supply metadata that might be dynamically generated while the message body is sent, such as a message integrity check, digital signature, or post-processing status.</p>
+</div>
+<div class="paragraph">
+<p>If trailer headers are ready for reading, <code>isTrailerFieldsReady()</code> will return <code>true</code>.
+Then a servlet can read trailer headers of the HTTP request using the <code>getTrailerFields</code> method of the <code>HttpServletRequest</code> interface.
+If trailer headers are not ready for reading, <code>isTrailerFieldsReady()</code> returns <code>false</code> and will cause an <code>IllegalStateException</code>.</p>
+</div>
+<div class="paragraph">
+<p>A servlet can write trailer headers to the response by providing a supplier to the <code>setTrailerFields()</code> method of the <code>HttpServletResponse</code> interface.
+The following headers and types of headers must <em>not</em> be included in the set of keys in the map passed to <code>setTrailerFields()</code>: <code>Transfer-Encoding</code>, <code>Content-Length</code>, <code>Host</code>, controls and conditional headers, authentication headers, <code>Content-Encoding</code>, <code>Content-Type</code>, <code>Content-Range</code>, and <code>Trailer</code>.
+When sending response trailers, you must include a regular header, called <code>Trailer</code>, whose value is a comma-separated list of all the keys in the map that is supplied to the <code>setTrailerFields()</code> method.
+The value of the <code>Trailer</code> header lets the client know what trailers to expect.</p>
+</div>
+<div class="paragraph">
+<p>The supplier of the trailer headers can be obtained by accessing the <code>getTrailerFields()</code> method of the <code>HttpServletResponse</code> interface.</p>
+</div>
+<div class="paragraph">
+<p>See the <a href="https://jakarta.ee/specifications/platform/9/apidocs/" target="_blank" rel="noopener">javadoc</a> for <code>getTrailerFields()</code> and <code>isTrailerFieldsReady()</code> in <code>HttpServletRequest</code>, and <code>getTrailerFields()</code> and <code>setTrailerFields()</code> in <code>HttpServletResponse</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_mood_example_application"><a class="anchor" href="#_the_mood_example_application"></a>The mood Example Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>mood</code> example application, located in the <code><em>tut-install</em>/examples/web/servlet/mood/</code> directory, is a simple example that displays Duke&#8217;s moods at different times during the day.
+The example shows how to develop a simple application by using the <code>@WebServlet</code>, <code>@WebFilter</code>, and <code>@WebListener</code> annotations to create a servlet, a listener, and a filter.</p>
+</div>
+<div class="sect2">
+<h3 id="_components_of_the_mood_example_application"><a class="anchor" href="#_components_of_the_mood_example_application"></a>Components of the mood Example Application</h3>
+<div class="paragraph">
+<p>The <code>mood</code> example application is comprised of three components: <code>mood.web.MoodServlet</code>, <code>mood.web.TimeOfDayFilter</code>, and <code>mood.web.SimpleServletListener</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>MoodServlet</code>, the presentation layer of the application, displays Duke&#8217;s mood in a graphic, based on the time of day.
+The <code>@WebServlet</code> annotation specifies the URL pattern:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@WebServlet("/report")
+public class MoodServlet extends HttpServlet {
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>TimeOfDayFilter</code> sets an initialization parameter indicating that Duke is awake:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@WebFilter(filterName = "TimeOfDayFilter",
+urlPatterns = {"/*"},
+initParams = {
+    @WebInitParam(name = "mood", value = "awake")})
+public class TimeOfDayFilter implements Filter {
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The filter calls the <code>doFilter</code> method, which contains a <code>switch</code> statement that sets Duke&#8217;s mood based on the current time.</p>
+</div>
+<div class="paragraph">
+<p><code>SimpleServletListener</code> logs changes in the servlet&#8217;s lifecycle.
+The log entries appear in the server log.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_running_the_mood_example"><a class="anchor" href="#_running_the_mood_example"></a>Running the mood Example</h3>
+<div class="paragraph">
+<p>You can use either NetBeans IDE or Maven to build, package, deploy, and run the <code>mood</code> example.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_mood_example_using_netbeans_ide"><a class="anchor" href="#_to_run_the_mood_example_using_netbeans_ide"></a>To Run the mood Example Using NetBeans IDE</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>From the <strong>File</strong> menu, choose <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the Open Project dialog box, navigate to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/web/servlet</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Select the <code>mood</code> folder.</p>
+</li>
+<li>
+<p>Click <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Projects</strong> tab, right-click the <code>mood</code> project and select <strong>Build</strong>.</p>
+</li>
+<li>
+<p>In a web browser, enter the following URL:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/mood/report</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The URL specifies the context root, followed by the URL pattern.</p>
+</div>
+<div class="paragraph">
+<p>A web page appears with the title "Servlet MoodServlet at /mood", a text string describing Duke&#8217;s mood, and an illustrative graphic.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_mood_example_using_maven"><a class="anchor" href="#_to_run_the_mood_example_using_maven"></a>To Run the mood Example Using Maven</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>In a terminal window, go to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/web/servlet/mood/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enter the following command to deploy the application:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn install</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>In a web browser, enter the following URL:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/mood/report</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The URL specifies the context root, followed by the URL pattern.</p>
+</div>
+<div class="paragraph">
+<p>A web page appears with the title "Servlet MoodServlet at /mood", a text string describing Duke&#8217;s mood, and an illustrative graphic.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_fileupload_example_application"><a class="anchor" href="#_the_fileupload_example_application"></a>The fileupload Example Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>fileupload</code> example, located in the <code><em>tut-install</em>/examples/web/servlet/fileupload/</code> directory, illustrates how to implement and use the file upload feature.</p>
+</div>
+<div class="paragraph">
+<p>The Duke&#8217;s Forest case study provides a more complex example that uploads an image file and stores its content in a database.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Except where expressly provided otherwise, the site, and all content provided on or through the site, are provided on an "as is" and "as available" basis.
+Oracle expressly disclaims all warranties of any kind, whether express or implied, including, but not limited to, the implied warranties of merchantability, fitness for a particular purpose and non-infringement with respect to the site and all content provided on or through the site.
+Oracle makes no warranty that: (a) the site or content will meet your requirements; (b) the site will be available on an uninterrupted, timely, secure, or error-free basis; (c) the results that may be obtained from the use of the site or any content provided on or through the site will be accurate or reliable; or (d) the quality of any content purchased or obtained by you on or through the site will meet your expectations.</p>
+</div>
+<div class="paragraph">
+<p>Any content accessed, downloaded or otherwise obtained on or through the use of the site is used at your own discretion and risk.
+Oracle shall have no responsibility for any damage to your computer system or loss of data that results from the download or use of content.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_architecture_of_the_fileupload_example_application"><a class="anchor" href="#_architecture_of_the_fileupload_example_application"></a>Architecture of the fileupload Example Application</h3>
+<div class="paragraph">
+<p>The <code>fileupload</code> example application consists of a single servlet and an HTML form that makes a file upload request to the servlet.</p>
+</div>
+<div class="paragraph">
+<p>This example includes a very simple HTML form with two fields, File and Destination.
+The input type, <code>file</code>, enables a user to browse the local file system to select the file.
+When the file is selected, it is sent to the server as a part of a POST request.
+During this process, two mandatory restrictions are applied to the form with input type <code>file</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>enctype</code> attribute must be set to a value of <code>multipart/form-data</code>.</p>
+</li>
+<li>
+<p>Its method must be POST.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When the form is specified in this manner, the entire request is sent to the server in encoded form.
+The servlet then uses its own means to handle the request to process the incoming file data and extract a file from the stream.
+The destination is the path to the location where the file will be saved on your computer.
+Pressing the Upload button at the bottom of the form posts the data to the servlet, which saves the file in the specified destination.</p>
+</div>
+<div class="paragraph">
+<p>The HTML form in <code>index.html</code> is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;title&gt;File Upload&lt;/title&gt;
+        &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;form method="POST" action="upload" enctype="multipart/form-data" &gt;
+            File:
+            &lt;input type="file" name="file" id="file" /&gt; &lt;br/&gt;
+            Destination:
+            &lt;input type="text" value="/tmp" name="destination"/&gt;
+            &lt;br/&gt;
+            &lt;input type="submit" value="Upload" name="upload" id="upload" /&gt;
+        &lt;/form&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A POST request method is used when the client needs to send data to the server as part of the request, such as when uploading a file or submitting a completed form.
+In contrast, a GET request method sends a URL and headers only to the server, whereas POST requests also include a message body.
+This allows arbitrary length data of any type to be sent to the server.
+A header field in the POST request usually indicates the message body&#8217;s Internet media type.</p>
+</div>
+<div class="paragraph">
+<p>When submitting a form, the browser streams the content in, combining all parts, with each part representing a field of a form.
+Parts are named after the <code>input</code> elements and are separated from each other with string delimiters named <code>boundary</code>.</p>
+</div>
+<div class="paragraph">
+<p>This is what submitted data from the <code>fileupload</code> form looks like, after selecting <code>sample.txt</code> as the file that will be uploaded to the <code>tmp</code> directory on the local file system:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-http hljs" data-lang="http">POST /fileupload/upload HTTP/1.1
+Host: localhost:8080
+Content-Type: multipart/form-data;
+boundary=---------------------------263081694432439 Content-Length: 441
+-----------------------------263081694432439
+Content-Disposition: form-data; name="file"; filename="sample.txt"
+Content-Type: text/plain
+ Data from sample file
+-----------------------------263081694432439
+Content-Disposition: form-data; name="destination"
+ /tmp
+-----------------------------263081694432439
+Content-Disposition: form-data; name="upload"
+ Upload
+-----------------------------263081694432439--</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The servlet <code>FileUploadServlet.java</code> begins as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@WebServlet(name = "FileUploadServlet", urlPatterns = {"/upload"})
+@MultipartConfig
+public class FileUploadServlet extends HttpServlet {
+    private final static Logger LOGGER =
+            Logger.getLogger(FileUploadServlet.class.getCanonicalName());
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>@WebServlet</code> annotation uses the <code>urlPatterns</code> property to define servlet mappings.</p>
+</div>
+<div class="paragraph">
+<p>The <code>@MultipartConfig</code> annotation indicates that the servlet expects requests to be made using the <code>multipart/form-data</code> MIME type.</p>
+</div>
+<div class="paragraph">
+<p>The <code>processRequest</code> method retrieves the destination and file part from the request, then calls the <code>getFileName</code> method to retrieve the file name from the file part.
+The method then creates a <code>FileOutputStream</code> and copies the file to the specified destination.
+The error-handling section of the method catches and handles some of the most common reasons why a file would not be found.
+The <code>processRequest</code> and <code>getFileName</code> methods look like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">protected void processRequest(HttpServletRequest request,
+        HttpServletResponse response)
+        throws ServletException, IOException {
+    response.setContentType("text/html;charset=UTF-8");
+
+    // Create path components to save the file
+    final String path = request.getParameter("destination");
+    final Part filePart = request.getPart("file");
+    final String fileName = getFileName(filePart);
+
+    OutputStream out = null;
+    InputStream filecontent = null;
+    final PrintWriter writer = response.getWriter();
+
+    try {
+        out = new FileOutputStream(new File(path + File.separator
+                + fileName));
+        filecontent = filePart.getInputStream();
+
+        int read = 0;
+        final byte[] bytes = new byte[1024];
+
+        while ((read = filecontent.read(bytes)) != -1) {
+            out.write(bytes, 0, read);
+        }
+        writer.println("New file " + fileName + " created at " + path);
+        LOGGER.log(Level.INFO, "File{0}being uploaded to {1}",
+                new Object[]{fileName, path});
+    } catch (FileNotFoundException fne) {
+        writer.println("You either did not specify a file to upload or are "
+                + "trying to upload a file to a protected or nonexistent "
+                + "location.");
+        writer.println("&lt;br/&gt; ERROR: " + fne.getMessage());
+
+        LOGGER.log(Level.SEVERE, "Problems during file upload. Error: {0}",
+                new Object[]{fne.getMessage()});
+    } finally {
+        if (out != null) {
+            out.close();
+        }
+        if (filecontent != null) {
+            filecontent.close();
+        }
+        if (writer != null) {
+            writer.close();
+        }
+    }
+}
+
+private String getFileName(final Part part) {
+    final String partHeader = part.getHeader("content-disposition");
+    LOGGER.log(Level.INFO, "Part Header = {0}", partHeader);
+    for (String content : part.getHeader("content-disposition").split(";")) {
+        if (content.trim().startsWith("filename")) {
+            return content.substring(
+                    content.indexOf('=') + 1).trim().replace("\"", "");
+        }
+    }
+    return null;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_running_the_fileupload_example"><a class="anchor" href="#_running_the_fileupload_example"></a>Running the fileupload Example</h3>
+<div class="paragraph">
+<p>You can use either NetBeans IDE or Maven to build, package, deploy, and run the <code>fileupload</code> example.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_build_package_and_deploy_the_fileupload_example_using_netbeans_ide"><a class="anchor" href="#_to_build_package_and_deploy_the_fileupload_example_using_netbeans_ide"></a>To Build, Package, and Deploy the fileupload Example Using NetBeans IDE</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>From the <strong>File</strong> menu, choose <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the Open Project dialog box, navigate to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/web/servlet</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Select the <code>fileupload</code> folder.</p>
+</li>
+<li>
+<p>Click <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Projects</strong> tab, right-click the <code>fileupload</code> project and select <strong>Build</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_build_package_and_deploy_the_fileupload_example_using_maven"><a class="anchor" href="#_to_build_package_and_deploy_the_fileupload_example_using_maven"></a>To Build, Package, and Deploy the fileupload Example Using Maven</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>In a terminal window, go to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/web/servlet/fileupload/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enter the following command to deploy the application:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn install</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_fileupload_example"><a class="anchor" href="#_to_run_the_fileupload_example"></a>To Run the fileupload Example</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In a web browser, enter the following URL:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/fileupload/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>On the File Upload page, click Choose File to display a file browser
+window.</p>
+</li>
+<li>
+<p>Select a file to upload and click Open.</p>
+<div class="paragraph">
+<p>The name of the file you selected is displayed in the File field.
+If you do not select a file, an exception will be thrown.</p>
+</div>
+</li>
+<li>
+<p>In the Destination field, type a directory name.</p>
+<div class="paragraph">
+<p>The directory must have already been created and must also be writable.
+If you do not enter a directory name or if you enter the name of a nonexistent or protected directory, an exception will be thrown.</p>
+</div>
+</li>
+<li>
+<p>Click Upload to upload the file that you selected to the directory that you specified in the Destination field.</p>
+<div class="paragraph">
+<p>A message reports that the file was created in the directory that you specified.</p>
+</div>
+</li>
+<li>
+<p>Go to the directory that you specified in the Destination field and verify that the uploaded file is present.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_dukeetf_example_application"><a class="anchor" href="#_the_dukeetf_example_application"></a>The dukeetf Example Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>dukeetf</code> example application, located in the <code><em>tut-install</em>/examples/web/dukeetf/</code> directory, demonstrates how to use asynchronous processing in a servlet to provide data updates to web clients.
+The example resembles a service that provides periodic updates on the price and trading volume of an electronically traded fund (ETF).</p>
+</div>
+<div class="sect2">
+<h3 id="_architecture_of_the_dukeetf_example_application"><a class="anchor" href="#_architecture_of_the_dukeetf_example_application"></a>Architecture of the dukeetf Example Application</h3>
+<div class="paragraph">
+<p>The <code>dukeetf</code> example application consists of a servlet, an enterprise bean, and an HTML page.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The servlet puts requests in asynchronous mode, stores them in a queue, and writes the responses when new data for price and trading volume becomes available.</p>
+</li>
+<li>
+<p>The enterprise bean updates the price and volume information once every second.</p>
+</li>
+<li>
+<p>The HTML page uses JavaScript code to make requests to the servlet for new data, parse the response from the servlet, and update the price and volume information without reloading the page.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>dukeetf</code> example application uses a programming model known as long polling.
+In the traditional HTTP request and response model, the user must make an explicit request (such as clicking a link or submitting a form) to get any new information from the server, and the page has to be reloaded.
+Long polling provides a mechanism for web applications to push updates to clients using HTTP without the user making an explicit request.
+The server handles connections asynchronously, and the client uses JavaScript to make new connections.
+In this model, clients make a new request immediately after receiving new data, and the server keeps the connection open until new data becomes available.</p>
+</div>
+<div class="sect3">
+<h4 id="_the_servlet"><a class="anchor" href="#_the_servlet"></a>The Servlet</h4>
+<div class="paragraph">
+<p>The <code>DukeETFServlet</code> class uses asynchronous processing:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@WebServlet(urlPatterns={"/dukeetf"}, asyncSupported=true)
+public class DukeETFServlet extends HttpServlet {
+...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the following code, the <code>init</code> method initializes a queue to hold client requests and registers the servlet with the enterprise bean that provides the price and volume updates.
+The <code>send</code> method gets called once per second by the <code>PriceVolumeBean</code> to send updates and close the connection:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
+public void init(ServletConfig config) {
+   /* Queue for requests */
+   requestQueue = new ConcurrentLinkedQueue&lt;&gt;();
+   /* Register with the enterprise bean that provides price/volume updates */
+   pvbean.registerServlet(this);
+}
+
+/* PriceVolumeBean calls this method every second to send updates */
+public void send(double price, int volume) {
+   /* Send update to all connected clients */
+   for (AsyncContext acontext : requestQueue) {
+      try {
+         String msg = String.format("%.2f / %d", price, volume);
+         PrintWriter writer = acontext.getResponse().getWriter();
+         writer.write(msg);
+         logger.log(Level.INFO, "Sent: {0}", msg);
+         /* Close the connection
+          * The client (JavaScript) makes a new one instantly */
+         acontext.complete();
+      } catch (IOException ex) {
+         logger.log(Level.INFO, ex.toString());
+      }
+   }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The service method puts client requests in asynchronous mode and adds a listener to each request.
+The listener is implemented as an anonymous class that removes the request from the queue when the servlet finishes writing a response or when there is an error.
+Finally, the service method adds the request to the request queue created in the <code>init</code> method.
+The service method is the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
+public void doGet(HttpServletRequest request,
+                  HttpServletResponse response) {
+   response.setContentType("text/html");
+   /* Put request in async mode */
+   final AsyncContext acontext = request.startAsync();
+   /* Remove from the queue when done */
+   acontext.addListener(new AsyncListener() {
+      public void onComplete(AsyncEvent ae) throws IOException {
+         requestQueue.remove(acontext);
+      }
+      public void onTimeout(AsyncEvent ae) throws IOException {
+         requestQueue.remove(acontext);
+      }
+      public void onError(AsyncEvent ae) throws IOException {
+         requestQueue.remove(acontext);
+      }
+      public void onStartAsync(AsyncEvent ae) throws IOException {}
+   });
+   /* Add to the queue */
+   requestQueue.add(acontext);
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_enterprise_bean"><a class="anchor" href="#_the_enterprise_bean"></a>The Enterprise Bean</h4>
+<div class="paragraph">
+<p>The <code>PriceVolumeBean</code> class is an enterprise bean that uses the timer service from the container to update the price and volume information and call the servlet&#8217;s <code>send</code> method once every second:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Startup
+@Singleton
+public class PriceVolumeBean {
+    /* Use the container's timer service */
+    @Resource TimerService tservice;
+    private DukeETFServlet servlet;
+    ...
+
+    @PostConstruct
+    public void init() {
+        /* Initialize the EJB and create a timer */
+        random = new Random();
+        servlet = null;
+        tservice.createIntervalTimer(1000, 1000, new TimerConfig());
+    }
+
+    public void registerServlet(DukeETFServlet servlet) {
+        /* Associate a servlet to send updates to */
+        this.servlet = servlet;
+    }
+
+    @Timeout
+    public void timeout() {
+        /* Adjust price and volume and send updates */
+        price += 1.0*(random.nextInt(100)-50)/100.0;
+        volume += random.nextInt(5000) - 2500;
+        if (servlet != null)
+            servlet.send(price, volume);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See <a href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html#_using_the_timer_service" class="xref page">Using the Timer Service</a> in <a href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html#_running_the_enterprise_bean_examples" class="xref page">Running the Enterprise Bean Examples</a> for more information on the timer service.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_html_page"><a class="anchor" href="#_the_html_page"></a>The HTML Page</h4>
+<div class="paragraph">
+<p>The HTML page consists of a table and some JavaScript code.
+The table contains two fields referenced from JavaScript code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;...&lt;/head&gt;
+&lt;body onload="makeAjaxRequest();"&gt;
+  ...
+  &lt;table&gt;
+    ...
+    &lt;td id="price"&gt;--.--&lt;/td&gt;
+    ...
+    &lt;td id="volume"&gt;--&lt;/td&gt;
+    ...
+  &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The JavaScript code uses the <code>XMLHttpRequest</code> API, which provides functionality for transferring data between a client and a server.
+The script makes an asynchronous request to the servlet and designates a callback method.
+When the server provides a response, the callback method updates the fields in the table and makes a new request.
+The JavaScript code is the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">var ajaxRequest;
+function updatePage() {
+   if (ajaxRequest.readyState === 4) {
+      var arraypv = ajaxRequest.responseText.split("/");
+      document.getElementById("price").innerHTML = arraypv[0];
+      document.getElementById("volume").innerHTML = arraypv[1];
+      makeAjaxRequest();
+   }
+}
+function makeAjaxRequest() {
+   ajaxRequest = new XMLHttpRequest();
+   ajaxRequest.onreadystatechange = updatePage;
+   ajaxRequest.open("GET", "http://localhost:8080/dukeetf/dukeetf",
+                    true);
+   ajaxRequest.send(null);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>XMLHttpRequest</code> API is supported by most modern browsers, and it is widely used in Ajax web client development (Asynchronous JavaScript and XML).</p>
+</div>
+<div class="paragraph">
+<p>See <a href="../websocket/websocket.html#_the_dukeetf2_example_application" class="xref page">The dukeetf2 Example Application</a> in <a href="../websocket/websocket.html#_jakarta_websocket" class="xref page">Jakarta WebSocket</a> for an equivalent version of this example implemented using a WebSocket endpoint.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_running_the_dukeetf_example_application"><a class="anchor" href="#_running_the_dukeetf_example_application"></a>Running the dukeetf Example Application</h3>
+<div class="paragraph">
+<p>This section describes how to run the <code>dukeetf</code> example application using NetBeans IDE and from the command line.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_dukeetf_example_application_using_netbeans_ide"><a class="anchor" href="#_to_run_the_dukeetf_example_application_using_netbeans_ide"></a>To Run the dukeetf Example Application Using NetBeans IDE</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>From the <strong>File</strong> menu, choose <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the Open Project dialog box, navigate to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/web/servlet</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Select the <code>dukeetf</code> folder.</p>
+</li>
+<li>
+<p>Click <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Projects</strong> tab, right-click the <code>dukeetf</code> project and select <strong>Run</strong>.</p>
+<div class="paragraph">
+<p>This command builds and packages the application into a WAR file (<code>dukeetf.war</code>) located in the <code>target</code> directory, deploys it to the server, and launches a web browser window with the following URL:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/dukeetf/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Open the same URL in a different web browser to see how both pages get price and volume updates simultaneously.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_dukeetf_example_application_using_maven"><a class="anchor" href="#_to_run_the_dukeetf_example_application_using_maven"></a>To Run the dukeetf Example Application Using Maven</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>In a terminal window, go to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/web/servlet/dukeetf/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enter the following command to deploy the application:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn install</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Open a web browser window and type the following address:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/dukeetf/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Open the same URL in a different web browser to see how both pages get price and volume updates simultaneously.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_further_information_about_jakarta_servlet_technology"><a class="anchor" href="#_further_information_about_jakarta_servlet_technology"></a>Further Information about Jakarta Servlet Technology</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For more information on Jakarta Servlet technology, see the Jakarta Servlet 5.0 specification at <a href="https://jakarta.ee/specifications/servlet/5.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/servlet/5.0/</a>.</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Running the Basic Contexts and Dependency Injection Examples :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">Jakarta EE Tutorial</a></li>
+    <li>Jakarta EE Core Profile</li>
+    <li>Jakarta CDI Lite</li>
+    <li><a href="cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/cdi/pages/cdi-basicexamples/cdi-basicexamples.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Running the Basic Contexts and Dependency Injection Examples</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We are working on a fresh, updated Jakarta EE Tutorial. This section hasn&#8217;t yet been updated.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This chapter describes in detail how to build and run simple examples that use CDI.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_building_and_running_the_cdi_samples"><a class="anchor" href="#_building_and_running_the_cdi_samples"></a>Building and Running the CDI Samples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The examples are in the <code><em>tut-install</em>/examples/cdi/</code> directory.</p>
+</div>
+<div class="paragraph">
+<p>To build and run the examples, you will do the following:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Use NetBeans IDE or the Maven tool to compile and package the example.</p>
+</li>
+<li>
+<p>Use NetBeans IDE or the Maven tool to deploy the example.</p>
+</li>
+<li>
+<p>Run the example in a web browser.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>See <a href="../../intro/usingexamples/usingexamples.html#_using_the_tutorial_examples" class="xref page">Using the Tutorial Examples</a>, for basic information on installing, building, and running the examples.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_simplegreeting_cdi_example"><a class="anchor" href="#_the_simplegreeting_cdi_example"></a>The simplegreeting CDI Example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>simplegreeting</code> example illustrates some of the most basic features of CDI: scopes, qualifiers, bean injection, and accessing a managed bean in a Jakarta Faces application.
+When you run the example, you click a button that presents either a formal or an informal greeting, depending on how you edited one of the classes.
+The example includes four source files, a Facelets page and template, and configuration files.</p>
+</div>
+<div class="sect2">
+<h3 id="_the_simplegreeting_source_files"><a class="anchor" href="#_the_simplegreeting_source_files"></a>The simplegreeting Source Files</h3>
+<div class="paragraph">
+<p>The four source files for the <code>simplegreeting</code> example are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The default <code>Greeting</code> class, shown in <a href="../cdi-basic/cdi-basic.html#_beans_as_injectable_objects" class="xref page">Beans as Injectable Objects</a></p>
+</li>
+<li>
+<p>The <code>@Informal</code> qualifier interface definition and the <code>InformalGreeting</code> class that implements the interface, both shown in <a href="../cdi-basic/cdi-basic.html#_using_qualifiers" class="xref page">Using Qualifiers</a></p>
+</li>
+<li>
+<p>The <code>Printer</code> managed bean class, which injects one of the two interfaces, shown in full in <a href="../cdi-basic/cdi-basic.html#_adding_setter_and_getter_methods" class="xref page">Adding Setter and Getter Methods</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The source files are located in the <code><em>tut-install</em>/examples/cdi/simplegreeting/src/main/java/ee/jakarta/tutorial/simplegreeting</code> directory.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_facelets_template_and_page"><a class="anchor" href="#_the_facelets_template_and_page"></a>The Facelets Template and Page</h3>
+<div class="paragraph">
+<p>To use the managed bean in a simple Facelets application:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Use a very simple template file and <code>index.xhtml</code> page.</p>
+<div class="paragraph">
+<p>The template page, <code>template.xhtml</code>, looks like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version='1.0' encoding='UTF-8' ?&gt;
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="jakarta.faces.facelets"&gt;
+    &lt;h:head&gt;
+        &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/&gt;
+        &lt;h:outputStylesheet library="css" name="default.css"/&gt;
+        &lt;title&gt;&lt;ui:insert name="title"&gt;Default Title&lt;/ui:insert&gt;&lt;/title&gt;
+    &lt;/h:head&gt;
+
+    &lt;body&gt;
+        &lt;div id="container"&gt;
+            &lt;div id="header"&gt;
+                &lt;h2&gt;&lt;ui:insert name="head"&gt;Head&lt;/ui:insert&gt;&lt;/h2&gt;
+            &lt;/div&gt;
+
+            &lt;div id="space"&gt;
+                &lt;p&gt;&lt;/p&gt;
+            &lt;/div&gt;
+
+            &lt;div id="content"&gt;
+                &lt;ui:insert name="content"/&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>To create the Facelets page, redefine the title and head, then add a small form to the content:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version='1.0' encoding='UTF-8' ?&gt;
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:h="jakarta.faces.html"&gt;
+    &lt;ui:composition template="/template.xhtml"&gt;
+
+        &lt;ui:define name="title"&gt;Simple Greeting&lt;/ui:define&gt;
+        &lt;ui:define name="head"&gt;Simple Greeting&lt;/ui:define&gt;
+        &lt;ui:define name="content"&gt;
+            &lt;h:form id="greetme"&gt;
+               &lt;p&gt;&lt;h:outputLabel value="Enter your name: " for="name"/&gt;
+                  &lt;h:inputText id="name" value="#{printer.name}"/&gt;&lt;/p&gt;
+               &lt;p&gt;&lt;h:commandButton value="Say Hello"
+                                   action="#{printer.createSalutation}"/&gt;&lt;/p&gt;
+               &lt;p&gt;&lt;h:outputText value="#{printer.salutation}"/&gt; &lt;/p&gt;
+            &lt;/h:form&gt;
+        &lt;/ui:define&gt;
+
+    &lt;/ui:composition&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The form asks the user to enter a name.
+The button is labeled <strong>Say Hello</strong>, and the action defined for it is to call the <code>createSalutation</code> method of the <code>Printer</code> managed bean.
+This method in turn calls the <code>greet</code> method of the defined <code>Greeting</code> class.</p>
+</div>
+<div class="paragraph">
+<p>The output text for the form is the value of the greeting returned by the setter method.
+Depending on whether the default or the <code>@Informal</code> version of the greeting is injected, this is one of the following, where <code>name</code> is the name entered by the user:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">Hello, name.
+
+Hi, name!</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The Facelets page and template are located in the <code><em>tut-install</em>/examples/cdi/simplegreeting/src/main/webapp/</code> directory.</p>
+</div>
+<div class="paragraph">
+<p>The simple CSS file that is used by the Facelets page is in the following location:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/cdi/simplegreeting/src/main/webapp/resources/css/default.css</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_running_the_simplegreeting_example"><a class="anchor" href="#_running_the_simplegreeting_example"></a>Running the simplegreeting Example</h3>
+<div class="paragraph">
+<p>You can use either NetBeans IDE or Maven to build, package, deploy, and run the <code>simplegreeting</code> application.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_build_package_and_run_the_simplegreeting_example_using_netbeans_ide"><a class="anchor" href="#_to_build_package_and_run_the_simplegreeting_example_using_netbeans_ide"></a>To Build, Package, and Run the simplegreeting Example Using NetBeans IDE</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>From the <strong>File</strong> menu, choose <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Open Project</strong> dialog box, navigate to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/cdi</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Select the <code>simplegreeting</code> folder.</p>
+</li>
+<li>
+<p>Click <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>To modify the <code>Printer.java</code> file, perform these steps:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expand the <strong>Source Packages</strong> node.</p>
+</li>
+<li>
+<p>Expand the <code>greetings</code> node.</p>
+</li>
+<li>
+<p>Double-click the <code>Printer.java</code> file.</p>
+</li>
+<li>
+<p>In the editor, comment out the <code>@Informal</code> annotation:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Inject
+//@Informal
+Greeting greeting;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Save the file.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>In the <strong>Projects</strong> tab, right-click the <code>simplegreeting</code> project and select <strong>Build</strong>.</p>
+<div class="paragraph">
+<p>This command builds and packages the application into a WAR file, <code>simplegreeting.war</code>, located in the <code>target</code> directory, and then deploys it to GlassFish Server.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_build_package_and_deploy_the_simplegreeting_example_using_maven"><a class="anchor" href="#_to_build_package_and_deploy_the_simplegreeting_example_using_maven"></a>To Build, Package, and Deploy the simplegreeting Example Using Maven</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>In a terminal window, go to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/cdi/simplegreeting/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enter the following command to deploy the application:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command builds and packages the application into a WAR file, <code>simplegreeting.war</code>, located in the <code>target</code> directory, and then deploys it to GlassFish Server.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_simplegreeting_example"><a class="anchor" href="#_to_run_the_simplegreeting_example"></a>To Run the simplegreeting Example</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In a web browser, enter the following URL:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/simplegreeting</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <strong>Simple Greeting</strong> page opens.</p>
+</div>
+</li>
+<li>
+<p>Enter a name in the field.</p>
+<div class="paragraph">
+<p>For example, suppose that you enter <code>Duke</code>.</p>
+</div>
+</li>
+<li>
+<p>Click <strong>Say Hello</strong>.</p>
+<div class="paragraph">
+<p>If you did not modify the <code>Printer.java</code> file, then the following text string appears below the button:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">Hi, Duke!</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you commented out the <code>@Informal</code> annotation in the <code>Printer.java</code> file, then the following text string appears below the button:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">Hello, Duke.</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_guessnumber_cdi_cdi_example"><a class="anchor" href="#_the_guessnumber_cdi_cdi_example"></a>The guessnumber-cdi CDI Example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>guessnumber-cdi</code> example, somewhat more complex than the <code>simplegreeting</code> example, illustrates the use of producer methods and of session and application scope.
+The example is a game in which you try to guess a number in fewer than ten attempts.
+It is similar to the <code>guessnumber-faces</code> example described in <a href="../../web/faces-facelets/faces-facelets.html#_introduction_to_facelets" class="xref page">Introduction to Facelets</a>, except that you can keep guessing until you get the right answer or until you use up your ten attempts.</p>
+</div>
+<div class="paragraph">
+<p>The example includes four source files, a Facelets page and template, and configuration files.
+The configuration files and the template are the same as those used for the <code>simplegreeting</code> example.</p>
+</div>
+<div class="sect2">
+<h3 id="_the_guessnumber_cdi_source_files"><a class="anchor" href="#_the_guessnumber_cdi_source_files"></a>The guessnumber-cdi Source Files</h3>
+<div class="paragraph">
+<p>The four source files for the <code>guessnumber-cdi</code> example are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>@MaxNumber</code> qualifier interface</p>
+</li>
+<li>
+<p>The <code>@Random</code> qualifier interface</p>
+</li>
+<li>
+<p>The <code>Generator</code> managed bean, which defines producer methods</p>
+</li>
+<li>
+<p>The <code>UserNumberBean</code> managed bean</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The source files are located in the <code><em>tut-install</em>/examples/cdi/guessnumber-cdi/src/main/java/ee/jakarta/tutorial/guessnumber</code> directory.</p>
+</div>
+<div class="sect3">
+<h4 id="_the_maxnumber_and_random_qualifier_interfaces"><a class="anchor" href="#_the_maxnumber_and_random_qualifier_interfaces"></a>The @MaxNumber and @Random Qualifier Interfaces</h4>
+<div class="paragraph">
+<p>The <code>@MaxNumber</code> qualifier interface is defined as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package guessnumber;
+
+import java.lang.annotation.Documented;
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.ElementType.METHOD;
+import static java.lang.annotation.ElementType.PARAMETER;
+import static java.lang.annotation.ElementType.TYPE;
+import java.lang.annotation.Retention;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import java.lang.annotation.Target;
+import jakarta.inject.Qualifier;
+
+@Target({TYPE, METHOD, PARAMETER, FIELD})
+@Retention(RUNTIME)
+@Documented
+@Qualifier
+public @interface MaxNumber {
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>@Random</code> qualifier interface is defined as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package guessnumber;
+
+import java.lang.annotation.Documented;
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.ElementType.METHOD;
+import static java.lang.annotation.ElementType.PARAMETER;
+import static java.lang.annotation.ElementType.TYPE;
+import java.lang.annotation.Retention;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import java.lang.annotation.Target;
+import jakarta.inject.Qualifier;
+
+@Target({TYPE, METHOD, PARAMETER, FIELD})
+@Retention(RUNTIME)
+@Documented
+@Qualifier
+public @interface Random {
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_generator_managed_bean"><a class="anchor" href="#_the_generator_managed_bean"></a>The Generator Managed Bean</h4>
+<div class="paragraph">
+<p>The <code>Generator</code> managed bean contains the two producer methods for the application.
+The bean has the <code>@ApplicationScoped</code> annotation to specify that its context extends for the duration of the user&#8217;s interaction with the application:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package guessnumber;
+
+import java.io.Serializable;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.inject.Produces;
+
+@ApplicationScoped
+public class Generator implements Serializable {
+
+    private static final long serialVersionUID = -7213673465118041882L;
+
+    private final java.util.Random random =
+        new java.util.Random( System.currentTimeMillis() );
+
+    private final int maxNumber = 100;
+
+    java.util.Random getRandom() {
+        return random;
+    }
+
+    @Produces @Random int next() {
+        return getRandom().nextInt(maxNumber + 1);
+    }
+
+    @Produces @MaxNumber int getMaxNumber() {
+        return maxNumber;
+    }
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_usernumberbean_managed_bean"><a class="anchor" href="#_the_usernumberbean_managed_bean"></a>The UserNumberBean Managed Bean</h4>
+<div class="paragraph">
+<p>The <code>UserNumberBean</code> managed bean, the managed bean for the Jakarta Faces application, provides the basic logic for the game.
+This bean does the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Implements setter and getter methods for the bean fields</p>
+</li>
+<li>
+<p>Injects the two qualifier objects</p>
+</li>
+<li>
+<p>Provides a <code>reset</code> method that allows you to begin a new game after you complete one</p>
+</li>
+<li>
+<p>Provides a <code>check</code> method that determines whether the user has guessed the number</p>
+</li>
+<li>
+<p>Provides a <code>validateNumberRange</code> method that determines whether the user&#8217;s input is correct</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The bean is defined as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package guessnumber;
+
+import java.io.Serializable;
+import jakarta.annotation.PostConstruct;
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.enterprise.inject.Instance;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.component.UIComponent;
+import jakarta.faces.component.UIInput;
+import jakarta.faces.context.FacesContext;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
+
+@Named
+@SessionScoped
+public class UserNumberBean implements Serializable {
+
+    private static final long serialVersionUID = -7698506329160109476L;
+
+    private int number;
+    private Integer userNumber;
+    private int minimum;
+    private int remainingGuesses;
+
+    @MaxNumber
+    @Inject
+    private int maxNumber;
+
+    private int maximum;
+
+    @Random
+    @Inject
+    Instance&lt;Integer&gt; randomInt;
+
+    public UserNumberBean() {
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setUserNumber(Integer user_number) {
+        userNumber = user_number;
+    }
+
+    public Integer getUserNumber() {
+        return userNumber;
+    }
+
+    public int getMaximum() {
+        return (this.maximum);
+    }
+
+    public void setMaximum(int maximum) {
+        this.maximum = maximum;
+    }
+
+    public int getMinimum() {
+        return (this.minimum);
+    }
+
+    public void setMinimum(int minimum) {
+        this.minimum = minimum;
+    }
+
+    public int getRemainingGuesses() {
+        return remainingGuesses;
+    }
+
+    public String check() throws InterruptedException {
+        if (userNumber &gt; number) {
+            maximum = userNumber - 1;
+        }
+        if (userNumber &lt; number) {
+            minimum = userNumber + 1;
+        }
+        if (userNumber == number) {
+            FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage("Correct!"));
+        }
+        remainingGuesses--;
+        return null;
+    }
+
+    @PostConstruct
+    public void reset() {
+        this.minimum = 0;
+        this.userNumber = 0;
+        this.remainingGuesses = 10;
+        this.maximum = maxNumber;
+        this.number = randomInt.get();
+    }
+
+    public void validateNumberRange(FacesContext context,
+                                    UIComponent toValidate,
+                                    Object value) {
+        int input = (Integer) value;
+
+        if (input &lt; minimum || input &gt; maximum) {
+            ((UIInput) toValidate).setValid(false);
+
+            FacesMessage message = new FacesMessage("Invalid guess");
+            context.addMessage(toValidate.getClientId(context), message);
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_facelets_page"><a class="anchor" href="#_the_facelets_page"></a>The Facelets Page</h3>
+<div class="paragraph">
+<p>This example uses the same template that the <code>simplegreeting</code> example uses.
+The <code>index.xhtml</code> file, however, is more complex.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version='1.0' encoding='UTF-8' ?&gt;
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:h="jakarta.faces.html"&gt;
+    &lt;ui:composition template="/template.xhtml"&gt;
+
+        &lt;ui:define name="title"&gt;Guess My Number&lt;/ui:define&gt;
+        &lt;ui:define name="head"&gt;Guess My Number&lt;/ui:define&gt;
+        &lt;ui:define name="content"&gt;
+            &lt;h:form id="GuessMain"&gt;
+                &lt;div style="color: black; font-size: 24px;"&gt;
+                    &lt;p&gt;I'm thinking of a number from
+                    &lt;span style="color: blue"&gt;#{userNumberBean.minimum}&lt;/span&gt;
+                    to
+                    &lt;span style="color: blue"&gt;#{userNumberBean.maximum}&lt;/span&gt;.
+                    You have
+                    &lt;span style="color: blue"&gt;
+                        #{userNumberBean.remainingGuesses}
+                    &lt;/span&gt;
+                    guesses.&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;h:panelGrid border="0" columns="5" style="font-size: 18px;"&gt;
+                    &lt;h:outputLabel for="inputGuess"&gt;Number:&lt;/h:outputLabel&gt;
+                    &lt;h:inputText id="inputGuess"
+                                 value="#{userNumberBean.userNumber}"
+                                 required="true" size="3"
+disabled="#{userNumberBean.number eq userNumberBean.userNumber or userNumberBean.remainingGuesses le 0}"
+                               validator="#{userNumberBean.validateNumberRange}"&gt;
+                    &lt;/h:inputText&gt;
+                    &lt;h:commandButton id="GuessButton" value="Guess"
+                                     action="#{userNumberBean.check}"
+disabled="#{userNumberBean.number eq userNumberBean.userNumber or userNumberBean.remainingGuesses le 0}"/&gt;
+                    &lt;h:commandButton id="RestartButton" value="Reset"
+                                     action="#{userNumberBean.reset}"
+                                     immediate="true" /&gt;
+                    &lt;h:outputText id="Higher" value="Higher!"
+rendered="#{userNumberBean.number gt userNumberBean.userNumber and userNumberBean.userNumber ne 0}"
+                                  style="color: #d20005"/&gt;
+                    &lt;h:outputText id="Lower" value="Lower!"
+rendered="#{userNumberBean.number lt userNumberBean.userNumber and userNumberBean.userNumber ne 0}"
+                                  style="color: #d20005"/&gt;
+                &lt;/h:panelGrid&gt;
+                &lt;div style="color: #d20005; font-size: 14px;"&gt;
+                    &lt;h:messages id="messages" globalOnly="false"/&gt;
+                &lt;/div&gt;
+            &lt;/h:form&gt;
+        &lt;/ui:define&gt;
+
+    &lt;/ui:composition&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The Facelets page presents the user with the minimum and maximum values and the number of guesses remaining.
+The user&#8217;s interaction with the game takes place within the <code>panelGrid</code> table, which contains an input field, <strong>Guess</strong> and <strong>Reset</strong> buttons, and a field that appears if the guess is higher or lower than the correct number.
+Every time the user clicks <strong>Guess</strong>, the <code>userNumberBean.check</code> method is called to reset the maximum or minimum value or, if the guess is correct, to generate a <code>FacesMessage</code> to that effect.
+The method that determines whether each guess is valid is <code>userNumberBean.validateNumberRange</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_running_the_guessnumber_cdi_example"><a class="anchor" href="#_running_the_guessnumber_cdi_example"></a>Running the guessnumber-cdi Example</h3>
+<div class="paragraph">
+<p>You can use either NetBeans IDE or Maven to build, package, deploy, and run the <code>guessnumber-cdi</code> application.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_build_package_and_deploy_the_guessnumber_cdi_example_using_netbeans_ide"><a class="anchor" href="#_to_build_package_and_deploy_the_guessnumber_cdi_example_using_netbeans_ide"></a>To Build, Package, and Deploy the guessnumber-cdi Example Using NetBeans IDE</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>From the <strong>File</strong> menu, choose <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Open Project</strong> dialog box, navigate to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">tut-install/examples/cdi</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Select the <code>guessnumber-cdi</code> folder.</p>
+</li>
+<li>
+<p>Click <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Projects</strong> tab, right-click the <code>guessnumber-cdi</code> project and select <strong>Build</strong>.</p>
+<div class="paragraph">
+<p>This command builds and packages the application into a WAR file, <code>guessnumber-cdi.war</code>, located in the <code>target</code> directory, and then deploys it to GlassFish Server.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_build_package_and_deploy_the_guessnumber_cdi_example_using_maven"><a class="anchor" href="#_to_build_package_and_deploy_the_guessnumber_cdi_example_using_maven"></a>To Build, Package, and Deploy the guessnumber-cdi Example Using Maven</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>In a terminal window, change to the following directory:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">tut-install/examples/cdi/guessnumber-cdi/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enter the following command to deploy the application:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">mvn install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command builds and packages the application into a WAR file, <code>guessnumber-cdi.war</code>, located in the <code>target</code> directory, and then deploys it to GlassFish Server.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_guessnumber_example"><a class="anchor" href="#_to_run_the_guessnumber_example"></a>To Run the guessnumber Example</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In a web browser, enter the following URL:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/guessnumber-cdi</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <strong>Guess My Number</strong> page opens.</p>
+</div>
+</li>
+<li>
+<p>On the <strong>Guess My Number</strong> page, enter a number in the <strong>Number</strong> field and click <strong>Guess</strong>.</p>
+<div class="paragraph">
+<p>The minimum and maximum values are modified, along with the remaining number of guesses.</p>
+</div>
+</li>
+<li>
+<p>Keep guessing numbers until you get the right answer or run out of guesses.</p>
+<div class="paragraph">
+<p>If you get the right answer or run out of guesses, the input field and <strong>Guess</strong> button are grayed out.</p>
+</div>
+</li>
+<li>
+<p>Click <strong>Reset</strong> to play the game again with a new random number.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

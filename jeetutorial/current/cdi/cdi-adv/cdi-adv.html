@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Jakarta Contexts and Dependency Injection: Advanced Topics :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">Jakarta EE Tutorial</a></li>
+    <li>Jakarta EE Web Profile</li>
+    <li>Jakarta CDI Full</li>
+    <li><a href="cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/cdi/pages/cdi-adv/cdi-adv.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Jakarta Contexts and Dependency Injection: Advanced Topics</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We are working on a fresh, updated Jakarta EE Tutorial. This section hasn&#8217;t yet been updated.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This chapter describes more advanced features of Jakarta Contexts and Dependency Injection.
+Specifically, it covers additional features CDI provides to enable loose coupling of components with strong typing, in addition to those described in <a href="../cdi-basic/cdi-basic.html#_overview_of_cdi" class="xref page">Overview of CDI</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_packaging_cdi_applications"><a class="anchor" href="#_packaging_cdi_applications"></a>Packaging CDI Applications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you deploy a Jakarta EE application, CDI looks for beans inside bean archives.
+A bean archive is any module that contains beans that the CDI runtime can manage and inject.
+There are two kinds of bean archives: explicit bean archives and implicit bean archives.</p>
+</div>
+<div class="paragraph">
+<p>An explicit bean archive is an archive that contains a <code>beans.xml</code> deployment descriptor, which can be an empty file, contain no version number, or contain the version number 3.0 with the <code>bean-discovery-mode</code> attribute set to <code>all</code>.
+For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;beans xmlns="https://jakarta.ee/xml/ns/jakartaee"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                           https://jakarta.ee/xml/ns/jakartaee/beans_3_0.xsd"
+       version="3.0" bean-discovery-mode="all"&gt;
+    ...
+&lt;/beans&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>CDI can manage and inject any bean in an explicit archive, except those annotated with <code>@Vetoed</code>.</p>
+</div>
+<div class="paragraph">
+<p>An implicit bean archive is an archive that contains some beans annotated with a scope type, contains no <code>beans.xml</code> deployment descriptor, or contains a <code>beans.xml</code> deployment descriptor with the <code>bean-discovery-mode</code> attribute set to <code>annotated</code>.</p>
+</div>
+<div class="paragraph">
+<p>In an implicit archive, CDI can only manage and inject beans annotated with a scope type.</p>
+</div>
+<div class="paragraph">
+<p>For a web application, the <code>beans.xml</code> deployment descriptor, if present, must be in the <code>WEB-INF</code> directory.
+For enterprise bean modules or JAR files, the <code>beans.xml</code> deployment descriptor, if present, must be in the <code>META-INF</code> directory.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_alternatives_in_cdi_applications"><a class="anchor" href="#_using_alternatives_in_cdi_applications"></a>Using Alternatives in CDI Applications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you have more than one version of a bean that you use for different purposes, you can choose between them during the development phase by injecting one qualifier or another, as shown in <a href="../cdi-basicexamples/cdi-basicexamples.html#_the_simplegreeting_cdi_example" class="xref page">The simplegreeting CDI Example</a>.</p>
+</div>
+<div class="paragraph">
+<p>Instead of having to change the source code of your application, however, you can make the choice at deployment time by using alternatives.</p>
+</div>
+<div class="paragraph">
+<p>Alternatives are commonly used for purposes such as the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To handle client-specific business logic that is determined at runtime</p>
+</li>
+<li>
+<p>To specify beans that are valid for a particular deployment scenario (for example, when country-specific sales tax laws require country-specific sales tax business logic)</p>
+</li>
+<li>
+<p>To create dummy (mock) versions of beans to be used for testing</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To make a bean available for lookup, injection, or EL resolution using this mechanism, give it a <code>jakarta.enterprise.inject.Alternative</code> annotation and then use the <code>alternatives</code> element to specify it in the <code>beans.xml</code> file.</p>
+</div>
+<div class="paragraph">
+<p>For example, you might want to create a full version of a bean and also a simpler version that you use only for certain kinds of testing.
+The example described in <a href="../cdi-adv-examples/cdi-adv-examples.html#_the_encoder_example_using_alternatives" class="xref page">The encoder Example: Using Alternatives</a> contains two such beans, <code>CoderImpl</code> and <code>TestCoderImpl</code>.
+The test bean is annotated as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Alternative
+public class TestCoderImpl implements Coder { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The full version is not annotated:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class CoderImpl implements Coder { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The managed bean injects an instance of the <code>Coder</code> interface:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Inject
+Coder coder;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The alternative version of the bean is used by the application only if that version is declared as follows in the <code>beans.xml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;beans ...&gt;
+    &lt;alternatives&gt;
+        &lt;class&gt;ee.jakarta.tutorial.encoder.TestCoderImpl&lt;/class&gt;
+    &lt;/alternatives&gt;
+&lt;/beans&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the <code>alternatives</code> element is commented out in the <code>beans.xml</code> file, the <code>CoderImpl</code> class is used.</p>
+</div>
+<div class="paragraph">
+<p>You can also have several beans that implement the same interface, all annotated <code>@Alternative</code>.
+In this case, you must specify in the <code>beans.xml</code> file which of these alternative beans you want to use.
+If <code>CoderImpl</code> were also annotated <code>@Alternative</code>, one of the two beans would always have to be specified in the <code>beans.xml</code> file.</p>
+</div>
+<div class="paragraph">
+<p>The alternatives that you specify in the <code>beans.xml</code> file apply only to classes in the same archive.
+Use the <code>@Priority</code> annotation to specify alternatives globally for an application that consists of multiple modules, as in the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Alternative
+@Priority(Interceptor.Priority.APPLICATION+10)
+public class TestCoderImpl implements Coder { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The alternative with higher priority value is selected if several alternative beans that implement the same interface are annotated with <code>@Priority</code>.
+You do not need to specify the alternative in the <code>beans.xml</code> file when you use the <code>@Priority</code> annotation.</p>
+</div>
+<div class="sect2">
+<h3 id="_using_specialization"><a class="anchor" href="#_using_specialization"></a>Using Specialization</h3>
+<div class="paragraph">
+<p>Specialization has a function similar to that of alternatives in that it allows you to substitute one bean for another.
+However, you might want to make one bean override the other in all cases.
+Suppose you defined the following two beans:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Default @Asynchronous
+public class AsynchronousService implements Service { ... }
+
+@Alternative
+public class MockAsynchronousService extends AsynchronousService { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you then declared <code>MockAsynchronousService</code> as an alternative in your <code>beans.xml</code> file, the following injection point would resolve to <code>MockAsynchronousService</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Inject Service service;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following, however, would resolve to <code>AsynchronousService</code> rather than <code>MockAsynchronousService</code>, because <code>MockAsynchronousService</code> does not have the <code>@Asynchronous</code> qualifier:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Inject @Asynchronous Service service;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To make sure that <code>MockAsynchronousService</code> was always injected, you would have to implement all bean types and bean qualifiers of <code>AsynchronousService</code>.
+However, if <code>AsynchronousService</code> declared a producer method or observer method, even this cumbersome mechanism would not ensure that the other bean was never invoked.
+Specialization provides a simpler mechanism.</p>
+</div>
+<div class="paragraph">
+<p>Specialization happens at development time as well as at runtime.
+If you declare that one bean specializes another, it extends the other bean class, and at runtime the specialized bean completely replaces the other bean.
+If the first bean is produced by means of a producer method, you must also override the producer method.</p>
+</div>
+<div class="paragraph">
+<p>You specialize a bean by giving it the <code>jakarta.enterprise.inject.Specializes</code> annotation.
+For example, you might declare a bean as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Specializes
+public class MockAsynchronousService extends AsynchronousService { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this case, the <code>MockAsynchronousService</code> class will always be invoked instead of the <code>AsynchronousService</code> class.</p>
+</div>
+<div class="paragraph">
+<p>Usually, a bean marked with the <code>@Specializes</code> annotation is also an alternative and is declared as an alternative in the <code>beans.xml</code> file.
+Such a bean is meant to stand in as a replacement for the default implementation, and the alternative implementation automatically inherits all qualifiers of the default implementation as well as its EL name, if it has one.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_producer_methods_producer_fields_and_disposer_methods_in_cdi_applications"><a class="anchor" href="#_using_producer_methods_producer_fields_and_disposer_methods_in_cdi_applications"></a>Using Producer Methods, Producer Fields, and Disposer Methods in CDI Applications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A producer method generates an object that can then be injected.Typically, you use producer methods in the following situations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>When you want to inject an object that is not itself a bean</p>
+</li>
+<li>
+<p>When the concrete type of the object to be injected may vary at runtime</p>
+</li>
+<li>
+<p>When the object requires some custom initialization that the bean constructor does not perform</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more information on producer methods, see <a href="../cdi-basic/cdi-basic.html#_injecting_objects_by_using_producer_methods" class="xref page">Injecting Objects by Using Producer Methods</a>.</p>
+</div>
+<div class="paragraph">
+<p>A producer field is a simpler alternative to a producer method; it is a field of a bean that generates an object.
+It can be used instead of a simple getter method.
+Producer fields are particularly useful for declaring Jakarta EE resources such as data sources, JMS resources, and web service references.</p>
+</div>
+<div class="paragraph">
+<p>A producer method or field is annotated with the <code>jakarta.enterprise.inject.Produces</code> annotation.</p>
+</div>
+<div class="sect2">
+<h3 id="_using_producer_methods"><a class="anchor" href="#_using_producer_methods"></a>Using Producer Methods</h3>
+<div class="paragraph">
+<p>A producer method can allow you to select a bean implementation at runtime instead of at development time or deployment time.
+For example, in the example described in <a href="../cdi-adv-examples/cdi-adv-examples.html#_the_producermethods_example_using_a_producer_method_to_choose_a_bean_implementation" class="xref page">The producermethods Example: Using a Producer Method to Choose a Bean Implementation</a>, the managed bean defines the following producer method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Produces
+@Chosen
+@RequestScoped
+public Coder getCoder() {
+
+    switch (coderType) {
+        case TEST:
+            return new TestCoderImpl();
+        case SHIFT:
+            return new CoderImpl();
+        default:
+            return null;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here, <code>getCoder</code> becomes in effect a getter method, and when the <code>coder</code> property is injected with the same qualifier and other annotations as the method, the selected version of the interface is used.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Inject
+@Chosen
+@RequestScoped
+Coder coder;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Specifying the qualifier is essential: It tells CDI which <code>Coder</code> to inject.
+Without it, the CDI implementation would not be able to choose between <code>CoderImpl</code>, <code>TestCoderImpl</code>, and the one returned by <code>getCoder</code> and would cancel deployment, informing the user of the ambiguous dependency.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_producer_fields_to_generate_resources"><a class="anchor" href="#_using_producer_fields_to_generate_resources"></a>Using Producer Fields to Generate Resources</h3>
+<div class="paragraph">
+<p>A common use of a producer field is to generate an object such as a JDBC <code>DataSource</code> or a Jakarta Persistence <code>EntityManager</code> (see <a href="../../persist/persistence-intro/persistence-intro.html#_introduction_to_jakarta_persistence" class="xref page">Introduction to Jakarta Persistence</a>, for more information).
+The object can then be managed by the container.
+For example, you could create a <code>@UserDatabase</code> qualifier and then declare a producer field for an entity manager as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Produces
+@UserDatabase
+@PersistenceContext
+private EntityManager em;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>@UserDatabase</code> qualifier can be used when you inject the object into another bean, <code>RequestBean</code>, elsewhere in the application:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">    @Inject
+    @UserDatabase
+    EntityManager em;
+    ...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="../cdi-adv-examples/cdi-adv-examples.html#_the_producerfields_example_using_producer_fields_to_generate_resources" class="xref page">The producerfields Example: Using Producer Fields to Generate Resources</a> shows how to use producer fields to generate an entity manager.
+You can use a similar mechanism to inject <code>@Resource</code>, <code>@EJB</code>, or <code>@WebServiceRef</code> objects.</p>
+</div>
+<div class="paragraph">
+<p>To minimize the reliance on resource injection, specify the producer field for the resource in one place in the application, and then inject the object wherever in the application you need it.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_a_disposer_method"><a class="anchor" href="#_using_a_disposer_method"></a>Using a Disposer Method</h3>
+<div class="paragraph">
+<p>You can use a producer method or a producer field to generate an object that needs to be removed when its work is completed.
+If you do, you need a corresponding disposer method, annotated with a <code>@Disposes</code> annotation.
+For example, you can close the entity manager as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public void close(@Disposes @UserDatabase EntityManager em) {
+    em.close();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The disposer method is called automatically when the context ends (in this case, at the end of the conversation, because <code>RequestBean</code> has conversation scope), and the parameter in the <code>close</code> method receives the object produced by the producer field.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_predefined_beans_in_cdi_applications"><a class="anchor" href="#_using_predefined_beans_in_cdi_applications"></a>Using Predefined Beans in CDI Applications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Jakarta EE provides predefined beans that implement the following interfaces.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>jakarta.transaction.UserTransaction</code>: A Jakarta Transactions user transaction.</p>
+</li>
+<li>
+<p><code>java.security.Principal</code>: The abstract notion of a principal, which represents any entity, such as an individual, a corporation, or a login ID.
+Whenever the injected principal is accessed, it always represents the identity of the current caller.
+For example, a principal is injected into a field at initialization.
+Later, a method that uses the injected principal is called on the object into which the principal was injected.
+In this situation, the injected principal represents the identity of the current caller when the method is run.</p>
+</li>
+<li>
+<p><code>jakarta.validation.Validator</code>: A validator for bean instances.
+The bean that implements this interface enables a <code>Validator</code> object for the default bean validation object <code>ValidatorFactory</code> to be injected.</p>
+</li>
+<li>
+<p><code>jakarta.validation.ValidatorFactory</code>: A factory class for returning initialized <code>Validator</code> instances.
+The bean that implements this interface enables the default bean validation <code>ValidatorFactory</code> object to be injected.</p>
+</li>
+<li>
+<p><code>jakarta.servlet.http.HttpServletRequest</code>: An HTTP request from a client.
+The bean that implements this interface enables a servlet to obtain all the details of a request.</p>
+</li>
+<li>
+<p><code>jakarta.servlet.http.HttpSession</code>: An HTTP session between a client and a server.
+The bean that implements this interface enables a servlet to access information about a session and to bind objects to a session.</p>
+</li>
+<li>
+<p><code>jakarta.servlet.ServletContext</code>: A context object that servlets can use to communicate with the servlet container.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To inject a predefined bean, create an injection point to obtain an instance of the bean by using the <code>jakarta.annotation.Resource</code> annotation for resources or the <code>jakarta.inject.Inject</code> annotation for CDI beans.
+For the bean type, specify the class name of the interface the bean implements.</p>
+</div>
+<table id="_injection_of_predefined_beans" class="tableblock frame-all grid-all" style="width: 80%;">
+<caption class="title">Injection of Predefined Beans</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Predefined Bean</th>
+<th class="tableblock halign-left valign-top">Resource or CDI Bean</th>
+<th class="tableblock halign-left valign-top">Injection Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>UserTransaction</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resource</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Resource UserTransaction transaction;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Principal</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resource</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Resource Principal principal;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Validator</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resource</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Resource Validator validator;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ValidatorFactory</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resource</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Resource ValidatorFactory factory;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HttpServletRequest</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CDI bean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Inject HttpServletRequest req;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HttpSession</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CDI bean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Inject HttpSession session;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ServletContext</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CDI bean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Inject ServletContext context;</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Predefined beans are injected with dependent scope and the predefined default qualifier <code>@Default</code>.</p>
+</div>
+<div class="paragraph">
+<p>For more information about injecting resources, see <a href="../../platform/injection/injection.html#_resource_injection" class="xref page">Resource Injection</a>.</p>
+</div>
+<div class="paragraph">
+<p>The following code snippet shows how to use the <code>@Resource</code> and <code>@Inject</code> annotations to inject predefined beans.
+This code snippet injects a user transaction and a context object into the servlet class <code>TransactionServlet</code>.
+The user transaction is an instance of the predefined bean that implements the <code>jakarta.transaction.UserTransaction</code> interface.
+The context object is an instance of the predefined bean that implements the <code>jakarta.servlet.ServletContext</code> interface.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import jakarta.annotation.Resource;
+import jakarta.inject.Inject;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.transaction.UserTransaction;
+...
+public class TransactionServlet extends HttpServlet {
+    @Resource UserTransaction transaction;
+    @Inject ServletContext context;
+    ...
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_events_in_cdi_applications"><a class="anchor" href="#_using_events_in_cdi_applications"></a>Using Events in CDI Applications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Events allow beans to communicate without any compile-time dependency.
+One bean can define an event, another bean can fire the event, and yet another bean can handle the event.
+In addition, events can be fired asynchronously.
+The beans can be in separate packages and even in separate tiers of the application.</p>
+</div>
+<div class="sect2">
+<h3 id="_defining_events"><a class="anchor" href="#_defining_events"></a>Defining Events</h3>
+<div class="paragraph">
+<p>An event consists of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The event object, a Java object</p>
+</li>
+<li>
+<p>Zero or more qualifier types, the event qualifiers</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example, in the <code>billpayment</code> example described in <a href="../cdi-adv-examples/cdi-adv-examples.html#_the_billpayment_example_using_events_and_interceptors" class="xref page">The billpayment Example: Using Events and Interceptors</a>, a <code>PaymentEvent</code> bean defines an event using three properties, which have setter and getter methods:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public String paymentType;
+public BigDecimal value;
+public Date datetime;
+
+public PaymentEvent() {
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The example also defines qualifiers that distinguish between two kinds of <code>PaymentEvent</code>.
+Every event also has the default qualifier <code>@Any</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_observer_methods_to_handle_events"><a class="anchor" href="#_using_observer_methods_to_handle_events"></a>Using Observer Methods to Handle Events</h3>
+<div class="paragraph">
+<p>An event handler uses an observer method to consume events.</p>
+</div>
+<div class="paragraph">
+<p>Each observer method takes as a parameter an event of a specific event type that is annotated with the <code>@Observes</code> annotation and with any qualifiers for that event type.
+The observer method is notified of an event if the event object matches the event type and if all the qualifiers of the event match the observer method event qualifiers.</p>
+</div>
+<div class="paragraph">
+<p>The observer method can take other parameters in addition to the event parameter.
+The additional parameters are injection points and can declare qualifiers.</p>
+</div>
+<div class="paragraph">
+<p>The event handler for the <code>billpayment</code> example, <code>PaymentHandler</code>, defines two observer methods, one for each type of <code>PaymentEvent</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public void creditPayment(@Observes @Credit PaymentEvent event) {
+    ...
+}
+
+public void debitPayment(@Observes @Debit PaymentEvent event) {
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_conditional_and_transactional_observer_methods"><a class="anchor" href="#_conditional_and_transactional_observer_methods"></a>Conditional and Transactional Observer Methods</h4>
+<div class="paragraph">
+<p>Observer methods can also be conditional or transactional:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A conditional observer method is notified of an event only if an instance of the bean that defines the observer method already exists in the current context.
+To declare a conditional observer method, specify <code>notifyObserver=IF_EXISTS</code> as an argument to <code>@Observes</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Observes(notifyObserver=IF_EXISTS)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To obtain the default unconditional behavior, you can specify <code>@Observes(notifyObserver=ALWAYS)</code>.</p>
+</div>
+</li>
+<li>
+<p>A transactional observer method is notified of an event during the before-completion or after-completion phase of the transaction in which the event was fired.
+You can also specify that the notification is to occur only after the transaction has completed successfully or unsuccessfully.
+To specify a transactional observer method, use any of the following arguments to <code>@Observes</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Observes(during=BEFORE_COMPLETION)
+
+@Observes(during=AFTER_COMPLETION)
+
+@Observes(during=AFTER_SUCCESS)
+
+@Observes(during=AFTER_FAILURE)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To obtain the default nontransactional behavior, specify <code>@Observes(during=IN_PROGRESS)</code>.</p>
+</div>
+<div class="paragraph">
+<p>An observer method that is called before completion of a transaction may call the <code>setRollbackOnly</code> method on the transaction instance to force a transaction rollback.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Observer methods may throw exceptions.
+If a transactional observer method throws an exception, the exception is caught by the container.
+If the observer method is nontransactional, the exception terminates processing of the event, and no other observer methods for the event are called.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_observer_method_ordering"><a class="anchor" href="#_observer_method_ordering"></a>Observer Method Ordering</h4>
+<div class="paragraph">
+<p>Before a certain observer event notification is generated, the container determines the order in which observer methods for that event are invoked.
+Observer method order is established through the declaration of the <code>@Priority</code> annotation on an event parameter of an observer method, as in the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">void afterLogin(@Observes @Priority(jakarta.interceptor.Interceptor.Priority.APPLICATION) LoggedInEvent event) { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the <code>@Priority</code> annotation is not specified, the default value is <code>jakarta.interceptor.Interceptor.Priority.APPLICATION + 500</code>.</p>
+</li>
+<li>
+<p>If two or more observer methods are assigned the same priority, the order in which they are invoked is undefined and is therefore unpredictable.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_firing_events"><a class="anchor" href="#_firing_events"></a>Firing Events</h3>
+<div class="paragraph">
+<p>Beans fire events by implementing an instance of the <code>jakarta.enterprise.event.Event</code> interface.
+Events can be fired synchronously or asynchronously.</p>
+</div>
+<div class="sect3">
+<h4 id="_firing_events_synchronously"><a class="anchor" href="#_firing_events_synchronously"></a>Firing Events Synchronously</h4>
+<div class="paragraph">
+<p>To activate an event synchronously, call the <code>jakarta.enterprise.event.Event.fire</code> method.
+This method fires an event and notifies any observer methods.</p>
+</div>
+<div class="paragraph">
+<p>In the <code>billpayment</code> example, a managed bean called <code>PaymentBean</code> fires the appropriate event by using information it receives from the user interface.
+There are actually four event beans, two for the event object and two for the payload.
+The managed bean injects the two event beans.
+The <code>pay</code> method uses a <code>switch</code> statement to choose which event to fire, using <code>new</code> to create the payload.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Inject
+@Credit
+Event&lt;PaymentEvent&gt; creditEvent;
+
+@Inject
+@Debit
+Event&lt;PaymentEvent&gt; debitEvent;
+
+private static final int DEBIT = 1;
+private static final int CREDIT = 2;
+private int paymentOption = DEBIT;
+...
+
+@Logged
+public String pay() {
+    ...
+    switch (paymentOption) {
+        case DEBIT:
+            PaymentEvent debitPayload = new PaymentEvent();
+            // populate payload ...
+            debitEvent.fire(debitPayload);
+            break;
+        case CREDIT:
+            PaymentEvent creditPayload = new PaymentEvent();
+            // populate payload ...
+            creditEvent.fire(creditPayload);
+            break;
+        default:
+            logger.severe("Invalid payment option!");
+    }
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The argument to the <code>fire</code> method is a <code>PaymentEvent</code> that contains the payload.
+The fired event is then consumed by the observer methods.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_firing_events_asynchronously"><a class="anchor" href="#_firing_events_asynchronously"></a>Firing Events Asynchronously</h4>
+<div class="paragraph">
+<p>To activate an event asynchronously, call the <code>jakarta.enterprise.event.Event.fireAsync</code> method.
+This method calls all resolved asynchronous observers in one or more different threads.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Inject Event&lt;LoggedInEvent&gt; loggedInEvent;
+
+public void login() {
+    ...
+    loggedInEvent.fireAsync( new LoggedInEvent(user) );
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The invocation of the <code>fireAsync()</code> method returns immediately.</p>
+</div>
+<div class="paragraph">
+<p>When events are fired asynchronously, observer methods are notified asynchronously.
+Consequently, observer method ordering cannot be guaranteed, because observer method invocation and the firing of asynchronous events occur on separate threads.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_interceptors_in_cdi_applications"><a class="anchor" href="#_using_interceptors_in_cdi_applications"></a>Using Interceptors in CDI Applications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An interceptor is a class used to interpose in method invocations or lifecycle events that occur in an associated target class.
+The interceptor performs tasks, such as logging or auditing, that are separate from the business logic of the application and are repeated often within an application.
+Such tasks are often called cross-cutting tasks.
+Interceptors allow you to specify the code for these tasks in one place for easy maintenance.
+When interceptors were first introduced to the Jakarta EE platform, they were specific to enterprise beans.
+On the Jakarta EE platform, you can use them with Jakarta EE managed objects of all kinds, including managed beans.</p>
+</div>
+<div class="paragraph">
+<p>For information on Jakarta EE interceptors, see <a href="../../supporttechs/interceptors/interceptors.html#_using_jakarta_ee_interceptors" class="xref page">Using Jakarta EE Interceptors</a>.</p>
+</div>
+<div class="paragraph">
+<p>An interceptor class often contains a method annotated <code>@AroundInvoke</code>, which specifies the tasks the interceptor will perform when intercepted methods are invoked.
+It can also contain a method annotated <code>@PostConstruct</code>, <code>@PreDestroy</code>, <code>@PrePassivate</code>, or <code>@PostActivate</code>, to specify lifecycle callback interceptors, and a method annotated <code>@AroundTimeout</code>, to specify enterprise bean timeout interceptors.
+An interceptor class can contain more than one interceptor method, but it must have no more than one method of each type.</p>
+</div>
+<div class="paragraph">
+<p>Along with an interceptor, an application defines one or more interceptor binding types, which are annotations that associate an interceptor with target beans or methods.
+For example, the <code>billpayment</code> example contains an interceptor binding type named <code>@Logged</code> and an interceptor named <code>LoggedInterceptor</code>.
+The interceptor binding type declaration looks something like a qualifier declaration, but it is annotated with <code>jakarta.interceptor.InterceptorBinding</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Inherited
+@InterceptorBinding
+@Retention(RUNTIME)
+@Target({METHOD, TYPE})
+public @interface Logged {
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An interceptor binding also has the <code>java.lang.annotation.Inherited</code> annotation, to specify that the annotation can be inherited from superclasses.
+The <code>@Inherited</code> annotation also applies to custom scopes (not discussed in this tutorial) but does not apply to qualifiers.</p>
+</div>
+<div class="paragraph">
+<p>An interceptor binding type may declare other interceptor bindings.</p>
+</div>
+<div class="paragraph">
+<p>The interceptor class is annotated with the interceptor binding as well as with the <code>@Interceptor</code> annotation.
+For an example, see <a href="../cdi-adv-examples/cdi-adv-examples.html#_the_loggedinterceptor_interceptor_class" class="xref page">The LoggedInterceptor Interceptor Class</a>.</p>
+</div>
+<div class="paragraph">
+<p>Every <code>@AroundInvoke</code> method takes a <code>jakarta.interceptor.InvocationContext</code> argument, returns a <code>java.lang.Object</code>, and throws an <code>Exception</code>.
+It can call <code>InvocationContext</code> methods.
+The <code>@AroundInvoke</code> method must call the <code>proceed</code> method, which causes the target class method to be invoked.</p>
+</div>
+<div class="paragraph">
+<p>Once an interceptor and binding type are defined, you can annotate beans and individual methods with the binding type to specify that the interceptor is to be invoked either on all methods of the bean or on specific methods.
+For example, in the <code>billpayment</code> example, the <code>PaymentHandler</code> bean is annotated <code>@Logged</code>, which means that any invocation of its business methods will cause the interceptor&#8217;s <code>@AroundInvoke</code> method to be invoked:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Logged
+@SessionScoped
+public class PaymentHandler implements Serializable {...}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>However, in the <code>PaymentBean</code> bean, only the <code>pay</code> and <code>reset</code> methods have the <code>@Logged</code> annotation, so the interceptor is invoked only when these methods are invoked:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Logged
+public String pay() {...}
+
+@Logged
+public void reset() {...}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In order for an interceptor to be invoked in a CDI application, it must, like an alternative, be specified in the <code>beans.xml</code> file.
+For example, the <code>LoggedInterceptor</code> class is specified as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;interceptors&gt;
+    &lt;class&gt;ee.jakarta.tutorial.billpayment.interceptors.LoggedInterceptor&lt;/class&gt;
+&lt;/interceptors&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If an application uses more than one interceptor, the interceptors are invoked in the order specified in the <code>beans.xml</code> file.</p>
+</div>
+<div class="paragraph">
+<p>The interceptors that you specify in the <code>beans.xml</code> file apply only to classes in the same archive.
+Use the <code>@Priority</code> annotation to specify interceptors globally for an application that consists of multiple modules, as in the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Logged
+@Interceptor
+@Priority(Interceptor.Priority.APPLICATION)
+public class LoggedInterceptor implements Serializable { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Interceptors with lower priority values are called first.
+You do not need to specify the interceptor in the <code>beans.xml</code> file when you use the <code>@Priority</code> annotation.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_decorators_in_cdi_applications"><a class="anchor" href="#_using_decorators_in_cdi_applications"></a>Using Decorators in CDI Applications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A decorator is a Java class that is annotated <code>jakarta.decorator.Decorator</code> and that has a corresponding <code>decorators</code> element in the <code>beans.xml</code> file.</p>
+</div>
+<div class="paragraph">
+<p>A decorator bean class must also have a delegate injection point, which is annotated <code>jakarta.decorator.Delegate</code>.
+This injection point can be a field, a constructor parameter, or an initializer method parameter of the decorator class.</p>
+</div>
+<div class="paragraph">
+<p>Decorators are outwardly similar to interceptors.
+However, they actually perform tasks complementary to those performed by interceptors.
+Interceptors perform cross-cutting tasks associated with method invocation and with the lifecycles of beans, but cannot perform any business logic.
+Decorators, on the other hand, do perform business logic by intercepting business methods of beans.
+This means that instead of being reusable for different kinds of applications, as are interceptors, their logic is specific to a particular application.</p>
+</div>
+<div class="paragraph">
+<p>For example, instead of using an alternative <code>TestCoderImpl</code> class for the <code>encoder</code> example, you could create a decorator as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Decorator
+public abstract class CoderDecorator implements Coder {
+
+    @Inject
+    @Delegate
+    @Any
+    Coder coder;
+
+    public String codeString(String s, int tval) {
+        int len = s.length();
+
+        return "\"" + s + "\" becomes " + "\"" + coder.codeString(s, tval)
+                + "\", " + len + " characters in length";
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See <a href="../cdi-adv-examples/cdi-adv-examples.html#_the_decorators_example_decorating_a_bean" class="xref page">The decorators Example: Decorating a Bean</a> for an example that uses this decorator.</p>
+</div>
+<div class="paragraph">
+<p>This simple decorator returns more detailed output than the encoded string returned by the <code>CoderImpl.codeString</code> method.
+A more complex decorator could store information in a database or perform some other business logic.</p>
+</div>
+<div class="paragraph">
+<p>A decorator can be declared as an abstract class so that it does not have to implement all the business methods of the interface.</p>
+</div>
+<div class="paragraph">
+<p>In order for a decorator to be invoked in a CDI application, it must, like an interceptor or an alternative, be specified in the <code>beans.xml</code> file.
+For example, the <code>CoderDecorator</code> class is specified as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;decorators&gt;
+    &lt;class&gt;ee.jakarta.tutorial.decorators.CoderDecorator&lt;/class&gt;
+&lt;/decorators&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If an application uses more than one decorator, the decorators are invoked in the order in which they are specified in the <code>beans.xml</code> file.</p>
+</div>
+<div class="paragraph">
+<p>If an application has both interceptors and decorators, the interceptors are invoked first.
+This means, in effect, that you cannot intercept a decorator.</p>
+</div>
+<div class="paragraph">
+<p>The decorators that you specify in the <code>beans.xml</code> file apply only to classes in the same archive.
+Use the <code>@Priority</code> annotation to specify decorators globally for an application that consists of multiple modules, as in the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Decorator
+@Priority(Interceptor.Priority.APPLICATION)
+public abstract class CoderDecorator implements Coder { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Decorators with lower priority values are called first.
+You do not need to specify the decorator in the <code>beans.xml</code> when you use the <code>@Priority</code> annotation.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_stereotypes_in_cdi_applications"><a class="anchor" href="#_using_stereotypes_in_cdi_applications"></a>Using Stereotypes in CDI Applications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A stereotype is a kind of annotation, applied to a bean, that incorporates other annotations.
+Stereotypes can be particularly useful in large applications in which you have a number of beans that perform similar functions.
+A stereotype is a kind of annotation that specifies the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A default scope</p>
+</li>
+<li>
+<p>Zero or more interceptor bindings</p>
+</li>
+<li>
+<p>Optionally, a <code>@Named</code> annotation, guaranteeing default EL naming</p>
+</li>
+<li>
+<p>Optionally, an <code>@Alternative</code> annotation, specifying that all beans with this stereotype are alternatives</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A bean annotated with a particular stereotype will always use the specified annotations, so you do not have to apply the same annotations to many beans.</p>
+</div>
+<div class="paragraph">
+<p>For example, you might create a stereotype named <code>Action</code>, using the <code>jakarta.enterprise.inject.Stereotype</code> annotation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@RequestScoped
+@Secure
+@Transactional
+@Named
+@Stereotype
+@Target(TYPE)
+@Retention(RUNTIME)
+public @interface Action {}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>All beans annotated <code>@Action</code> will have request scope, use default EL naming, and have the interceptor bindings <code>@Transactional</code> and <code>@Secure</code>.</p>
+</div>
+<div class="paragraph">
+<p>You could also create a stereotype named <code>Mock</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Alternative
+@Stereotype
+@Target(TYPE)
+@Retention(RUNTIME)
+public @interface Mock {}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>All beans with this annotation are alternatives.</p>
+</div>
+<div class="paragraph">
+<p>It is possible to apply multiple stereotypes to the same bean, so you can annotate a bean as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Action
+@Mock
+public class MockLoginAction extends LoginAction { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is also possible to override the scope specified by a stereotype, simply by specifying a different scope for the bean.
+The following declaration gives the <code>MockLoginAction</code> bean session scope instead of request scope:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@SessionScoped
+@Action
+@Mock
+public class MockLoginAction extends LoginAction { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>CDI makes available a built-in stereotype called <code>Model</code>, which is intended for use with beans that define the model layer of a model-view-controller application architecture.
+This stereotype specifies that a bean is both <code>@Named</code> and <code>@RequestScoped</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Named
+@RequestScoped
+@Stereotype
+@Target({TYPE, METHOD, FIELD})
+@Retention(RUNTIME)
+public @interface Model {}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_the_built_in_annotation_literals"><a class="anchor" href="#_using_the_built_in_annotation_literals"></a>Using the Built-In Annotation Literals</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following built-in annotations define a <code>Literal</code> static nested class, which can be used as a convenience feature for creating instances of annotations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>jakarta.enterprise.inject.Any</code></p>
+</li>
+<li>
+<p><code>jakarta.enterprise.inject.Default</code></p>
+</li>
+<li>
+<p><code>jakarta.enterprise.inject.New</code></p>
+</li>
+<li>
+<p><code>jakarta.enterprise.inject.Specializes</code></p>
+</li>
+<li>
+<p><code>jakarta.enterprise.inject.Vetoed</code></p>
+</li>
+<li>
+<p><code>jakarta.enterprise.util.Nonbinding</code></p>
+</li>
+<li>
+<p><code>jakarta.enterprise.context.Initialized</code></p>
+</li>
+<li>
+<p><code>jakarta.enterprise.context.Destroyed</code></p>
+</li>
+<li>
+<p><code>jakarta.enterprise.context.RequestScoped</code></p>
+</li>
+<li>
+<p><code>jakarta.enterprise.context.SessionScoped</code></p>
+</li>
+<li>
+<p><code>jakarta.enterprise.context.ApplicationScoped</code></p>
+</li>
+<li>
+<p><code>jakarta.enterprise.context.Dependent</code></p>
+</li>
+<li>
+<p><code>jakarta.enterprise.context.ConversationScoped</code></p>
+</li>
+<li>
+<p><code>jakarta.enterprise.inject.Alternative</code></p>
+</li>
+<li>
+<p><code>jakarta.enterprise.inject.Typed</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Default defaultLiteral = new Default.Literal();
+
+RequestScoped requestScopedLiteral = RequestScoped.Literal.INSTANCE;
+
+Initialized initializedForApplicationScoped = new Initialized.Literal(ApplicationScoped.class);
+
+Initialized initializedForRequestScoped = Initialized.Literal.of(RequestScoped.class);</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_the_configurators_interfaces"><a class="anchor" href="#_using_the_configurators_interfaces"></a>Using the Configurators Interfaces</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The CDI 2.0 specification defines the following Configurators interfaces, which are used for dynamically defining and modifying CDI objects:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 99%;">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Interface</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AnnotatedTypeConfigurator</code> SPI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Helps create and configure the following type metadata:</p>
+<p class="tableblock"><code>AnnotatedType</code></p>
+<p class="tableblock"><code>AnnotatedField</code></p>
+<p class="tableblock"><code>AnnotatedConstructor</code></p>
+<p class="tableblock"><code>AnnotatedMethod</code></p>
+<p class="tableblock"><code>AnnotatedParameter</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>InjectionPointConfigurator</code> interface</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Helps configure an existing <code>InjectionPoint</code> instance</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BeanAttributesConfigurator</code> interface</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Helps configure a new <code>BeanAttributes</code> instance</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BeanConfigurator</code> interface</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Helps configure a new <code>Bean</code> instance</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ObserverMethodConfigurator</code> interface</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Helps configure an <code>ObserverMethod</code> instance</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ProducerConfigurator</code> interface</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Helps configure a <code>Producer</code> instance</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

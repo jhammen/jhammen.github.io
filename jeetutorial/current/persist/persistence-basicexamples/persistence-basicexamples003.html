@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/persist/pages/persistence-basicexamples/persistence-basicexamples003.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_the_roster_application"><a class="anchor" href="#_the_roster_application"></a>The roster Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>roster</code> application maintains the team rosters for players in recreational sports leagues.
+The application has four components: Jakarta Persistence entities (<code>Player</code>, <code>Team</code>, and <code>League</code>), a stateful session bean (<code>RequestBean</code>), an application client (<code>RosterClient</code>), and three helper classes (<code>PlayerDetails</code>, <code>TeamDetails</code>, and <code>LeagueDetails</code>).</p>
+</div>
+<div class="paragraph">
+<p>Functionally, <code>roster</code> is similar to the <code>order</code> application, with three new features that <code>order</code> does not have: many-to-many relationships, entity inheritance, and automatic table creation at deployment time.</p>
+</div>
+<div class="paragraph">
+<p>The database schema in Apache Derby for the <code>roster</code> application is shown in <a href="#_database_schema_for_the_roster_application">Figure 1, &#8220;Database Schema for the roster Application&#8221;</a>.</p>
+</div>
+<div id="_database_schema_for_the_roster_application" class="imageblock">
+<div class="content">
+<img src="../../common/_images/jakartaeett_dt_025.svg" alt="Diagram showing the database schema for the roster application">
+</div>
+<div class="title">Figure 1. Database Schema for the roster Application</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In this diagram, for simplicity, the <code>PERSISTENCE_ROSTER_</code> prefix is omitted from the table names.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_relationships_in_the_roster_application"><a class="anchor" href="#_relationships_in_the_roster_application"></a>Relationships in the roster Application</h3>
+<div class="paragraph">
+<p>A recreational sports system has the following relationships.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A player can be on many teams.</p>
+</li>
+<li>
+<p>A team can have many players.</p>
+</li>
+<li>
+<p>A team is in exactly one league.</p>
+</li>
+<li>
+<p>A league has many teams.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In <code>roster</code> this system is reflected by the following relationships between the <code>Player</code>, <code>Team</code>, and <code>League</code> entities.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>There is a many-to-many relationship between <code>Player</code> and <code>Team</code>.</p>
+</li>
+<li>
+<p>There is a many-to-one relationship between <code>Team</code> and <code>League</code>.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_the_many_to_many_relationship_in_roster"><a class="anchor" href="#_the_many_to_many_relationship_in_roster"></a>The Many-To-Many Relationship in roster</h4>
+<div class="paragraph">
+<p>The many-to-many relationship between <code>Player</code> and <code>Team</code> is specified by using the <code>@ManyToMany</code> annotation.
+In <code>Team.java</code>, the <code>@ManyToMany</code> annotation decorates the <code>getPlayers</code> method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ManyToMany
+@JoinTable(
+    name="PERSISTENCE_ROSTER_TEAM_PLAYER",
+    joinColumns=
+        @JoinColumn(name="TEAM_ID", referencedColumnName="ID"),
+    inverseJoinColumns=
+        @JoinColumn(name="PLAYER_ID", referencedColumnName="ID")
+)
+public Collection&lt;Player&gt; getPlayers() {
+    return players;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>@JoinTable</code> annotation is used to specify a database table that will associate player IDs with team IDs.
+The entity that specifies the <code>@JoinTable</code> is the owner of the relationship, so the <code>Team</code> entity is the owner of the relationship with the <code>Player</code> entity.
+Because <code>roster</code> uses automatic table creation at deployment time, the container will create a join table named <code>PERSISTENCE_ROSTER_TEAM_PLAYER</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>Player</code> is the inverse, or nonowning, side of the relationship with <code>Team</code>.
+As one-to-one and many-to-one relationships, the nonowning side is marked by the <code>mappedBy</code> element in the relationship annotation.
+Because the relationship between <code>Player</code> and <code>Team</code> is bidirectional, the choice of which entity is the owner of the relationship is arbitrary.</p>
+</div>
+<div class="paragraph">
+<p>In <code>Player.java</code>, the <code>@ManyToMany</code> annotation decorates the <code>getTeams</code> method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ManyToMany(mappedBy="players")
+public Collection&lt;Team&gt; getTeams() {
+    return teams;
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_entity_inheritance_in_the_roster_application"><a class="anchor" href="#_entity_inheritance_in_the_roster_application"></a>Entity Inheritance in the roster Application</h3>
+<div class="paragraph">
+<p>The <code>roster</code> application shows how to use entity inheritance, as described in <a href="../persistence-intro/persistence-intro.html#_entity_inheritance" class="xref page">Entity Inheritance</a>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>League</code> entity in <code>roster</code> is an abstract entity with two concrete subclasses: <code>SummerLeague</code> and <code>WinterLeague</code>.
+Because <code>League</code> is an abstract class, it cannot be instantiated:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Entity
+@Table(name = "PERSISTENCE_ROSTER_LEAGUE")
+public abstract class League implements Serializable { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Instead, when creating a league, clients use <code>SummerLeague</code> or <code>WinterLeague</code>.
+<code>SummerLeague</code> and <code>WinterLeague</code> inherit the persistent properties defined in <code>League</code> and add only a constructor that verifies that the sport parameter matches the type of sport allowed in that seasonal league.
+For example, here is the <code>SummerLeague</code> entity:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">...
+@Entity
+public class SummerLeague extends League implements Serializable {
+
+    /** Creates a new instance of SummerLeague */
+    public SummerLeague() {
+    }
+
+    public SummerLeague(String id, String name, String sport)
+            throws IncorrectSportException {
+        this.id = id;
+        this.name = name;
+        if (sport.equalsIgnoreCase("swimming") ||
+                sport.equalsIgnoreCase("soccer") ||
+                sport.equalsIgnoreCase("basketball") ||
+                sport.equalsIgnoreCase("baseball")) {
+            this.sport = sport;
+        } else {
+            throw new IncorrectSportException("Sport is not a summer sport.");
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>roster</code> application uses the default mapping strategy of <code>InheritanceType.SINGLE_TABLE</code>, so the <code>@Inheritance</code> annotation is not required.
+If you want to use a different mapping strategy, decorate <code>League</code> with <code>@Inheritance</code> and specify the mapping strategy in the <code>strategy</code> element:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Entity
+@Inheritance(strategy=JOINED)
+@Table(name="PERSISTENCE_ROSTER_LEAGUE")
+public abstract class League implements Serializable { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>roster</code> application uses the default discriminator column name, so the <code>@DiscriminatorColumn</code> annotation is not required.
+Because you are using automatic table generation in <code>roster</code>, the Persistence provider will create a discriminator column called <code>DTYPE</code> in the <code>PERSISTENCE_ROSTER_LEAGUE</code> table, which will store the name of the inherited entity used to create the league.
+If you want to use a different name for the discriminator column, decorate <code>League</code> with <code>@DiscriminatorColumn</code> and set the <code>name</code> element:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Entity
+@DiscriminatorColumn(name="DISCRIMINATOR")
+@Table(name="PERSISTENCE_ROSTER_LEAGUE")
+public abstract class League implements Serializable { ... }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_criteria_queries_in_the_roster_application"><a class="anchor" href="#_criteria_queries_in_the_roster_application"></a>Criteria Queries in the roster Application</h3>
+<div class="paragraph">
+<p>The <code>roster</code> application uses Criteria API queries, as opposed to the JPQL queries used in <code>order</code>.
+Criteria queries are Java programming language, typesafe queries defined in the business tier of <code>roster</code>, in the <code>RequestBean</code> stateful session bean.</p>
+</div>
+<div class="sect3">
+<h4 id="_metamodel_classes_in_the_roster_application"><a class="anchor" href="#_metamodel_classes_in_the_roster_application"></a>Metamodel Classes in the roster Application</h4>
+<div class="paragraph">
+<p>Metamodel classes model an entity&#8217;s attributes and are used by Criteria queries to navigate to an entity&#8217;s attributes.
+Each entity class in <code>roster</code> has a corresponding metamodel class, generated at compile time, with the same package name as the entity and appended with an underscore character (<code>_</code>).
+For example, the <code>roster.entity.Player</code> entity has a corresponding metamodel class, <code>roster.entity.Player_</code>.</p>
+</div>
+<div class="paragraph">
+<p>Each persistent field or property in the entity class has a corresponding attribute in the entity&#8217;s metamodel class.
+For the <code>Player</code> entity, the corresponding metamodel class is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@StaticMetamodel(Player.class)
+public class Player_ {
+    public static volatile SingularAttribute&lt;Player, String&gt; id;
+    public static volatile SingularAttribute&lt;Player, String&gt; name;
+    public static volatile SingularAttribute&lt;Player, String&gt; position;
+    public static volatile SingularAttribute&lt;Player, Double&gt; salary;
+    public static volatile CollectionAttribute&lt;Player, Team&gt; teams;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_obtaining_a_criteriabuilder_instance_in_requestbean"><a class="anchor" href="#_obtaining_a_criteriabuilder_instance_in_requestbean"></a>Obtaining a CriteriaBuilder Instance in RequestBean</h4>
+<div class="paragraph">
+<p>The <code>CriteriaBuilder</code> interface defines methods to create criteria query objects and create expressions for modifying those query objects.
+<code>RequestBean</code> creates an instance of <code>CriteriaBuilder</code> by using a <code>@PostConstruct</code> method, <code>init</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@PersistenceContext
+private EntityManager em;
+private CriteriaBuilder cb;
+
+@PostConstruct
+private void init() {
+    cb = em.getCriteriaBuilder();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>EntityManager</code> instance is injected at runtime, and then that <code>EntityManager</code> object is used to create the <code>CriteriaBuilder</code> instance by calling <code>getCriteriaBuilder</code>.
+The <code>CriteriaBuilder</code> instance is created in a <code>@PostConstruct</code> method to ensure that the <code>EntityManager</code> instance has been injected by the enterprise bean container.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_creating_criteria_queries_in_requestbeans_business_methods"><a class="anchor" href="#_creating_criteria_queries_in_requestbeans_business_methods"></a>Creating Criteria Queries in RequestBean&#8217;s Business Methods</h4>
+<div class="paragraph">
+<p>Many of the business methods in <code>RequestBean</code> define Criteria queries.
+One business method, <code>getPlayersByPosition</code>, returns a list of players who play a particular position on a team:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public List&lt;PlayerDetails&gt; getPlayersByPosition(String position) {
+    logger.info("getPlayersByPosition");
+    List&lt;Player&gt; players = null;
+
+    try {
+        CriteriaQuery&lt;Player&gt; cq = cb.createQuery(Player.class);
+        if (cq != null) {
+            Root&lt;Player&gt; player = cq.from(Player.class);
+
+            // set the where clause
+            cq.where(cb.equal(player.get(Player_.position), position));
+            cq.select(player);
+            TypedQuery&lt;Player&gt; q = em.createQuery(cq);
+            players = q.getResultList();
+        }
+        return copyPlayersToDetails(players);
+    } catch (Exception ex) {
+        throw new EJBException(ex);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A query object is created by calling the <code>CriteriaBuilder</code> object&#8217;s <code>createQuery</code> method, with the type set to <code>Player</code> because the query will return a list of players.</p>
+</div>
+<div class="paragraph">
+<p>The query root, the base entity from which the query will navigate to find the entity&#8217;s attributes and related entities, is created by calling the <code>from</code> method of the query object.
+This sets the <code>FROM</code> clause of the query.</p>
+</div>
+<div class="paragraph">
+<p>The <code>WHERE</code> clause, set by calling the <code>where</code> method on the query object, restricts the results of the query according to the conditions of an expression.
+The <code>CriteriaBuilder.equal</code> method compares the two expressions.
+In <code>getPlayersByPosition</code>, the <code>position</code> attribute of the <code>Player_</code> metamodel class, accessed by calling the <code>get</code> method of the query root, is compared to the <code>position</code> parameter passed to <code>getPlayersByPosition</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>SELECT</code> clause of the query is set by calling the <code>select</code> method of the query object.
+The query will return <code>Player</code> entities, so the query root object is passed as a parameter to <code>select</code>.</p>
+</div>
+<div class="paragraph">
+<p>The query object is prepared for execution by calling <code>EntityManager.createQuery</code>, which returns a <code>TypedQuery&lt;T&gt;</code> object with the type of the query, in this case <code>Player</code>.
+This typed query object is used to execute the query, which occurs when the <code>getResultList</code> method is called, and a <code>List&lt;Player&gt;</code> collection is returned.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_automatic_table_generation_in_the_roster_application"><a class="anchor" href="#_automatic_table_generation_in_the_roster_application"></a>Automatic Table Generation in the roster Application</h3>
+<div class="paragraph">
+<p>At deployment time, GlassFish Server will automatically drop and create the database tables used by <code>roster</code>.
+This is done by setting the <code>jakarta.persistence.schema-generation.database.action</code> property to <code>drop-and-create</code> in <code>persistence.xml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;persistence version="3.0"
+    xmlns="https://jakarta.ee/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+        https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"&gt;
+  &lt;persistence-unit name="em" transaction-type="JTA"&gt;
+    &lt;jta-data-source&gt;java:comp/DefaultDataSource&lt;/jta-data-source&gt;
+    &lt;properties&gt;
+      &lt;property name="jakarta.persistence.schema-generation.database.action"
+                value="drop-and-create"/&gt;
+    &lt;/properties&gt;
+  &lt;/persistence-unit&gt;
+&lt;/persistence&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_running_the_roster_example"><a class="anchor" href="#_running_the_roster_example"></a>Running the roster Example</h3>
+<div class="paragraph">
+<p>You can use either NetBeans IDE or Maven to build, package, deploy, and run the <code>roster</code> application.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_roster_example_using_netbeans_ide"><a class="anchor" href="#_to_run_the_roster_example_using_netbeans_ide"></a>To Run the roster Example Using NetBeans IDE</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>If the database server is not already running, start it by following the instructions in <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_apache_derby" class="xref page">Starting and Stopping Apache Derby</a>.</p>
+</li>
+<li>
+<p>From the <strong>File</strong> menu, choose <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Open Project</strong> dialog box, navigate to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/persistence</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Select the <code>roster</code> folder.</p>
+</li>
+<li>
+<p>Select the <strong>Open Required Projects</strong> check box.</p>
+</li>
+<li>
+<p>Click <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Projects</strong> tab, right-click the <code>roster</code> project and select <strong>Build</strong>.</p>
+<div class="paragraph">
+<p>This will compile, package, and deploy the EAR to GlassFish Server.</p>
+</div>
+<div class="paragraph">
+<p>You will see the following partial output from the application client in the Output tab:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">List all players in team T2:
+P6 Ian Carlyle goalkeeper 555.0
+P7 Rebecca Struthers midfielder 777.0
+P8 Anne Anderson forward 65.0
+P9 Jan Wesley defender 100.0
+P10 Terry Smithson midfielder 100.0
+
+List all teams in league L1:
+T1 Honey Bees Visalia
+T2 Gophers Manteca
+T5 Crows Orland
+
+List all defenders:
+P2 Alice Smith defender 505.0
+P5 Barney Bold defender 100.0
+P9 Jan Wesley defender 100.0
+P22 Janice Walker defender 857.0
+P25 Frank Fletcher defender 399.0</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_roster_example_using_maven"><a class="anchor" href="#_to_run_the_roster_example_using_maven"></a>To Run the roster Example Using Maven</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>If the database server is not already running, start it by following the instructions in <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_apache_derby" class="xref page">Starting and Stopping Apache Derby</a>.</p>
+</li>
+<li>
+<p>In a terminal window, go to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/persistence/roster/roster-ear/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enter the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This compiles the source files and packages the application into an EAR file located at <code><em>tut-install</em>/examples/persistence/roster/target/roster.ear</code>.
+The EAR file is then deployed to GlassFish Server.
+GlassFish Server will then drop and create the database tables during deployment, as specified in <code>persistence.xml</code>.</p>
+</div>
+<div class="paragraph">
+<p>After successfully deploying the EAR, the client stubs are retrieved and the application client is run using the appclient application included with GlassFish Server.</p>
+</div>
+<div class="paragraph">
+<p>You will see the output, which begins as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">[echo] running application client container.
+[exec] List all players in team T2:
+[exec] P6 Ian Carlyle goalkeeper 555.0
+[exec] P7 Rebecca Struthers midfielder 777.0
+[exec] P8 Anne Anderson forward 65.0
+[exec] P9 Jan Wesley defender 100.0
+[exec] P10 Terry Smithson midfielder 100.0
+
+[exec] List all teams in league L1:
+[exec] T1 Honey Bees Visalia
+[exec] T2 Gophers Manteca
+[exec] T5 Crows Orland
+
+[exec] List all defenders:
+[exec] P2 Alice Smith defender 505.0
+[exec] P5 Barney Bold defender 100.0
+[exec] P9 Jan Wesley defender 100.0
+[exec] P22 Janice Walker defender 857.0
+[exec] P25 Frank Fletcher defender 399.0</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

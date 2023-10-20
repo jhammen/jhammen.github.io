@@ -1,0 +1,2034 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Jakarta REST: Advanced Topics and an Example :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">Jakarta EE Tutorial</a></li>
+    <li>Jakarta EE Core Profile</li>
+    <li>Jakarta REST</li>
+    <li><a href="jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/websvcs/pages/jaxrs-advanced/jaxrs-advanced.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Jakarta REST: Advanced Topics and an Example</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We are working on a fresh, updated Jakarta EE Tutorial. This section hasn&#8217;t yet been updated.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Jakarta RESTful Web Services (Jakarta REST) is designed to make it easy to develop applications that use the REST architecture.
+This chapter describes advanced features of Jakarta REST.
+If you are new to Jakarta REST, see <a href="../jaxrs/jaxrs.html#_building_restful_web_services_with_jakarta_rest" class="xref page">Building RESTful Web Services with Jakarta REST</a> before you proceed with this chapter.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta REST is integrated with Jakarta Contexts and Dependency Injection (CDI), Jakarta Enterprise Beans technology, and Jakarta Servlet technology.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_annotations_for_field_and_bean_properties_of_resource_classes"><a class="anchor" href="#_annotations_for_field_and_bean_properties_of_resource_classes"></a>Annotations for Field and Bean Properties of Resource Classes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Jakarta REST annotations for resource classes let you extract specific parts or values from a Uniform Resource Identifier (URI) or request header.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta REST provides the annotations listed in <a href="#_advanced_jakarta_rest_annotations">Advanced Jakarta REST Annotations</a>.</p>
+</div>
+<table id="_advanced_jakarta_rest_annotations" class="tableblock frame-all grid-all" style="width: 99%;">
+<caption class="title">Advanced Jakarta REST Annotations</caption>
+<colgroup>
+<col style="width: 5%;">
+<col style="width: 95%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Annotation</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Context</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Injects information into a class field, bean property, or method parameter</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@CookieParam</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extracts information from cookies declared in the cookie request header</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@FormParam</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extracts information from a request representation whose content type is <code>application/x-www-form-urlencoded</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@HeaderParam</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extracts the value of a header</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@MatrixParam</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extracts the value of a URI matrix parameter</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@PathParam</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extracts the value of a URI template parameter</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@QueryParam</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extracts the value of a URI query parameter</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_extracting_path_parameters"><a class="anchor" href="#_extracting_path_parameters"></a>Extracting Path Parameters</h3>
+<div class="paragraph">
+<p>URI path templates are URIs with variables embedded within the URI syntax.
+The <code>@PathParam</code> annotation lets you use variable URI path fragments when you call a method.</p>
+</div>
+<div class="paragraph">
+<p>The following code snippet shows how to extract the last name of an employee when the employee&#8217;s email address is provided:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/employees/{firstname}.{lastname}@{domain}.com")
+public class EmpResource {
+
+    @GET
+    @Produces("text/xml")
+    public String getEmployeelastname(@PathParam("lastname") String lastName) {
+      ...
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, the <code>@Path</code> annotation defines the URI variables (or path parameters) <code>{firstname}</code>, <code>{lastname}</code>, and <code>{domain}</code>.
+The <code>@PathParam</code> in the method parameter of the request method extracts the last name from the email address.</p>
+</div>
+<div class="paragraph">
+<p>If your HTTP request is <code>GET</code> <code>/employees/john.doe@example.com</code>, the value &#8220;doe&#8221; is injected into <code>{lastname}</code>.</p>
+</div>
+<div class="paragraph">
+<p>You can specify several path parameters in one URI.</p>
+</div>
+<div class="paragraph">
+<p>You can declare a regular expression with a URI variable.
+For example, if it is required that the last name must consist only of lowercase and uppercase characters, you can declare the following regular expression:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/employees/{firstname}.{lastname[a-zA-Z]*}@{domain}.com")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the last name does not match the regular expression, a 404 response is returned.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_extracting_query_parameters"><a class="anchor" href="#_extracting_query_parameters"></a>Extracting Query Parameters</h3>
+<div class="paragraph">
+<p>Use the <code>@QueryParam</code> annotation to extract query parameters from the query component of the request URI.</p>
+</div>
+<div class="paragraph">
+<p>For instance, to query all employees who have joined within a specific range of years, use a method signature like the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/employees/")
+@GET
+public Response getEmployees(
+        @DefaultValue("2003") @QueryParam("minyear") int minyear,
+        @DefaultValue("2013") @QueryParam("maxyear") int maxyear)
+    {...}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This code snippet defines two query parameters, <code>minyear</code> and <code>maxyear</code>.
+The following HTTP request would query for all employees who have joined between 2003 and 2013:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-http hljs" data-lang="http">GET /employees?maxyear=2013&amp;minyear=2003</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>@DefaultValue</code> annotation defines a default value, which is to be used if no values are provided for the query parameters.
+By default, Jakarta REST assigns a null value for <code>Object</code> values and zero for primitive data types.
+You can use the <code>@DefaultValue</code> annotation to eliminate null or zero values and define your own default values for a parameter.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_extracting_form_data"><a class="anchor" href="#_extracting_form_data"></a>Extracting Form Data</h3>
+<div class="paragraph">
+<p>Use the <code>@FormParam</code> annotation to extract form parameters from HTML forms.
+For example, the following form accepts the name, address, and manager&#8217;s name of an employee:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">&lt;FORM action="http://example.com/employees/" method="post"&gt;
+  &lt;p&gt;
+    &lt;fieldset&gt;
+      Employee name: &lt;INPUT type="text" name="empname" tabindex="1"&gt;
+      Employee address: &lt;INPUT type="text" name="empaddress" tabindex="2"&gt;
+      Manager name: &lt;INPUT type="text" name="managername" tabindex="3"&gt;
+    &lt;/fieldset&gt;
+  &lt;/p&gt;
+&lt;/FORM&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Use the following code snippet to extract the manager name from this HTML form:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@POST
+@Consumes("application/x-www-form-urlencoded")
+public void post(@FormParam("managername") String managername) {
+    // Store the value
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To obtain a map of form parameter names to values, use a code snippet like the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@POST
+@Consumes("application/x-www-form-urlencoded")
+public void post(MultivaluedMap&lt;String, String&gt; formParams) {
+    // Store the message
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_extracting_the_java_type_of_a_request_or_response"><a class="anchor" href="#_extracting_the_java_type_of_a_request_or_response"></a>Extracting the Java Type of a Request or Response</h3>
+<div class="paragraph">
+<p>The <code>jakarta.ws.rs.core.Context</code> annotation retrieves the Java types related to a request or response.</p>
+</div>
+<div class="paragraph">
+<p>The <code>jakarta.ws.rs.core.UriInfo</code> interface provides information about the components of a request URI.
+The following code snippet shows how to obtain a map of query and path parameter names to values:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@GET
+public String getParams(@Context UriInfo ui) {
+    MultivaluedMap&lt;String, String&gt; queryParams = ui.getQueryParameters();
+    MultivaluedMap&lt;String, String&gt; pathParams = ui.getPathParameters();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>jakarta.ws.rs.core.HttpHeaders</code> interface provides information about request headers and cookies.
+The following code snippet shows how to obtain a map of header and cookie parameter names to values:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@GET
+public String getHeaders(@Context HttpHeaders hh) {
+    MultivaluedMap&lt;String, String&gt; headerParams = hh.getRequestHeaders();
+    MultivaluedMap&lt;String, Cookie&gt; pathParams = hh.getCookies();
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_validating_resource_data_with_bean_validation"><a class="anchor" href="#_validating_resource_data_with_bean_validation"></a>Validating Resource Data with Bean Validation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Jakarta REST supports Bean Validation to verify Jakarta REST resource classes.
+This support consists of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Adding constraint annotations to resource method parameters</p>
+</li>
+<li>
+<p>Ensuring entity data is valid when the entity is passed in as a parameter</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_using_constraint_annotations_on_resource_methods"><a class="anchor" href="#_using_constraint_annotations_on_resource_methods"></a>Using Constraint Annotations on Resource Methods</h3>
+<div class="paragraph">
+<p>Bean Validation constraint annotations may be applied to parameters for a resource.
+The server will validate the parameters and either pass or throw a <code>jakarta.validation.ValidationException</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@POST
+@Path("/createUser")
+@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+public void createUser(@NotNull @FormParam("username") String username,
+                       @NotNull @FormParam("firstName") String firstName,
+                       @NotNull @FormParam("lastName") String lastName,
+                       @Email @FormParam("email") String email) {
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the preceding example, the built-in constraint <code>@NotNull</code> is applied to the <code>username</code>, <code>firstName</code>, and <code>lastName</code> form fields.
+Another built-in constraint <code>@Email</code> validates that the email address supplied by the <code>email</code> form field is correctly formatted.</p>
+</div>
+<div class="paragraph">
+<p>The constraints may also be applied to fields within a resource class.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/createUser")
+public class CreateUserResource {
+  @NotNull
+  @FormParam("username")
+  private String username;
+
+  @NotNull
+  @FormParam("firstName")
+  private String firstName;
+
+  @NotNull
+  @FormParam("lastName")
+  private String lastName;
+
+  @Email
+  @FormParam("email")
+  private String email;
+
+  ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the preceding example, the same constraints that were applied to the method parameters in the previous example are applied to the class fields.
+The behavior is the same in both examples.</p>
+</div>
+<div class="paragraph">
+<p>Constraints may also be applied to a resource class&#8217;s JavaBeans properties by adding the constraint annotations to the getter method.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/createuser")
+public class CreateUserResource {
+  private String username;
+
+  @FormParam("username")
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+  @NotNull
+  public String getUsername() {
+    return username;
+  }
+  ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Constraints may also be applied at the resource class level.
+In the following example, <code>@PhoneRequired</code> is a user-defined constraint that ensures that a user enters at least one phone number.
+That is, either <code>homePhone</code> or <code>mobilePhone</code> can be null, but not both.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/createUser")
+@PhoneRequired
+public class CreateUserResource {
+  @FormParam("homePhone")
+  private Phone homePhone;
+
+  @FormParam("mobilePhone")
+  private Phone mobilePhone;
+  ...
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_validating_entity_data"><a class="anchor" href="#_validating_entity_data"></a>Validating Entity Data</h3>
+<div class="paragraph">
+<p>Classes that contain validation constraint annotations may be used in method parameters in a resource class.
+To validate these entity classes, use the <code>@Valid</code> annotation on the method parameter.
+For example, the following class is a user-defined class containing both standard and user-defined validation constraints.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@PhoneRequired
+public class User {
+  @NotNull
+  private String username;
+
+  private Phone homePhone;
+
+  private Phone mobilePhone;
+  ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This entity class is used as a parameter to a resource method.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/createUser")
+public class CreateUserResource {
+  ...
+  @POST
+  @Consumers(MediaType.APPLICATION_XML)
+  public void createUser(@Valid User user) {
+    ...
+  }
+  ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>@Valid</code> annotation ensures that the entity class is validated at runtime.
+Additional user-defined constraints can also trigger validation of an entity.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/createUser")
+public class CreateUserResource {
+  ...
+  @POST
+  @Consumers(MediaType.APPLICATION_XML)
+  public void createUser(@ActiveUser User user) {
+    ...
+  }
+  ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the preceding example, the user-defined <code>@ActiveUser</code> constraint is applied to the <code>User</code> class in addition to the <code>@PhoneRequired</code> and <code>@NotNull</code> constraints defined within the entity class.</p>
+</div>
+<div class="paragraph">
+<p>If a resource method returns an entity class, validation may be triggered by applying the <code>@Valid</code> or any other user-defined constraint annotation to the resource method.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/getUser")
+public class GetUserResource {
+  ...
+  @GET
+  @Path("{username}")
+  @Produces(MediaType.APPLICATION_XML)
+  @ActiveUser
+  @Valid
+  public User getUser(@PathParam("username") String username) {
+    // find the User
+    return user;
+  }
+  ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As in the previous example, the <code>@ActiveUser</code> constraint is applied to the returned entity class as well as the <code>@PhoneRequired</code> and <code>@NotNull</code> constraints defined within the entity class.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_validation_exception_handling_and_response_codes"><a class="anchor" href="#_validation_exception_handling_and_response_codes"></a>Validation Exception Handling and Response Codes</h3>
+<div class="paragraph">
+<p>If a <code>jakarta.validation.ValidationException</code> or any subclass of <code>ValidationException</code> except <code>ConstraintValidationException</code> is thrown, the Jakarta REST runtime will respond to the client request with a 500 (Internal Server Error) HTTP status code.</p>
+</div>
+<div class="paragraph">
+<p>If a <code>ConstraintValidationException</code> is thrown, the Jakarta REST runtime will respond to the client with one of the following HTTP status codes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>500</code> (Internal Server Error) if the exception was thrown while validating a method return type</p>
+</li>
+<li>
+<p><code>400</code> (Bad Request) in all other cases</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_subresources_and_runtime_resource_resolution"><a class="anchor" href="#_subresources_and_runtime_resource_resolution"></a>Subresources and Runtime Resource Resolution</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can use a resource class to process only a part of the URI request.
+A root resource can then implement subresources that can process the remainder of the URI path.</p>
+</div>
+<div class="paragraph">
+<p>A resource class method that is annotated with <code>@Path</code> is either a subresource method or a subresource locator.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A subresource method is used to handle requests on a subresource of the corresponding resource.</p>
+</li>
+<li>
+<p>A subresource locator is used to locate subresources of the corresponding resource.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_subresource_methods"><a class="anchor" href="#_subresource_methods"></a>Subresource Methods</h3>
+<div class="paragraph">
+<p>A subresource method handles an HTTP request directly.
+The method must be annotated with a request method designator, such as <code>@GET</code> or <code>@POST</code>, in addition to <code>@Path</code>.
+The method is invoked for request URIs that match a URI template created by concatenating the URI template of the resource class with the URI template of the method.</p>
+</div>
+<div class="paragraph">
+<p>The following code snippet shows how a subresource method can be used to extract the last name of an employee when the employee&#8217;s email address is provided:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/employeeinfo")
+public class EmployeeInfo {
+
+    public employeeinfo() {}
+
+    @GET
+    @Path("/employees/{firstname}.{lastname}@{domain}.com")
+    @Produces("text/xml")
+    public String getEmployeeLastName(@PathParam("lastname") String lastName) {
+       ...
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>getEmployeeLastName</code> method returns <code>doe</code> for the following <code>GET</code> request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-http hljs" data-lang="http">GET /employeeinfo/employees/john.doe@example.com</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_subresource_locators"><a class="anchor" href="#_subresource_locators"></a>Subresource Locators</h3>
+<div class="paragraph">
+<p>A subresource locator returns an object that will handle an HTTP request.
+The method must not be annotated with a request method designator.
+You must declare a subresource locator within a subresource class, and only subresource locators are used for runtime resource resolution.</p>
+</div>
+<div class="paragraph">
+<p>The following code snippet shows a subresource locator:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">// Root resource class
+@Path("/employeeinfo")
+public class EmployeeInfo {
+
+    // Subresource locator: obtains the subresource Employee
+    // from the path /employeeinfo/employees/{empid}
+    @Path("/employees/{empid}")
+    public Employee getEmployee(@PathParam("empid") String id) {
+        // Find the Employee based on the id path parameter
+        Employee emp = ...;
+        ...
+        return emp;
+    }
+}
+
+// Subresource class
+public class Employee {
+
+    // Subresource method: returns the employee's last name
+    @GET
+    @Path("/lastname")
+    public String getEmployeeLastName() {
+        ...
+        return lastName;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this code snippet, the <code>getEmployee</code> method is the subresource locator that provides the <code>Employee</code> object, which services requests for <code>lastname</code>.</p>
+</div>
+<div class="paragraph">
+<p>If your HTTP request is <code>GET /employeeinfo/employees/as209/</code>, the <code>getEmployee</code> method returns an <code>Employee</code> object whose id is <code>as209</code>. At runtime, Jakarta REST sends a <code>GET /employeeinfo/employees/as209/lastname</code> request to the <code>getEmployeeLastName</code> method.
+The <code>getEmployeeLastName</code> method retrieves and returns the last name of the employee whose id is <code>as209</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_integrating_jakarta_rest_with_jakarta_enterprise_beans_technology_and_cdi"><a class="anchor" href="#_integrating_jakarta_rest_with_jakarta_enterprise_beans_technology_and_cdi"></a>Integrating Jakarta REST with Jakarta Enterprise Beans Technology and CDI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Jakarta REST works with Jakarta Enterprise Beans technology and Jakarta Contexts and Dependency Injection (CDI).</p>
+</div>
+<div class="paragraph">
+<p>In general, for Jakarta REST to work with enterprise beans, you need to annotate the class of a bean with <code>@Path</code> to convert it to a root resource class.
+You can use the <code>@Path</code> annotation with stateless session beans and singleton POJO beans.</p>
+</div>
+<div class="paragraph">
+<p>The following code snippet shows a stateless session bean and a singleton bean that have been converted to Jakarta REST root resource classes.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Stateless
+@Path("stateless-bean")
+public class StatelessResource {...}
+
+@Singleton
+@Path("singleton-bean")
+public class SingletonResource {...}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Session beans can also be used for subresources.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta REST and CDI have slightly different component models.
+By default, Jakarta REST root resource classes are managed in the request scope, and no annotations are required for specifying the scope.
+CDI managed beans annotated with <code>@RequestScoped</code> or <code>@ApplicationScoped</code> can be converted to Jakarta REST resource classes.</p>
+</div>
+<div class="paragraph">
+<p>The following code snippet shows a Jakarta REST resource class.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/employee/{id}")
+public class Employee {
+    public Employee(@PathParam("id") String id) {...}
+}
+
+@Path("{lastname}")
+public final class EmpDetails {...}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following code snippet shows this Jakarta REST resource class converted to a CDI bean.
+The beans must be proxyable, so the <code>Employee</code> class requires a nonprivate constructor with no parameters, and the <code>EmpDetails</code> class must not be <code>final</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/employee/{id}")
+@RequestScoped
+public class Employee {
+    public Employee() {...}
+
+    @Inject
+    public Employee(@PathParam("id") String id) {...}
+}
+
+@Path("{lastname}")
+@RequestScoped
+public class EmpDetails {...}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conditional_http_requests"><a class="anchor" href="#_conditional_http_requests"></a>Conditional HTTP Requests</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Jakarta REST provides support for conditional <code>GET</code> and <code>PUT</code> HTTP requests.
+Conditional <code>GET</code> requests help save bandwidth by improving the efficiency of client processing.</p>
+</div>
+<div class="paragraph">
+<p>A <code>GET</code> request can return a Not Modified (304) response if the representation has not changed since the previous request.
+For example, a website can return 304 responses for all its static images that have not changed since the previous request.</p>
+</div>
+<div class="paragraph">
+<p>A <code>PUT</code> request can return a Precondition Failed (412) response if the representation has been modified since the last request.
+The conditional <code>PUT</code> can help avoid the lost update problem.</p>
+</div>
+<div class="paragraph">
+<p>Conditional HTTP requests can be used with the <code>Last-Modified</code> and <code>ETag</code> headers.
+The <code>Last-Modified</code> header can represent dates with granularity of one second.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/employee/{joiningdate}")
+public class Employee {
+
+    Date joiningdate;
+
+    @GET
+    @Produces("application/xml")
+    public Employee(@PathParam("joiningdate") Date joiningdate,
+                    @Context Request req,
+                    @Context UriInfo ui) {
+
+        this.joiningdate = joiningdate;
+        ...
+        this.tag = computeEntityTag(ui.getRequestUri());
+        if (req.getMethod().equals("GET")) {
+            Response.ResponseBuilder rb = req.evaluatePreconditions(tag);
+            if (rb != null) {
+                throw new WebApplicationException(rb.build());
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this code snippet, the constructor of the <code>Employee</code> class computes the entity tag from the request URI and calls the <code>request.evaluatePreconditions</code> method with that tag.
+If a client request returns an <code>If-none-match</code> header with a value that has the same entity tag that was computed, <code>evaluate.Preconditions</code> returns a pre-filled-out response with a 304 status code and an entity tag set that may be built and returned.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_runtime_content_negotiation"><a class="anchor" href="#_runtime_content_negotiation"></a>Runtime Content Negotiation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>@Produces</code> and <code>@Consumes</code> annotations handle static content negotiation in Jakarta REST.
+These annotations specify the content preferences of the server.
+HTTP headers such as <code>Accept</code>, <code>Content-Type</code>, and <code>Accept-Language</code> define the content negotiation preferences of the client.</p>
+</div>
+<div class="paragraph">
+<p>For more details on the HTTP headers for content negotiation, see HTTP/1.1 - Content Negotiation (<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec12.html" class="bare" target="_blank" rel="noopener">https://www.w3.org/Protocols/rfc2616/rfc2616-sec12.html</a>).</p>
+</div>
+<div class="paragraph">
+<p>The following code snippet shows the server content preferences:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Produces("text/plain")
+@Path("/employee")
+public class Employee {
+
+    @GET
+    public String getEmployeeAddressText(String address) {...}
+
+    @Produces("text/xml")
+    @GET
+    public String getEmployeeAddressXml(Address address) {...}
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>getEmployeeAddressText</code> method is called for an HTTP request that looks like the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-http hljs" data-lang="http">GET /employee
+Accept: text/plain</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will produce the following response:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">500 Oracle Parkway, Redwood Shores, CA</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>getEmployeeAddressXml</code> method is called for an HTTP request that looks like the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-http hljs" data-lang="http">GET /employee
+Accept: text/xml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will produce the following response:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;address street="500 Oracle Parkway, Redwood Shores, CA" country="USA"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With static content negotiation, you can also define multiple content and media types for the client and server.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Produces("text/plain", "text/xml")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In addition to supporting static content negotiation, Jakarta REST also supports runtime content negotiation using the <code>jakarta.ws.rs.core.Variant</code> class and <code>Request</code> objects.
+The <code>Variant</code> class specifies the resource representation of content negotiation.
+Each instance of the <code>Variant</code> class may contain a media type, a language, and an encoding.
+The <code>Variant</code> object defines the resource representation that is supported by the server.
+The <code>Variant.VariantListBuilder</code> class is used to build a list of representation variants.</p>
+</div>
+<div class="paragraph">
+<p>The following code snippet shows how to create a list of resource representation variants:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">List&lt;Variant&gt; vs = Variant.mediatypes("application/xml", "application/json")
+        .languages("en", "fr").build();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This code snippet calls the <code>build</code> method of the <code>VariantListBuilder</code> class.
+The <code>VariantListBuilder</code> class is invoked when you call the <code>mediatypes</code>, <code>languages</code>, or <code>encodings</code> methods.
+The <code>build</code> method builds a series of resource representations.
+The <code>Variant</code> list created by the <code>build</code> method has all possible combinations of items specified in the <code>mediatypes</code>, <code>languages</code>, and <code>encodings</code> methods.</p>
+</div>
+<div class="paragraph">
+<p>In this example, the size of the <code>vs</code> object as defined in this code snippet is 4, and the contents are as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">[["application/xml","en"], ["application/json","en"],
+    ["application/xml","fr"],["application/json","fr"]]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>jakarta.ws.rs.core.Request.selectVariant</code> method accepts a list of <code>Variant</code> objects and chooses the <code>Variant</code> object that matches the HTTP request.
+This method compares its list of <code>Variant</code> objects with the <code>Accept</code>, <code>Accept-Encoding</code>, <code>Accept-Language</code>, and <code>Accept-Charset</code> headers of the HTTP request.</p>
+</div>
+<div class="paragraph">
+<p>The following code snippet shows how to use the <code>selectVariant</code> method to select the most acceptable <code>Variant</code> from the values in the client request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@GET
+public Response get(@Context Request r) {
+    List&lt;Variant&gt; vs = ...;
+    Variant v = r.selectVariant(vs);
+    if (v == null) {
+        return Response.notAcceptable(vs).build();
+    } else {
+        Object rep = selectRepresentation(v);
+        return Response.ok(rep, v);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>selectVariant</code> method returns the <code>Variant</code> object that matches the request or null if no matches are found.
+In this code snippet, if the method returns null, a <code>Response</code> object for a nonacceptable response is built.
+Otherwise, a <code>Response</code> object with an OK status and containing a representation in the form of an <code>Object</code> entity and a <code>Variant</code> is returned.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_jakarta_rest_with_jakarta_xml_binding"><a class="anchor" href="#_using_jakarta_rest_with_jakarta_xml_binding"></a>Using Jakarta REST with Jakarta XML Binding</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Jakarta XML Binding is an XML-to-Java binding technology that simplifies the development of web services by enabling transformations between schema and Java objects and between XML instance documents and Java object instances.
+An XML schema defines the data elements and structure of an XML document.
+You can use Jakarta XML Binding APIs and tools to establish mappings between Java classes and XML schema.
+Jakarta XML Binding technology provides the tools that enable you to convert your XML documents to and from Java objects.</p>
+</div>
+<div class="paragraph">
+<p>By using Jakarta XML Binding, you can manipulate data objects in the following ways.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You can start with an XML schema definition (XSD) and use <code>xjc</code>, the Jakarta XML Binding schema compiler tool, to create a set of Jakarta XML Binding annotated Java classes that map to the elements and types defined in the XSD schema.</p>
+</li>
+<li>
+<p>You can start with a set of Java classes and use <code>schemagen</code>, the Jakarta XML Binding schema generator tool, to generate an XML schema.</p>
+</li>
+<li>
+<p>Once a mapping between the XML schema and the Java classes exists, you can use the Jakarta XML Binding runtime to marshal and unmarshal your XML documents to and from Java objects and use the resulting Java classes to assemble a web services application.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>XML is a common media format that RESTful services consume and produce.
+To deserialize and serialize XML, you can represent requests and responses by Jakarta XML Binding annotated objects.
+Your Jakarta REST application can use the Jakarta XML Binding objects to manipulate XML data.
+Jakarta XML Binding objects can be used as request entity parameters and response entities.
+The Jakarta REST runtime environment includes standard <code>MessageBodyReader</code> and <code>MessageBodyWriter</code> provider interfaces for reading and writing Jakarta XML Binding objects as entities.</p>
+</div>
+<div class="paragraph">
+<p>With Jakarta REST, you enable access to your services by publishing resources.
+Resources are just simple Java classes with some additional Jakarta REST annotations.
+These annotations express the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The path of the resource (the URL you use to access it)</p>
+</li>
+<li>
+<p>The HTTP method you use to call a certain method (for example, the <code>GET</code> or <code>POST</code> method)</p>
+</li>
+<li>
+<p>The MIME type with which a method accepts or responds</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>As you define the resources for your application, consider the type of data you want to expose.
+You may already have a relational database that contains information you want to expose to users, or you may have static content that does not reside in a database but does need to be distributed as resources.
+Using Jakarta REST, you can distribute content from multiple sources.
+RESTful web services can use various types of input/output formats for request and response.
+The <code>customer</code> example, described in <a href="#_the_customer_example_application">The customer Example Application</a>, uses XML.</p>
+</div>
+<div class="paragraph">
+<p>Resources have representations.
+A resource representation is the content in the HTTP message that is sent to, or returned from, the resource using the URI.
+Each representation a resource supports has a corresponding media type.
+For example, if a resource is going to return content formatted as XML, you can use <code>application/xml</code> as the associated media type in the HTTP message.Depending on the requirements of your application, resources can return representations in a preferred single format or in multiple formats.
+Jakarta REST provides <code>@Consumes</code> and <code>@Produces</code> annotations to declare the media types that are acceptable for a resource method to read and write.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta REST also maps Java types to and from resource representations using entity providers.
+A <code>MessageBodyReader</code> entity provider reads a request entity and deserializes the request entity into a Java type.
+A <code>MessageBodyWriter</code> entity provider serializes from a Java type into a response entity.
+For example, if a <code>String</code> value is used as the request entity parameter, the <code>MessageBodyReader</code> entity provider deserializes the request body into a new <code>String</code>.
+If a Jakarta XML Binding type is used as the return type on a resource method, the <code>MessageBodyWriter</code> serializes the Jakarta XML Binding object into a response body.</p>
+</div>
+<div class="paragraph">
+<p>By default, the Jakarta REST runtime environment attempts to create and use a default <code>JAXBContext</code> class for Jakarta XML Binding classes.
+However, if the default <code>JAXBContext</code> class is not suitable, then you can supply a <code>JAXBContext</code> class for the application using a Jakarta REST <code>ContextResolver</code> provider interface.</p>
+</div>
+<div class="paragraph">
+<p>The following sections explain how to use Jakarta XML Binding with Jakarta REST resource methods.</p>
+</div>
+<div class="sect2">
+<h3 id="_using_java_objects_to_model_your_data"><a class="anchor" href="#_using_java_objects_to_model_your_data"></a>Using Java Objects to Model Your Data</h3>
+<div class="paragraph">
+<p>If you do not have an XML schema definition for the data you want to expose, you can model your data as Java classes, add Jakarta XML Binding annotations to these classes, and use Jakarta XML Binding to generate an XML schema for your data.
+For example, if the data you want to expose is a collection of products and each product has an ID, a name, a description, and a price, you can model it as a Java class as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@XmlRootElement(name="product")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Product {
+
+    @XmlElement(required=true)
+    protected int id;
+    @XmlElement(required=true)
+    protected String name;
+    @XmlElement(required=true)
+    protected String description;
+    @XmlElement(required=true)
+    protected int price;
+
+    public Product() {}
+
+    // Getter and setter methods
+    // ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Run the Jakarta XML Binding schema generator on the command line to generate the corresponding XML schema definition:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">schemagen Product.java</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command produces the XML schema as an <code>.xsd</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+
+    &lt;xs:element name="product" type="product"/&gt;
+
+    &lt;xs:complexType name="product"&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="id" type="xs:int"/&gt;
+        &lt;xs:element name="name" type="xs:string"/&gt;
+        &lt;xs:element name="description" type="xs:string"/&gt;
+        &lt;xs:element name="price" type="xs:int"/&gt;
+      &lt;/xs:sequence&gt;
+    &lt;xs:complexType&gt;
+&lt;/xs:schema&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once you have this mapping, you can create <code>Product</code> objects in your application, return them, and use them as parameters in Jakarta REST resource methods.
+The Jakarta REST runtime uses Jakarta XML Binding to convert the XML data from the request into a <code>Product</code> object and to convert a <code>Product</code> object into XML data for the response.
+The following resource class provides a simple example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/product")
+public class ProductService {
+    @GET
+    @Path("/get")
+    @Produces("application/xml")
+    public Product getProduct() {
+        Product prod = new Product();
+        prod.setId(1);
+        prod.setName("Mattress");
+        prod.setDescription("Queen size mattress");
+        prod.setPrice(500);
+        return prod;
+    }
+
+    @POST
+    @Path("/create")
+    @Consumes("application/xml")
+    public Response createProduct(Product prod) {
+        // Process or store the product and return a response
+        // ...
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Some IDEs, such as NetBeans IDE, will run the schema generator tool automatically during the build process if you add Java classes that have Jakarta XML Binding annotations to your project.
+For a detailed example, see <a href="#_the_customer_example_application">The customer Example Application</a>.
+The <code>customer</code> example contains a more complex relationship between the Java classes that model the data, which results in a more hierarchical XML representation.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_starting_from_an_existing_xml_schema_definition"><a class="anchor" href="#_starting_from_an_existing_xml_schema_definition"></a>Starting from an Existing XML Schema Definition</h3>
+<div class="paragraph">
+<p>If you already have an XML schema definition in an <code>.xsd</code> file for the data you want to expose, use the Jakarta XML Binding schema compiler tool.
+Consider this simple example of an <code>.xsd</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;xs:schema targetNamespace="http://xml.product"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           xmlns:myco="http://xml.product"&gt;
+  &lt;xs:element name="product" type="myco:Product"/&gt;
+  &lt;xs:complexType name="Product"&gt;
+    &lt;xs:sequence&gt;
+      &lt;xs:element name="id" type="xs:int"/&gt;
+      &lt;xs:element name="name" type="xs:string"/&gt;
+      &lt;xs:element name="description" type="xs:string"/&gt;
+      &lt;xs:element name="price" type="xs:int"/&gt;
+    &lt;/xs:sequence&gt;
+  &lt;/xs:complexType&gt;
+&lt;/xs:schema&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Run the schema compiler tool on the command line as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">xjc Product.xsd</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command generates the source code for Java classes that correspond to the types defined in the <code>.xsd</code> file.
+The schema compiler tool generates a Java class for each <code>complexType</code> defined in the <code>.xsd</code> file.
+The fields of each generated Java class are the same as the elements inside the corresponding <code>complexType</code>, and the class contains getter and setter methods for these fields.</p>
+</div>
+<div class="paragraph">
+<p>In this case, the schema compiler tool generates the classes <code>product.xml.Product</code> and <code>product.xml.ObjectFactory</code>.
+The <code>Product</code> class contains Jakarta XML Binding annotations, and its fields correspond to those in the <code>.xsd</code> definition:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "Product", propOrder = {
+    "id",
+    "name",
+    "description",
+    "price"
+})
+public class Product {
+    protected int id;
+    @XmlElement(required = true)
+    protected String name;
+    @XmlElement(required = true)
+    protected String description;
+    protected int price;
+
+    // Setter and getter methods
+    // ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can create instances of the <code>Product</code> class from your application (for example, from a database).
+The generated class <code>product.xml.ObjectFactory</code> contains a method that allows you to convert these objects to Jakarta XML Binding elements that can be returned as XML inside Jakarta REST resource methods:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@XmlElementDecl(namespace = "http://xml.product", name = "product")
+public JAXBElement&lt;Product&gt; createProduct(Product value) {
+    return new JAXBElement&lt;Product&gt;(_Product_QNAME, Product.class, null, value);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following code shows how to use the generated classes to return a Jakarta XML Binding element as XML in a Jakarta REST resource method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/product")
+public class ProductService {
+    @GET
+    @Path("/get")
+    @Produces("application/xml")
+    public JAXBElement&lt;Product&gt; getProduct() {
+        Product prod = new Product();
+        prod.setId(1);
+        prod.setName("Mattress");
+        prod.setDescription("Queen size mattress");
+        prod.setPrice(500);
+        return new ObjectFactory().createProduct(prod);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For <code>@POST</code> and <code>@PUT</code> resource methods, you can use a <code>Product</code> object directly as a parameter.
+Jakarta REST maps the XML data from the request into a <code>Product</code> object.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/product")
+public class ProductService {
+    @GET
+    // ...
+
+    @POST
+    @Path("/create")
+    @Consumes("application/xml")
+    public Response createProduct(Product prod) {
+        // Process or store the product and return a response
+        // ...
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_json_with_jakarta_rest_and_jakarta_xml_binding"><a class="anchor" href="#_using_json_with_jakarta_rest_and_jakarta_xml_binding"></a>Using JSON with Jakarta REST and Jakarta XML Binding</h3>
+<div class="paragraph">
+<p>Jakarta REST can automatically read and write XML using Jakarta XML Binding, but it can also work with JSON data.
+JSON is a simple text-based format for data exchange derived from JavaScript.
+For the preceding examples, the XML representation of a product is</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;product&gt;
+  &lt;id&gt;1&lt;/id&gt;
+  &lt;name&gt;Mattress&lt;/name&gt;
+  &lt;description&gt;Queen size mattress&lt;/description&gt;
+  &lt;price&gt;500&lt;/price&gt;
+&lt;/product&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The equivalent JSON representation is</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "id":"1",
+    "name":"Mattress",
+    "description":"Queen size mattress",
+    "price":500
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can add the format <code>application/json</code> or <code>MediaType.APPLICATION_JSON</code> to the <code>@Produces</code> annotation in resource methods to produce responses with JSON data:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@GET
+@Path("/get")
+@Produces({"application/xml","application/json"})
+public Product getProduct() { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, the default response is XML, but the response is a JSON object if the client makes a <code>GET</code> request that includes this header:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-http hljs" data-lang="http">Accept: application/json</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The resource methods can also accept JSON data for Jakarta XML Binding annotated classes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@POST
+@Path("/create")
+@Consumes({"application/xml","application/json"})
+public Response createProduct(Product prod) { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The client should include the following header when submitting JSON data with a <code>POST</code> request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-http hljs" data-lang="http">Content-Type: application/json</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_customer_example_application"><a class="anchor" href="#_the_customer_example_application"></a>The customer Example Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes how to build and run the <code>customer</code> example application.
+This application is a RESTful web service that uses Jakarta XML Binding to perform the create, read, update, delete (CRUD) operations for a specific entity.</p>
+</div>
+<div class="paragraph">
+<p>The <code>customer</code> sample application is in the <code><em>tut-install</em>/examples/jaxrs/customer/</code> directory.
+See <a href="../../intro/usingexamples/usingexamples.html#_using_the_tutorial_examples" class="xref page">Using the Tutorial Examples</a>, for basic information on building and running sample applications.</p>
+</div>
+<div class="sect2">
+<h3 id="_overview_of_the_customer_example_application"><a class="anchor" href="#_overview_of_the_customer_example_application"></a>Overview of the customer Example Application</h3>
+<div class="paragraph">
+<p>The source files of this application are at <code><em>tut-install</em>/examples/jaxrs/customer/src/main/java/</code>.
+The application has three parts.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>Customer</code> and <code>Address</code> entity classes.
+These classes model the data of the application and contain Jakarta XML Binding annotations.</p>
+</li>
+<li>
+<p>The <code>CustomerService</code> resource class.
+This class contains Jakarta REST resource methods that perform operations on <code>Customer</code> instances represented as XML or JSON data using Jakarta XML Binding.
+See <a href="#_the_customerservice_class">The CustomerService Class</a> for details.</p>
+</li>
+<li>
+<p>The <code>CustomerBean</code> session bean that acts as a backing bean for the web client.
+<code>CustomerBean</code> uses the Jakarta REST client API to call the methods of <code>CustomerService</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>customer</code> example application shows you how to model your data entities as Java classes with Jakarta XML Binding annotations.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_customer_and_address_entity_classes"><a class="anchor" href="#_the_customer_and_address_entity_classes"></a>The Customer and Address Entity Classes</h3>
+<div class="paragraph">
+<p>The following class represents a customer&#8217;s address:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Entity
+@Table(name="CUSTOMER_ADDRESS")
+@XmlRootElement(name="address")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Address {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @XmlElement(required=true)
+    protected int number;
+
+    @XmlElement(required=true)
+    protected String street;
+
+    @XmlElement(required=true)
+    protected String city;
+
+    @XmlElement(required=true)
+    protected String province;
+
+    @XmlElement(required=true)
+    protected String zip;
+
+    @XmlElement(required=true)
+    protected String country;
+
+    public Address() { }
+
+    // Getter and setter methods
+    // ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>@XmlRootElement(name="address")</code> annotation maps this class to the <code>address</code> XML element.
+The <code>@XmlAccessorType(XmlAccessType.FIELD)</code> annotation specifies that all the fields of this class are bound to XML by default.
+The <code>@XmlElement(required=true)</code> annotation specifies that an element must be present in the XML representation.</p>
+</div>
+<div class="paragraph">
+<p>The following class represents a customer:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Entity
+@Table(name="CUSTOMER_CUSTOMER")
+@NamedQuery(
+    name="findAllCustomers",
+    query="SELECT c FROM Customer c " +
+          "ORDER BY c.id"
+)
+@XmlRootElement(name="customer")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Customer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @XmlAttribute(required=true)
+    protected int id;
+
+    @XmlElement(required=true)
+    protected String firstname;
+
+    @XmlElement(required=true)
+    protected String lastname;
+
+    @XmlElement(required=true)
+    @OneToOne
+    protected Address address;
+
+    @XmlElement(required=true)
+    protected String email;
+
+    @XmlElement (required=true)
+    protected String phone;
+
+    public Customer() {...}
+
+    // Getter and setter methods
+    // ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>Customer</code> class contains the same Jakarta XML Binding annotations as the previous class, except for the <code>@XmlAttribute(required=true)</code> annotation, which maps a property to an attribute of the XML element representing the class.</p>
+</div>
+<div class="paragraph">
+<p>The <code>Customer</code> class contains a property whose type is another entity, the <code>Address</code> class.
+This mechanism allows you to define in Java code the hierarchical relationships between entities without having to write an <code>.xsd</code> file yourself.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta XML Binding generates the following XML schema definition for the two preceding classes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+
+  &lt;xs:element name="address" type="address"/&gt;
+  &lt;xs:element name="customer" type="customer"/&gt;
+
+  &lt;xs:complexType name="address"&gt;
+    &lt;xs:sequence&gt;
+      &lt;xs:element name="id" type="xs:long" minOccurs="0"/&gt;
+      &lt;xs:element name="number" type="xs:int"/&gt;
+      &lt;xs:element name="street" type="xs:string"/&gt;
+      &lt;xs:element name="city" type="xs:string"/&gt;
+      &lt;xs:element name="province" type="xs:string"/&gt;
+      &lt;xs:element name="zip" type="xs:string"/&gt;
+      &lt;xs:element name="country" type="xs:string"/&gt;
+    &lt;/xs:sequence&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="customer"&gt;
+    &lt;xs:sequence&gt;
+      &lt;xs:element name="firstname" type="xs:string"/&gt;
+      &lt;xs:element name="lastname" type="xs:string"/&gt;
+      &lt;xs:element ref="address"/&gt;
+      &lt;xs:element name="email" type="xs:string"/&gt;
+      &lt;xs:element name="phone" type="xs:string"/&gt;
+    &lt;/xs:sequence&gt;
+    &lt;xs:attribute name="id" type="xs:int" use="required"/&gt;
+  &lt;/xs:complexType&gt;
+&lt;/xs:schema&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_customerservice_class"><a class="anchor" href="#_the_customerservice_class"></a>The CustomerService Class</h3>
+<div class="paragraph">
+<p>The <code>CustomerService</code> class has a <code>createCustomer</code> method that creates a customer resource based on the <code>Customer</code> class and returns a URI for the new resource.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Stateless
+@Path("/Customer")
+public class CustomerService {
+    public static final Logger logger =
+            Logger.getLogger(CustomerService.class.getCanonicalName());
+    @PersistenceContext
+    private EntityManager em;
+    private CriteriaBuilder cb;
+
+    @PostConstruct
+    private void init() {
+        cb = em.getCriteriaBuilder();
+    }
+    ...
+    @POST
+    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public Response createCustomer(Customer customer) {
+
+        try {
+            long customerId = persist(customer);
+            return Response.created(URI.create("/" + customerId)).build();
+        } catch (Exception e) {
+            logger.log(Level.SEVERE,
+                    "Error creating customer for customerId {0}. {1}",
+                    new Object[]{customer.getId(), e.getMessage()});
+            throw new WebApplicationException(e,
+                    Response.Status.INTERNAL_SERVER_ERROR);
+        }
+    }
+    ...
+    private long persist(Customer customer) {
+        try {
+            Address address = customer.getAddress();
+            em.persist(address);
+            em.persist(customer);
+        } catch (Exception ex) {
+            logger.warning("Something went wrong when persisting the customer");
+        }
+        return customer.getId();
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The response returned to the client has a URI to the newly created resource.
+The return type is an entity body mapped from the property of the response with the status code specified by the status property of the response.
+The <code>WebApplicationException</code> is a <code>RuntimeException</code> that is used to wrap the appropriate HTTP error status code, such as 404, 406, 415, or 500.</p>
+</div>
+<div class="paragraph">
+<p>The <code>@Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})</code> and <code>@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})</code> annotations set the request and response media types to use the appropriate MIME client.
+These annotations can be applied to a resource method, a resource class, or even an entity provider.
+If you do not use these annotations, Jakarta REST allows the use of any media type (<code>"*/*"</code>).</p>
+</div>
+<div class="paragraph">
+<p>The following code snippet shows the implementation of the
+<code>getCustomer</code> and <code>findbyId</code> methods.
+The <code>getCustomer</code> method uses the
+<code>@Produces</code> annotation and returns a <code>Customer</code> object, which is
+converted to an XML or JSON representation depending on the <code>Accept:</code>
+header specified by the client.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">    @GET
+    @Path("{id}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public Customer getCustomer(@PathParam("id") String customerId) {
+        Customer customer = null;
+
+        try {
+            customer = findById(customerId);
+        } catch (Exception ex) {
+            logger.log(Level.SEVERE,
+                    "Error calling findCustomer() for customerId {0}. {1}",
+                    new Object[]{customerId, ex.getMessage()});
+        }
+        return customer;
+    }
+    ...
+    private Customer findById(String customerId) {
+        Customer customer = null;
+        try {
+            customer = em.find(Customer.class, customerId);
+            return customer;
+        } catch (Exception ex) {
+            logger.log(Level.WARNING,
+                    "Couldn't find customer with ID of {0}", customerId);
+        }
+        return customer;
+    }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_the_jakarta_rest_client_in_the_customerbean_classes"><a class="anchor" href="#_using_the_jakarta_rest_client_in_the_customerbean_classes"></a>Using the Jakarta REST Client in the CustomerBean Classes</h3>
+<div class="paragraph">
+<p>Use the Jakarta REST Client API to write a client for the <code>customer</code> example application.</p>
+</div>
+<div class="paragraph">
+<p>The <code>CustomerBean</code> enterprise bean class calls the Jakarta REST Client API to test the <code>CustomerService</code> web service:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Named
+@Stateless
+public class CustomerBean {
+    protected Client client;
+    private static final Logger logger =
+            Logger.getLogger(CustomerBean.class.getName());
+
+    @PostConstruct
+    private void init() {
+        client = ClientBuilder.newClient();
+    }
+
+    @PreDestroy
+    private void clean() {
+        client.close();
+    }
+
+    public String createCustomer(Customer customer) {
+        if (customer == null) {
+            logger.log(Level.WARNING, "customer is null.");
+            return "customerError";
+        }
+        String navigation;
+        Response response =
+                client.target("http://localhost:8080/customer/webapi/Customer")
+                .request(MediaType.APPLICATION_XML)
+                .post(Entity.entity(customer, MediaType.APPLICATION_XML),
+                        Response.class);
+        if (response.getStatus() == Status.CREATED.getStatusCode()) {
+            navigation = "customerCreated";
+        } else {
+            logger.log(Level.WARNING, "couldn''t create customer with " +
+                    "id {0}. Status returned was {1}",
+                    new Object[]{customer.getId(), response.getStatus()});
+            navigation = "customerError";
+        }
+        return navigation;
+    }
+
+    public String retrieveCustomer(String id) {
+        String navigation;
+        Customer customer =
+                client.target("http://localhost:8080/customer/webapi/Customer")
+                .path(id)
+                .request(MediaType.APPLICATION_XML)
+                .get(Customer.class);
+        if (customer == null) {
+            navigation = "customerError";
+        } else {
+            navigation = "customerRetrieved";
+        }
+        return navigation;
+    }
+
+    public List&lt;Customer&gt; retrieveAllCustomers() {
+        List&lt;Customer&gt; customers =
+                client.target("http://localhost:8080/customer/webapi/Customer")
+                .path("all")
+                .request(MediaType.APPLICATION_XML)
+                .get(new GenericType&lt;List&lt;Customer&gt;&gt;() {});
+        return customers;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This client uses the <code>POST</code> and <code>GET</code> methods.</p>
+</div>
+<div class="paragraph">
+<p>All of these HTTP status codes indicate success: 201 for <code>POST</code>, 200 for <code>GET</code>, and 204 for <code>DELETE</code>. For details about the meanings of HTTP status codes, see <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html" class="bare" target="_blank" rel="noopener">https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_running_the_customer_example"><a class="anchor" href="#_running_the_customer_example"></a>Running the customer Example</h3>
+<div class="paragraph">
+<p>You can use either NetBeans IDE or Maven to build, package, deploy, and run the <code>customer</code> application.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_build_package_and_deploy_the_customer_example_using_netbeans_ide"><a class="anchor" href="#_to_build_package_and_deploy_the_customer_example_using_netbeans_ide"></a>To Build, Package, and Deploy the customer Example Using NetBeans IDE</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>From the <strong>File</strong> menu, choose <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Open Project</strong> dialog box, navigate to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/jaxrs</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Select the <code>customer</code> folder.</p>
+</li>
+<li>
+<p>Click <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Projects</strong> tab, right-click the <code>customer</code> project and select <strong>Build</strong>.</p>
+<div class="paragraph">
+<p>This command builds and packages the application into a WAR file, <code>customer.war</code>, located in the <code>target</code> directory.
+Then, the WAR file is deployed to GlassFish Server.</p>
+</div>
+</li>
+<li>
+<p>Open the web client in a browser at the following URL:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/customer/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The web client allows you to create and view customers.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_build_package_and_deploy_the_customer_example_using_maven"><a class="anchor" href="#_to_build_package_and_deploy_the_customer_example_using_maven"></a>To Build, Package, and Deploy the customer Example Using Maven</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see
+<a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>In a terminal window, go to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/jaxrs/customer/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enter the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command builds and packages the application into a WAR file, <code>customer.war</code>, located in the <code>target</code> directory.
+Then, the WAR file is deployed to GlassFish Server.</p>
+</div>
+</li>
+<li>
+<p>Open the web client in a browser at the following URL:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/customer/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The web client allows you to create and view customers.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

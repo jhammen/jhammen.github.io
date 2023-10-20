@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Using the Tutorial Examples :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">Jakarta EE Tutorial</a></li>
+    <li><a href="usingexamples.html">Using the Tutorial Examples</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/intro/pages/usingexamples/usingexamples.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Using the Tutorial Examples</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We are working on a fresh, updated Jakarta EE Tutorial. This section hasn&#8217;t yet been updated.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This chapter tells you everything you need to know to install, build, and run the tutorial examples.</p>
+</div>
+<div class="paragraph">
+<p>For additional samples, see the GlassFish samples at <a href="https://github.com/eclipse-ee4j/glassfish-samples/tree/master/ws/jakartaee9" class="bare">https://github.com/eclipse-ee4j/glassfish-samples/tree/master/ws/jakartaee9</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_required_software"><a class="anchor" href="#_required_software"></a>Required Software</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following software is required to run the examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#_java_platform_standard_edition">Java Platform, Standard Edition</a></p>
+</li>
+<li>
+<p><a href="#_eclipse_glassfish_server">Eclipse Glassfish Server</a></p>
+</li>
+<li>
+<p><a href="#_jakarta_ee_tutorial_examples">Jakarta EE Tutorial Examples</a></p>
+</li>
+<li>
+<p><a href="#_apache_netbeans_ide">Apache NetBeans IDE</a></p>
+</li>
+<li>
+<p><a href="#_apache_maven">Apache Maven</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_java_platform_standard_edition"><a class="anchor" href="#_java_platform_standard_edition"></a>Java Platform, Standard Edition</h3>
+<div class="paragraph">
+<p>To build, deploy, and run the examples, you need a copy of the Java Platform, Standard Edition Development Kit (JDK).
+You must use JDK 8 Update 20 or above.
+You can download JDK software from <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" class="bare" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/downloads/index.html</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_eclipse_glassfish_server"><a class="anchor" href="#_eclipse_glassfish_server"></a>Eclipse Glassfish Server</h3>
+<div class="paragraph">
+<p>GlassFish Server 6.0 is targeted as the build and runtime environment for the tutorial examples.
+To build, deploy, and run the examples, you need a copy of GlassFish Server and, optionally, NetBeans IDE.
+You can download GlassFish Server from <a href="https://glassfish.org/download" class="bare" target="_blank" rel="noopener">https://glassfish.org/download</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="_glassfish_server_installation_tips"><a class="anchor" href="#_glassfish_server_installation_tips"></a>GlassFish Server Installation Tips</h4>
+<div class="paragraph">
+<p>GlassFish Server is installed from a ZIP file.
+It sets the default administration user name as <code>admin</code> with no required password.
+The Admin Port is set to 4848, and the HTTP Port is set to 8080.</p>
+</div>
+<div class="paragraph">
+<p>This tutorial refers to <code><em>as-install-parent</em></code>, the directory where you install GlassFish Server.
+For example, the default installation directory on Microsoft Windows is <code>C:\glassfish6</code>, so <code><em>as-install-parent</em></code> is <code>C:\glassfish6</code>.
+GlassFish Server itself is installed in <code><em>as-install</em></code>, the <code>glassfish</code> directory under <code><em>as-install-parent</em></code>.
+So on Microsoft Windows, <code><em>as-install</em></code> is <code>C:\glassfish6\glassfish</code>.</p>
+</div>
+<div class="paragraph">
+<p>After you install GlassFish Server, add the following directories to your <code>PATH</code> to avoid having to specify the full path when you use commands:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">as-install-parent/bin
+as-install/bin</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_ee_tutorial_examples"><a class="anchor" href="#_jakarta_ee_tutorial_examples"></a>Jakarta EE Tutorial Examples</h3>
+<div class="paragraph">
+<p>The tutorial example codes are located at <a href="https://github.com/eclipse-ee4j/jakartaee-examples" class="bare">https://github.com/eclipse-ee4j/jakartaee-examples</a></p>
+</div>
+<div class="paragraph">
+<p>Clone or download this repository to the desired location, this path is referenced in the tutorial as your <em>examples-install</em> directory.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_apache_netbeans_ide"><a class="anchor" href="#_apache_netbeans_ide"></a>Apache NetBeans IDE</h3>
+<div class="paragraph">
+<p>The NetBeans integrated development environment (IDE) is a free, open-source IDE for developing Java applications, including enterprise applications.
+NetBeans IDE supports the Jakarta EE platform.
+You can build, package, deploy, and run the tutorial examples from within NetBeans IDE.</p>
+</div>
+<div class="paragraph">
+<p>To run the tutorial examples, you need the latest version of NetBeans IDE.
+You can download NetBeans IDE from <a href="https://netbeans.apache.org/download/index.html" class="bare" target="_blank" rel="noopener">https://netbeans.apache.org/download/index.html</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_add_glassfish_server_as_a_server_using_netbeans_ide"><a class="anchor" href="#_to_add_glassfish_server_as_a_server_using_netbeans_ide"></a>To Add GlassFish Server as a Server Using NetBeans IDE</h4>
+<div class="paragraph">
+<p>To run the tutorial examples in NetBeans IDE, you must add your GlassFish Server as a server in NetBeans IDE.
+Follow these instructions to add GlassFish Server to NetBeans IDE.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>From the <strong>Tools</strong> menu, choose <strong>Servers</strong>.</p>
+</li>
+<li>
+<p>In the Servers wizard, click <strong>Add Server</strong>.</p>
+</li>
+<li>
+<p>Under Choose Server, select <strong>GlassFish Server</strong> and click <strong>Next</strong>.</p>
+</li>
+<li>
+<p>Under Server Location, browse to the GlassFish Server installation and click <strong>Next</strong>.</p>
+</li>
+<li>
+<p>Under Domain Location, select <strong>Register Local Domain</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Finish</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_apache_maven"><a class="anchor" href="#_apache_maven"></a>Apache Maven</h3>
+<div class="paragraph">
+<p>Maven is a Java technology-based build tool developed by the Apache Software Foundation and is used to build, package, and deploy the tutorial examples.
+To run the tutorial examples from the command line, you need Maven 3.0 or higher. If you do not already have Maven, you can install it from:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://maven.apache.org" class="bare" target="_blank" rel="noopener">https://maven.apache.org</a></p>
+</div>
+<div class="paragraph">
+<p>Be sure to add the <code>maven-install/bin</code> directory to your path.</p>
+</div>
+<div class="paragraph">
+<p>If you are using NetBeans IDE to build and run the examples, it includes a copy of Maven.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_starting_and_stopping_glassfish_server"><a class="anchor" href="#_starting_and_stopping_glassfish_server"></a>Starting and Stopping GlassFish Server</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can start and stop GlassFish Server using either NetBeans IDE or the command line.</p>
+</div>
+<div class="sect2">
+<h3 id="_to_start_glassfish_server_using_netbeans_ide"><a class="anchor" href="#_to_start_glassfish_server_using_netbeans_ide"></a>To Start GlassFish Server Using NetBeans IDE</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click the <strong>Services</strong> tab.</p>
+</li>
+<li>
+<p>Expand <strong>Servers</strong>.</p>
+</li>
+<li>
+<p>Right-click the <strong>GlassFish Server instance</strong> and select <strong>Start</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_to_stop_glassfish_server_using_netbeans_ide"><a class="anchor" href="#_to_stop_glassfish_server_using_netbeans_ide"></a>To Stop GlassFish Server Using NetBeans IDE</h3>
+<div class="paragraph">
+<p>To stop GlassFish Server using NetBeans IDE, right-click the <strong>GlassFish Server instance</strong> and select <strong>Stop</strong>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_to_start_glassfish_server_using_the_command_line"><a class="anchor" href="#_to_start_glassfish_server_using_the_command_line"></a>To Start GlassFish Server Using the Command Line</h3>
+<div class="paragraph">
+<p>To start GlassFish Server from the command line, open a terminal window or command prompt and execute the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">asadmin start-domain --verbose</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A domain is a set of one or more GlassFish Server instances managed by one administration server.
+The following elements are associated with a domain:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The GlassFish Server port number: The default is 8080.</p>
+</li>
+<li>
+<p>The administration server&#8217;s port number: The default is 4848.</p>
+</li>
+<li>
+<p>An administration user name and password: The default user name is <code>admin</code>, and by default no password is required.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You specify these values when you install GlassFish Server.
+The examples in this tutorial assume that you chose the default ports as well as the default user name and lack of password.</p>
+</div>
+<div class="paragraph">
+<p>With no arguments, the <code>start-domain</code> command initiates the default domain, which is <code>domain1</code>.
+The <code>--verbose</code> flag causes all logging and debugging output to appear on the terminal window or command prompt.
+The output also goes into the server log, which is located in <code><em>domain-dir</em>/logs/server.log</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_to_stop_glassfish_server_using_the_command_line"><a class="anchor" href="#_to_stop_glassfish_server_using_the_command_line"></a>To Stop GlassFish Server Using the Command Line</h3>
+<div class="paragraph">
+<p>To stop GlassFish Server, open a terminal window or command prompt and execute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">asadmin stop-domain domain1</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_starting_the_administration_console"><a class="anchor" href="#_starting_the_administration_console"></a>Starting the Administration Console</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To administer GlassFish Server and manage users, resources, and Jakarta EE applications, use the Administration Console tool.
+GlassFish Server must be running before you invoke the Administration Console.
+To start the Administration Console, open a browser at <a href="http://localhost:4848/" class="bare" target="_blank" rel="noopener">http://localhost:4848/</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_to_start_the_administration_console_using_netbeans_ide"><a class="anchor" href="#_to_start_the_administration_console_using_netbeans_ide"></a>To Start the Administration Console Using NetBeans IDE</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click the <strong>Services</strong> tab.</p>
+</li>
+<li>
+<p>Expand <strong>Servers</strong>.</p>
+</li>
+<li>
+<p>Right-click the <strong>GlassFish Server instance</strong> and select <strong>View Domain Admin Console</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+NetBeans IDE uses your default web browser to open the Administration Console.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_starting_and_stopping_apache_derby"><a class="anchor" href="#_starting_and_stopping_apache_derby"></a>Starting and Stopping Apache Derby</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>GlassFish Server includes Apache Derby.</p>
+</div>
+<div class="sect2">
+<h3 id="_to_start_derby_using_command_line"><a class="anchor" href="#_to_start_derby_using_command_line"></a>To Start Derby Using Command Line</h3>
+<div class="paragraph">
+<p>To start Derby from the command line, open a terminal window or command prompt, change to the <code><em>as-install</em>/bin</code> directory, and execute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">asadmin start-database</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_to_stop_derby_using_command_line"><a class="anchor" href="#_to_stop_derby_using_command_line"></a>To Stop Derby Using Command Line</h3>
+<div class="paragraph">
+<p>To stop Derby from the command line, open a terminal window or command prompt, change to the <code><em>as-install</em>/bin</code> directory, and execute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">asadmin stop-database</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For information about Apache Derby included with GlassFish Server, see the Release Notes that are located in the <code><em>as-install</em>/javadb/</code> directory.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_to_start_derby_using_netbeans_ide"><a class="anchor" href="#_to_start_derby_using_netbeans_ide"></a>To Start Derby Using NetBeans IDE</h3>
+<div class="paragraph">
+<p>When you start GlassFish Server using NetBeans IDE, the database server starts automatically.
+If you ever need to start the server manually, however, follow these steps.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click the <strong>Services</strong> tab.</p>
+</li>
+<li>
+<p>Expand <strong>Databases</strong>.</p>
+</li>
+<li>
+<p>Right-click <strong>Java DB</strong> and select <strong>Start Server</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_to_stop_derby_using_netbeans_ide"><a class="anchor" href="#_to_stop_derby_using_netbeans_ide"></a>To Stop Derby Using NetBeans IDE</h3>
+<div class="paragraph">
+<p>To stop the database using NetBeans IDE, right-click <strong>Java DB</strong> and select <strong>Stop Server</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_building_the_examples"><a class="anchor" href="#_building_the_examples"></a>Building the Examples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The tutorial examples are distributed with a configuration file for either NetBeans IDE or Maven.
+Either NetBeans IDE or Maven may be used to build, package, deploy, and run the examples.
+Directions for building the examples are provided in each chapter.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tutorial_example_directory_structure"><a class="anchor" href="#_tutorial_example_directory_structure"></a>Tutorial Example Directory Structure</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To facilitate iterative development and keep application source files separate from compiled files, the tutorial examples use the Maven application directory structure.</p>
+</div>
+<div class="paragraph">
+<p>Each application module has the following structure:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>pom.xml</code>: Maven build file</p>
+</li>
+<li>
+<p><code>src/main/java</code>: Java source files for the module</p>
+</li>
+<li>
+<p><code>src/main/resources</code>: configuration files for the module, with the exception of web applications</p>
+</li>
+<li>
+<p><code>src/main/webapp</code>: web pages, style sheets, tag files, and images (web applications only)</p>
+</li>
+<li>
+<p><code>src/main/webapp/WEB-INF</code>: configuration files for web applications (web applications only)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When an example has multiple application modules packaged into an EAR file, its submodule directories use the following naming conventions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>example-name</em><code>-app-client</code>: application clients</p>
+</li>
+<li>
+<p><em>example-name</em><code>-ejb</code>: enterprise bean JAR files</p>
+</li>
+<li>
+<p><em>example-name</em><code>-war</code>: web applications</p>
+</li>
+<li>
+<p><em>example-name</em><code>-ear</code>: enterprise applications</p>
+</li>
+<li>
+<p><em>example-name</em><code>-common</code>: library JAR containing components, classes, and files used by other modules</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Maven build files (<code>pom.xml</code>) distributed with the examples contain goals to compile and assemble the application into the <code>target</code> directory and deploy the archive to GlassFish Server.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_jakarta_ee_maven_archetypes_in_the_tutorial"><a class="anchor" href="#_jakarta_ee_maven_archetypes_in_the_tutorial"></a>Jakarta EE Maven Archetypes in the Tutorial</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Some of the chapters have instructions on how to build an example application using Maven archetypes.
+Archetypes are templates for generating a particular Maven project.
+The Tutorial includes several Maven archetypes for generating Jakarta EE projects.</p>
+</div>
+<div class="sect2">
+<h3 id="_installing_the_tutorial_archetypes"><a class="anchor" href="#_installing_the_tutorial_archetypes"></a>Installing the Tutorial Archetypes</h3>
+<div class="paragraph">
+<p>You must install the included Maven archetypes into your local Maven repository before you can create new projects based on the archetypes.
+You can install the archetypes using NetBeans IDE or Maven.</p>
+</div>
+<div class="sect3">
+<h4 id="_installing_the_tutorial_archetypes_using_netbeans_ide"><a class="anchor" href="#_installing_the_tutorial_archetypes_using_netbeans_ide"></a>Installing the Tutorial Archetypes Using NetBeans IDE</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>From the <strong>File</strong> menu, choose <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the Open Project dialog box, navigate to:<br></p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples</code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select the <code>archetypes</code> folder.</p>
+</li>
+<li>
+<p>Click <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Projects</strong> tab, right-click the <code>archetypes</code> project and select <strong>Build</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_installing_the_tutorial_archetypes_using_maven"><a class="anchor" href="#_installing_the_tutorial_archetypes_using_maven"></a>Installing the Tutorial Archetypes Using Maven</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In a terminal window, go to:<br></p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/archetypes/</code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter the following command:<br></p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">mvn install</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_debugging_jakarta_ee_applications"><a class="anchor" href="#_debugging_jakarta_ee_applications"></a>Debugging Jakarta EE Applications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section explains how to determine what is causing an error in your application deployment or execution.</p>
+</div>
+<div class="sect2">
+<h3 id="_using_the_server_log"><a class="anchor" href="#_using_the_server_log"></a>Using the Server Log</h3>
+<div class="paragraph">
+<p>One way to debug applications is to look at the server log in <code><em>domain-dir</em>/logs/server.log</code>.
+The log contains output from GlassFish Server and your applications.
+You can log messages from any Java class in your application with <code>System.out.println</code> and the Java Logging APIs (documented at <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/logging/index.html" class="bare" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/technotes/guides/logging/index.html</a>) and from web components with the <code>ServletContext.log</code> method.</p>
+</div>
+<div class="paragraph">
+<p>If you use NetBeans IDE, logging output appears in the Output window as well as the server log.</p>
+</div>
+<div class="paragraph">
+<p>If you start GlassFish Server with the <code>--verbose</code> flag, all logging and debugging output will appear on the terminal window or command prompt and the server log.
+If you start GlassFish Server in the background, debugging information is available only in the log.
+You can view the server log with a text editor or with the Administration Console log viewer.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_use_the_administration_console_log_viewer"><a class="anchor" href="#_to_use_the_administration_console_log_viewer"></a>To Use the Administration Console Log Viewer</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select the <strong>GlassFish Server</strong> node.</p>
+</li>
+<li>
+<p>Click <strong>View Log Files</strong>.<br>
+The log viewer opens and displays the last 40 entries.</p>
+</li>
+<li>
+<p>To display other entries, follow these steps:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Click <strong>Modify Search</strong>.</p>
+</li>
+<li>
+<p>Specify any constraints on the entries you want to see.</p>
+</li>
+<li>
+<p>Click Search at the top of the log viewer.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_a_debugger"><a class="anchor" href="#_using_a_debugger"></a>Using a Debugger</h3>
+<div class="paragraph">
+<p>GlassFish Server supports the Java Platform Debugger Architecture (JPDA).
+With JPDA, you can configure GlassFish Server to communicate debugging information using a socket.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_debug_an_application_using_a_debugger"><a class="anchor" href="#_to_debug_an_application_using_a_debugger"></a>To Debug an Application Using a Debugger</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Follow these steps to enable debugging in GlassFish Server using the Administration Console:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expand the <strong>Configurations</strong> node, then expand the <strong>server-config</strong> node.</p>
+</li>
+<li>
+<p>Select the <strong>JVM Settings</strong> node. The default debug options are set to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=9009</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As you can see, the default debugger socket port is 9009.
+You can change it to a port not in use by GlassFish Server or another service.</p>
+</div>
+</li>
+<li>
+<p>Select the <strong>Debug Enabled</strong> check box.</p>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Stop GlassFish Server and then restart it.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

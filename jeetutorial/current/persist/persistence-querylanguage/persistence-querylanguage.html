@@ -1,0 +1,2876 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>The Jakarta Persistence Query Language :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">Jakarta EE Tutorial</a></li>
+    <li>Jakarta EE Web Profile</li>
+    <li>Jakarta Persistence</li>
+    <li><a href="persistence-querylanguage.html">The Jakarta Persistence Query Language</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/persist/pages/persistence-querylanguage/persistence-querylanguage.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">The Jakarta Persistence Query Language</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We are working on a fresh, updated Jakarta EE Tutorial. This section hasn&#8217;t yet been updated.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This chapter describes the Jakarta Persistence query language that defines queries for entities and their persistent state.
+The query language allows you to write portable queries that work regardless of the underlying data store.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview_of_the_jakarta_persistence_query_language"><a class="anchor" href="#_overview_of_the_jakarta_persistence_query_language"></a>Overview of the Jakarta Persistence Query Language</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The query language uses the abstract persistence schemas of entities, including their relationships, for its data model and defines operators and expressions based on this data model.
+The scope of a query spans the abstract schemas of related entities that are packaged in the same persistence unit.
+The query language uses an SQL-like syntax to select objects or values based on entity abstract schema types and relationships among them.</p>
+</div>
+<div class="paragraph">
+<p>This chapter relies on the material presented in earlier chapters.
+For conceptual information, see <a href="../persistence-intro/persistence-intro.html#_introduction_to_jakarta_persistence" class="xref page">Introduction to Jakarta Persistence</a>.
+For code examples, see <a href="../persistence-basicexamples/persistence-basicexamples.html#_running_the_persistence_examples" class="xref page">Running the Persistence Examples</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_query_language_terminology"><a class="anchor" href="#_query_language_terminology"></a>Query Language Terminology</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following list defines some of the terms referred to in this chapter.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Abstract schema: The persistent schema abstraction (persistent entities, their state, and their relationships) over which queries operate.
+The query language translates queries over this persistent schema abstraction into queries that are executed over the database schema to which entities are mapped.</p>
+</li>
+<li>
+<p>Abstract schema type: The type to which the persistent property of an entity evaluates in the abstract schema.
+That is, each persistent field or property in an entity has a corresponding state field of the same type in the abstract schema.
+The abstract schema type of an entity is derived from the entity class and the metadata information provided by Java language annotations.</p>
+</li>
+<li>
+<p>Backus-Naur Form (BNF): A notation that describes the syntax of high-level languages.
+The syntax diagrams in this chapter are in BNF notation.</p>
+</li>
+<li>
+<p>Navigation: The traversal of relationships in a query language expression.
+The navigation operator is a period.</p>
+</li>
+<li>
+<p>Path expression: An expression that navigates to an entity&#8217;s state or relationship field.</p>
+</li>
+<li>
+<p>State field: A persistent field of an entity.</p>
+</li>
+<li>
+<p>Relationship field: A persistent field of an entity whose type is the abstract schema type of the related entity.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creating_queries_using_the_jakarta_persistence_query_language"><a class="anchor" href="#_creating_queries_using_the_jakarta_persistence_query_language"></a>Creating Queries Using the Jakarta Persistence Query Language</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>EntityManager.createQuery</code> and <code>EntityManager.createNamedQuery</code> methods are used to query the datastore by using Jakarta Persistence query language queries.</p>
+</div>
+<div class="paragraph">
+<p>The <code>createQuery</code> method is used to create dynamic queries, which are queries defined directly within an application&#8217;s business logic:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public List findWithName(String name) {
+return em.createQuery(
+    "SELECT c FROM Customer c WHERE c.name LIKE :custName")
+    .setParameter("custName", name)
+    .setMaxResults(10)
+    .getResultList();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>createNamedQuery</code> method is used to create static queries, or queries that are defined in metadata by using the <code>jakarta.persistence.NamedQuery</code> annotation.
+The <code>name</code> element of <code>@NamedQuery</code> specifies the name of the query that will be used with the <code>createNamedQuery</code> method.
+The <code>query</code> element of <code>@NamedQuery</code> is the query:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@NamedQuery(
+    name="findAllCustomersWithName",
+    query="SELECT c FROM Customer c WHERE c.name LIKE :custName"
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example of <code>createNamedQuery</code>, which uses the <code>@NamedQuery</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@PersistenceContext
+public EntityManager em;
+...
+customers = em.createNamedQuery("findAllCustomersWithName")
+    .setParameter("custName", "Smith")
+    .getResultList();</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_named_parameters_in_queries"><a class="anchor" href="#_named_parameters_in_queries"></a>Named Parameters in Queries</h3>
+<div class="paragraph">
+<p>Named parameters are query parameters that are prefixed with a colon (<code>:</code>).
+Named parameters in a query are bound to an argument by the following method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">jakarta.persistence.Query.setParameter(String name, Object value)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the following example, the <code>name</code> argument to the <code>findWithName</code> business method is bound to the <code>:custName</code> named parameter in the query by calling <code>Query.setParameter</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public List findWithName(String name) {
+    return em.createQuery(
+        "SELECT c FROM Customer c WHERE c.name LIKE :custName")
+        .setParameter("custName", name)
+        .getResultList();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Named parameters are case-sensitive and may be used by both dynamic and static queries.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_positional_parameters_in_queries"><a class="anchor" href="#_positional_parameters_in_queries"></a>Positional Parameters in Queries</h3>
+<div class="paragraph">
+<p>You may use positional parameters instead of named parameters in queries.
+Positional parameters are prefixed with a question mark (<code>?</code>) followed by the numeric position of the parameter in the query.
+The method <code>Query.setParameter(integer position, Object value)</code> is used to set the parameter values.</p>
+</div>
+<div class="paragraph">
+<p>In the following example, the <code>findWithName</code> business method is rewritten to use input parameters:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public List findWithName(String name) {
+    return em.createQuery(
+        "SELECT c FROM Customer c WHERE c.name LIKE ?1")
+        .setParameter(1, name)
+        .getResultList();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Input parameters are numbered starting from 1.
+Input parameters are case-sensitive, and may be used by both dynamic and static queries.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_simplified_query_language_syntax"><a class="anchor" href="#_simplified_query_language_syntax"></a>Simplified Query Language Syntax</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section briefly describes the syntax of the query language so that you can quickly move on to <a href="#_example_queries">Example Queries</a>.
+When you are ready to learn about the syntax in more detail, see <a href="#_full_query_language_syntax">Full Query Language Syntax</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_select_statements"><a class="anchor" href="#_select_statements"></a>Select Statements</h3>
+<div class="paragraph">
+<p>A select query has six clauses: <code>SELECT</code>, <code>FROM</code>, <code>WHERE</code>, <code>GROUP BY</code>, <code>HAVING</code>, and <code>ORDER BY</code>.
+The <code>SELECT</code> and <code>FROM</code> clauses are required, but the <code>WHERE</code>, <code>GROUP BY</code>, <code>HAVING</code>, and <code>ORDER BY</code> clauses are optional.
+Here is the high-level BNF syntax of a query language select query:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">QL_statement ::= select_clause from_clause
+  [where_clause][groupby_clause][having_clause][orderby_clause]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The BNF syntax defines the following clauses.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>SELECT</code> clause defines the types of the objects or values returned by the query.</p>
+</li>
+<li>
+<p>The <code>FROM</code> clause defines the scope of the query by declaring one or more identification variables, which can be referenced in the <code>SELECT</code> and <code>WHERE</code> clauses.
+An identification variable represents one of the following elements:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The abstract schema name of an entity</p>
+</li>
+<li>
+<p>An element of a collection relationship</p>
+</li>
+<li>
+<p>An element of a single-valued relationship</p>
+</li>
+<li>
+<p>A member of a collection that is the multiple side of a one-to-many relationship</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The <code>WHERE</code> clause is a conditional expression that restricts the objects or values retrieved by the query.
+Although the clause is optional, most queries have a <code>WHERE</code> clause.</p>
+</li>
+<li>
+<p>The <code>GROUP BY</code> clause groups query results according to a set of properties.</p>
+</li>
+<li>
+<p>The <code>HAVING</code> clause is used with the <code>GROUP BY</code> clause to further restrict the query results according to a conditional expression.</p>
+</li>
+<li>
+<p>The <code>ORDER BY</code> clause sorts the objects or values returned by the query into a specified order.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_update_and_delete_statements"><a class="anchor" href="#_update_and_delete_statements"></a>Update and Delete Statements</h3>
+<div class="paragraph">
+<p>Update and delete statements provide bulk operations over sets of entities.
+These statements have the following syntax:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">update_statement :: = update_clause [where_clause]
+delete_statement :: = delete_clause [where_clause]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The update and delete clauses determine the type of the entities to be updated or deleted.
+The <code>WHERE</code> clause may be used to restrict the scope of the update or delete operation.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_example_queries"><a class="anchor" href="#_example_queries"></a>Example Queries</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following queries are from the <code>Player</code> entity of the <code>roster</code> application, which is documented in <a href="../persistence-basicexamples/persistence-basicexamples.html#_the_roster_application" class="xref page">The roster Application</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_simple_queries"><a class="anchor" href="#_simple_queries"></a>Simple Queries</h3>
+<div class="paragraph">
+<p>If you are unfamiliar with the query language, these simple queries are a good place to start.</p>
+</div>
+<div class="sect3">
+<h4 id="_a_basic_select_query"><a class="anchor" href="#_a_basic_select_query"></a>A Basic Select Query</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT p
+FROM Player p</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: All players.</p>
+</li>
+<li>
+<p>Description: The <code>FROM</code> clause declares an identification variable named <code>p</code>, omitting the optional keyword <code>AS</code>.
+If the <code>AS</code> keyword were included, the clause would be written as follows:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">FROM Player AS p</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>Player</code> element is the abstract schema name of the <code>Player</code> entity.</p>
+</div>
+</li>
+<li>
+<p>See also: <a href="#_identification_variables">Identification Variables</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_eliminating_duplicate_values"><a class="anchor" href="#_eliminating_duplicate_values"></a>Eliminating Duplicate Values</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT p
+FROM Player p
+WHERE p.position = ?1</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: The players with the position specified by the query&#8217;s parameter.</p>
+</li>
+<li>
+<p>Description: The <code>DISTINCT</code> keyword eliminates duplicate values.</p>
+<div class="paragraph">
+<p>The <code>WHERE</code> clause restricts the players retrieved by checking their <code>position</code>, a persistent field of the <code>Player</code> entity.
+The <code>?1</code> element denotes the input parameter of the query.</p>
+</div>
+</li>
+<li>
+<p>See also: <a href="#_input_parameters">Input Parameters</a> and <a href="#_the_distinct_keyword">The DISTINCT Keyword</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_using_named_parameters"><a class="anchor" href="#_using_named_parameters"></a>Using Named Parameters</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT p
+FROM Player p
+WHERE p.position = :position AND p.name = :name</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: The players having the specified positions and names.</p>
+</li>
+<li>
+<p>Description: The <code>position</code> and <code>name</code> elements are persistent fields of the <code>Player</code> entity.
+The <code>WHERE</code> clause compares the values of these fields with the named parameters of the query, set using the <code>Query.setNamedParameter</code> method.
+The query language denotes a named input parameter using a colon (<code>:</code>) followed by an identifier.
+The first input parameter is <code>:position</code>, the second is <code>:name</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_queries_that_navigate_to_related_entities"><a class="anchor" href="#_queries_that_navigate_to_related_entities"></a>Queries That Navigate to Related Entities</h3>
+<div class="paragraph">
+<p>In the query language, an expression can traverse, or navigate, to related entities.
+These expressions are the primary difference between the Jakarta Persistence query language and SQL.
+Queries navigates to related entities, whereas SQL joins tables.</p>
+</div>
+<div class="sect3">
+<h4 id="_a_simple_query_with_relationships"><a class="anchor" href="#_a_simple_query_with_relationships"></a>A Simple Query with Relationships</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT p
+FROM Player p, IN (p.teams) t</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: All players who belong to a team.</p>
+</li>
+<li>
+<p>Description: The <code>FROM</code> clause declares two identification variables: <code>p</code> and <code>t</code>.
+The <code>p</code> variable represents the <code>Player</code> entity, and the <code>t</code> variable represents the related <code>Team</code> entity.
+The declaration for <code>t</code> references the previously declared <code>p</code> variable.
+The <code>IN</code> keyword signifies that <code>teams</code> is a collection of related entities.
+The <code>p.teams</code> expression navigates from a <code>Player</code> to its related <code>Team</code>.
+The period in the <code>p.teams</code> expression is the navigation operator.</p>
+<div class="paragraph">
+<p>You may also use the <code>JOIN</code> statement to write the same query:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT p
+FROM Player p JOIN p.teams t</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This query could also be rewritten as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT p
+FROM Player p
+WHERE p.team IS NOT EMPTY</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_navigating_to_single_valued_relationship_fields"><a class="anchor" href="#_navigating_to_single_valued_relationship_fields"></a>Navigating to Single-Valued Relationship Fields</h4>
+<div class="paragraph">
+<p>Use the <code>JOIN</code> clause statement to navigate to a single-valued relationship field:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT t
+FROM Team t JOIN t.league l
+WHERE l.sport = 'soccer' OR l.sport ='football'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, the query will return all teams that are in either soccer or football leagues.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_traversing_relationships_with_an_input_parameter"><a class="anchor" href="#_traversing_relationships_with_an_input_parameter"></a>Traversing Relationships with an Input Parameter</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT p
+FROM Player p, IN (p.teams) AS t
+WHERE t.city = :city</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: The players whose teams belong to the specified city.</p>
+</li>
+<li>
+<p>Description: This query is similar to the previous example but adds an input parameter.
+The <code>AS</code> keyword in the <code>FROM</code> clause is optional.
+In the <code>WHERE</code> clause, the period preceding the persistent variable <code>city</code> is a delimiter, not a navigation operator.
+Strictly speaking, expressions can navigate to relationship fields (related entities) but not to persistent fields.
+To access a persistent field, an expression uses the period as a delimiter.</p>
+<div class="paragraph">
+<p>Expressions cannot navigate beyond (or further qualify) relationship fields that are collections.
+In the syntax of an expression, a collection-valued field is a terminal symbol.
+Because the <code>teams</code> field is a collection, the <code>WHERE</code> clause cannot specify <code>p.teams.city</code> (an illegal expression).</p>
+</div>
+</li>
+<li>
+<p>See also: <a href="#_path_expressions">Path Expressions</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_traversing_multiple_relationships"><a class="anchor" href="#_traversing_multiple_relationships"></a>Traversing Multiple Relationships</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT p
+FROM Player p, IN (p.teams) t
+WHERE t.league = :league</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: The players who belong to the specified league.</p>
+</li>
+<li>
+<p>Description: The expressions in this query navigate over two relationships.
+The <code>p.teams</code> expression navigates the <code>Player</code>-<code>Team</code> relationship, and the <code>t.league</code> expression navigates the <code>Team</code>-<code>League</code> relationship.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In the other examples, the input parameters are <code>String</code> objects; in this example, the parameter is an object whose type is a <code>League</code>.
+This type matches the <code>league</code> relationship field in the comparison expression of the <code>WHERE</code> clause.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_navigating_according_to_related_fields"><a class="anchor" href="#_navigating_according_to_related_fields"></a>Navigating According to Related Fields</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT p
+FROM Player p, IN (p.teams) t
+WHERE t.league.sport = :sport</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: The players who participate in the specified sport.</p>
+</li>
+<li>
+<p>Description: The <code>sport</code> persistent field belongs to the <code>League</code> entity.
+To reach the <code>sport</code> field, the query must first navigate from the <code>Player</code> entity to <code>Team</code> (<code>p.teams</code>) and then from <code>Team</code> to the <code>League</code> entity (<code>t.league</code>).
+Because it is not a collection, the <code>league</code> relationship field can be followed by the <code>sport</code> persistent field.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_queries_with_other_conditional_expressions"><a class="anchor" href="#_queries_with_other_conditional_expressions"></a>Queries with Other Conditional Expressions</h3>
+<div class="paragraph">
+<p>Every <code>WHERE</code> clause must specify a conditional expression, of which there are several kinds.
+In the previous examples, the conditional expressions are comparison expressions that test for equality.
+The following examples demonstrate some of the other kinds of conditional expressions.
+For descriptions of all conditional expressions, see <a href="#_where_clause">WHERE Clause</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="_the_like_expression"><a class="anchor" href="#_the_like_expression"></a>The LIKE Expression</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT p
+FROM Player p
+WHERE p.name LIKE 'Mich%'</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: All players whose names begin with "Mich."</p>
+</li>
+<li>
+<p>Description: The <code>LIKE</code> expression uses wildcard characters to search for strings that match the wildcard pattern.
+In this case, the query uses the <code>LIKE</code> expression and the <code>%</code> wildcard to find all players whose names begin with the string "Mich." For example, "Michael" and "Michelle" both match the wildcard pattern.</p>
+</li>
+<li>
+<p>See also: <a href="#_like_expressions">LIKE Expressions</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_is_null_expression"><a class="anchor" href="#_the_is_null_expression"></a>The IS NULL Expression</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT t
+FROM Team t
+WHERE t.league IS NULL</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: All teams not associated with a league.</p>
+</li>
+<li>
+<p>Description: The <code>IS NULL</code> expression can be used to check whether a relationship has been set between two entities.
+In this case, the query checks whether the teams are associated with any leagues and returns the teams that do not have a league.</p>
+</li>
+<li>
+<p>See also: <a href="#_null_comparison_expressions">NULL Comparison Expressions</a> and <a href="#_null_values">NULL Values</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_is_empty_expression"><a class="anchor" href="#_the_is_empty_expression"></a>The IS EMPTY Expression</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT p
+FROM Player p
+WHERE p.teams IS EMPTY</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: All players who do not belong to a team.</p>
+</li>
+<li>
+<p>Description: The <code>teams</code> relationship field of the <code>Player</code> entity is a collection.
+If a player does not belong to a team, the <code>teams</code> collection is empty, and the conditional expression is <code>TRUE</code>.</p>
+</li>
+<li>
+<p>See also: <a href="#_empty_collection_comparison_expressions">Empty Collection Comparison Expressions</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_between_expression"><a class="anchor" href="#_the_between_expression"></a>The BETWEEN Expression</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT p
+FROM Player p
+WHERE p.salary BETWEEN :lowerSalary AND :higherSalary</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: The players whose salaries fall within the range of the specified salaries.</p>
+</li>
+<li>
+<p>Description: This <code>BETWEEN</code> expression has three arithmetic expressions: a persistent field (<code>p.salary</code>) and the two input parameters (<code>:lowerSalary</code> and <code>:higherSalary</code>).
+The following expression is equivalent to the <code>BETWEEN</code> expression:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">p.salary &gt;= :lowerSalary AND p.salary &lt;= :higherSalary</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>See also: <a href="#_between_expressions">BETWEEN Expressions</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_comparison_operators"><a class="anchor" href="#_comparison_operators"></a>Comparison Operators</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT p1
+FROM Player p1, Player p2
+WHERE p1.salary &gt; p2.salary AND p2.name = :name</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: All players whose salaries are higher than the salary of the player with the specified name.</p>
+</li>
+<li>
+<p>Description: The <code>FROM</code> clause declares two identification variables (<code>p1</code> and <code>p2</code>) of the same type (<code>Player</code>).
+Two identification variables are needed because the <code>WHERE</code> clause compares the salary of one player (<code>p2</code>) with that of the other players (<code>p1</code>).</p>
+</li>
+<li>
+<p>See also: <a href="#_identification_variables">Identification Variables</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bulk_updates_and_deletes"><a class="anchor" href="#_bulk_updates_and_deletes"></a>Bulk Updates and Deletes</h3>
+<div class="paragraph">
+<p>The following examples show how to use the <code>UPDATE</code> and <code>DELETE</code> expressions in queries.
+<code>UPDATE</code> and <code>DELETE</code> operate on multiple entities according to the condition or conditions set in the <code>WHERE</code> clause.
+The <code>WHERE</code> clause in <code>UPDATE</code> and <code>DELETE</code> queries follows the same rules as <code>SELECT</code> queries.</p>
+</div>
+<div class="sect3">
+<h4 id="_update_queries"><a class="anchor" href="#_update_queries"></a>Update Queries</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">UPDATE Player p
+SET p.status = 'inactive'
+WHERE p.lastPlayed &lt; :inactiveThresholdDate</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Description: This query sets the status of a set of players to <code>inactive</code> if the player&#8217;s last game was longer ago than the date specified in <code>inactiveThresholdDate</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_delete_queries"><a class="anchor" href="#_delete_queries"></a>Delete Queries</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">DELETE
+FROM Player p
+WHERE p.status = 'inactive'
+AND p.teams IS EMPTY</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Description: This query deletes all inactive players who are not on a team.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_full_query_language_syntax"><a class="anchor" href="#_full_query_language_syntax"></a>Full Query Language Syntax</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section discusses the query language syntax, as defined in the Jakarta Persistence 3.0 specification available at <a href="https://jakarta.ee/specifications/persistence/3.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/persistence/3.0/</a>.
+Much of the following material paraphrases or directly quotes the specification.</p>
+</div>
+<div class="sect2">
+<h3 id="_bnf_symbols"><a class="anchor" href="#_bnf_symbols"></a>BNF Symbols</h3>
+<div class="paragraph">
+<p><a href="#_bnf_symbol_summary">BNF Symbol Summary</a> describes the BNF symbols used in this chapter.</p>
+</div>
+<table id="_bnf_symbol_summary" class="tableblock frame-all grid-all" style="width: 75%;">
+<caption class="title">BNF Symbol Summary</caption>
+<colgroup>
+<col style="width: 35.7142%;">
+<col style="width: 64.2858%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Symbol</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>::=</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The element to the left of the symbol is defined by the constructs on the right.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The preceding construct may occur zero or more times.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{&#8230;&#8203;}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The constructs within the braces are grouped together.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[&#8230;&#8203;]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The constructs within the brackets are optional.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>|</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An exclusive <code>OR</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BOLDFACE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A keyword; although capitalized in the BNF diagram, keywords are not case-sensitive.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">White space</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A whitespace character can be a space, a horizontal tab, or a line feed.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_bnf_grammar_of_the_jakarta_persistence_query_language"><a class="anchor" href="#_bnf_grammar_of_the_jakarta_persistence_query_language"></a>BNF Grammar of the Jakarta Persistence Query Language</h3>
+<div class="paragraph">
+<p>Here is the entire BNF diagram for the query language:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">QL_statement ::= select_statement | update_statement | delete_statement
+select_statement ::= select_clause from_clause [where_clause] [groupby_clause]
+    [having_clause] [orderby_clause]
+update_statement ::= update_clause [where_clause]
+delete_statement ::= delete_clause [where_clause]
+from_clause ::=
+    FROM identification_variable_declaration
+        {, {identification_variable_declaration |
+            collection_member_declaration}}*
+identification_variable_declaration ::=
+        range_variable_declaration { join | fetch_join }*
+range_variable_declaration ::= abstract_schema_name [AS]
+        identification_variable
+join ::= join_spec join_association_path_expression [AS]
+        identification_variable
+fetch_join ::= join_specFETCH join_association_path_expression
+association_path_expression ::=
+        collection_valued_path_expression |
+        single_valued_association_path_expression
+join_spec::= [LEFT [OUTER] |INNER] JOIN
+join_association_path_expression ::=
+        join_collection_valued_path_expression |
+        join_single_valued_association_path_expression
+join_collection_valued_path_expression::=
+    identification_variable.collection_valued_association_field
+join_single_valued_association_path_expression::=
+        identification_variable.single_valued_association_field
+collection_member_declaration ::=
+        IN (collection_valued_path_expression) [AS]
+        identification_variable
+single_valued_path_expression ::=
+        state_field_path_expression |
+        single_valued_association_path_expression
+state_field_path_expression ::=
+    {identification_variable |
+    single_valued_association_path_expression}.state_field
+single_valued_association_path_expression ::=
+    identification_variable.{single_valued_association_field.}*
+    single_valued_association_field
+collection_valued_path_expression ::=
+    identification_variable.{single_valued_association_field.}*
+    collection_valued_association_field
+state_field ::=
+    {embedded_class_state_field.}*simple_state_field
+update_clause ::=UPDATE abstract_schema_name [[AS]
+    identification_variable] SET update_item {, update_item}*
+update_item ::= [identification_variable.]{state_field |
+    single_valued_association_field} = new_value
+new_value ::=
+     simple_arithmetic_expression |
+    string_primary |
+    datetime_primary |
+    boolean_primary |
+    enum_primary simple_entity_expression |
+    NULL
+delete_clause ::= DELETE FROM abstract_schema_name [[AS]
+    identification_variable]
+select_clause ::= SELECT [DISTINCT] select_expression {,
+    select_expression}*
+select_expression ::=
+    single_valued_path_expression |
+    aggregate_expression |
+    identification_variable |
+    OBJECT(identification_variable) |
+    constructor_expression
+constructor_expression ::=
+    NEW constructor_name(constructor_item {,
+    constructor_item}*)
+constructor_item ::= single_valued_path_expression |
+    aggregate_expression
+aggregate_expression ::=
+    {AVG |MAX |MIN |SUM} ([DISTINCT]
+        state_field_path_expression) |
+    COUNT ([DISTINCT] identification_variable |
+        state_field_path_expression |
+        single_valued_association_path_expression)
+where_clause ::= WHERE conditional_expression
+groupby_clause ::= GROUP BY groupby_item {, groupby_item}*
+groupby_item ::= single_valued_path_expression
+having_clause ::= HAVING conditional_expression
+orderby_clause ::= ORDER BY orderby_item {, orderby_item}*
+orderby_item ::= state_field_path_expression [ASC |DESC]
+subquery ::= simple_select_clause subquery_from_clause
+    [where_clause] [groupby_clause] [having_clause]
+subquery_from_clause ::=
+    FROM subselect_identification_variable_declaration
+        {, subselect_identification_variable_declaration}*
+subselect_identification_variable_declaration ::=
+    identification_variable_declaration |
+    association_path_expression [AS] identification_variable |
+    collection_member_declaration
+simple_select_clause ::= SELECT [DISTINCT]
+    simple_select_expression
+simple_select_expression::=
+    single_valued_path_expression |
+    aggregate_expression |
+    identification_variable
+conditional_expression ::= conditional_term |
+    conditional_expression OR conditional_term
+conditional_term ::= conditional_factor | conditional_term AND
+    conditional_factor
+conditional_factor ::= [NOT] conditional_primary
+conditional_primary ::= simple_cond_expression |(
+    conditional_expression)
+simple_cond_expression ::=
+    comparison_expression |
+    between_expression |
+    like_expression |
+    in_expression |
+    null_comparison_expression |
+    empty_collection_comparison_expression |
+    collection_member_expression |
+    exists_expression
+between_expression ::=
+    arithmetic_expression [NOT] BETWEEN
+        arithmetic_expressionAND arithmetic_expression |
+    string_expression [NOT] BETWEEN string_expression AND
+        string_expression |
+    datetime_expression [NOT] BETWEEN
+        datetime_expression AND datetime_expression
+in_expression ::=
+    state_field_path_expression [NOT] IN (in_item {, in_item}*
+    | subquery)
+in_item ::= literal | input_parameter
+like_expression ::=
+    string_expression [NOT] LIKE pattern_value [ESCAPE
+        escape_character]
+null_comparison_expression ::=
+    {single_valued_path_expression | input_parameter} IS [NOT]
+        NULL
+empty_collection_comparison_expression ::=
+    collection_valued_path_expression IS [NOT] EMPTY
+collection_member_expression ::= entity_expression
+    [NOT] MEMBER [OF] collection_valued_path_expression
+exists_expression::= [NOT] EXISTS (subquery)
+all_or_any_expression ::= {ALL |ANY |SOME} (subquery)
+comparison_expression ::=
+    string_expression comparison_operator {string_expression |
+    all_or_any_expression} |
+    boolean_expression {= |&lt;&gt; } {boolean_expression |
+    all_or_any_expression} |
+    enum_expression {= |&lt;&gt; } {enum_expression |
+    all_or_any_expression} |
+    datetime_expression comparison_operator
+        {datetime_expression | all_or_any_expression} |
+    entity_expression {= |&lt;&gt; } {entity_expression |
+    all_or_any_expression} |
+    arithmetic_expression comparison_operator
+        {arithmetic_expression | all_or_any_expression}
+comparison_operator ::= = |&gt; |&gt;= |&lt; |&lt;= |&lt;&gt;
+arithmetic_expression ::= simple_arithmetic_expression |
+    (subquery)
+simple_arithmetic_expression ::=
+    arithmetic_term | simple_arithmetic_expression {+ |- }
+        arithmetic_term
+arithmetic_term ::= arithmetic_factor | arithmetic_term {* |/ }
+    arithmetic_factor
+arithmetic_factor ::= [{+ |- }] arithmetic_primary
+arithmetic_primary ::=
+    state_field_path_expression |
+    numeric_literal |
+    (simple_arithmetic_expression) |
+    input_parameter |
+    functions_returning_numerics |
+    aggregate_expression
+string_expression ::= string_primary | (subquery)
+string_primary ::=
+    state_field_path_expression |
+    string_literal |
+    input_parameter |
+    functions_returning_strings |
+    aggregate_expression
+datetime_expression ::= datetime_primary | (subquery)
+datetime_primary ::=
+    state_field_path_expression |
+    input_parameter |
+    functions_returning_datetime |
+    aggregate_expression
+boolean_expression ::= boolean_primary | (subquery)
+boolean_primary ::=
+    state_field_path_expression |
+    boolean_literal |
+    input_parameter
+ enum_expression ::= enum_primary | (subquery)
+enum_primary ::=
+    state_field_path_expression |
+    enum_literal |
+    input_parameter
+entity_expression ::=
+    single_valued_association_path_expression |
+        simple_entity_expression
+simple_entity_expression ::=
+    identification_variable |
+    input_parameter
+functions_returning_numerics::=
+    LENGTH(string_primary) |
+    LOCATE(string_primary, string_primary[,
+        simple_arithmetic_expression]) |
+    ABS(simple_arithmetic_expression) |
+    SQRT(simple_arithmetic_expression) |
+    MOD(simple_arithmetic_expression,
+        simple_arithmetic_expression) |
+    SIZE(collection_valued_path_expression)
+functions_returning_datetime ::=
+    CURRENT_DATE |
+    CURRENT_TIME |
+    CURRENT_TIMESTAMP
+functions_returning_strings ::=
+    CONCAT(string_primary, string_primary) |
+    SUBSTRING(string_primary,
+        simple_arithmetic_expression,
+        simple_arithmetic_expression)|
+    TRIM([[trim_specification] [trim_character] FROM]
+        string_primary) |
+    LOWER(string_primary) |
+    UPPER(string_primary)
+trim_specification ::= LEADING | TRAILING | BOTH</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_from_clause"><a class="anchor" href="#_from_clause"></a>FROM Clause</h3>
+<div class="paragraph">
+<p>The <code>FROM</code> clause defines the domain of the query by declaring identification variables.</p>
+</div>
+<div class="sect3">
+<h4 id="_identifiers"><a class="anchor" href="#_identifiers"></a>Identifiers</h4>
+<div class="paragraph">
+<p>An identifier is a sequence of one or more characters.
+The first character must be a valid first character (letter, <code>$</code>, <code>_</code>) in an identifier of the Java programming language, hereafter in this chapter called simply &#8220;Java&#8221;.
+Each subsequent character in the sequence must be a valid nonfirst character (letter, digit, <code>$</code>, <code>_</code>) in a Java identifier.
+(For details, see the Java SE API documentation of the <code>isJavaIdentifierStart</code> and <code>isJavaIdentifierPart</code> methods of the <code>Character</code> class.)
+The question mark (<code>?</code>) is a reserved character in the query language and cannot be used in an identifier.</p>
+</div>
+<div class="paragraph">
+<p>A query language identifier is case-sensitive, with two exceptions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Keywords</p>
+</li>
+<li>
+<p>Identification variables</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>An identifier cannot be the same as a query language keyword.
+Here is a list of query language keywords:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 75%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ABS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ALL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AND</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ANY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ASC</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AVG</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BETWEEN</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BIT_LENGTH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BOTH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CASE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CHAR_LENGTH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CHARACTER_LENGTH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CLASS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>COALESCE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CONCAT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>COUNT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CURRENT_DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CURRENT_TIMESTAMP</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DELETE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DESC</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DISTINCT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ELSE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EMPTY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>END</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENTRY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ESCAPE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EXISTS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>FALSE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>FETCH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>FROM</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GROUP</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HAVING</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>IN</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INNER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>IS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>JOIN</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>KEY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LEADING</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LEFT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LENGTH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LIKE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LOCATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LOWER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MEMBER</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MIN</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MOD</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NEW</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NOT</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NULL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NULLIF</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OBJECT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OF</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OR</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ORDER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OUTER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>POSITION</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SELECT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SET</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SIZE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SOME</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SQRT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUBSTRING</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUM</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>THEN</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TRAILING</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TRIM</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TRUE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TYPE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>UNKNOWN</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>UPDATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>UPPER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>VALUE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WHEN</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><code>WHERE</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>It is not recommended that you use an SQL keyword as an identifier, because the list of keywords may expand to include other reserved SQL words in the future.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_identification_variables"><a class="anchor" href="#_identification_variables"></a>Identification Variables</h4>
+<div class="paragraph">
+<p>An identification variable is an identifier declared in the <code>FROM</code> clause.
+Although they can reference identification variables, the <code>SELECT</code> and <code>WHERE</code> clauses cannot declare them.
+All identification variables must be declared in the <code>FROM</code> clause.</p>
+</div>
+<div class="paragraph">
+<p>Because it is an identifier, an identification variable has the same naming conventions and restrictions as an identifier, with the exception that an identification variable is case-insensitive.
+For example, an identification variable cannot be the same as a query language keyword.
+(See <a href="#_identifiers">Identifiers</a> for more naming rules.)
+Also, within a given persistence unit, an identification variable name must not match the name of any entity or abstract schema.</p>
+</div>
+<div class="paragraph">
+<p>The <code>FROM</code> clause can contain multiple declarations, separated by commas.
+A declaration can reference another identification variable that has been previously declared (to the left).
+In the following <code>FROM</code> clause, the variable <code>t</code> references the previously declared variable <code>p</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">FROM Player p, IN (p.teams) AS t</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Even if it is not used in the <code>WHERE</code> clause, an identification variable&#8217;s declaration can affect the results of the query.
+For example, compare the next two queries.
+The following query returns all players, whether or not they belong to a team:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT p
+FROM Player p</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In contrast, because it declares the <code>t</code> identification variable, the next query fetches all players who belong to a team:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT p
+FROM Player p, IN (p.teams) AS t</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following query returns the same results as the preceding query, but the <code>WHERE</code> clause makes it easier to read:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT p
+FROM Player p
+WHERE p.teams IS NOT EMPTY</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An identification variable always designates a reference to a single value whose type is that of the expression used in the declaration.
+There are two kinds of declarations: range variable and collection member.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_range_variable_declarations"><a class="anchor" href="#_range_variable_declarations"></a>Range Variable Declarations</h4>
+<div class="paragraph">
+<p>To declare an identification variable as an abstract schema type, you specify a range variable declaration.
+In other words, an identification variable can range over the abstract schema type of an entity.
+In the following example, an identification variable named <code>p</code> represents the abstract schema named <code>Player</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">FROM Player p</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A range variable declaration can include the optional <code>AS</code> operator:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">FROM Player AS p</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To obtain objects, a query usually uses path expressions to navigate through the relationships.
+But for those objects that cannot be obtained by navigation, you can use a range variable declaration to designate a starting point, or query root.</p>
+</div>
+<div class="paragraph">
+<p>If the query compares multiple values of the same abstract schema type, the <code>FROM</code> clause must declare multiple identification variables for the abstract schema:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">FROM Player p1, Player p2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For an example of such a query, see <a href="#_comparison_operators">Comparison Operators</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_collection_member_declarations"><a class="anchor" href="#_collection_member_declarations"></a>Collection Member Declarations</h4>
+<div class="paragraph">
+<p>In a one-to-many relationship, the multiple side consists of a collection of entities.
+An identification variable can represent a member of this collection.
+To access a collection member, the path expression in the variable&#8217;s declaration navigates through the relationships in the abstract schema.
+(For more information on path expressions, see <a href="#_path_expressions">Path Expressions</a>.) Because a path expression can be based on another path expression, the navigation can traverse several relationships.
+See <a href="#_traversing_multiple_relationships">Traversing Multiple Relationships</a>.</p>
+</div>
+<div class="paragraph">
+<p>A collection member declaration must include the <code>IN</code> operator but can omit the optional <code>AS</code> operator.</p>
+</div>
+<div class="paragraph">
+<p>In the following example, the entity represented by the abstract schema named <code>Player</code> has a relationship field called <code>teams</code>.
+The identification variable called <code>t</code> represents a single member of the <code>teams</code> collection:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">FROM Player p, IN (p.teams) t</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_joins"><a class="anchor" href="#_joins"></a>Joins</h4>
+<div class="paragraph">
+<p>The <code>JOIN</code> operator is used to traverse over relationships between entities and is functionally similar to the <code>IN</code> operator.</p>
+</div>
+<div class="paragraph">
+<p>In the following example, the query joins over the relationship between customers and orders:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT c
+FROM Customer c JOIN c.orders o
+WHERE c.status = 1 AND o.totalPrice &gt; 10000</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>INNER</code> keyword is optional:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT c
+FROM Customer c INNER JOIN c.orders o
+WHERE c.status = 1 AND o.totalPrice &gt; 10000</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>These examples are equivalent to the following query, which uses the <code>IN</code> operator:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT c
+FROM Customer c, IN (c.orders) o
+WHERE c.status = 1 AND o.totalPrice &gt; 10000</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also join a single-valued relationship:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT t
+FROM Team t JOIN t.league l
+WHERE l.sport = :sport</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A <code>LEFT JOIN</code> or <code>LEFT OUTER JOIN</code> retrieves a set of entities where matching values in the join condition may be absent.
+The <code>OUTER</code> keyword is optional:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT c.name, o.totalPrice
+FROM CustomerOrder o LEFT JOIN o.customer c</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A <code>FETCH JOIN</code> is a join operation that returns associated entities as a side effect of running the query.
+In the following example, the query returns a set of departments and, as a side effect, the associated employees of the departments, even though the employees were not explicitly retrieved by the <code>SELECT</code> clause:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT d
+FROM Department d LEFT JOIN FETCH d.employees
+WHERE d.deptno = 1</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_path_expressions"><a class="anchor" href="#_path_expressions"></a>Path Expressions</h3>
+<div class="paragraph">
+<p>Path expressions are important constructs in the syntax of the query language for several reasons.
+First, path expressions define navigation paths through the relationships in the abstract schema.
+These path definitions affect both the scope and the results of a query.
+Second, path expressions can appear in any of the main clauses of a query (<code>SELECT</code>, <code>DELETE</code>, <code>HAVING</code>, <code>UPDATE</code>, <code>WHERE</code>, <code>FROM</code>, <code>GROUP BY</code>, <code>ORDER BY</code>).
+Finally, although much of the query language is a subset of SQL, path expressions are extensions not found in SQL.</p>
+</div>
+<div class="sect3">
+<h4 id="_examples_of_path_expressions"><a class="anchor" href="#_examples_of_path_expressions"></a>Examples of Path Expressions</h4>
+<div class="paragraph">
+<p>Here, the <code>WHERE</code> clause contains a <code>single_valued_path_expression</code>; the <code>p</code> is an identification variable, and <code>salary</code> is a persistent field of <code>Player</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT p
+FROM Player p
+WHERE p.salary BETWEEN :lowerSalary AND :higherSalary</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here, the <code>WHERE</code> clause also contains a <code>single_valued_path_expression</code>; <code>t</code> is an identification variable, <code>league</code> is a single-valued relationship field, and <code>sport</code> is a persistent field of <code>league</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT p
+FROM Player p, IN (p.teams) t
+WHERE t.league.sport = :sport</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here, the <code>WHERE</code> clause contains a <code>collection_valued_path_expression</code>; <code>p</code> is an identification variable, and <code>teams</code> designates a collection-valued relationship field:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT p
+FROM Player p
+WHERE p.teams IS EMPTY</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_expression_types"><a class="anchor" href="#_expression_types"></a>Expression Types</h4>
+<div class="paragraph">
+<p>The type of a path expression is the type of the object represented by the ending element, which can be one of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Persistent field</p>
+</li>
+<li>
+<p>Single-valued relationship field</p>
+</li>
+<li>
+<p>Collection-valued relationship field</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example, the type of the expression <code>p.salary</code> is <code>double</code> because the terminating persistent field (<code>salary</code>) is a <code>double</code>.</p>
+</div>
+<div class="paragraph">
+<p>In the expression <code>p.teams</code>, the terminating element is a collection-valued relationship field (<code>teams</code>).
+This expression&#8217;s type is a collection of the abstract schema type named <code>Team</code>.
+Because <code>Team</code> is the abstract schema name for the <code>Team</code> entity, this type maps to the entity.
+For more information on the type mapping of abstract schemas, see <a href="#_return_types">Return Types</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_navigation"><a class="anchor" href="#_navigation"></a>Navigation</h4>
+<div class="paragraph">
+<p>A path expression enables the query to navigate to related entities.
+The terminating elements of an expression determine whether navigation is allowed.
+If an expression contains a single-valued relationship field, the navigation can continue to an object that is related to the field.
+However, an expression cannot navigate beyond a persistent field or a collection-valued relationship field.
+For example, the expression <code>p.teams.league.sport</code> is illegal because <code>teams</code> is a collection-valued relationship field.
+To reach the <code>sport</code> field, the <code>FROM</code> clause could define an identification variable named <code>t</code> for the <code>teams</code> field:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">FROM Player AS p, IN (p.teams) t
+WHERE t.league.sport = 'soccer'</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_where_clause"><a class="anchor" href="#_where_clause"></a>WHERE Clause</h3>
+<div class="paragraph">
+<p>The <code>WHERE</code> clause specifies a conditional expression that limits the values returned by the query.
+The query returns all corresponding values in the data store for which the conditional expression is <code>TRUE</code>.
+Although usually specified, the <code>WHERE</code> clause is optional.
+If the <code>WHERE</code> clause is omitted, the query returns all values.
+The high-level syntax for the <code>WHERE</code> clause is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">where_clause ::= WHERE conditional_expression</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_literals"><a class="anchor" href="#_literals"></a>Literals</h4>
+<div class="paragraph">
+<p>There are four kinds of literals: string, numeric, Boolean, and enum.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>String literals: A string literal is enclosed in single quotes:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">'Duke'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If a string literal contains a single quote, you indicate the quote by using two single quotes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">'Duke''s'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Like a Java <code>String</code>, a string literal in the query language uses the Unicode character encoding.</p>
+</div>
+</li>
+<li>
+<p>Numeric literals: There are two types of numeric literals: exact and approximate.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>An exact numeric literal is a numeric value without a decimal point, such as 65, –233, and +12.
+Using the Java integer syntax, exact numeric literals support numbers in the range of a Java <code>long</code>.</p>
+</li>
+<li>
+<p>An approximate numeric literal is a numeric value in scientific notation, such as 57., –85.7, and +2.1.
+Using the syntax of the Java floating-point literal, approximate numeric literals support numbers in the range of a Java <code>double</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Boolean literals: A Boolean literal is either <code>TRUE</code> or <code>FALSE</code>.
+These keywords are not case-sensitive.</p>
+</li>
+<li>
+<p>Enum literals: The Jakarta Persistence query language supports the use of enum literals using the Java enum literal syntax.
+The enum class name must be specified as a fully qualified class name:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT e
+FROM Employee e
+WHERE e.status = com.example.EmployeeStatus.FULL_TIME</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_input_parameters"><a class="anchor" href="#_input_parameters"></a>Input Parameters</h4>
+<div class="paragraph">
+<p>An input parameter can be either a named parameter or a positional parameter.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A named input parameter is designated by a colon (<code>:</code>) followed by a string; for example, <code>:name</code>.</p>
+</li>
+<li>
+<p>A positional input parameter is designated by a question mark (<code>?</code>) followed by an integer.
+For example, the first input parameter is <code>?1</code>, the second is <code>?2</code>, and so forth.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following rules apply to input parameters.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>They can be used only in a <code>WHERE</code> or <code>HAVING</code> clause.</p>
+</li>
+<li>
+<p>Positional parameters must be numbered, starting with the integer 1.</p>
+</li>
+<li>
+<p>Named parameters and positional parameters may not be mixed in a single query.</p>
+</li>
+<li>
+<p>Named parameters are case-sensitive.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_conditional_expressions"><a class="anchor" href="#_conditional_expressions"></a>Conditional Expressions</h4>
+<div class="paragraph">
+<p>A <code>WHERE</code> clause consists of a conditional expression, which is evaluated from left to right within a precedence level.
+You can change the order of evaluation by using parentheses.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_operators_and_their_precedence"><a class="anchor" href="#_operators_and_their_precedence"></a>Operators and Their Precedence</h4>
+<div class="paragraph">
+<p><a href="#query_language_order_precedence">Query Language Order Precedence</a> lists the query language operators in order of decreasing precedence.</p>
+</div>
+<table id="query_language_order_precedence" class="tableblock frame-all grid-all" style="width: 75%;">
+<caption class="title">Query Language Order Precedence</caption>
+<colgroup>
+<col style="width: 35.7142%;">
+<col style="width: 64.2858%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Precedence Order</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Navigation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.</code> (a period)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Arithmetic</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>+ –</code> (unary)</p>
+</div>
+<div class="paragraph">
+<p><code>* /</code> (multiplication and division)</p>
+</div>
+<div class="paragraph">
+<p><code>+ –</code> (addition and subtraction)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Comparison</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>=</code></p>
+</div>
+<div class="paragraph">
+<p><code>&gt;</code></p>
+</div>
+<div class="paragraph">
+<p><code>&gt;=</code></p>
+</div>
+<div class="paragraph">
+<p><code>&lt;</code></p>
+</div>
+<div class="paragraph">
+<p><code>&#8656;</code></p>
+</div>
+<div class="paragraph">
+<p><code>&lt;&gt;</code> (not equal)</p>
+</div>
+<div class="paragraph">
+<p><code>[NOT] BETWEEN</code></p>
+</div>
+<div class="paragraph">
+<p><code>[NOT] LIKE</code></p>
+</div>
+<div class="paragraph">
+<p><code>[NOT] IN</code></p>
+</div>
+<div class="paragraph">
+<p><code>IS [NOT] NULL</code></p>
+</div>
+<div class="paragraph">
+<p><code>IS [NOT] EMPTY</code></p>
+</div>
+<div class="paragraph">
+<p><code>[NOT] MEMBER OF</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Logical</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>NOT</code></p>
+</div>
+<div class="paragraph">
+<p><code>AND</code></p>
+</div>
+<div class="paragraph">
+<p><code>OR</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_between_expressions"><a class="anchor" href="#_between_expressions"></a>BETWEEN Expressions</h4>
+<div class="paragraph">
+<p>A <code>BETWEEN</code> expression determines whether an arithmetic expression falls within a range of values.</p>
+</div>
+<div class="paragraph">
+<p>These two expressions are equivalent:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">p.age BETWEEN 15 AND 19
+p.age &gt;= 15 AND p.age &lt;= 19</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following two expressions also are equivalent:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">p.age NOT BETWEEN 15 AND 19
+p.age &lt; 15 OR p.age &gt; 19</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If an arithmetic expression has a <code>NULL</code> value, the value of the <code>BETWEEN</code> expression is unknown.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_in_expressions"><a class="anchor" href="#_in_expressions"></a>IN Expressions</h4>
+<div class="paragraph">
+<p>An <code>IN</code> expression determines whether a string belongs to a set of string literals or whether a number belongs to a set of number values.</p>
+</div>
+<div class="paragraph">
+<p>The path expression must have a string or numeric value.
+If the path expression has a <code>NULL</code> value, the value of the <code>IN</code> expression is unknown.</p>
+</div>
+<div class="paragraph">
+<p>In the following example, the expression is <code>TRUE</code> if the country is <code>UK</code> , but <code>FALSE</code> if the country is <code>Peru</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">o.country IN ('UK', 'US', 'France')</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You may also use input parameters:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">o.country IN ('UK', 'US', 'France', :country)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_like_expressions"><a class="anchor" href="#_like_expressions"></a>LIKE Expressions</h4>
+<div class="paragraph">
+<p>A <code>LIKE</code> expression determines whether a wildcard pattern matches a string.</p>
+</div>
+<div class="paragraph">
+<p>The path expression must have a string or numeric value.
+If this value is <code>NULL</code>, the value of the <code>LIKE</code> expression is unknown.
+The pattern value is a string literal that can contain wildcard characters.
+The underscore (<code>_</code>) wildcard character represents any single character.
+The percent (<code>%</code>) wildcard character represents zero or more characters.
+The <code>ESCAPE</code> clause specifies an escape character for the wildcard characters in the pattern value.
+<a href="#_like_expression_examples">LIKE Expression Examples</a> shows some sample <code>LIKE</code> expressions.</p>
+</div>
+<table id="_like_expression_examples" class="tableblock frame-all grid-all" style="width: 75%;">
+<caption class="title">LIKE Expression Examples</caption>
+<colgroup>
+<col style="width: 46.6666%;">
+<col style="width: 26.6666%;">
+<col style="width: 26.6668%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Expression</th>
+<th class="tableblock halign-left valign-top">TRUE</th>
+<th class="tableblock halign-left valign-top">FALSE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>address.phone LIKE '12%3'</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>'123'</code><br>
+<code>'12993'</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>'1234'</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>asentence.word LIKE 'l_se'</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>'lose'</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>'loose'</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>aword.underscored LIKE '\_%' ESCAPE '\'</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>'_foo'</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>'bar'</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>address.phone NOT LIKE '12%3'</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>'1234'</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>'123'</code><br>
+<code>'12993'</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_null_comparison_expressions"><a class="anchor" href="#_null_comparison_expressions"></a>NULL Comparison Expressions</h4>
+<div class="paragraph">
+<p>A <code>NULL</code> comparison expression tests whether a single-valued path expression or an input parameter has a <code>NULL</code> value.
+Usually, the <code>NULL</code> comparison expression is used to test whether a single-valued relationship has been set:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT t
+FROM Team t
+WHERE t.league IS NULL</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This query selects all teams where the league relationship is not set.
+Note that the following query is not equivalent:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT t
+FROM Team t
+WHERE t.league = NULL</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The comparison with <code>NULL</code> using the equals operator (<code>=</code>) always returns an unknown value, even if the relationship is not set.
+The second query will always return an empty result.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_empty_collection_comparison_expressions"><a class="anchor" href="#_empty_collection_comparison_expressions"></a>Empty Collection Comparison Expressions</h4>
+<div class="paragraph">
+<p>The <code>IS [NOT] EMPTY</code> comparison expression tests whether a collection-valued path expression has no elements.
+In other words, it tests whether a collection-valued relationship has been set.</p>
+</div>
+<div class="paragraph">
+<p>If the collection-valued path expression is <code>NULL</code>, the empty collection comparison expression has a <code>NULL</code> value.</p>
+</div>
+<div class="paragraph">
+<p>Here is an example that finds all orders that do not have any line items:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT o
+FROM CustomerOrder o
+WHERE o.lineItems IS EMPTY</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_collection_member_expressions"><a class="anchor" href="#_collection_member_expressions"></a>Collection Member Expressions</h4>
+<div class="paragraph">
+<p>The <code>[NOT]</code> <code>MEMBER [OF]</code> collection member expression determines whether a value is a member of a collection.
+The value and the collection members must have the same type.</p>
+</div>
+<div class="paragraph">
+<p>If either the collection-valued or single-valued path expression is unknown, the collection member expression is unknown.
+If the collection-valued path expression designates an empty collection, the collection member expression is <code>FALSE</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>OF</code> keyword is optional.</p>
+</div>
+<div class="paragraph">
+<p>The following example tests whether a line item is part of an order:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT o
+FROM CustomerOrder o
+WHERE :lineItem MEMBER OF o.lineItems</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_subqueries"><a class="anchor" href="#_subqueries"></a>Subqueries</h4>
+<div class="paragraph">
+<p>Subqueries may be used in the <code>WHERE</code> or <code>HAVING</code> clause of a query.
+Subqueries must be surrounded by parentheses.</p>
+</div>
+<div class="paragraph">
+<p>The following example finds all customers who have placed more than ten orders:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT c
+FROM Customer c
+WHERE (SELECT COUNT(o) FROM c.orders o) &gt; 10</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Subqueries may contain <code>EXISTS</code>, <code>ALL</code>, and <code>ANY</code> expressions.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>EXISTS expressions: The <code>[NOT] EXISTS</code> expression is used with a subquery and is true only if the result of the subquery consists of one or more values; otherwise, it is false.</p>
+<div class="paragraph">
+<p>The following example finds all employees whose spouses are also employees:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT emp
+FROM Employee emp
+WHERE EXISTS (
+    SELECT spouseEmp
+    FROM Employee spouseEmp
+    WHERE spouseEmp = emp.spouse)</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>ALL and ANY expressions: The <code>ALL</code> expression is used with a subquery and is true if all the values returned by the subquery are true or if the subquery is empty.</p>
+<div class="paragraph">
+<p>The <code>ANY</code> expression is used with a subquery and is true if some of the values returned by the subquery are true.
+An <code>ANY</code> expression is false if the subquery result is empty or if all the values returned are false.
+The <code>SOME</code> keyword is synonymous with <code>ANY</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>ALL</code> and <code>ANY</code> expressions are used with the <code>=</code>, <code>&lt;</code>, <code>&#8656;</code>, <code>&gt;</code>, <code>&gt;=</code>, and <code>&lt;&gt;</code> comparison operators.</p>
+</div>
+<div class="paragraph">
+<p>The following example finds all employees whose salaries are higher than the salaries of the managers in the employee&#8217;s department:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT emp
+FROM Employee emp
+WHERE emp.salary &gt; ALL (
+    SELECT m.salary
+    FROM Manager m
+    WHERE m.department = emp.department)</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_functional_expressions"><a class="anchor" href="#_functional_expressions"></a>Functional Expressions</h4>
+<div class="paragraph">
+<p>The query language includes several string, arithmetic, and date/time functions that may be used in the <code>SELECT</code>, <code>WHERE</code>, or <code>HAVING</code> clause of a query.
+The functions are listed in <a href="#_string_expressions">String Expressions</a>, <a href="#_arithmetic_expressions">Arithmetic Expressions</a> and <a href="#_date_time_expressions">Date/Time Expressions</a>.</p>
+</div>
+<div class="paragraph">
+<p>In <a href="#_string_expressions">String Expressions</a>, the <code>start</code> and <code>length</code> arguments are of type <code>int</code> and designate positions in the <code>String</code> argument.
+The first position in a string is designated by 1.</p>
+</div>
+<table id="_string_expressions" class="tableblock frame-all grid-all" style="width: 75%;">
+<caption class="title">String Expressions</caption>
+<colgroup>
+<col style="width: 64.2857%;">
+<col style="width: 35.7143%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Function Syntax</th>
+<th class="tableblock halign-left valign-top">Return Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CONCAT(String, String)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LENGTH(String)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>int</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LOCATE(String, String [, start])</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>int</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUBSTRING(String, start, length)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TRIM([[LEADING|TRAILING|BOTH] char FROM] String)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LOWER(String)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>UPPER(String)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <code>CONCAT</code> function concatenates two strings into one string.</p>
+</div>
+<div class="paragraph">
+<p>The <code>LENGTH</code> function returns the length of a string in characters as an integer.</p>
+</div>
+<div class="paragraph">
+<p>The <code>LOCATE</code> function returns the position of a given string within a string.
+This function returns the first position at which the string was found as an integer.
+The first argument is the string to be located.
+The second argument is the string to be searched.
+The optional third argument is an integer that represents the starting string position.
+By default, <code>LOCATE</code> starts at the beginning of the string.
+The starting position of a string is <code>1</code>.
+If the string cannot be located, <code>LOCATE</code> returns <code>0</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>SUBSTRING</code> function returns a string that is a substring of the first argument based on the starting position and length.</p>
+</div>
+<div class="paragraph">
+<p>The <code>TRIM</code> function trims the specified character from the beginning and/or end of a string.
+If no character is specified, <code>TRIM</code> removes spaces or blanks from the string.
+If the optional <code>LEADING</code> specification is used, <code>TRIM</code> removes only the leading characters from the string.
+If the optional <code>TRAILING</code> specification is used, <code>TRIM</code> removes only the trailing characters from the string.
+The default is <code>BOTH</code>, which removes the leading and trailing characters from the string.</p>
+</div>
+<div class="paragraph">
+<p>The <code>LOWER</code> and <code>UPPER</code> functions convert a string to lowercase or uppercase, respectively.</p>
+</div>
+<div class="paragraph">
+<p>In <a href="#_arithmetic_expressions">Arithmetic Expressions</a>, the <code>number</code> argument can be an <code>int</code>, a <code>float</code>, or a <code>double</code>.</p>
+</div>
+<table id="_arithmetic_expressions" class="tableblock frame-all grid-all" style="width: 60%;">
+<caption class="title">Arithmetic Expressions</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Function Syntax</th>
+<th class="tableblock halign-left valign-top">Return Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ABS(number)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>int</code>, <code>float</code>, or <code>double</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MOD(int, int)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>int</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SQRT(double)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>double</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SIZE(Collection)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>int</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <code>ABS</code> function takes a numeric expression and returns a number of the same type as the argument.</p>
+</div>
+<div class="paragraph">
+<p>The <code>MOD</code> function returns the remainder of the first argument divided by the second.</p>
+</div>
+<div class="paragraph">
+<p>The <code>SQRT</code> function returns the square root of a number.</p>
+</div>
+<div class="paragraph">
+<p>The <code>SIZE</code> function returns an integer of the number of elements in the given collection.</p>
+</div>
+<div class="paragraph">
+<p>In <a href="#_date_time_expressions">Date/Time Expressions</a>, the date/time functions return the date, time, or timestamp on the database server.</p>
+</div>
+<table id="_date_time_expressions" class="tableblock frame-all grid-all" style="width: 60%;">
+<caption class="title">Date/Time Expressions</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Function Syntax</th>
+<th class="tableblock halign-left valign-top">Return Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CURRENT_DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>java.sql.Date</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CURRENT_TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>java.sql.Time</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CURRENT_TIMESTAMP</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>java.sql.Timestamp</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_case_expressions"><a class="anchor" href="#_case_expressions"></a>Case Expressions</h4>
+<div class="paragraph">
+<p>Case expressions change based on a condition, similar to the <code>case</code> keyword of the Java programming language.
+The <code>CASE</code> keyword indicates the start of a case expression, and the expression is terminated by the <code>END</code> keyword.
+The <code>WHEN</code> and <code>THEN</code> keywords define individual conditions, and the <code>ELSE</code> keyword defines the default condition should none of the other conditions be satisfied.</p>
+</div>
+<div class="paragraph">
+<p>The following query selects the name of a person and a conditional string, depending on the subtype of the <code>Person</code> entity.
+If the subtype is <code>Student</code>, the string <code>kid</code> is returned.
+If the subtype is <code>Guardian</code> or <code>Staff</code>, the string <code>adult</code> is returned.
+If the entity is some other subtype of <code>Person</code>, the string <code>unknown</code> is returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT p.name
+CASE TYPE(p)
+    WHEN Student THEN 'kid'
+    WHEN Guardian THEN 'adult'
+    WHEN Staff THEN 'adult'
+    ELSE 'unknown'
+END
+FROM Person p</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following query sets a discount for various types of customers.
+Gold-level customers get a 20% discount, silver-level customers get a 15% discount, bronze-level customers get a 10% discount, and everyone else gets a 5% discount:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">UPDATE Customer c
+SET c.discount =
+    CASE c.level
+        WHEN 'Gold' THEN 20
+        WHEN 'SILVER' THEN 15
+        WHEN 'Bronze' THEN 10
+        ELSE 5
+    END</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_null_values"><a class="anchor" href="#_null_values"></a>NULL Values</h4>
+<div class="paragraph">
+<p>If the target of a reference is not in the persistent store, the target is <code>NULL</code>.
+For conditional expressions containing <code>NULL</code>, the query language uses the semantics defined by SQL92.
+Briefly, these semantics are as follows.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If a comparison or arithmetic operation has an unknown value, it yields a <code>NULL</code> value.</p>
+</li>
+<li>
+<p>Two <code>NULL</code> values are not equal.
+Comparing two <code>NULL</code> values yields an unknown value.</p>
+</li>
+<li>
+<p>The <code>IS NULL</code> test converts a <code>NULL</code> persistent field or a single-valued relationship field to <code>TRUE</code>.
+The <code>IS NOT NULL</code> test converts them to <code>FALSE</code>.</p>
+</li>
+<li>
+<p>Boolean operators and conditional tests use the three-valued logic defined by <a href="#_and_operator_logic">AND Operator Logic</a> and <a href="#_or_operator_logic">OR Operator Logic</a>.
+(In these tables, T stands for <code>TRUE</code>, F for <code>FALSE</code>, and U for unknown.)</p>
+</li>
+</ul>
+</div>
+<table id="_and_operator_logic" class="tableblock frame-all grid-all" style="width: 40%;">
+<caption class="title">AND Operator Logic</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">AND</th>
+<th class="tableblock halign-left valign-top">T</th>
+<th class="tableblock halign-left valign-top">F</th>
+<th class="tableblock halign-left valign-top">U</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">U</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">U</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">U</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">U</p></td>
+</tr>
+</tbody>
+</table>
+<table id="_or_operator_logic" class="tableblock frame-all grid-all" style="width: 40%;">
+<caption class="title">OR Operator Logic</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">OR</th>
+<th class="tableblock halign-left valign-top">T</th>
+<th class="tableblock halign-left valign-top">F</th>
+<th class="tableblock halign-left valign-top">U</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">U</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">U</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">U</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">U</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_equality_semantics"><a class="anchor" href="#_equality_semantics"></a>Equality Semantics</h4>
+<div class="paragraph">
+<p>In the query language, only values of the same type can be compared.
+However, this rule has one exception: Exact and approximate numeric values can be compared.
+In such a comparison, the required type conversion adheres to the rules of Java numeric promotion.</p>
+</div>
+<div class="paragraph">
+<p>The query language treats compared values as if they were Java types and not as if they represented types in the underlying data store.
+For example, a persistent field that could be either an integer or a <code>NULL</code> must be designated as an <code>Integer</code> object and not as an <code>int</code> primitive.
+This designation is required because a Java object can be <code>NULL</code>, but a primitive cannot.</p>
+</div>
+<div class="paragraph">
+<p>Two strings are equal only if they contain the same sequence of characters.
+Trailing blanks are significant; for example, the strings <code>'abc'</code> and <code>'abc '</code> are not equal.</p>
+</div>
+<div class="paragraph">
+<p>Two entities of the same abstract schema type are equal only if their primary keys have the same value.
+<a href="#_not_operator_logic">NOT Operator Logic</a> shows the operator logic of a negation, and <a href="#_conditional_test">Conditional Test</a> shows the truth values of conditional tests.</p>
+</div>
+<table id="_not_operator_logic" class="tableblock frame-all grid-all" style="width: 30%;">
+<caption class="title">NOT Operator Logic</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">NOT Value</th>
+<th class="tableblock halign-left valign-top">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">U</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">U</p></td>
+</tr>
+</tbody>
+</table>
+<table id="_conditional_test" class="tableblock frame-all grid-all" style="width: 60%;">
+<caption class="title">Conditional Test</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6668%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Conditional Test</th>
+<th class="tableblock halign-left valign-top">T</th>
+<th class="tableblock halign-left valign-top">F</th>
+<th class="tableblock halign-left valign-top">U</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Expression <code>IS TRUE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Expression <code>IS FALSE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Expression is unknown</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_select_clause"><a class="anchor" href="#_select_clause"></a>SELECT Clause</h3>
+<div class="paragraph">
+<p>The <code>SELECT</code> clause defines the types of the objects or values returned by the query.</p>
+</div>
+<div class="sect3">
+<h4 id="_return_types"><a class="anchor" href="#_return_types"></a>Return Types</h4>
+<div class="paragraph">
+<p>The return type of the <code>SELECT</code> clause is defined by the result types of the select expressions contained within it.
+If multiple expressions are used, the result of the query is an <code>Object[]</code>, and the elements in the array correspond to the order of the expressions in the <code>SELECT</code> clause and in type to the result types of each expression.</p>
+</div>
+<div class="paragraph">
+<p>A <code>SELECT</code> clause cannot specify a collection-valued expression.
+For example, the <code>SELECT</code> clause <code>p.teams</code> is invalid because <code>teams</code> is a collection.
+However, the clause in the following query is valid because <code>t</code> is a single element of the <code>teams</code> collection:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT t
+FROM Player p, IN (p.teams) t</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following query is an example of a query with multiple expressions in the <code>SELECT</code> clause:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT c.name, c.country.name
+FROM customer c
+WHERE c.lastname = 'Coss' AND c.firstname = 'Roxane'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This query returns a list of <code>Object[]</code> elements; the first array element is a string denoting the customer name, and the second array element is a string denoting the name of the customer&#8217;s country.</p>
+</div>
+<div class="paragraph">
+<p>The result of a query may be the result of an aggregate function, listed in <a href="#_aggregate_functions_in_select_statements">Aggregate Functions in Select Statements</a>.</p>
+</div>
+<table id="_aggregate_functions_in_select_statements" class="tableblock frame-all grid-all" style="width: 80%;">
+<caption class="title">Aggregate Functions in Select Statements</caption>
+<colgroup>
+<col style="width: 11.6279%;">
+<col style="width: 38.7596%;">
+<col style="width: 49.6125%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Return Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AVG</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Double</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the mean average of the fields</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>COUNT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Long</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the total number of results</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of the field</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the highest value in the result set</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MIN</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of the field</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the lowest value in the result set</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUM</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>Long</code> (for integral fields)<br>
+<code>Double</code> (for floating-point fields)<br>
+<code>BigInteger</code> (for <code>BigInteger</code> fields)<br>
+<code>BigDecimal</code> (for <code>BigDecimal</code> fields)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the sum of all the values in the result set</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>For select method queries with an aggregate function (<code>AVG</code>, <code>COUNT</code>, <code>MAX</code>, <code>MIN</code>, or <code>SUM</code>) in the <code>SELECT</code> clause, the following rules apply.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>AVG</code>, <code>MAX</code>, <code>MIN</code>, and <code>SUM</code> functions return <code>null</code> if there are no values to which the function can be applied.</p>
+</li>
+<li>
+<p>The <code>COUNT</code> function returns 0 if there are no values to which the function can be applied.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following example returns the average order quantity:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT AVG(o.quantity)
+FROM CustomerOrder o</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following example returns the total cost of the items ordered by Roxane Coss:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT SUM(l.price)
+FROM CustomerOrder o JOIN o.lineItems l JOIN o.customer c
+WHERE c.lastname = 'Coss' AND c.firstname = 'Roxane'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following example returns the total number of orders:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT COUNT(o)
+FROM CustomerOrder o</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following example returns the total number of items that have prices in Hal Incandenza&#8217;s order:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT COUNT(l.price)
+FROM CustomerOrder o JOIN o.lineItems l JOIN o.customer c
+WHERE c.lastname = 'Incandenza' AND c.firstname = 'Hal'</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_distinct_keyword"><a class="anchor" href="#_the_distinct_keyword"></a>The DISTINCT Keyword</h4>
+<div class="paragraph">
+<p>The <code>DISTINCT</code> keyword eliminates duplicate return values.
+If a query returns a <code>java.util.Collection</code>, which allows duplicates, you must specify the <code>DISTINCT</code> keyword to eliminate duplicates.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_constructor_expressions"><a class="anchor" href="#_constructor_expressions"></a>Constructor Expressions</h4>
+<div class="paragraph">
+<p>Constructor expressions allow you to return Java instances that store a query result element instead of an <code>Object[]</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following query creates a <code>CustomerDetail</code> instance per <code>Customer</code> matching the <code>WHERE</code> clause.
+A <code>CustomerDetail</code> stores the customer name and customer&#8217;s country name.So the query returns a <code>List</code> of <code>CustomerDetail</code> instances:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT NEW com.example.CustomerDetail(c.name, c.country.name)
+FROM customer c
+WHERE c.lastname = 'Coss' AND c.firstname = 'Roxane'</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_order_by_clause"><a class="anchor" href="#_order_by_clause"></a>ORDER BY Clause</h3>
+<div class="paragraph">
+<p>As its name suggests, the <code>ORDER BY</code> clause orders the values or objects returned by the query.</p>
+</div>
+<div class="paragraph">
+<p>If the <code>ORDER BY</code> clause contains multiple elements, the left-to-right sequence of the elements determines the high-to-low precedence.</p>
+</div>
+<div class="paragraph">
+<p>The <code>ASC</code> keyword specifies ascending order, the default, and the <code>DESC</code> keyword indicates descending order.</p>
+</div>
+<div class="paragraph">
+<p>When using the <code>ORDER BY</code> clause, the <code>SELECT</code> clause must return an orderable set of objects or values.
+You cannot order the values or objects for values or objects not returned by the <code>SELECT</code> clause.
+For example, the following query is valid because the <code>ORDER BY</code> clause uses the objects returned by the <code>SELECT</code> clause:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT o
+FROM Customer c JOIN c.orders o JOIN c.address a
+WHERE a.state = 'CA'
+ORDER BY o.quantity, o.totalcost</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following example is not valid, because the <code>ORDER BY</code> clause uses a value not returned by the <code>SELECT</code> clause:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT p.product_name
+FROM CustomerOrder o, IN(o.lineItems) l JOIN o.customer c
+WHERE c.lastname = 'Faehmel' AND c.firstname = 'Robert'
+ORDER BY o.quantity</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_group_by_and_having_clauses"><a class="anchor" href="#_group_by_and_having_clauses"></a>GROUP BY and HAVING Clauses</h3>
+<div class="paragraph">
+<p>The <code>GROUP BY</code> clause allows you to group values according to a set of properties.</p>
+</div>
+<div class="paragraph">
+<p>The following query groups the customers by their country and returns the number of customers per country:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT c.country, COUNT(c)
+FROM Customer c GROUP BY c.country</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>HAVING</code> clause is used with the <code>GROUP BY</code> clause to further restrict the returned result of a query.</p>
+</div>
+<div class="paragraph">
+<p>The following query groups orders by the status of their customer and returns the customer status plus the average <code>totalPrice</code> for all orders where the corresponding customers have the same status.
+In addition, it considers only customers with status <code>1</code>, <code>2</code>, or <code>3</code>, so orders of other customers are not taken into account:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT c.status, AVG(o.totalPrice)
+FROM CustomerOrder o JOIN o.customer c
+GROUP BY c.status HAVING c.status IN (1, 2, 3)</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

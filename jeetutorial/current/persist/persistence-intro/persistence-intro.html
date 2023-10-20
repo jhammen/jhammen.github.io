@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Introduction to Jakarta Persistence :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">Jakarta EE Tutorial</a></li>
+    <li>Jakarta EE Web Profile</li>
+    <li>Jakarta Persistence</li>
+    <li><a href="persistence-intro.html">Introduction to Jakarta Persistence</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/persist/pages/persistence-intro/persistence-intro.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Introduction to Jakarta Persistence</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We are working on a fresh, updated Jakarta EE Tutorial. This section hasn&#8217;t yet been updated.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This chapter provides a description of Jakarta Persistence.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview_of_jakarta_persistence"><a class="anchor" href="#_overview_of_jakarta_persistence"></a>Overview of Jakarta Persistence</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Jakarta Persistence provides Java developers with an object/relational mapping facility for managing relational data in Java applications.
+Jakarta Persistence consists of four areas:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Jakarta Persistence</p>
+</li>
+<li>
+<p>The query language</p>
+</li>
+<li>
+<p>The Jakarta Persistence Criteria API</p>
+</li>
+<li>
+<p>Object/relational mapping metadata</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_entities"><a class="anchor" href="#_entities"></a>Entities</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An entity is a lightweight persistence domain object.
+Typically, an entity represents a table in a relational database, and each entity instance corresponds to a row in that table.
+The primary programming artifact of an entity is the entity class, although entities can use helper classes.</p>
+</div>
+<div class="paragraph">
+<p>The persistent state of an entity is represented through either persistent fields or persistent properties.
+These fields or properties use object/relational mapping annotations to map the entities and entity relationships to the relational data in the underlying data store.</p>
+</div>
+<div class="sect2">
+<h3 id="_requirements_for_entity_classes"><a class="anchor" href="#_requirements_for_entity_classes"></a>Requirements for Entity Classes</h3>
+<div class="paragraph">
+<p>An entity class must follow these requirements.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The class must be annotated with the <code>jakarta.persistence.Entity</code> annotation.</p>
+</li>
+<li>
+<p>The class must have a public or protected, no-argument constructor.
+The class may have other constructors.</p>
+</li>
+<li>
+<p>The class must not be declared <code>final</code>.
+No methods or persistent instance variables must be declared <code>final</code>.</p>
+</li>
+<li>
+<p>If an entity instance is passed by value as a detached object, such as through a session bean&#8217;s remote business interface, the class must implement the <code>Serializable</code> interface.</p>
+</li>
+<li>
+<p>Entities may extend both entity and non-entity classes, and non-entity classes may extend entity classes.</p>
+</li>
+<li>
+<p>Persistent instance variables must be declared private, protected, or package-private and can be accessed directly only by the entity class&#8217;s methods.
+Clients must access the entity&#8217;s state through accessor or business methods.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_persistent_fields_and_properties_in_entity_classes"><a class="anchor" href="#_persistent_fields_and_properties_in_entity_classes"></a>Persistent Fields and Properties in Entity Classes</h3>
+<div class="paragraph">
+<p>The persistent state of an entity can be accessed through either the entity&#8217;s instance variables or properties.
+The fields or properties must be of the following Java language types:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Java primitive types</p>
+</li>
+<li>
+<p><code>java.lang.String</code></p>
+</li>
+<li>
+<p>Other serializable types, including:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrappers of Java primitive types</p>
+</li>
+<li>
+<p><code>java.math.BigInteger</code></p>
+</li>
+<li>
+<p><code>java.math.BigDecimal</code></p>
+</li>
+<li>
+<p><code>java.util.Date</code></p>
+</li>
+<li>
+<p><code>java.util.Calendar</code></p>
+</li>
+<li>
+<p><code>java.sql.Date</code></p>
+</li>
+<li>
+<p><code>java.sql.Time</code></p>
+</li>
+<li>
+<p><code>java.sql.TimeStamp</code></p>
+</li>
+<li>
+<p>User-defined serializable types</p>
+</li>
+<li>
+<p><code>byte[]</code></p>
+</li>
+<li>
+<p><code>Byte[]</code></p>
+</li>
+<li>
+<p><code>char[]</code></p>
+</li>
+<li>
+<p><code>Character[]</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enumerated types</p>
+</li>
+<li>
+<p>Other entities and/or collections of entities</p>
+</li>
+<li>
+<p>Embeddable classes</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Entities may use persistent fields, persistent properties, or a combination of both.
+If the mapping annotations are applied to the entity&#8217;s instance variables, the entity uses persistent fields.
+If the mapping annotations are applied to the entity&#8217;s getter methods for JavaBeans-style properties, the entity uses persistent properties.</p>
+</div>
+<div class="sect3">
+<h4 id="_persistent_fields"><a class="anchor" href="#_persistent_fields"></a>Persistent Fields</h4>
+<div class="paragraph">
+<p>If the entity class uses persistent fields, the Persistence runtime accesses entity-class instance variables directly.
+All fields not annotated <code>jakarta.persistence.Transient</code> or not marked as Java <code>transient</code> will be persisted to the data store.
+The object/relational mapping annotations must be applied to the instance variables.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_persistent_properties"><a class="anchor" href="#_persistent_properties"></a>Persistent Properties</h4>
+<div class="paragraph">
+<p>If the entity uses persistent properties, the entity must follow the method conventions of JavaBeans components.
+JavaBeans-style properties use getter and setter methods that are typically named after the entity class&#8217;s instance variable names.
+For every persistent property <code><em>property</em></code> of type <code><em>Type</em></code> of the entity, there is a getter method <code>get<em>Property</em></code> and setter method <code>set<em>Property</em></code>.
+If the property is a Boolean, you may use <code>is<em>Property</em></code> instead of <code>get<em>Property</em></code>.
+For example, if a <code>Customer</code> entity uses persistent properties and has a private instance variable called <code>firstName</code>, the class defines a <code>getFirstName</code> and <code>setFirstName</code> method for retrieving and setting the state of the <code>firstName</code> instance variable.</p>
+</div>
+<div class="paragraph">
+<p>The method signatures for single-valued persistent properties are as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Type getProperty()
+void setProperty(Type type)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The object/relational mapping annotations for persistent properties must be applied to the getter methods.
+Mapping annotations cannot be applied to fields or properties annotated <code>@Transient</code> or marked <code>transient</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_using_collections_in_entity_fields_and_properties"><a class="anchor" href="#_using_collections_in_entity_fields_and_properties"></a>Using Collections in Entity Fields and Properties</h4>
+<div class="paragraph">
+<p>Collection-valued persistent fields and properties must use the supported Java collection interfaces regardless of whether the entity uses persistent fields or properties.
+The following collection interfaces may be used:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>java.util.Collection</code></p>
+</li>
+<li>
+<p><code>java.util.Set</code></p>
+</li>
+<li>
+<p><code>java.util.List</code></p>
+</li>
+<li>
+<p><code>java.util.Map</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If the entity class uses persistent fields, the type in the preceding method signatures must be one of these collection types.
+Generic variants of these collection types may also be used.
+For example, if it has a persistent property that contains a set of phone numbers, the <code>Customer</code> entity would have the following methods:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Set&lt;PhoneNumber&gt; getPhoneNumbers() { ... }
+void setPhoneNumbers(Set&lt;PhoneNumber&gt;) { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If a field or property of an entity consists of a collection of basic types or embeddable classes, use the <code>jakarta.persistence.ElementCollection</code> annotation on the field or property.</p>
+</div>
+<div class="paragraph">
+<p>The two attributes of <code>@ElementCollection</code> are <code>targetClass</code> and <code>fetch</code>.
+The <code>targetClass</code> attribute specifies the class name of the basic or embeddable class and is optional if the field or property is defined using Java programming language generics.
+The optional <code>fetch</code> attribute is used to specify whether the collection should be retrieved lazily or eagerly, using the <code>jakarta.persistence.FetchType</code> constants of either <code>LAZY</code> or <code>EAGER</code>, respectively.
+By default, the collection will be fetched lazily.</p>
+</div>
+<div class="paragraph">
+<p>The following entity, <code>Person</code>, has a persistent field, <code>nicknames</code>, which is a collection of <code>String</code> classes that will be fetched eagerly.
+The <code>targetClass</code> element is not required, because it uses generics to define the field:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Entity
+public class Person {
+    ...
+    @ElementCollection(fetch=EAGER)
+    protected Set&lt;String&gt; nickname = new HashSet();
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Collections of entity elements and relationships may be represented by <code>java.util.Map</code> collections.
+A <code>Map</code> consists of a key and a value.</p>
+</div>
+<div class="paragraph">
+<p>When using <code>Map</code> elements or relationships, the following rules apply.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>Map</code> key or value may be a basic Java programming language type, an embeddable class, or an entity.</p>
+</li>
+<li>
+<p>When the <code>Map</code> value is an embeddable class or basic type, use the <code>@ElementCollection</code> annotation.</p>
+</li>
+<li>
+<p>When the <code>Map</code> value is an entity, use the <code>@OneToMany</code> or <code>@ManyToMany</code> annotation.</p>
+</li>
+<li>
+<p>Use the <code>Map</code> type on only one side of a bidirectional relationship.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If the key type of a <code>Map</code> is a Java programming language basic type, use the annotation <code>jakarta.persistence.MapKeyColumn</code> to set the column mapping for the key.
+By default, the <code>name</code> attribute of <code>@MapKeyColumn</code> is of the form <em>RELATIONSHIP-FIELD/PROPERTY-NAME</em><code>_KEY</code>.
+For example, if the referencing relationship field name is <code>image</code>, the default <code>name</code> attribute is <code>IMAGE_KEY</code>.</p>
+</div>
+<div class="paragraph">
+<p>If the key type of a <code>Map</code> is an entity, use the <code>jakarta.persistence.MapKeyJoinColumn</code> annotation.
+If the multiple columns are needed to set the mapping, use the annotation <code>jakarta.persistence.MapKeyJoinColumns</code> to include multiple <code>@MapKeyJoinColumn</code> annotations.
+If no <code>@MapKeyJoinColumn</code> is present, the mapping column name is by default set to <em>RELATIONSHIP-FIELD/PROPERTY-NAME</em><code>_KEY</code>.
+For example, if the relationship field name is <code>employee</code>, the default <code>name</code> attribute is <code>EMPLOYEE_KEY</code>.</p>
+</div>
+<div class="paragraph">
+<p>If Java programming language generic types are not used in the relationship field or property, the key class must be explicitly set using the <code>jakarta.persistence.MapKeyClass</code> annotation.</p>
+</div>
+<div class="paragraph">
+<p>If the <code>Map</code> key is the primary key or a persistent field or property of the entity that is the <code>Map</code> value, use the <code>jakarta.persistence.MapKey</code> annotation.
+The <code>@MapKeyClass</code> and <code>@MapKey</code> annotations cannot be used on the same field or property.</p>
+</div>
+<div class="paragraph">
+<p>If the <code>Map</code> value is a Java programming language basic type or an embeddable class, it will be mapped as a collection table in the underlying database.
+If generic types are not used, the <code>@ElementCollection</code> annotation&#8217;s <code>targetClass</code> attribute must be set to the type of the <code>Map</code> value.</p>
+</div>
+<div class="paragraph">
+<p>If the <code>Map</code> value is an entity and part of a many-to-many or one-to-many unidirectional relationship, it will be mapped as a join table in the underlying database.
+A unidirectional one-to-many relationship that uses a <code>Map</code> may also be mapped using the <code>@JoinColumn</code> annotation.</p>
+</div>
+<div class="paragraph">
+<p>If the entity is part of a one-to-many/many-to-one bidirectional relationship, it will be mapped in the table of the entity that represents the value of the <code>Map</code>.
+If generic types are not used, the <code>targetEntity</code> attribute of the <code>@OneToMany</code> and <code>@ManyToMany</code> annotations must be set to the type of the <code>Map</code> value.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_validating_persistent_fields_and_properties"><a class="anchor" href="#_validating_persistent_fields_and_properties"></a>Validating Persistent Fields and Properties</h4>
+<div class="paragraph">
+<p>Jakarta Bean Validation provides a mechanism for validating application data.
+Bean Validation is integrated into the Jakarta EE containers, allowing the same validation logic to be used in any of the tiers of an enterprise application.</p>
+</div>
+<div class="paragraph">
+<p>Bean Validation constraints may be applied to persistent entity classes, embeddable classes, and mapped superclasses.
+By default, the Persistence provider will automatically perform validation on entities with persistent fields or properties annotated with Bean Validation constraints immediately after the <code>PrePersist</code>, <code>PreUpdate</code>, and <code>PreRemove</code> lifecycle events.</p>
+</div>
+<div class="paragraph">
+<p>Bean Validation constraints are annotations applied to the fields or properties of Java programming language classes.
+Bean Validation provides a set of constraints as well as an API for defining custom constraints.
+Custom constraints can be specific combinations of the default constraints, or new constraints that don&#8217;t use the default constraints.
+Each constraint is associated with at least one validator class that validates the value of the constrained field or property.
+Custom constraint developers must also provide a validator class for the constraint.</p>
+</div>
+<div class="paragraph">
+<p>Bean Validation constraints are applied to the persistent fields or properties of persistent classes.
+When adding Bean Validation constraints, use the same access strategy as the persistent class.
+That is, if the persistent class uses field access, apply the Bean Validation constraint annotations on the class&#8217;s fields.
+If the class uses property access, apply the constraints on the getter methods.</p>
+</div>
+<div class="paragraph">
+<p><a href="../../beanvalidation/bean-validation/bean-validation.html#built_in_jakarta_bean_validation_constraints" class="xref page">Built In Jakarta Bean Validation Constraints</a> lists Bean Validation&#8217;s built-in constraints, defined in the <code>jakarta.validation.constraints</code> package.</p>
+</div>
+<div class="paragraph">
+<p>All the built-in constraints listed in <a href="../../beanvalidation/bean-validation/bean-validation.html#built_in_jakarta_bean_validation_constraints" class="xref page">Built In Jakarta Bean Validation Constraints</a> have a corresponding annotation, <code><em>ConstraintName</em>.List</code>, for grouping multiple constraints of the same type on the same field or property.
+For example, the following persistent field has two <code>@Pattern</code> constraints:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Pattern.List({
+    @Pattern(regexp="..."),
+    @Pattern(regexp="...")
+})</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following entity class, <code>Contact</code>, has Bean Validation constraints applied to its persistent fields:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Entity
+public class Contact implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @NotNull
+    protected String firstName;
+    @NotNull
+    protected String lastName;
+    @Pattern(regexp = "[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\\."
+            + "[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*@"
+            + "(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9]"
+            + "(?:[a-z0-9-]*[a-z0-9])?",
+            message = "{invalid.email}")
+    protected String email;
+    @Pattern(regexp = "^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$",
+            message = "{invalid.phonenumber}")
+    protected String mobilePhone;
+    @Pattern(regexp = "^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$",
+            message = "{invalid.phonenumber}")
+    protected String homePhone;
+    @Temporal(jakarta.persistence.TemporalType.DATE)
+    @Past
+    protected Date birthday;
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>@NotNull</code> annotation on the <code>firstName</code> and <code>lastName</code> fields specifies that those fields are now required.
+If a new <code>Contact</code> instance is created where <code>firstName</code> or <code>lastName</code> have not been initialized, Bean Validation will throw a validation error.
+Similarly, if a previously created instance of <code>Contact</code> has been modified so that <code>firstName</code> or <code>lastName</code> are null, a validation error will be thrown.</p>
+</div>
+<div class="paragraph">
+<p>The <code>email</code> field has a <code>@Pattern</code> constraint applied to it, with a complicated regular expression that matches most valid email addresses.
+If the value of <code>email</code> doesn&#8217;t match this regular expression, a validation error will be thrown.</p>
+</div>
+<div class="paragraph">
+<p>The <code>homePhone</code> and <code>mobilePhone</code> fields have the same <code>@Pattern</code> constraints.
+The regular expression matches 10 digit telephone numbers in the United States and Canada of the form <code>(</code>xxx<code>)</code> xxx<code>-</code>xxxx.</p>
+</div>
+<div class="paragraph">
+<p>The <code>birthday</code> field is annotated with the <code>@Past</code> constraint, which ensures that the value of <code>birthday</code> must be in the past.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_primary_keys_in_entities"><a class="anchor" href="#_primary_keys_in_entities"></a>Primary Keys in Entities</h3>
+<div class="paragraph">
+<p>Each entity has a unique object identifier.
+A customer entity, for example, might be identified by a customer number.
+The unique identifier, or primary key, enables clients to locate a particular entity instance.
+Every entity must have a primary key.
+An entity may have either a simple or a composite primary key.</p>
+</div>
+<div class="paragraph">
+<p>Simple primary keys use the <code>jakarta.persistence.Id</code> annotation to denote the primary key property or field.</p>
+</div>
+<div class="paragraph">
+<p>Composite primary keys are used when a primary key consists of more than one attribute, which corresponds to a set of single persistent properties or fields.
+Composite primary keys must be defined in a primary key class.
+Composite primary keys are denoted using the <code>jakarta.persistence.EmbeddedId</code> and <code>jakarta.persistence.IdClass</code> annotations.</p>
+</div>
+<div class="paragraph">
+<p>The primary key, or the property or field of a composite primary key, must be one of the following Java language types:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Java primitive types</p>
+</li>
+<li>
+<p>Java primitive wrapper types</p>
+</li>
+<li>
+<p><code>java.lang.String</code></p>
+</li>
+<li>
+<p><code>java.util.Date</code> (the temporal type should be <code>DATE</code>)</p>
+</li>
+<li>
+<p><code>java.sql.Date</code></p>
+</li>
+<li>
+<p><code>java.math.BigDecimal</code></p>
+</li>
+<li>
+<p><code>java.math.BigInteger</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Floating-point types should never be used in primary keys.
+If you use a generated primary key, only integral types will be portable.</p>
+</div>
+<div class="paragraph">
+<p>A primary key class must meet these requirements.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The access control modifier of the class must be <code>public</code>.</p>
+</li>
+<li>
+<p>The properties of the primary key class must be <code>public</code> or <code>protected</code> if property-based access is used.</p>
+</li>
+<li>
+<p>The class must have a public default constructor.</p>
+</li>
+<li>
+<p>The class must implement the <code>hashCode()</code> and <code>equals(Object other)</code> methods.</p>
+</li>
+<li>
+<p>The class must be serializable.</p>
+</li>
+<li>
+<p>A composite primary key must be represented and mapped to multiple fields or properties of the entity class or must be represented and mapped as an embeddable class.</p>
+</li>
+<li>
+<p>If the class is mapped to multiple fields or properties of the entity class, the names and types of the primary key fields or properties in the primary key class must match those of the entity class.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following primary key class is a composite key, and the <code>customerOrder</code> and <code>itemId</code> fields together uniquely identify an entity:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public final class LineItemKey implements Serializable {
+    private Integer customerOrder;
+    private int itemId;
+
+    public LineItemKey() {}
+
+    public LineItemKey(Integer order, int itemId) {
+        this.setCustomerOrder(order);
+        this.setItemId(itemId);
+    }
+
+    @Override
+    public int hashCode() {
+        return ((this.getCustomerOrder() == null
+                ? 0 : this.getCustomerOrder().hashCode())
+                ^ ((int) this.getItemId()));
+    }
+
+    @Override
+    public boolean equals(Object otherOb) {
+        if (this == otherOb) {
+            return true;
+        }
+        if (!(otherOb instanceof LineItemKey)) {
+            return false;
+        }
+        LineItemKey other = (LineItemKey) otherOb;
+        return ((this.getCustomerOrder() == null
+                ? other.getCustomerOrder() == null : this.getCustomerOrder()
+                .equals(other.getCustomerOrder()))
+                &amp;&amp; (this.getItemId() == other.getItemId()));
+    }
+
+    @Override
+    public String toString() {
+        return "" + getCustomerOrder() + "-" + getItemId();
+    }
+    /* Getters and setters */
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_multiplicity_in_entity_relationships"><a class="anchor" href="#_multiplicity_in_entity_relationships"></a>Multiplicity in Entity Relationships</h3>
+<div class="paragraph">
+<p>Multiplicities are of the following types.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>One-to-one: Each entity instance is related to a single instance of another entity.
+For example, to model a physical warehouse in which each storage bin contains a single widget, <code>StorageBin</code> and <code>Widget</code> would have a one-to-one relationship.
+One-to-one relationships use the <code>jakarta.persistence.OneToOne</code> annotation on the corresponding persistent property or field.</p>
+</li>
+<li>
+<p>One-to-many: An entity instance can be related to multiple instances of the other entities.
+A sales order, for example, can have multiple line items.
+In the order application, <code>CustomerOrder</code> would have a one-to-many relationship with <code>LineItem</code>.
+One-to-many relationships use the <code>jakarta.persistence.OneToMany</code> annotation on the corresponding persistent property or field.</p>
+</li>
+<li>
+<p>Many-to-one: Multiple instances of an entity can be related to a single instance of the other entity.
+This multiplicity is the opposite of a one-to-many relationship.
+In the example just mentioned, the relationship to <code>CustomerOrder</code> from the perspective of <code>LineItem</code> is many-to-one.
+Many-to-one relationships use the <code>jakarta.persistence.ManyToOne</code> annotation on the corresponding persistent property or field.</p>
+</li>
+<li>
+<p>Many-to-many: The entity instances can be related to multiple instances of each other.
+For example, each college course has many students, and every student may take several courses.
+Therefore, in an enrollment application, <code>Course</code> and <code>Student</code> would have a many-to-many relationship.
+Many-to-many relationships use the <code>jakarta.persistence.ManyToMany</code> annotation on the corresponding persistent property or field.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_direction_in_entity_relationships"><a class="anchor" href="#_direction_in_entity_relationships"></a>Direction in Entity Relationships</h3>
+<div class="paragraph">
+<p>The direction of a relationship can be either bidirectional or unidirectional.
+A bidirectional relationship has both an owning side and an inverse side.
+A unidirectional relationship has only an owning side.
+The owning side of a relationship determines how the Persistence runtime makes updates to the relationship in the database.</p>
+</div>
+<div class="sect3">
+<h4 id="_bidirectional_relationships"><a class="anchor" href="#_bidirectional_relationships"></a>Bidirectional Relationships</h4>
+<div class="paragraph">
+<p>In a bidirectional relationship, each entity has a relationship field or property that refers to the other entity.
+Through the relationship field or property, an entity class&#8217;s code can access its related object.
+If an entity has a related field, the entity is said to "know" about its related object.
+For example, if <code>CustomerOrder</code> knows what <code>LineItem</code> instances it has and if <code>LineItem</code> knows what <code>CustomerOrder</code> it belongs to, they have a bidirectional relationship.</p>
+</div>
+<div class="paragraph">
+<p>Bidirectional relationships must follow these rules.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The inverse side of a bidirectional relationship must refer to its owning side by using the <code>mappedBy</code> element of the <code>@OneToOne</code>, <code>@OneToMany</code>, or <code>@ManyToMany</code> annotation.
+The <code>mappedBy</code> element designates the property or field in the entity that is the owner of the relationship.</p>
+</li>
+<li>
+<p>The many side of many-to-one bidirectional relationships must not define the <code>mappedBy</code> element.
+The many side is always the owning side of the relationship.</p>
+</li>
+<li>
+<p>For one-to-one bidirectional relationships, the owning side corresponds to the side that contains the corresponding foreign key.</p>
+</li>
+<li>
+<p>For many-to-many bidirectional relationships, either side may be the owning side.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unidirectional_relationships"><a class="anchor" href="#_unidirectional_relationships"></a>Unidirectional Relationships</h4>
+<div class="paragraph">
+<p>In a unidirectional relationship, only one entity has a relationship field or property that refers to the other.
+For example, <code>LineItem</code> would have a relationship field that identifies <code>Product</code>, but <code>Product</code> would not have a relationship field or property for <code>LineItem</code>.
+In other words, <code>LineItem</code> knows about <code>Product</code>, but <code>Product</code> doesn&#8217;t know which <code>LineItem</code> instances refer to it.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_queries_and_relationship_direction"><a class="anchor" href="#_queries_and_relationship_direction"></a>Queries and Relationship Direction</h4>
+<div class="paragraph">
+<p>Jakarta Persistence query language and Criteria API queries often navigate across relationships.
+The direction of a relationship determines whether a query can navigate from one entity to another.
+For example, a query can navigate from <code>LineItem</code> to <code>Product</code> but cannot navigate in the opposite direction.
+For <code>CustomerOrder</code> and <code>LineItem</code>, a query could navigate in both directions because these two entities have a bidirectional relationship.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cascade_operations_and_relationships"><a class="anchor" href="#_cascade_operations_and_relationships"></a>Cascade Operations and Relationships</h4>
+<div class="paragraph">
+<p>Entities that use relationships often have dependencies on the existence of the other entity in the relationship.
+For example, a line item is part of an order; if the order is deleted, the line item also should be deleted.
+This is called a cascade delete relationship.</p>
+</div>
+<div class="paragraph">
+<p>The <code>jakarta.persistence.CascadeType</code> enumerated type defines the cascade operations that are applied in the <code>cascade</code> element of the relationship annotations.
+<a href="#_cascade_operations_for_entities">Cascade Operations for Entities</a> lists the cascade operations for entities.</p>
+</div>
+<table id="_cascade_operations_for_entities" class="tableblock frame-all grid-all" style="width: 75%;">
+<caption class="title">Cascade Operations for Entities</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Cascade Operation</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ALL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All cascade operations will be applied to the parent entity&#8217;s related entity.
+<code>All</code> is equivalent to specifying <code>cascade={DETACH, MERGE, PERSIST, REFRESH, REMOVE}</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DETACH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the parent entity is detached from the persistence context, the related entity will also be detached.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MERGE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the parent entity is merged into the persistence context, the related entity will also be merged.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PERSIST</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the parent entity is persisted into the persistence context, the related entity will also be persisted.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REFRESH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the parent entity is refreshed in the current persistence context, the related entity will also be refreshed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REMOVE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the parent entity is removed from the current persistence context, the related entity will also be removed.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Cascade delete relationships are specified using the <code>cascade=REMOVE</code> element specification for <code>@OneToOne</code> and <code>@OneToMany</code> relationships.
+For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@OneToMany(cascade=REMOVE, mappedBy="customer")
+public Set&lt;CustomerOrder&gt; getOrders() { return orders; }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_orphan_removal_in_relationships"><a class="anchor" href="#_orphan_removal_in_relationships"></a>Orphan Removal in Relationships</h4>
+<div class="paragraph">
+<p>When a target entity in a one-to-one or one-to-many relationship is removed from the relationship, it is often desirable to cascade the remove operation to the target entity.
+Such target entities are considered "orphans," and the <code>orphanRemoval</code> attribute can be used to specify that orphaned entities should be removed.
+For example, if an order has many line items and one of them is removed from the order, the removed line item is considered an orphan.
+If <code>orphanRemoval</code> is set to <code>true</code>, the line item entity will be deleted when the line item is removed from the order.</p>
+</div>
+<div class="paragraph">
+<p>The <code>orphanRemoval</code> attribute in <code>@OneToMany</code> and <code>@oneToOne</code> takes a Boolean value and is by default false.</p>
+</div>
+<div class="paragraph">
+<p>The following example will cascade the remove operation to the orphaned <code>order</code> entity when the <code>customer</code> entity is deleted:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@OneToMany(mappedBy="customer", orphanRemoval="true")
+public List&lt;CustomerOrder&gt; getOrders() { ... }</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_embeddable_classes_in_entities"><a class="anchor" href="#_embeddable_classes_in_entities"></a>Embeddable Classes in Entities</h3>
+<div class="paragraph">
+<p>Embeddable classes are used to represent the state of an entity but don&#8217;t have a persistent identity of their own, unlike entity classes.
+Instances of an embeddable class share the identity of the entity that owns it.
+Embeddable classes exist only as the state of another entity.
+An entity may have single-valued or collection-valued embeddable class attributes.</p>
+</div>
+<div class="paragraph">
+<p>Embeddable classes have the same rules as entity classes but are annotated with the <code>jakarta.persistence.Embeddable</code> annotation instead of <code>@Entity</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following embeddable class, <code>ZipCode</code>, has the fields <code>zip</code> and <code>plusFour</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Embeddable
+public class ZipCode {
+    String zip;
+    String plusFour;
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This embeddable class is used by the <code>Address</code> entity:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Entity
+public class Address {
+    @Id
+    protected long id
+    String street1;
+    String street2;
+    String city;
+    String province;
+    @Embedded
+    ZipCode zipCode;
+    String country;
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Entities that own embeddable classes as part of their persistent state may annotate the field or property with the <code>jakarta.persistence.Embedded</code> annotation but are not required to do so.</p>
+</div>
+<div class="paragraph">
+<p>Embeddable classes may themselves use other embeddable classes to represent their state.
+They may also contain collections of basic Java programming language types or other embeddable classes.
+Embeddable classes may also contain relationships to other entities or collections of entities.
+If the embeddable class has such a relationship, the relationship is from the target entity or collection of entities to the entity that owns the embeddable class.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_entity_inheritance"><a class="anchor" href="#_entity_inheritance"></a>Entity Inheritance</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Entities support class inheritance, polymorphic associations, and polymorphic queries.
+Entity classes can extend non-entity classes, and non-entity classes can extend entity classes.
+Entity classes can be both abstract and concrete.</p>
+</div>
+<div class="paragraph">
+<p>The <code>roster</code> example application demonstrates entity inheritance, as described in <a href="../persistence-basicexamples/persistence-basicexamples.html#_entity_inheritance_in_the_roster_application" class="xref page">Entity Inheritance in the roster Application</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_abstract_entities"><a class="anchor" href="#_abstract_entities"></a>Abstract Entities</h3>
+<div class="paragraph">
+<p>An abstract class may be declared an entity by decorating the class with <code>@Entity</code>.
+Abstract entities are like concrete entities but cannot be instantiated.</p>
+</div>
+<div class="paragraph">
+<p>Abstract entities can be queried just like concrete entities.
+If an abstract entity is the target of a query, the query operates on all the concrete subclasses of the abstract entity:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Entity
+public abstract class Employee {
+    @Id
+    protected Integer employeeId;
+    ...
+}
+@Entity
+public class FullTimeEmployee extends Employee {
+    protected Integer salary;
+    ...
+}
+@Entity
+public class PartTimeEmployee extends Employee {
+    protected Float hourlyWage;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mapped_superclasses"><a class="anchor" href="#_mapped_superclasses"></a>Mapped Superclasses</h3>
+<div class="paragraph">
+<p>Entities may inherit from superclasses that contain persistent state and mapping information but are not entities.
+That is, the superclass is not decorated with the <code>@Entity</code> annotation and is not mapped as an entity by the Jakarta Persistence provider.
+These superclasses are most often used when you have state and mapping information common to multiple entity classes.</p>
+</div>
+<div class="paragraph">
+<p>Mapped superclasses are specified by decorating the class with the annotation <code>jakarta.persistence.MappedSuperclass</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@MappedSuperclass
+public class Employee {
+    @Id
+    protected Integer employeeId;
+    ...
+}
+@Entity
+public class FullTimeEmployee extends Employee {
+    protected Integer salary;
+    ...
+}
+@Entity
+public class PartTimeEmployee extends Employee {
+    protected Float hourlyWage;
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Mapped superclasses cannot be queried and cannot be used in <code>EntityManager</code> or <code>Query</code> operations.
+You must use entity subclasses of the mapped superclass in <code>EntityManager</code> or <code>Query</code> operations.
+Mapped superclasses can&#8217;t be targets of entity relationships.
+Mapped superclasses can be abstract or concrete.</p>
+</div>
+<div class="paragraph">
+<p>Mapped superclasses do not have any corresponding tables in the underlying datastore.
+Entities that inherit from the mapped superclass define the table mappings.
+For instance, in the preceding code sample, the underlying tables would be <code>FULLTIMEEMPLOYEE</code> and <code>PARTTIMEEMPLOYEE</code>, but there is no <code>EMPLOYEE</code> table.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_non_entity_superclasses"><a class="anchor" href="#_non_entity_superclasses"></a>Non-Entity Superclasses</h3>
+<div class="paragraph">
+<p>Entities may have non-entity superclasses, and these superclasses can be either abstract or concrete.
+The state of non-entity superclasses is nonpersistent, and any state inherited from the non-entity superclass by an entity class is nonpersistent.
+Non-entity superclasses may not be used in <code>EntityManager</code> or <code>Query</code> operations.
+Any mapping or relationship annotations in non-entity superclasses are ignored.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_entity_inheritance_mapping_strategies"><a class="anchor" href="#_entity_inheritance_mapping_strategies"></a>Entity Inheritance Mapping Strategies</h3>
+<div class="paragraph">
+<p>You can configure how the Jakarta Persistence provider maps inherited entities to the underlying datastore by decorating the root class of the hierarchy with the annotation <code>jakarta.persistence.Inheritance</code>.
+The following mapping strategies are used to map the entity data to the underlying database:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A single table per class hierarchy</p>
+</li>
+<li>
+<p>A table per concrete entity class</p>
+</li>
+<li>
+<p>A "join" strategy, whereby fields or properties that are specific to a subclass are mapped to a different table than the fields or properties that are common to the parent class</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The strategy is configured by setting the <code>strategy</code> element of <code>@Inheritance</code> to one of the options defined in the <code>jakarta.persistence.InheritanceType</code> enumerated type:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public enum InheritanceType {
+    SINGLE_TABLE,
+    JOINED,
+    TABLE_PER_CLASS
+};</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The default strategy, <code>InheritanceType.SINGLE_TABLE</code>, is used if the <code>@Inheritance</code> annotation is not specified on the root class of the entity hierarchy.</p>
+</div>
+<div class="sect3">
+<h4 id="_the_single_table_per_class_hierarchy_strategy"><a class="anchor" href="#_the_single_table_per_class_hierarchy_strategy"></a>The Single Table per Class Hierarchy Strategy</h4>
+<div class="paragraph">
+<p>With this strategy, which corresponds to the default <code>InheritanceType.SINGLE_TABLE</code>, all classes in the hierarchy are mapped to a single table in the database.
+This table has a discriminator column containing a value that identifies the subclass to which the instance represented by the row belongs.</p>
+</div>
+<div class="paragraph">
+<p>The discriminator column, whose elements are shown in <a href="#_discriminator_column_elements">@DiscriminatorColumn Elements</a>, can be specified by using the <code>jakarta.persistence.DiscriminatorColumn</code> annotation on the root of the entity class hierarchy.</p>
+</div>
+<table id="_discriminator_column_elements" class="tableblock frame-all grid-all" style="width: 99%;">
+<caption class="title">@DiscriminatorColumn Elements</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the column to be used as the discriminator column.
+The default is <code>DTYPE</code>.
+This element is optional.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DiscriminatorType</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>discriminatorType</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of the column to be used as a discriminator column.
+The default is <code>DiscriminatorType.STRING</code>.
+This element is optional.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>columnDefinition</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The SQL fragment to use when creating the discriminator column.
+The default is generated by the Persistence provider and is implementation-specific.
+This element is optional.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>length</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The column length for <code>String</code>-based discriminator types.
+This element is ignored for non-<code>String</code> discriminator types.
+The default is 31.
+This element is optional.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <code>jakarta.persistence.DiscriminatorType</code> enumerated type is used to set the type of the discriminator column in the database by setting the <code>discriminatorType</code> element of <code>@DiscriminatorColumn</code> to one of the defined types.
+<code>DiscriminatorType</code> is defined as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public enum DiscriminatorType {
+    STRING,
+    CHAR,
+    INTEGER
+};</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If <code>@DiscriminatorColumn</code> is not specified on the root of the entity hierarchy and a discriminator column is required, the Persistence provider assumes a default column name of <code>DTYPE</code> and column type of <code>DiscriminatorType.STRING</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>jakarta.persistence.DiscriminatorValue</code> annotation may be used to set the value entered into the discriminator column for each entity in a class hierarchy.
+You may decorate only concrete entity classes with <code>@DiscriminatorValue</code>.</p>
+</div>
+<div class="paragraph">
+<p>If <code>@DiscriminatorValue</code> is not specified on an entity in a class hierarchy that uses a discriminator column, the Persistence provider will provide a default, implementation-specific value.
+If the <code>discriminatorType</code> element of <code>@DiscriminatorColumn</code> is <code>DiscriminatorType.STRING</code>, the default value is the name of the entity.</p>
+</div>
+<div class="paragraph">
+<p>This strategy provides good support for polymorphic relationships between entities and queries that cover the entire entity class hierarchy.
+However, this strategy requires the columns that contain the state of subclasses to be nullable.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_table_per_concrete_class_strategy"><a class="anchor" href="#_the_table_per_concrete_class_strategy"></a>The Table per Concrete Class Strategy</h4>
+<div class="paragraph">
+<p>In this strategy, which corresponds to <code>InheritanceType.TABLE_PER_CLASS</code>, each concrete class is mapped to a separate table in the database.
+All fields or properties in the class, including inherited fields or properties, are mapped to columns in the class&#8217;s table in the database.</p>
+</div>
+<div class="paragraph">
+<p>This strategy provides poor support for polymorphic relationships and usually requires either SQL <code>UNION</code> queries or separate SQL queries for each subclass for queries that cover the entire entity class hierarchy.</p>
+</div>
+<div class="paragraph">
+<p>Support for this strategy is optional and may not be supported by all Jakarta Persistence providers.
+The default Jakarta Persistence provider in GlassFish Server does not support this strategy.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_joined_subclass_strategy"><a class="anchor" href="#_the_joined_subclass_strategy"></a>The Joined Subclass Strategy</h4>
+<div class="paragraph">
+<p>In this strategy, which corresponds to <code>InheritanceType.JOINED</code>, the root of the class hierarchy is represented by a single table, and each subclass has a separate table that contains only those fields specific to that subclass.
+That is, the subclass table does not contain columns for inherited fields or properties.
+The subclass table also has a column or columns that represent its primary key, which is a foreign key to the primary key of the superclass table.</p>
+</div>
+<div class="paragraph">
+<p>This strategy provides good support for polymorphic relationships but requires one or more join operations to be performed when instantiating entity subclasses.
+This may result in poor performance for extensive class hierarchies.
+Similarly, queries that cover the entire class hierarchy require join operations between the subclass tables, resulting in decreased performance.</p>
+</div>
+<div class="paragraph">
+<p>Some Jakarta Persistence providers, including the default provider in GlassFish Server, require a discriminator column that corresponds to the root entity when using the joined subclass strategy.
+If you are not using automatic table creation in your application, make sure that the database table is set up correctly for the discriminator column defaults, or use the <code>@DiscriminatorColumn</code> annotation to match your database schema.
+For information on discriminator columns, see <a href="#_the_single_table_per_class_hierarchy_strategy">The Single Table per Class Hierarchy Strategy</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_managing_entities"><a class="anchor" href="#_managing_entities"></a>Managing Entities</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Entities are managed by the entity manager, which is represented by <code>jakarta.persistence.EntityManager</code> instances.
+Each <code>EntityManager</code> instance is associated with a persistence context: a set of managed entity instances that exist in a particular data store.
+A persistence context defines the scope under which particular entity instances are created, persisted, and removed.
+The <code>EntityManager</code> interface defines the methods that are used to interact with the persistence context.</p>
+</div>
+<div class="sect2">
+<h3 id="_the_entitymanager_interface"><a class="anchor" href="#_the_entitymanager_interface"></a>The EntityManager Interface</h3>
+<div class="paragraph">
+<p>The <code>EntityManager</code> API creates and removes persistent entity instances, finds entities by the entity&#8217;s primary key, and allows queries to be run on entities.</p>
+</div>
+<div class="sect3">
+<h4 id="_container_managed_entity_managers"><a class="anchor" href="#_container_managed_entity_managers"></a>Container-Managed Entity Managers</h4>
+<div class="paragraph">
+<p>With a container-managed entity manager, an <code>EntityManager</code> instance&#8217;s persistence context is automatically propagated by the container to all application components that use the <code>EntityManager</code> instance within a single Jakarta transaction.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta transactions usually involve calls across application components.
+To complete a Jakarta transaction, these components usually need access to a single persistence context.
+This occurs when an <code>EntityManager</code> is injected into the application components by means of the <code>jakarta.persistence.PersistenceContext</code> annotation.
+The persistence context is automatically propagated with the current Jakarta transaction, and <code>EntityManager</code> references that are mapped to the same persistence unit provide access to the persistence context within that transaction.
+By automatically propagating the persistence context, application components don&#8217;t need to pass references to <code>EntityManager</code> instances to each other in order to make changes within a single transaction.
+The Jakarta EE container manages the lifecycle of container-managed entity managers.</p>
+</div>
+<div class="paragraph">
+<p>To obtain an <code>EntityManager</code> instance, inject the entity manager into the application component:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@PersistenceContext
+EntityManager em;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_application_managed_entity_managers"><a class="anchor" href="#_application_managed_entity_managers"></a>Application-Managed Entity Managers</h4>
+<div class="paragraph">
+<p>With an application-managed entity manager, on the other hand, the persistence context is not propagated to application components, and the lifecycle of <code>EntityManager</code> instances is managed by the application.</p>
+</div>
+<div class="paragraph">
+<p>Application-managed entity managers are used when applications need to access a persistence context that is not propagated with the Jakarta transaction across <code>EntityManager</code> instances in a particular persistence unit.
+In this case, each <code>EntityManager</code> creates a new, isolated persistence context.
+The <code>EntityManager</code> and its associated persistence context are created and destroyed explicitly by the application.
+They are also used when directly injecting <code>EntityManager</code> instances can&#8217;t be done because <code>EntityManager</code> instances are not thread-safe.
+<code>EntityManagerFactory</code> instances are thread-safe.</p>
+</div>
+<div class="paragraph">
+<p>Applications create <code>EntityManager</code> instances in this case by using the <code>createEntityManager</code> method of <code>jakarta.persistence.EntityManagerFactory</code>.</p>
+</div>
+<div class="paragraph">
+<p>To obtain an <code>EntityManager</code> instance, you first must obtain an <code>EntityManagerFactory</code> instance by injecting it into the application component by means of the <code>jakarta.persistence.PersistenceUnit</code> annotation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@PersistenceUnit
+EntityManagerFactory emf;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then obtain an <code>EntityManager</code> from the <code>EntityManagerFactory</code> instance:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">EntityManager em = emf.createEntityManager();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Application-managed entity managers don&#8217;t automatically propagate the Jakarta transaction context.
+Such applications need to manually gain access to the Jakarta transaction manager and add transaction demarcation information when performing entity operations.
+The <code>jakarta.transaction.UserTransaction</code> interface defines methods to begin, commit, and roll back transactions.
+Inject an instance of <code>UserTransaction</code> by creating an instance variable annotated with <code>@Resource</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Resource
+UserTransaction utx;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To begin a transaction, call the <code>UserTransaction.begin</code> method.
+When all the entity operations are complete, call the <code>UserTransaction.commit</code> method to commit the transaction.
+The <code>UserTransaction.rollback</code> method is used to roll back the current transaction.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows how to manage transactions in an application that uses an application-managed entity manager:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@PersistenceUnit
+EntityManagerFactory emf;
+EntityManager em;
+@Resource
+UserTransaction utx;
+...
+em = emf.createEntityManager();
+try {
+    utx.begin();
+    em.persist(SomeEntity);
+    em.merge(AnotherEntity);
+    em.remove(ThirdEntity);
+    utx.commit();
+} catch (Exception e) {
+    utx.rollback();
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_finding_entities_using_the_entitymanager"><a class="anchor" href="#_finding_entities_using_the_entitymanager"></a>Finding Entities Using the EntityManager</h4>
+<div class="paragraph">
+<p>The <code>EntityManager.find</code> method is used to look up entities in the data store by the entity&#8217;s primary key:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@PersistenceContext
+EntityManager em;
+public void enterOrder(int custID, CustomerOrder newOrder) {
+    Customer cust = em.find(Customer.class, custID);
+    cust.getOrders().add(newOrder);
+    newOrder.setCustomer(cust);
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_managing_an_entity_instances_lifecycle"><a class="anchor" href="#_managing_an_entity_instances_lifecycle"></a>Managing an Entity Instance&#8217;s Lifecycle</h4>
+<div class="paragraph">
+<p>You manage entity instances by invoking operations on the entity by means of an <code>EntityManager</code> instance.
+Entity instances are in one of four states: new, managed, detached, or removed.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>New entity instances have no persistent identity and are not yet associated with a persistence context.</p>
+</li>
+<li>
+<p>Managed entity instances have a persistent identity and are associated with a persistence context.</p>
+</li>
+<li>
+<p>Detached entity instances have a persistent identity and are not currently associated with a persistence context.</p>
+</li>
+<li>
+<p>Removed entity instances have a persistent identity, are associated with a persistent context, and are scheduled for removal from the data store.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_persisting_entity_instances"><a class="anchor" href="#_persisting_entity_instances"></a>Persisting Entity Instances</h4>
+<div class="paragraph">
+<p>New entity instances become managed and persistent either by invoking the <code>persist</code> method or by a cascading <code>persist</code> operation invoked from related entities that have the <code>cascade=PERSIST</code> or <code>cascade=ALL</code> elements set in the relationship annotation.
+This means that the entity&#8217;s data is stored to the database when the transaction associated with the <code>persist</code> operation is completed.
+If the entity is already managed, the <code>persist</code> operation is ignored, although the <code>persist</code> operation will cascade to related entities that have the <code>cascade</code> element set to <code>PERSIST</code> or <code>ALL</code> in the relationship annotation.
+If <code>persist</code> is called on a removed entity instance, the entity becomes managed.
+If the entity is detached, either <code>persist</code> will throw an <code>IllegalArgumentException</code>, or the transaction commit will fail.
+The following method performs a <code>persist</code> operation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@PersistenceContext
+EntityManager em;
+...
+public LineItem createLineItem(CustomerOrder order, Product product,
+        int quantity) {
+    LineItem li = new LineItem(order, product, quantity);
+    order.getLineItems().add(li);
+    em.persist(li);
+    return li;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>persist</code> operation is propagated to all entities related to the calling entity that have the <code>cascade</code> element set to <code>ALL</code> or <code>PERSIST</code> in the relationship annotation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@OneToMany(cascade=ALL, mappedBy="order")
+public Collection&lt;LineItem&gt; getLineItems() {
+    return lineItems;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_removing_entity_instances"><a class="anchor" href="#_removing_entity_instances"></a>Removing Entity Instances</h4>
+<div class="paragraph">
+<p>Managed entity instances are removed by invoking the <code>remove</code> method or by a cascading <code>remove</code> operation invoked from related entities that have the <code>cascade=REMOVE</code> or <code>cascade=ALL</code> elements set in the relationship annotation.
+If the <code>remove</code> method is invoked on a new entity, the <code>remove</code> operation is ignored, although <code>remove</code> will cascade to related entities that have the <code>cascade</code> element set to <code>REMOVE</code> or <code>ALL</code> in the relationship annotation.
+If <code>remove</code> is invoked on a detached entity, either <code>remove</code> will throw an <code>IllegalArgumentException</code>, or the transaction commit will fail.
+If invoked on an already removed entity, <code>remove</code> will be ignored.
+The entity&#8217;s data will be removed from the data store when the transaction is completed or as a result of the <code>flush</code> operation.</p>
+</div>
+<div class="paragraph">
+<p>In the following example, all <code>LineItem</code> entities associated with the order are also removed, as <code>CustomerOrder.getLineItems</code> has <code>cascade=ALL</code> set in the relationship annotation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public void removeOrder(Integer orderId) {
+    try {
+        CustomerOrder order = em.find(CustomerOrder.class, orderId);
+        em.remove(order);
+    }...
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_synchronizing_entity_data_to_the_database"><a class="anchor" href="#_synchronizing_entity_data_to_the_database"></a>Synchronizing Entity Data to the Database</h4>
+<div class="paragraph">
+<p>The state of persistent entities is synchronized to the database when the transaction with which the entity is associated commits.
+If a managed entity is in a bidirectional relationship with another managed entity, the data will be persisted, based on the owning side of the relationship.</p>
+</div>
+<div class="paragraph">
+<p>To force synchronization of the managed entity to the data store, invoke the <code>flush</code> method of the <code>EntityManager</code> instance.
+If the entity is related to another entity and the relationship annotation has the <code>cascade</code> element set to <code>PERSIST</code> or <code>ALL</code>, the related entity&#8217;s data will be synchronized with the data store when <code>flush</code> is called.</p>
+</div>
+<div class="paragraph">
+<p>If the entity is removed, calling <code>flush</code> will remove the entity data from the data store.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_persistence_units"><a class="anchor" href="#_persistence_units"></a>Persistence Units</h3>
+<div class="paragraph">
+<p>A persistence unit defines a set of all entity classes that are managed by <code>EntityManager</code> instances in an application.
+This set of entity classes represents the data contained within a single data store.</p>
+</div>
+<div class="paragraph">
+<p>Persistence units are defined by the <code>persistence.xml</code> configuration file.
+The following is an example <code>persistence.xml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;persistence&gt;
+    &lt;persistence-unit name="OrderManagement"&gt;
+        &lt;description&gt;This unit manages orders and customers.
+            It does not rely on any vendor-specific features and can
+            therefore be deployed to any persistence provider.
+        &lt;/description&gt;
+        &lt;jta-data-source&gt;jdbc/MyOrderDB&lt;/jta-data-source&gt;
+        &lt;jar-file&gt;MyOrderApp.jar&lt;/jar-file&gt;
+        &lt;class&gt;com.widgets.CustomerOrder&lt;/class&gt;
+        &lt;class&gt;com.widgets.Customer&lt;/class&gt;
+    &lt;/persistence-unit&gt;
+&lt;/persistence&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This file defines a persistence unit named <code>OrderManagement</code>, which uses a Jakarta Transactions aware data source, <code>jdbc/MyOrderDB</code>.
+The <code>jar-file</code> and <code>class</code> elements specify managed persistence classes: entity classes, embeddable classes, and mapped superclasses.
+The <code>jar-file</code> element specifies JAR files that are visible to the packaged persistence unit that contain managed persistence classes, whereas the <code>class</code> element explicitly names managed persistence classes.</p>
+</div>
+<div class="paragraph">
+<p>The <code>jta-data-source</code> (for Jakarta Transactions aware data sources) and <code>non-jta-data-source</code> (for non Jakarta Transactions aware data sources) elements specify the global JNDI name of the data source to be used by the container.</p>
+</div>
+<div class="paragraph">
+<p>The JAR file or directory whose <code>META-INF</code> directory contains <code>persistence.xml</code> is called the root of the persistence unit.
+The scope of the persistence unit is determined by the persistence unit&#8217;s root.
+Each persistence unit must be identified with a name that is unique to the persistence unit&#8217;s scope.</p>
+</div>
+<div class="paragraph">
+<p>Persistent units can be packaged as part of a WAR or enterprise bean JAR file or can be packaged as a JAR file that can then be included in an WAR or EAR file.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you package the persistent unit as a set of classes in an enterprise bean JAR file, <code>persistence.xml</code> should be put in the enterprise bean JAR&#8217;s <code>META-INF</code> directory.</p>
+</li>
+<li>
+<p>If you package the persistence unit as a set of classes in a WAR file, <code>persistence.xml</code> should be located in the WAR file&#8217;s <code>WEB-INF/classes/META-INF</code> directory.</p>
+</li>
+<li>
+<p>If you package the persistence unit in a JAR file that will be included in a WAR or EAR file, the JAR file should be located in either</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>WEB-INF/lib</code> directory of a WAR</p>
+</li>
+<li>
+<p>Or the EAR file&#8217;s library directory</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In the Java Persistence API 1.0, JAR files could be located at the root of an EAR file as the root of the persistence unit.
+This is no longer supported.
+Portable applications should use the EAR file&#8217;s library directory as the root of the persistence unit.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_querying_entities"><a class="anchor" href="#_querying_entities"></a>Querying Entities</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Jakarta Persistence provides the following methods for querying entities.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Jakarta Persistence query language (JPQL) is a simple, string-based language similar to SQL used to query entities and their relationships.
+See <a href="../persistence-querylanguage/persistence-querylanguage.html#_the_jakarta_persistence_query_language" class="xref page">The Jakarta Persistence Query Language</a> for more information.</p>
+</li>
+<li>
+<p>The Criteria API is used to create typesafe queries using Java programming language APIs to query for entities and their relationships.
+See <a href="../persistence-criteria/persistence-criteria.html#_using_the_criteria_api_to_create_queries" class="xref page">Using the Criteria API to Create Queries</a> for more information.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Both JPQL and the Criteria API have advantages and disadvantages.</p>
+</div>
+<div class="paragraph">
+<p>Just a few lines long, JPQL queries are typically more concise and more readable than Criteria queries.
+Developers familiar with SQL will find it easy to learn the syntax of JPQL.
+JPQL named queries can be defined in the entity class using a Java programming language annotation or in the application&#8217;s deployment descriptor.
+JPQL queries are not typesafe, however, and require a cast when retrieving the query result from the entity manager.
+This means that type-casting errors may not be caught at compile time.
+JPQL queries don&#8217;t support open-ended parameters.</p>
+</div>
+<div class="paragraph">
+<p>Criteria queries allow you to define the query in the business tier of the application.
+Although this is also possible using JPQL dynamic queries, Criteria queries provide better performance because JPQL dynamic queries must be parsed each time they are called.
+Criteria queries are typesafe and therefore don&#8217;t require casting, as JPQL queries do.
+The Criteria API is just another Java programming language API and doesn&#8217;t require developers to learn the syntax of another query language.
+Criteria queries are typically more verbose than JPQL queries and require the developer to create several objects and perform operations on those objects before submitting the query to the entity manager.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_database_schema_creation"><a class="anchor" href="#_database_schema_creation"></a>Database Schema Creation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The persistence provider can be configured to automatically create the database tables, load data into the tables, and remove the tables during application deployment using standard properties in the application&#8217;s deployment descriptor.
+These tasks are typically used during the development phase of a release, not against a production database.</p>
+</div>
+<div class="paragraph">
+<p>The following is an example of a <code>persistence.xml</code> deployment descriptor that specifies that the provider should drop all database artifacts using a provided script, create the artifacts with a provided script, and load data from a provided script when the application is deployed:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;persistence version="3.0" xmlns="https://jakarta.ee/xml/ns/persistence"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+ https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"&gt;
+  &lt;persistence-unit name="examplePU" transaction-type="JTA"&gt;
+    &lt;jta-data-source&gt;java:global/ExampleDataSource&lt;/jta-data-source&gt;
+    &lt;properties&gt;
+        &lt;property name="jakarta.persistence.schema-generation.database.action"
+                  value="drop-and-create"/&gt;
+        &lt;property name="jakarta.persistence.schema-generation.create-source"
+                  value="script"/&gt;
+        &lt;property name="jakarta.persistence.schema-generation.create-script-source"
+                  value="META-INF/sql/create.sql" /&gt;
+        &lt;property name="jakarta.persistence.sql-load-script-source"
+                  value="META-INF/sql/data.sql" /&gt;
+        &lt;property name="jakarta.persistence.schema-generation.drop-source"
+                  value="script" /&gt;
+        &lt;property name="jakarta.persistence.schema-generation.drop-script-source"
+                  value="META-INF/sql/drop.sql" /&gt;
+    &lt;/properties&gt;
+  &lt;/persistence-unit&gt;
+&lt;/persistence&gt;</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configuring_an_application_to_create_or_drop_database_tables"><a class="anchor" href="#_configuring_an_application_to_create_or_drop_database_tables"></a>Configuring an Application to Create or Drop Database Tables</h3>
+<div class="paragraph">
+<p>The <code>jakarta.persistence.schema-generation.database.action</code> property is used to specify the action taken by the persistence provider when an application is deployed.
+If the property is not set, the persistence provider will not create or drop any database artifacts.</p>
+</div>
+<table id="_schema_creation_actions" class="tableblock frame-all grid-all" style="width: 75%;">
+<caption class="title">Schema Creation Actions</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Setting</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>none</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No schema creation or deletion will take place.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>create</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The provider will create the database artifacts on application deployment.
+The artifacts will remain unchanged after application redeployment.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>drop-and-create</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any artifacts in the database will be deleted, and the provider will create the database artifacts on deployment.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>drop</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any artifacts in the database will be deleted on application deployment.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>In this example, the persistence provider will delete any remaining database artifacts and then create the artifacts when the application is deployed:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;property name="jakarta.persistence.schema-generation.database.action"
+           value="drop-and-create"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By default, the object/relational metadata in the persistence unit is used to create the database artifacts.
+You may also supply scripts used by the provider to create and delete the database artifacts.
+The <code>jakarta.persistence.schema-generation.create-source</code> and <code>jakarta.persistence.schema-generation.drop-source</code> properties control how the provider will create or delete the database artifacts.</p>
+</div>
+<table id="_settings_for_create_and_delete_source_properties" class="tableblock frame-all grid-all" style="width: 75%;">
+<caption class="title">Settings for Create and Delete Source Properties</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Setting</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>metadata</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use the object/relational metadata in the application to create or delete the database artifacts.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>script</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use a provided script for creating or deleting the database artifacts.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>metadata-then-script</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use a combination of object/relational metadata, then a user-provided script to create or delete the database artifacts.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>script-then-metadata</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use a combination of a user-provided script, then the object/relational metadata to create and delete the database artifacts.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>In this example, the persistence provider will use a script packaged within the application to create the database artifacts:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;property name="jakarta.persistence.schema-generation.create-source"
+           value="script"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you specify a script in <code>create-source</code> or <code>drop-source</code>, specify the location of the script using the <code>jakarta.persistence.schema-generation.create-script-source</code> or <code>jakarta.persistence.schema-generation.drop-script-source</code> property.
+The location of the script is relative to the root of the persistence unit:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;property name="jakarta.persistence.schema-generation.create-script-source"
+           value="META-INF/sql/create.sql" /&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the above example, the <code>create-script-source</code> is set to a SQL file called <code>create.sql</code> in the <code>META-INF/sql</code> directory relative to root of the persistence unit.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_loading_data_using_sql_scripts"><a class="anchor" href="#_loading_data_using_sql_scripts"></a>Loading Data Using SQL Scripts</h3>
+<div class="paragraph">
+<p>If you want to populate the database tables with data before the application loads, specify the location of a load script in the <code>jakarta.persistence.sql-load-script-source property</code>.
+The location specified in this property is relative to the root of the persistence unit.</p>
+</div>
+<div class="paragraph">
+<p>In this example, the load script is a file called <code>data.sql</code> in the <code>META-INF/sql</code> directory relative to the root of the persistence unit:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;property name="jakarta.persistence.sql-load-script-source"
+          value="META-INF/sql/data.sql" /&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_further_information_about_persistence"><a class="anchor" href="#_further_information_about_persistence"></a>Further Information about Persistence</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For more information about Jakarta Persistence, see</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Jakarta Persistence 3.0 API specification:<br>
+<a href="https://jakarta.ee/specifications/persistence/3.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/persistence/3.0/</a></p>
+</li>
+<li>
+<p>EclipseLink, the Jakarta Persistence implementation in GlassFish Server:<br>
+<a href="https://www.eclipse.org/eclipselink/" class="bare" target="_blank" rel="noopener">https://www.eclipse.org/eclipselink/</a></p>
+</li>
+<li>
+<p>EclipseLink wiki documentation:<br>
+<a href="https://wiki.eclipse.org/EclipseLink" class="bare" target="_blank" rel="noopener">https://wiki.eclipse.org/EclipseLink</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

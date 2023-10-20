@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/web/pages/servlets/servlets006.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_filtering_requests_and_responses"><a class="anchor" href="#_filtering_requests_and_responses"></a>Filtering Requests and Responses</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A filter is an object that can transform the header and content (or both) of a request or response.
+Filters differ from web components in that filters usually do not themselves create a response.
+Instead, a filter provides functionality that can be "attached" to any kind of web resource.
+Consequently, a filter should not have any dependencies on a web resource for which it is acting as a filter; this way, it can be composed with more than one type of web resource.</p>
+</div>
+<div class="paragraph">
+<p>The main tasks that a filter can perform are as follows.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Query the request and act accordingly.</p>
+</li>
+<li>
+<p>Block the request-and-response pair from passing any further.</p>
+</li>
+<li>
+<p>Modify the request headers and data.
+You do this by providing a customized version of the request.</p>
+</li>
+<li>
+<p>Modify the response headers and data.
+You do this by providing a customized version of the response.</p>
+</li>
+<li>
+<p>Interact with external resources.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Applications of filters include authentication, logging, image conversion, data compression, encryption, tokenizing streams, XML transformations, and so on.</p>
+</div>
+<div class="paragraph">
+<p>You can configure a web resource to be filtered by a chain of zero, one, or more filters in a specific order.
+This chain is specified when the web application containing the component is deployed and is instantiated when a web container loads the component.</p>
+</div>
+<div class="sect2">
+<h3 id="_programming_filters"><a class="anchor" href="#_programming_filters"></a>Programming Filters</h3>
+<div class="paragraph">
+<p>The filtering API is defined by the <code>Filter</code>, <code>FilterChain</code>, and <code>FilterConfig</code> interfaces in the <code>jakarta.servlet</code> package.
+You define a filter by implementing the <code>Filter</code> interface.</p>
+</div>
+<div class="paragraph">
+<p>Use the <code>@WebFilter</code> annotation to define a filter in a web application.
+This annotation is specified on a class and contains metadata about the filter being declared.
+The annotated filter must specify at least one URL pattern.
+This is done by using the <code>urlPatterns</code> or <code>value</code> attribute on the annotation.
+All other attributes are optional, with default settings.
+Use the <code>value</code> attribute when the only attribute on the annotation is the URL pattern; use the <code>urlPatterns</code> attribute when other attributes are also used.</p>
+</div>
+<div class="paragraph">
+<p>Classes annotated with the <code>@WebFilter</code> annotation must implement the <code>jakarta.servlet.Filter</code> interface.</p>
+</div>
+<div class="paragraph">
+<p>To add configuration data to the filter, specify the <code>initParams</code> attribute of the <code>@WebFilter</code> annotation.
+The <code>initParams</code> attribute contains a <code>@WebInitParam</code> annotation.
+The following code snippet defines a filter, specifying an initialization parameter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import jakarta.servlet.Filter;
+import jakarta.servlet.annotation.WebFilter;
+import jakarta.servlet.annotation.WebInitParam;
+
+@WebFilter(filterName = "TimeOfDayFilter", urlPatterns = {"/*"},
+initParams = {@WebInitParam(name = "mood", value = "awake")})
+public class TimeOfDayFilter implements Filter {
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The most important method in the <code>Filter</code> interface is <code>doFilter</code>, which is passed request, response, and filter chain objects.
+This method can perform the following actions.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Examine the request headers.</p>
+</li>
+<li>
+<p>Customize the request object if the filter wishes to modify request headers or data.</p>
+</li>
+<li>
+<p>Customize the response object if the filter wishes to modify response headers or data.</p>
+</li>
+<li>
+<p>Invoke the next entity in the filter chain.
+If the current filter is the last filter in the chain that ends with the target web component or static resource, the next entity is the resource at the end of the chain; otherwise, it is the next filter that was configured in the WAR.
+The filter invokes the next entity by calling the <code>doFilter</code> method on the chain object, passing in the request and response it was called with or the wrapped versions it may have created.
+Alternatively, the filter can choose to block the request by not making the call to invoke the next entity.
+In the latter case, the filter is responsible for filling out the response.</p>
+</li>
+<li>
+<p>Examine response headers after invoking the next filter in the chain.</p>
+</li>
+<li>
+<p>Throw an exception to indicate an error in processing.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In addition to <code>doFilter</code>, you must implement the <code>init</code> and <code>destroy</code> methods.
+The <code>init</code> method is called by the container when the filter is instantiated.
+If you wish to pass initialization parameters to the filter, you retrieve them from the <code>FilterConfig</code> object passed to <code>init</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_programming_customized_requests_and_responses"><a class="anchor" href="#_programming_customized_requests_and_responses"></a>Programming Customized Requests and Responses</h3>
+<div class="paragraph">
+<p>There are many ways for a filter to modify a request or a response.
+For example, a filter can add an attribute to the request or can insert data in the response.</p>
+</div>
+<div class="paragraph">
+<p>A filter that modifies a response must usually capture the response before it is returned to the client.
+To do this, you pass a stand-in stream to the servlet that generates the response.
+The stand-in stream prevents the servlet from closing the original response stream when it completes and allows the filter to modify the servlet&#8217;s response.</p>
+</div>
+<div class="paragraph">
+<p>To pass this stand-in stream to the servlet, the filter creates a response wrapper that overrides the <code>getWriter</code> or <code>getOutputStream</code> method to return this stand-in stream.
+The wrapper is passed to the <code>doFilter</code> method of the filter chain.
+Wrapper methods default to calling through to the wrapped request or response object.</p>
+</div>
+<div class="paragraph">
+<p>To override request methods, you wrap the request in an object that extends either <code>ServletRequestWrapper</code> or <code>HttpServletRequestWrapper</code>.
+To override response methods, you wrap the response in an object that extends either <code>ServletResponseWrapper</code> or <code>HttpServletResponseWrapper</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_specifying_filter_mappings"><a class="anchor" href="#_specifying_filter_mappings"></a>Specifying Filter Mappings</h3>
+<div class="paragraph">
+<p>A web container uses filter mappings to decide how to apply filters to web resources.
+A filter mapping matches a filter to a web component by name or to web resources by URL pattern.
+The filters are invoked in the order in which filter mappings appear in the filter mapping list of a WAR.
+You specify a filter mapping list for a WAR in its deployment descriptor by either using NetBeans IDE or coding the list by hand with XML.</p>
+</div>
+<div class="paragraph">
+<p>If you want to log every request to a web application, you map the hit counter filter to the URL pattern <code>/*</code>.</p>
+</div>
+<div class="paragraph">
+<p>You can map a filter to one or more web resources, and you can map more than one filter to a web resource.
+This is illustrated in <a href="#_filter_to_servlet_mapping">Figure 1, &#8220;Filter-to-Servlet Mapping&#8221;</a>, in which filter F1 is mapped to servlets S1, S2, and S3; filter F2 is mapped to servlet S2; and filter F3 is mapped to servlets S1 and S2.</p>
+</div>
+<div id="_filter_to_servlet_mapping" class="imageblock">
+<div class="content">
+<img src="../../common/_images/jakartaeett_dt_018.svg" alt="Diagram of filter-to-servlet mapping with filters F1-F3 and servlets S1-S3. F1 filters S1-S3, then F2 filters S2, then F3 filters S1 and S2.">
+</div>
+<div class="title">Figure 1. Filter-to-Servlet Mapping</div>
+</div>
+<div class="paragraph">
+<p>Recall that a filter chain is one of the objects passed to the <code>doFilter</code> method of a filter.
+This chain is formed indirectly by means of filter mappings.
+The order of the filters in the chain is the same as the order in which filter mappings appear in the web application deployment descriptor.</p>
+</div>
+<div class="paragraph">
+<p>When a filter is mapped to servlet S1, the web container invokes the <code>doFilter</code> method of F1.
+The <code>doFilter</code> method of each filter in S1&#8217;s filter chain is invoked by the preceding filter in the chain by means of the <code>chain.doFilter</code> method.
+Because S1&#8217;s filter chain contains filters F1 and F3, F1&#8217;s call to <code>chain.doFilter</code> invokes the <code>doFilter</code> method of filter F3.
+When F3&#8217;s <code>doFilter</code> method completes, control returns to F1&#8217;s <code>doFilter</code> method.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_specify_filter_mappings_using_netbeans_ide"><a class="anchor" href="#_to_specify_filter_mappings_using_netbeans_ide"></a>To Specify Filter Mappings Using NetBeans IDE</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Expand the application&#8217;s project node in the <strong>Project</strong> tab.</p>
+</li>
+<li>
+<p>Expand the <strong>Web Pages</strong> and <strong>WEB-INF</strong> nodes under the project node.</p>
+</li>
+<li>
+<p>Double-click <code>web.xml</code>.</p>
+</li>
+<li>
+<p>Click <strong>Filters</strong> at the top of the editor window.</p>
+</li>
+<li>
+<p>Expand the <strong>Servlet Filters</strong> node in the editor window.</p>
+</li>
+<li>
+<p>Click <strong>Add Filter Element</strong> to map the filter to a web resource by name or by URL pattern.</p>
+</li>
+<li>
+<p>In the Add Servlet Filter dialog box, enter the name of the filter in the <strong>Filter Name</strong> field.</p>
+</li>
+<li>
+<p>Click <strong>Browse</strong> to locate the servlet class to which the filter applies.</p>
+<div class="paragraph">
+<p>You can include wildcard characters so that you can apply the filter to more than one servlet.</p>
+</div>
+</li>
+<li>
+<p>Click <strong>OK</strong>.</p>
+</li>
+<li>
+<p>To constrain how the filter is applied to requests, follow these steps:</p>
+<div class="openblock">
+<div class="content">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expand the <strong>Filter Mappings</strong> node.</p>
+</li>
+<li>
+<p>Select the filter from the list of filters.</p>
+</li>
+<li>
+<p>Click <strong>Add</strong>.</p>
+</li>
+<li>
+<p>In the Add Filter Mapping dialog box, select one of the following dispatcher types:</p>
+</li>
+</ol>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+REQUEST
+</td>
+<td class="hdlist2">
+<p>Only when the request comes directly from the client</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+ASYNC
+</td>
+<td class="hdlist2">
+<p>Only when the asynchronous request comes from the client</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+FORWARD
+</td>
+<td class="hdlist2">
+<p>Only when the request has been forwarded to a component (see <a href="servlets.html#_transferring_control_to_another_web_component" class="xref page">Transferring Control to Another Web Component</a>)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+INCLUDE
+</td>
+<td class="hdlist2">
+<p>Only when the request is being processed by a component that has been included (see <a href="servlets.html#_including_other_resources_in_the_response" class="xref page">Including Other Resources in the Response</a>)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+ERROR
+</td>
+<td class="hdlist2">
+<p>Only when the request is being processed with the error page mechanism (see <a href="servlets.html#_handling_servlet_errors" class="xref page">Handling Servlet Errors</a>)</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can direct the filter to be applied to any combination of the preceding situations by selecting multiple dispatcher types.
+If no types are specified, the default option is <strong>REQUEST</strong>.</p>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

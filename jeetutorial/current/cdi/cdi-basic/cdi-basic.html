@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Introduction to Jakarta Contexts and Dependency Injection :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">Jakarta EE Tutorial</a></li>
+    <li>Jakarta EE Core Profile</li>
+    <li>Jakarta CDI Lite</li>
+    <li><a href="cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/cdi/pages/cdi-basic/cdi-basic.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Introduction to Jakarta Contexts and Dependency Injection</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We are working on a fresh, updated Jakarta EE Tutorial. This section hasn&#8217;t yet been updated.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This chapter describes Jakarta Contexts and Dependency Injection (CDI) which is one of several Jakarta EE features that help to knit together the web tier and the transactional tier of the Jakarta EE platform.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_getting_started"><a class="anchor" href="#_getting_started"></a>Getting Started</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Contexts and Dependency Injection (CDI) enables your objects to have their dependencies provided to them automatically, instead of creating them or receiving them as parameters.
+CDI also manages the lifecycle of those dependencies for you.</p>
+</div>
+<div class="paragraph">
+<p>For example, consider the following servlet:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@WebServlet("/cdiservlet")
+public class NewServlet extends HttpServlet {
+    private Message message;
+
+    @Override
+    public void init() {
+        message = new MessageB();
+    }
+
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+                  throws IOException {
+        response.getWriter().write(message.get());
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This servlet needs an instance of an object that implements the <code>Message</code> interface:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public interface Message {
+    public String get();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The servlet creates itself an instance of the following object:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MessageB implements Message {
+    public MessageB() { }
+
+    @Override
+    public String get() {
+        return "message B";
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Using CDI, this servlet can declare its dependency on a <code>Message</code> instance and have it injected automatically by the CDI runtime.
+The new servlet code is the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@WebServlet("/cdiservlet")
+public class NewServlet extends HttpServlet {
+    @Inject private Message message;
+
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+                  throws IOException {
+        response.getWriter().write(message.get());
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The CDI runtime looks for classes that implement the <code>Message</code> interface, finds the <code>MessageB</code> class, creates a new instance of it, and injects it into the servlet at runtime.
+To manage the lifecycle of the new instance, the CDI runtime needs to know what the scope of the instance should be.
+In this example, the servlet only needs the instance to process an HTTP request; the instance can then be garbage collected.
+This is specified using the <code>jakarta.enterprise.context.RequestScoped</code> annotation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@RequestScoped
+public class MessageB implements Message { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information on scopes, see <a href="#_using_scopes">Using Scopes</a>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>MessageB</code> class is a CDI bean.
+CDI beans are classes that CDI can instantiate, manage, and inject automatically to satisfy the dependencies of other objects.
+Almost any Java class can be managed and injected by CDI.
+For more information on beans, see <a href="#_about_beans">About Beans</a>.
+A JAR or WAR file that contains a CDI bean is a bean archive.
+For more information on packaging bean archives, see <a href="#_configuring_a_cdi_application">Configuring a CDI Application</a> in this chapter and <a href="../cdi-adv/cdi-adv.html#_packaging_cdi_applications" class="xref page">Packaging CDI Applications</a> in <a href="../cdi-adv/cdi-adv.html#_jakarta_contexts_and_dependency_injection_advanced_topics" class="xref page">Jakarta Contexts and Dependency Injection: Advanced Topics</a>.</p>
+</div>
+<div class="paragraph">
+<p>In this example, <code>MessageB</code> is the only class that implements the <code>Message</code> interface.
+If an application has more than one implementation of an interface, CDI provides mechanisms that you can use to select which implementation to inject.
+For more information, see <a href="#_using_qualifiers">Using Qualifiers</a> in this chapter and <a href="../cdi-adv/cdi-adv.html#_using_alternatives_in_cdi_applications" class="xref page">Using Alternatives in CDI Applications</a> in <a href="../cdi-adv/cdi-adv.html#_jakarta_contexts_and_dependency_injection_advanced_topics" class="xref page">Jakarta Contexts and Dependency Injection: Advanced Topics</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview_of_cdi"><a class="anchor" href="#_overview_of_cdi"></a>Overview of CDI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>CDI is a set of services that, used together, make it easy for developers to use enterprise beans along with Jakarta Faces technology in web applications.
+Designed for use with stateful objects, CDI also has many broader uses, allowing developers a great deal of flexibility to integrate various kinds of components in a loosely coupled but typesafe way.</p>
+</div>
+<div class="paragraph">
+<p>CDI 3.0 is specified in a Jakarta EE specification.
+Related specifications that CDI uses include the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Jakarta Dependency Injection</p>
+</li>
+<li>
+<p>The Managed Beans specification, an offshoot of the Jakarta EE platform specification</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The most fundamental services provided by CDI are as follows.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Contexts: This service enables you to bind the lifecycle and interactions of stateful components to well-defined but extensible lifecycle contexts.</p>
+</li>
+<li>
+<p>Dependency injection: This service enables you to inject components into an application in a typesafe way and to choose at deployment time which implementation of a particular interface to inject.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In addition, CDI provides the following services:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Integration with the Expression Language (EL), which allows any component to be used directly within a Jakarta Faces page or a Jakarta Server Pages page</p>
+</li>
+<li>
+<p>The ability to decorate injected components</p>
+</li>
+<li>
+<p>The ability to associate interceptors with components using typesafe interceptor bindings</p>
+</li>
+<li>
+<p>An event-notification model</p>
+</li>
+<li>
+<p>A web conversation scope in addition to the three standard scopes (request, session, and application) defined by the Jakarta Servlet specification</p>
+</li>
+<li>
+<p>A complete Service Provider Interface (SPI) that allows third-party frameworks to integrate cleanly in the Jakarta EE environment</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A major theme of CDI is loose coupling.
+CDI does the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Decouples the server and the client by means of well-defined types and qualifiers, so that the server implementation may vary</p>
+</li>
+<li>
+<p>Decouples the lifecycles of collaborating components by</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Making components contextual, with automatic lifecycle management</p>
+</li>
+<li>
+<p>Allowing stateful components to interact like services, purely by message passing</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Completely decouples message producers from consumers, by means of events</p>
+</li>
+<li>
+<p>Decouples orthogonal concerns by means of Jakarta EE interceptors</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Along with loose coupling, CDI provides strong typing by</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Eliminating lookup using string-based names for wiring and correlations so that the compiler will detect typing errors</p>
+</li>
+<li>
+<p>Allowing the use of declarative Java annotations to specify everything, largely eliminating the need for XML deployment descriptors, and making it easy to provide tools that introspect the code and understand the dependency structure at development time</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_about_beans"><a class="anchor" href="#_about_beans"></a>About Beans</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>CDI redefines the concept of a bean beyond its use in other Java technologies, such as the JavaBeans and Jakarta Enterprise Beans technologies.
+In CDI, a bean is a source of contextual objects that define application state or logic.
+A Jakarta EE component is a bean if the lifecycle of its instances may be managed by the container according to the lifecycle context model defined in the CDI specification.</p>
+</div>
+<div class="paragraph">
+<p>More specifically, a bean has the following attributes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A (nonempty) set of bean types</p>
+</li>
+<li>
+<p>A (nonempty) set of qualifiers (see <a href="#_using_qualifiers">Using Qualifiers</a>)</p>
+</li>
+<li>
+<p>A scope (see <a href="#_using_scopes">Using Scopes</a>)</p>
+</li>
+<li>
+<p>Optionally, a bean EL name (see <a href="#_giving_beans_el_names">Giving Beans EL Names</a>)</p>
+</li>
+<li>
+<p>A set of interceptor bindings</p>
+</li>
+<li>
+<p>A bean implementation</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A bean type defines a client-visible type of the bean. Almost any Java type may be a bean type of a bean.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A bean type may be an interface, a concrete class, or an abstract
+class and may be declared final or have final methods.</p>
+</li>
+<li>
+<p>A bean type may be a parameterized type with type parameters and type variables.</p>
+</li>
+<li>
+<p>A bean type may be an array type.
+Two array types are considered identical only if the element type is identical.</p>
+</li>
+<li>
+<p>A bean type may be a primitive type.
+Primitive types are considered to be identical to their corresponding wrapper types in <code>java.lang</code>.</p>
+</li>
+<li>
+<p>A bean type may be a raw type.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_about_cdi_managed_beans"><a class="anchor" href="#_about_cdi_managed_beans"></a>About CDI Managed Beans</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A managed bean is implemented by a Java class, which is called its bean class.
+A top-level Java class is a managed bean if it is defined to be a managed bean by any other Jakarta EE technology specification, such as the Jakarta Faces technology specification, or if it meets all the following conditions.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It is not a nonstatic inner class.</p>
+</li>
+<li>
+<p>It is a concrete class or is annotated <code>@Decorator</code>.</p>
+</li>
+<li>
+<p>It is not annotated with an enterprise bean component-defining annotation or declared as an enterprise bean class in <code>ejb-jar.xml</code>.</p>
+</li>
+<li>
+<p>It has an appropriate constructor.
+That is, one of the following is the case.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The class has a constructor with no parameters.</p>
+</li>
+<li>
+<p>The class declares a constructor annotated <code>@Inject</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>No special declaration, such as an annotation, is required to define a managed bean.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_beans_as_injectable_objects"><a class="anchor" href="#_beans_as_injectable_objects"></a>Beans as Injectable Objects</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The concept of injection has been part of Java technology for some time.
+Since the Java EE 5 platform was introduced, annotations have made it possible to inject resources and some other kinds of objects into container-managed objects.
+CDI makes it possible to inject more kinds of objects and to inject them into objects that are not container-managed.</p>
+</div>
+<div class="paragraph">
+<p>The following kinds of objects can be injected:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Almost any Java class</p>
+</li>
+<li>
+<p>Session beans</p>
+</li>
+<li>
+<p>Jakarta EE resources: data sources, Messaging topics, queues, connection factories, and the like</p>
+</li>
+<li>
+<p>Persistence contexts (Jakarta Persistence <code>EntityManager</code> objects)</p>
+</li>
+<li>
+<p>Producer fields</p>
+</li>
+<li>
+<p>Objects returned by producer methods</p>
+</li>
+<li>
+<p>Web service references</p>
+</li>
+<li>
+<p>Remote enterprise bean references</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example, suppose that you create a simple Java class with a method that returns a string:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package greetings;
+
+public class Greeting {
+    public String greet(String name) {
+        return "Hello, " + name + ".";
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This class becomes a bean that you can then inject into another class.
+This bean is not exposed to the EL in this form.
+<a href="#_giving_beans_el_names">Giving Beans EL Names</a> explains how you can make a bean accessible to the EL.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_qualifiers"><a class="anchor" href="#_using_qualifiers"></a>Using Qualifiers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can use qualifiers to provide various implementations of a particular bean type.
+A qualifier is an annotation that you apply to a bean.
+A qualifier type is a Java annotation defined as <code>@Target({METHOD, FIELD, PARAMETER, TYPE})</code> and <code>@Retention(RUNTIME)</code>.</p>
+</div>
+<div class="paragraph">
+<p>For example, you could declare an <code>@Informal</code> qualifier type and apply it to another class that extends the <code>Greeting</code> class.
+To declare this qualifier type, use the following code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package greetings;
+
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.ElementType.METHOD;
+import static java.lang.annotation.ElementType.PARAMETER;
+import static java.lang.annotation.ElementType.TYPE;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+
+import java.lang.annotation.Retention;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import java.lang.annotation.Target;
+
+import jakarta.inject.Qualifier;
+
+@Qualifier
+@Retention(RUNTIME)
+@Target({TYPE, METHOD, FIELD, PARAMETER})
+public @interface Informal {}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can then define a bean class that extends the <code>Greeting</code> class and uses this qualifier:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package greetings;
+
+@Informal
+public class InformalGreeting extends Greeting {
+    public String greet(String name) {
+        return "Hi, " + name + "!";
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Both implementations of the bean can now be used in the application.</p>
+</div>
+<div class="paragraph">
+<p>If you define a bean with no qualifier, then the bean automatically has the qualifier <code>@Default</code>.
+The unannotated <code>Greeting</code> class could be declared as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package greetings;
+
+import jakarta.enterprise.inject.Default;
+
+@Default
+public class Greeting {
+    public String greet(String name) {
+        return "Hello, " + name + ".";
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_injecting_beans"><a class="anchor" href="#_injecting_beans"></a>Injecting Beans</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To use the beans you create, you inject them into yet another bean that can then be used by an application, such as a Jakarta Faces application.
+For example, you might create a bean called <code>Printer</code> into which you would inject one of the <code>Greeting</code> beans:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import jakarta.inject.Inject;
+
+public class Printer {
+
+    @Inject Greeting greeting;
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This code injects the <code>@Default</code> <code>Greeting</code> implementation into the bean.
+The following code injects the <code>@Informal</code> implementation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import jakarta.inject.Inject;
+
+public class Printer {
+
+    @Inject @Informal Greeting greeting;
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>More is needed for the complete picture of this bean.
+Its use of scope needs to be understood.
+In addition, for a Jakarta Faces application, the bean needs to be accessible through the EL.</p>
+</div>
+<div class="paragraph">
+<p>Now that you can identify the target of the injection, it is important to understand what can be injected and in what context.
+Faces 2.3 and above provides producers that enable most important Faces artifacts to be injected.
+For detailed information, see the package <a href="https://jakarta.ee/specifications/faces/3.0/apidocs/" target="_blank" rel="noopener">javadoc</a> for <code>jakarta.faces.annotation</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_scopes"><a class="anchor" href="#_using_scopes"></a>Using Scopes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For a web application to use a bean that injects another bean class, the bean needs to be able to hold state over the duration of the user&#8217;s interaction with the application.
+The way to define this state is to give the bean a scope.
+You can give an object any of the scopes described in <a href="#_scopes">Scopes</a>, depending on how you are using it.</p>
+</div>
+<table id="_scopes" class="tableblock frame-all grid-all" style="width: 99%;">
+<caption class="title">Scopes</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Scope</th>
+<th class="tableblock halign-left valign-top">Annotation</th>
+<th class="tableblock halign-left valign-top">Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@RequestScoped</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A user&#8217;s interaction with a web application in a single HTTP request.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Session</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@SessionScoped</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A user&#8217;s interaction with a web application across multiple HTTP requests.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@ApplicationScoped</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shared state across all users' interactions with a web application.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dependent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Dependent</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The default scope if none is specified; it means that an object exists to serve exactly one client (bean) and has the same lifecycle as that client (bean).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Conversation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@ConversationScoped</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A user&#8217;s interaction with a servlet, including Jakarta Faces applications.
+The conversation scope exists within developer-controlled boundaries that extend it across multiple requests for long-running conversations.
+All long-running conversations are scoped to a particular HTTP servlet session and may not cross session boundaries.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The first three scopes are defined by both Jakarta Context and Dependency Injection and the Jakarta Faces specification.
+The last two are defined by Jakarta Context and Dependency Injection.</p>
+</div>
+<div class="paragraph">
+<p>All predefined scopes except <code>@Dependent</code> are contextual scopes.
+CDI places beans of contextual scope in the context whose lifecycle is defined by the Jakarta EE specifications.
+For example, a session context and its beans exist during the lifetime of an HTTP session.
+Injected references to the beans are contextually aware.
+The references always apply to the bean that is associated with the context for the thread that is making the reference.
+The CDI container ensures that the objects are created and injected at the correct time as determined by the scope that is specified for these objects.</p>
+</div>
+<div class="paragraph">
+<p>You can also define and implement custom scopes, but that is an advanced topic.
+Custom scopes are likely to be used by those who implement and extend the CDI specification.</p>
+</div>
+<div class="paragraph">
+<p>A scope gives an object a well-defined lifecycle context.
+A scoped object can be automatically created when it is needed and automatically destroyed when the context in which it was created ends.
+Moreover, its state is automatically shared by any clients that execute in the same context.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta EE components, such as servlets and enterprise beans, and JavaBeans components do not by definition have a well-defined scope.
+These components are one of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Singletons, such as enterprise singleton beans, whose state is shared among all clients</p>
+</li>
+<li>
+<p>Stateless objects, such as servlets and stateless session beans, which do not contain client-visible state</p>
+</li>
+<li>
+<p>Objects that must be explicitly created and destroyed by their client, such as JavaBeans components and stateful session beans, whose state is shared by explicit reference passing between clients</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>However, if you create a Jakarta EE component that is a managed bean, then it becomes a scoped object, which exists in a well-defined lifecycle context.</p>
+</div>
+<div class="paragraph">
+<p>The web application for the <code>Printer</code> bean will use a simple request and response mechanism, so the managed bean can be annotated as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
+
+@RequestScoped
+public class Printer {
+
+    @Inject @Informal Greeting greeting;
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Beans that use session, application, or conversation scope must be serializable, but beans that use request scope do not have to be serializable.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_giving_beans_el_names"><a class="anchor" href="#_giving_beans_el_names"></a>Giving Beans EL Names</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To make a bean accessible through the EL, use the <code>@Named</code> built-in qualifier:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
+
+@Named
+@RequestScoped
+public class Printer {
+
+    @Inject @Informal Greeting greeting;
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>@Named</code> qualifier allows you to access the bean by using the bean name, with the first letter in lowercase.
+For example, a Facelets page would refer to the bean as <code>printer</code>.</p>
+</div>
+<div class="paragraph">
+<p>You can specify an argument to the <code>@Named</code> qualifier to use a nondefault name:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Named("MyPrinter")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With this annotation, the Facelets page would refer to the bean as <code>MyPrinter</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_adding_setter_and_getter_methods"><a class="anchor" href="#_adding_setter_and_getter_methods"></a>Adding Setter and Getter Methods</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To make the state of the managed bean accessible, add setter and getter methods for that state.
+The <code>createSalutation</code> method calls the bean&#8217;s <code>greet</code> method, and the <code>getSalutation</code> method retrieves the result.</p>
+</div>
+<div class="paragraph">
+<p>Once the setter and getter methods have been added, the bean is complete.
+The final code looks like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package greetings;
+
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
+
+@Named
+@RequestScoped
+public class Printer {
+
+    @Inject @Informal Greeting greeting;
+
+    private String name;
+    private String salutation;
+
+    public void createSalutation() {
+        this.salutation = greeting.greet(name);
+    }
+
+    public String getSalutation() {
+        return salutation;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_a_managed_bean_in_a_facelets_page"><a class="anchor" href="#_using_a_managed_bean_in_a_facelets_page"></a>Using a Managed Bean in a Facelets Page</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To use the managed bean in a Facelets page, create a form that uses user interface elements to call its methods and to display their results.
+The following example provides a button that asks the user to type a name, retrieves the salutation, and then displays the text in a paragraph below the button:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:form id="greetme"&gt;
+   &lt;p&gt;&lt;h:outputLabel value="Enter your name: " for="name"/&gt;
+      &lt;h:inputText id="name" value="#{printer.name}"/&gt;&lt;/p&gt;
+   &lt;p&gt;&lt;h:commandButton value="Say Hello"
+                       action="#{printer.createSalutation}"/&gt;&lt;/p&gt;
+   &lt;p&gt;&lt;h:outputText value="#{printer.salutation}"/&gt;&lt;/p&gt;
+&lt;/h:form&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_injecting_objects_by_using_producer_methods"><a class="anchor" href="#_injecting_objects_by_using_producer_methods"></a>Injecting Objects by Using Producer Methods</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Producer methods provide a way to inject objects that are not beans, objects whose values may vary at runtime, and objects that require custom initialization.
+For example, if you want to initialize a numeric value defined by a qualifier named <code>@MaxNumber</code>, then you can define the value in a managed bean and then define a producer method, <code>getMaxNumber</code>, for it:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">private int maxNumber = 100;
+...
+@Produces @MaxNumber int getMaxNumber() {
+    return maxNumber;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When you inject the object in another managed bean, the container automatically invokes the producer method, initializing the value to 100:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Inject @MaxNumber private int maxNumber;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the value can vary at runtime, then the process is slightly different.
+For example, the following code defines a producer method that generates a random number defined by a qualifier called <code>@Random</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">private java.util.Random random =
+    new java.util.Random( System.currentTimeMillis() );
+
+java.util.Random getRandom() {
+        return random;
+}
+
+@Produces @Random int next() {
+    return getRandom().nextInt(maxNumber);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When you inject this object in another managed bean, you declare a contextual instance of the object:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Inject @Random Instance&lt;Integer&gt; randomInt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You then call the <code>get</code> method of the <code>Instance</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">this.number = randomInt.get();</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuring_a_cdi_application"><a class="anchor" href="#_configuring_a_cdi_application"></a>Configuring a CDI Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When your beans are annotated with a scope type, the server recognizes the application as a bean archive and no additional configuration is required.
+The possible scope types for CDI beans are listed in <a href="#_using_scopes">Using Scopes</a>.</p>
+</div>
+<div class="paragraph">
+<p>CDI uses an optional deployment descriptor named <code>beans.xml</code>.
+Like other Jakarta EE deployment descriptors, the configuration settings in <code>beans.xml</code> are used in addition to annotation settings in CDI classes.
+The settings in <code>beans.xml</code> override the annotation settings if there is a conflict.
+An archive must contain the <code>beans.xml</code> deployment descriptor only in certain limited situations, described in <a href="../cdi-adv/cdi-adv.html#_jakarta_contexts_and_dependency_injection_advanced_topics" class="xref page">Jakarta Contexts and Dependency Injection: Advanced Topics</a>.</p>
+</div>
+<div class="paragraph">
+<p>For a web application, the <code>beans.xml</code> deployment descriptor, if present, must be in the <code>WEB-INF</code> directory.
+For EJB modules or JAR files, the <code>beans.xml</code> deployment descriptor, if present, must be in the <code>META-INF</code> directory.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_the_postconstruct_and_predestroy_annotations_with_cdi_managed_bean_classes"><a class="anchor" href="#_using_the_postconstruct_and_predestroy_annotations_with_cdi_managed_bean_classes"></a>Using the @PostConstruct and @PreDestroy Annotations with CDI Managed Bean Classes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>CDI managed bean classes and their superclasses support the annotations for initializing and for preparing for the destruction of a bean.
+These annotations are defined in Jakarta Annotations (<a href="https://jakarta.ee/specifications/annotations/2.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/annotations/2.0/</a>).</p>
+</div>
+<div class="sect2">
+<h3 id="_to_initialize_a_managed_bean_using_the_postconstruct_annotation"><a class="anchor" href="#_to_initialize_a_managed_bean_using_the_postconstruct_annotation"></a>To Initialize a Managed Bean Using the @PostConstruct Annotation</h3>
+<div class="paragraph">
+<p>Initializing a managed bean specifies the lifecycle callback method that the CDI framework should call after dependency injection but before the class is put into service.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the managed bean class or any of its superclasses, define a method that performs the initialization that you require.</p>
+</li>
+<li>
+<p>Annotate the declaration of the method with the <code>jakarta.annotation.PostConstruct</code> annotation.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>When the managed bean is injected into a component, CDI calls the method after all injection has occurred and after all initializers have been called.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As mandated in Jakarta Annotations, if the annotated method is declared in a superclass, the method is called unless a subclass of the declaring class overrides the method.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>UserNumberBean</code> managed bean in <a href="../cdi-basicexamples/cdi-basicexamples.html#_the_guessnumber_cdi_cdi_example" class="xref page">The guessnumber-cdi CDI Example</a> uses <code>@PostConstruct</code> to annotate a method that resets all bean fields:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@PostConstruct
+public void reset () {
+    this.minimum = 0;
+    this.userNumber = 0;
+    this.remainingGuesses = 0;
+    this.maximum = maxNumber;
+    this.number = randomInt.get();
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_to_prepare_for_the_destruction_of_a_managed_bean_using_the_predestroy_annotation"><a class="anchor" href="#_to_prepare_for_the_destruction_of_a_managed_bean_using_the_predestroy_annotation"></a>To Prepare for the Destruction of a Managed Bean Using the @PreDestroy Annotation</h3>
+<div class="paragraph">
+<p>Preparing for the destruction of a managed bean specifies the lifecycle call back method that signals that an application component is about to be destroyed by the container.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the managed bean class or any of its superclasses, prepare for the destruction of the managed bean.</p>
+<div class="paragraph">
+<p>In this method, perform any cleanup that is required before the bean is destroyed, such as releasing a resource that the bean has been holding.</p>
+</div>
+</li>
+<li>
+<p>Annotate the declaration of the method with the <code>jakarta.annotation.PreDestroy</code> annotation.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>CDI calls this method before starting to destroy the bean.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_further_information_about_cdi"><a class="anchor" href="#_further_information_about_cdi"></a>Further Information about CDI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For more information about CDI, see</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Jakarta Contexts and Dependency Injection specification:<br>
+<a href="https://jakarta.ee/specifications/cdi/3.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/cdi/3.0/</a></p>
+</li>
+<li>
+<p>Weld - CDI Implementation:<br>
+<a href="https://docs.jboss.org/weld/reference/latest/en-US/html/" class="bare" target="_blank" rel="noopener">https://docs.jboss.org/weld/reference/latest/en-US/html/</a></p>
+</li>
+<li>
+<p>Jakarta Dependency Injection specification:<br>
+<a href="https://jakarta.ee/specifications/dependency-injection/2.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/dependency-injection/2.0/</a></p>
+</li>
+<li>
+<p>Jakarta Managed beans specification, which is part of the Jakarta EE Platform Specification:<br>
+<a href="https://jakarta.ee/specifications/managedbeans/2.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/managedbeans/2.0/</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

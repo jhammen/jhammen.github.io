@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/supporttechs/pages/batch-processing/batch-processing009.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_the_phonebilling_example_application"><a class="anchor" href="#_the_phonebilling_example_application"></a>The phonebilling Example Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>phonebilling</code> example application, located in the <code><em>tut-install</em>/examples/batch/phonebilling/</code> directory, demonstrates how to use the batch framework in Jakarta EE to implement a phone billing system.
+This example application processes a log file of phone calls and creates a bill for each customer.</p>
+</div>
+<div class="sect2">
+<h3 id="_architecture_of_the_phonebilling_example_application"><a class="anchor" href="#_architecture_of_the_phonebilling_example_application"></a>Architecture of the phonebilling Example Application</h3>
+<div class="paragraph">
+<p>The <code>phonebilling</code> example application consists of the following elements.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A job definition file (<code>phonebilling.xml</code>) that uses the Job Specification Language (JSL) to define a batch job with two chunk steps.
+The first step reads call records from a log file and associates them with a bill.
+The second step computes the amount due and writes each bill to a text file.</p>
+</li>
+<li>
+<p>A Java class (<code>CallRecordLogCreator</code>) that creates the log file for the batch job.
+This is an auxiliary component that does not demonstrate any key functionality in this example.</p>
+</li>
+<li>
+<p>Two Jakarta Persistence entities (<code>CallRecord</code> and <code>PhoneBill</code>) that represent call records and customer bills.
+The application uses a Jakarta Persistence entity manager to store instances of these entities in a database.</p>
+</li>
+<li>
+<p>Three batch artifacts (<code>CallRecordReader</code>, <code>CallRecordProcessor</code>, and <code>CallRecordWriter</code>) that implement the first step of the application.
+This step reads call records from the log file, associates them with a bill, and stores them in a database.</p>
+</li>
+<li>
+<p>Four batch artifacts (<code>BillReader</code>, <code>BillProcessor</code>, <code>BillWriter</code>, and <code>BillPartitionMapper</code>) that implement the second step of the application.
+This step is a partitioned step that gets each bill from the database, calculates the amount due, and writes it to a text file.</p>
+</li>
+<li>
+<p>Two Facelets pages (<code>index.xhtml</code> and <code>jobstarted.xhtml</code>) that provide the front end of the batch application.
+The first page shows the log file that will be processed by the batch job, and the second page enables the user to check on the status of the job and shows the resulting bill for each customer.</p>
+</li>
+<li>
+<p>A managed bean (<code>FacesBean</code>) that is accessed from the Facelets pages.
+The bean submits the job to the batch runtime, checks on the status of the job, and reads the text files for each bill.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_the_job_definition_file"><a class="anchor" href="#_the_job_definition_file"></a>The Job Definition File</h4>
+<div class="paragraph">
+<p>The <code>phonebilling.xml</code> job definition file is located in the <code>WEB-INF/classes/META-INF/batch-jobs/</code> directory.
+The file specifies three job-level properties and two steps:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;job id="phonebilling" xmlns="https://jakarta.ee/xml/ns/jakartaee"
+     version="2.0"&gt;
+    &lt;properties&gt;
+        &lt;property name="log_file_name" value="log1.txt"/&gt;
+        &lt;property name="airtime_price" value="0.08"/&gt;
+        &lt;property name="tax_rate" value="0.07"/&gt;
+    &lt;/properties&gt;
+    &lt;step id="callrecords" next="bills"&gt; ... &lt;/step&gt;
+    &lt;step id="bills"&gt; ... &lt;/step&gt;
+&lt;/job&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The first step is defined as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;step id="callrecords" next="bills"&gt;
+    &lt;chunk checkpoint-policy="item" item-count="10"&gt;
+        &lt;reader ref="CallRecordReader"&gt;&lt;/reader&gt;
+        &lt;processor ref="CallRecordProcessor"&gt;&lt;/processor&gt;
+        &lt;writer ref="CallRecordWriter"&gt;&lt;/writer&gt;
+    &lt;/chunk&gt;
+&lt;/step&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This step is a normal chunk step that specifies the batch artifacts that implement each phase of the step.
+The batch artifact names are not fully qualified class names, so the batch artifacts are CDI beans annotated with <code>@Named</code>.</p>
+</div>
+<div class="paragraph">
+<p>The second step is defined as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;step id="bills"&gt;
+    &lt;chunk checkpoint-policy="item" item-count="2"&gt;
+        &lt;reader ref="BillReader"&gt;
+            &lt;properties&gt;
+                &lt;property name="firstItem" value="#{partitionPlan['firstItem']}"/&gt;
+                &lt;property name="numItems" value="#{partitionPlan['numItems']}"/&gt;
+            &lt;/properties&gt;
+        &lt;/reader&gt;
+        &lt;processor ref="BillProcessor"&gt;&lt;/processor&gt;
+        &lt;writer ref="BillWriter"&gt;&lt;/writer&gt;
+    &lt;/chunk&gt;
+    &lt;partition&gt;
+        &lt;mapper ref="BillPartitionMapper"/&gt;
+    &lt;/partition&gt;
+    &lt;end on="COMPLETED"/&gt;
+&lt;/step&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This step is a partitioned chunk step.
+The partition plan is specified through the <code>BillPartitionMapper</code> artifact instead of using the <code>plan</code> element.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_callrecord_and_phonebill_entities"><a class="anchor" href="#_the_callrecord_and_phonebill_entities"></a>The CallRecord and PhoneBill Entities</h4>
+<div class="paragraph">
+<p>The <code>CallRecord</code> entity is defined as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Entity
+public class CallRecord implements Serializable {
+    @Id @GeneratedValue
+    private Long id;
+    @Temporal(TemporalType.DATE)
+    private Date datetime;
+    private String fromNumber;
+    private String toNumber;
+    private int minutes;
+    private int seconds;
+    private BigDecimal price;
+
+    public CallRecord() { }
+
+    public CallRecord(String datetime, String from,
+            String to, int min, int sec)             throws ParseException { ... }
+
+    public CallRecord(String jsonData) throws ParseException { ... }
+
+    /* ... Getters and setters ... */
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>id</code> field is generated automatically by the Jakarta Persistence implementation to store and retrieve <code>CallRecord</code> objects to and from a database.</p>
+</div>
+<div class="paragraph">
+<p>The second constructor creates a <code>CallRecord</code> object from an entry of JSON data in the log file using Jakarta JSON Processing.
+Log entries look as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">{"datetime":"03/01/2013 04:03","from":"555-0101",
+"to":"555-0114","length":"03:39"}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>PhoneBill</code> entity is defined as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Entity
+public class PhoneBill implements Serializable {
+    @Id
+    private String phoneNumber;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @OrderBy("datetime ASC")
+    private List&lt;CallRecord&gt; calls;
+    private BigDecimal amountBase;
+    private BigDecimal taxRate;
+    private BigDecimal tax;
+    private BigDecimal amountTotal;
+
+    public PhoneBill() { }
+
+    public PhoneBill(String number) {
+        this.phoneNumber = number;
+        calls = new ArrayList&lt;&gt;();
+    }
+
+    public void addCall(CallRecord call) {
+        calls.add(call);
+    }
+
+    public void calculate(BigDecimal taxRate) { ... }
+
+    /* ... Getters and setters ... */
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>OneToMany</code> annotation defines the relationship between a bill and its call records.
+The <code>FetchType.EAGER</code> attribute specifies that the collection should be retrieved eagerly.
+The <code>CascadeType.PERSIST</code> attribute indicates that the elements in the call list should be automatically persisted when the phone bill is persisted.
+The <code>OrderBy</code> annotation defines an order for retrieving the elements of the call list from the database.</p>
+</div>
+<div class="paragraph">
+<p>The batch artifacts use instances of these two entities as items to read, process, and write.</p>
+</div>
+<div class="paragraph">
+<p>For more information on Jakarta Persistence, see <a href="../../persist/persistence-intro/persistence-intro.html#_introduction_to_jakarta_persistence" class="xref page">Introduction to Jakarta Persistence</a>.
+For more information on Jakarta JSON Processing, see <a href="../../web/jsonp/jsonp.html#_json_processing" class="xref page">JSON Processing</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_call_records_chunk_step"><a class="anchor" href="#_the_call_records_chunk_step"></a>The Call Records Chunk Step</h4>
+<div class="paragraph">
+<p>The first step is composed of the <code>CallRecordReader</code>, <code>CallRecordProcessor</code>, and <code>CallRecordWriter</code> batch artifacts.</p>
+</div>
+<div class="paragraph">
+<p>The <code>CallRecordReader</code> artifact reads call records from the log file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Dependent
+@Named("CallRecordReader")
+public class CallRecordReader implements ItemReader {
+    private ItemNumberCheckpoint checkpoint;
+    private String fileName;
+    private BufferedReader breader;
+    @Inject
+    JobContext jobCtx;
+
+    /* ... Override the open, close, readItem,
+     *     and checkpointInfo methods ... */
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>open</code> method reads the <code>log_filename</code> property and opens the log file with a buffered reader:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">fileName = jobCtx.getProperties().getProperty("log_file_name");
+breader = new BufferedReader(new FileReader(fileName));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If a checkpoint object is provided, the <code>open</code> method advances the reader up to the last checkpoint.
+Otherwise, this method creates a new checkpoint object.
+The checkpoint object keeps track of the line number from the last committed chunk.</p>
+</div>
+<div class="paragraph">
+<p>The <code>readItem</code> method returns a new <code>CallRecord</code> object or null at the end of the log file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
+public Object readItem() throws Exception {
+    /* Read a line from the log file and
+     * create a CallRecord from JSON */
+    String callEntryJson = breader.readLine();
+    if (callEntryJson != null) {
+        checkpoint.nextItem();
+        return new CallRecord(callEntryJson);
+    } else
+        return null;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>CallRecordProcessor</code> artifact obtains the airtime price from the job properties, calculates the price of each call, and returns the call object.
+This artifact overrides only the <code>processItem</code> method.</p>
+</div>
+<div class="paragraph">
+<p>The <code>CallRecordWriter</code> artifact associates each call record with a bill and stores the bill in the database.
+This artifact overrides the <code>open</code>, <code>close</code>, <code>writeItems</code>, and <code>checkpointInfo</code> methods.
+The <code>writeItems</code> method looks like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
+public void writeItems(List&lt;Object&gt; callList) throws Exception {
+
+    for (Object callObject : callList) {
+        CallRecord call = (CallRecord) callObject;
+        PhoneBill bill = em.find(PhoneBill.class, call.getFromNumber());
+        if (bill == null) {
+            /* No bill for this customer yet, create one */
+            bill = new PhoneBill(call.getFromNumber());
+            bill.addCall(call);
+            em.persist(bill);
+        } else {
+            /* Add call to existing bill */
+            bill.addCall(call);
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_phone_billing_chunk_step"><a class="anchor" href="#_the_phone_billing_chunk_step"></a>The Phone Billing Chunk Step</h4>
+<div class="paragraph">
+<p>The second step is composed of the <code>BillReader</code>, <code>BillProcessor</code>, <code>BillWriter</code>, and <code>BillPartitionMapper</code> batch artifacts.
+This step gets the phone bills from the database, computes the tax and total amount due, and writes each bill to a text file.
+Since the processing of each bill is independent of the others, this step can be partitioned and run in more than one thread.</p>
+</div>
+<div class="paragraph">
+<p>The <code>BillPartitionMapper</code> artifact specifies the number of partitions and the parameters for each partition.
+In this example, the parameters represent the range of items each partition should process.
+The artifact obtains the number of bills in the database to calculate these ranges.
+It provides a partition plan object that overrides the <code>getPartitions</code> and <code>getPartitionProperties</code> methods of the <code>PartitionPlan</code> interface.
+The <code>getPartitions</code> method looks like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
+public Properties[] getPartitionProperties() {
+    /* Assign an (approximately) equal number of elements
+     * to each partition. */
+    long totalItems = getBillCount();
+    long partItems = (long) totalItems / getPartitions();
+    long remItems = totalItems % getPartitions();
+
+    /* Populate a Properties array. Each Properties element
+     * in the array corresponds to a partition. */
+    Properties[] props = new Properties[getPartitions()];
+
+    for (int i = 0; i &lt; getPartitions(); i++) {
+        props[i] = new Properties();
+        props[i].setProperty("firstItem",
+                String.valueOf(i * partItems));
+        /* Last partition gets the remainder elements */
+        if (i == getPartitions() - 1) {
+            props[i].setProperty("numItems",
+                    String.valueOf(partItems + remItems));
+        } else {
+            props[i].setProperty("numItems",
+                    String.valueOf(partItems));
+        }
+    }
+    return props;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>BillReader</code> artifact obtains the partition parameters as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Dependent
+@Named("BillReader")
+public class BillReader implements ItemReader {
+
+    @Inject @BatchProperty(name = "firstItem")
+    private String firstItemValue;
+    @Inject @BatchProperty(name = "numItems")
+    private String numItemsValue;
+    private ItemNumberCheckpoint checkpoint;
+    @PersistenceContext
+    private EntityManager em;
+    private Iterator iterator;
+
+    @Override
+    public void open(Serializable ckpt) throws Exception {
+        /* Get the range of items to work on in this partition */
+        long firstItem0 = Long.parseLong(firstItemValue);
+        long numItems0 = Long.parseLong(numItemsValue);
+
+        if (ckpt == null) {
+            /* Create a checkpoint object for this partition */
+            checkpoint = new ItemNumberCheckpoint();
+            checkpoint.setItemNumber(firstItem0);
+            checkpoint.setNumItems(numItems0);
+        } else {
+            checkpoint = (ItemNumberCheckpoint) ckpt;
+        }
+
+        /* Adjust range for this partition from the checkpoint */
+        long firstItem = checkpoint.getItemNumber();
+        long numItems = numItems0 - (firstItem - firstItem0);
+        ...
+    }
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This artifact also obtains an iterator to read items from the Jakarta Persistence entity manager:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">/* Obtain an iterator for the bills in this partition */
+String query = "SELECT b FROM PhoneBill b ORDER BY b.phoneNumber";
+Query q = em.createQuery(query).setFirstResult((int) firstItem)
+        .setMaxResults((int) numItems);
+iterator = q.getResultList().iterator();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>BillProcessor</code> artifact iterates over the list of call records in a bill and calculates the tax and total amount due for each bill.</p>
+</div>
+<div class="paragraph">
+<p>The <code>BillWriter</code> artifact writes each bill to a plain text file.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_jakarta_faces_pages"><a class="anchor" href="#_the_jakarta_faces_pages"></a>The Jakarta Faces Pages</h4>
+<div class="paragraph">
+<p>The <code>index.xhtml</code> page contains a text area that shows the log file of call records.
+The page provides a button for the user to submit the batch job and navigate to the next page:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;body&gt;
+    &lt;h1&gt;The Phone Billing Example Application&lt;/h1&gt;
+    &lt;h2&gt;Log file&lt;/h2&gt;
+    &lt;p&gt;The batch job analyzes the following log file:&lt;/p&gt;
+    &lt;textarea cols="90" rows="25"
+              readonly="true"&gt;#{facesBean.createAndShowLog()}&lt;/textarea&gt;
+    &lt;p&gt; &lt;/p&gt;
+    &lt;h:form&gt;
+        &lt;h:commandButton value="Start Batch Job"
+                         action="#{facesBean.startBatchJob()}" /&gt;
+    &lt;/h:form&gt;
+&lt;/body&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This page calls the methods of the managed bean to show the log file and submit the batch job.</p>
+</div>
+<div class="paragraph">
+<p>The <code>jobstarted.xhtml</code> page provides a button to check the current status of the batch job and displays the bills when the job finishes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;p&gt;Current Status of the Job: &lt;b&gt;#{facesBean.jobStatus}&lt;/b&gt;&lt;/p&gt;
+&lt;h:dataTable var="_row" value="#{facesBean.rowList}"
+             border="1" rendered="#{facesBean.completed}"&gt;
+    &lt;!-- ... show results from facesBean.rowList ... --&gt;
+&lt;/h:dataTable&gt;
+&lt;!-- Render the check status button if the job has not finished --&gt;
+&lt;h:form&gt;
+    &lt;h:commandButton value="Check Status"
+                     rendered="#{facesBean.completed==false}"
+                     action="jobstarted" /&gt;
+&lt;/h:form&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_managed_bean"><a class="anchor" href="#_the_managed_bean"></a>The Managed Bean</h4>
+<div class="paragraph">
+<p>The <code>FacesBean</code> managed bean submits the job to the batch runtime, checks on the status of the job, and reads the text files for each bill.</p>
+</div>
+<div class="paragraph">
+<p>The <code>startBatchJob</code> method of the bean submits the job to the batch runtime:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">/* Submit the batch job to the batch runtime.
+ * Faces Navigation method (return the name of the next page) */
+public String startBatchJob() {
+    jobOperator = BatchRuntime.getJobOperator();
+    execID = jobOperator.start("phonebilling", null);
+    return "jobstarted";
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>getJobStatus</code> method of the bean checks the status of the job:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">/* Get the status of the job from the batch runtime */
+public String getJobStatus() {
+    return jobOperator.getJobExecution(execID).getBatchStatus().toString();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>getRowList</code> method of the bean creates a list of bills to be displayed on the <code>jobstarted.xhtml</code> faces page using a table.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_running_the_phonebilling_example_application"><a class="anchor" href="#_running_the_phonebilling_example_application"></a>Running the phonebilling Example Application</h3>
+<div class="paragraph">
+<p>You can use either NetBeans IDE or Maven to build, package, deploy, and run the <code>phonebilling</code> example application.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_phonebilling_example_application_using_netbeans_ide"><a class="anchor" href="#_to_run_the_phonebilling_example_application_using_netbeans_ide"></a>To Run the phonebilling Example Application Using NetBeans IDE</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see
+<a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>From the File menu, choose Open Project.</p>
+</li>
+<li>
+<p>In the Open Project dialog box, navigate to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/batch</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Select the <code>phonebilling</code> folder.</p>
+</li>
+<li>
+<p>Click Open Project.</p>
+</li>
+<li>
+<p>In the Projects tab, right-click the <code>phonebilling</code> project and select Run.</p>
+<div class="paragraph">
+<p>This command builds and packages the application into a WAR file, <code>phonebilling.war</code>, located in the <code>target/</code> directory; deploys it to the server; and launches a web browser window at the following URL:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/phonebilling/</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_phonebilling_example_application_using_maven"><a class="anchor" href="#_to_run_the_phonebilling_example_application_using_maven"></a>To Run the phonebilling Example Application Using Maven</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>In a terminal window, go to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/batch/phonebilling/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enter the following command to deploy the application:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn install</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Open a web browser window at the following URL:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/phonebilling/</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

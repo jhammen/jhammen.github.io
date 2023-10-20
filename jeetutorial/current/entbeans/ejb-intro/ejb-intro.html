@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Enterprise Beans :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">Jakarta EE Tutorial</a></li>
+    <li>Jakarta EE Web Profile</li>
+    <li>Jakarta Enterprise Beans Lite</li>
+    <li><a href="ejb-intro.html">Enterprise Beans</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/entbeans/pages/ejb-intro/ejb-intro.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Enterprise Beans</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We are working on a fresh, updated Jakarta EE Tutorial. This section hasn&#8217;t yet been updated.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Enterprise beans are Jakarta EE components that implement Jakarta Enterprise Beans technology.
+Enterprise beans run in the Enterprise Bean container, a runtime environment within GlassFish Server (see <a href="../../intro/overview/overview.html#_container_types" class="xref page">Container Types</a>).
+Although transparent to the application developer, the Enterprise Bean container provides system-level services, such as transactions and security, to its enterprise beans.
+These services enable you to quickly build and deploy enterprise beans, which form the core of transactional Jakarta EE applications.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_is_an_enterprise_bean"><a class="anchor" href="#_what_is_an_enterprise_bean"></a>What Is an Enterprise Bean?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Written in the Java programming language, an enterprise bean is a server-side component that encapsulates the business logic of an application.
+The business logic is the code that fulfills the purpose of the application.
+In an inventory control application, for example, the enterprise beans might implement the business logic in methods called <code>checkInventoryLevel</code> and <code>orderProduct</code>.
+By invoking these methods, clients can access the inventory services provided by the application.</p>
+</div>
+<div class="sect2">
+<h3 id="_benefits_of_enterprise_beans"><a class="anchor" href="#_benefits_of_enterprise_beans"></a>Benefits of Enterprise Beans</h3>
+<div class="paragraph">
+<p>For several reasons, enterprise beans simplify the development of large, distributed applications.
+First, because the Enterprise Bean container provides system-level services to enterprise beans, the bean developer can concentrate on solving business problems.
+The Enterprise Bean container, rather than the bean developer, is responsible for system-level services, such as transaction management and security authorization.</p>
+</div>
+<div class="paragraph">
+<p>Second, because the beans rather than the clients contain the application&#8217;s business logic, the client developer can focus on the presentation of the client.
+The client developer does not have to code the routines that implement business rules or access databases.
+As a result, the clients are thinner, a benefit that is particularly important for clients that run on small devices.</p>
+</div>
+<div class="paragraph">
+<p>Third, because enterprise beans are portable components, the application assembler can build new applications from existing beans.
+Provided that they use the standard APIs, these applications can run on any compliant Jakarta EE server.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_when_to_use_enterprise_beans"><a class="anchor" href="#_when_to_use_enterprise_beans"></a>When to Use Enterprise Beans</h3>
+<div class="paragraph">
+<p>You should consider using enterprise beans if your application has any of the following requirements.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The application must be scalable.
+To accommodate a growing number of users, you may need to distribute an application&#8217;s components across multiple machines.
+Not only can the enterprise beans of an application run on different machines, but also their location will remain transparent to the clients.</p>
+</li>
+<li>
+<p>Transactions must ensure data integrity.
+Enterprise beans support transactions, the mechanisms that manage the concurrent access of shared objects.</p>
+</li>
+<li>
+<p>The application will have a variety of clients.
+With only a few lines of code, remote clients can easily locate enterprise beans.
+These clients can be thin, various, and numerous.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_types_of_enterprise_beans"><a class="anchor" href="#_types_of_enterprise_beans"></a>Types of Enterprise Beans</h3>
+<div class="paragraph">
+<p><a href="#_enterprise_bean_types">Enterprise Bean Types</a> summarizes the two types of enterprise beans.
+The following sections discuss each type in more detail.</p>
+</div>
+<table id="_enterprise_bean_types" class="tableblock frame-all grid-all" style="width: 75%;">
+<caption class="title">Enterprise Bean Types</caption>
+<colgroup>
+<col style="width: 35%;">
+<col style="width: 65%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Enterprise Bean Type</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Session</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Performs a task for a client; optionally, may implement a web service</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message-driven</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Acts as a listener for a particular messaging type, such as Jakarta Messaging</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_is_a_session_bean"><a class="anchor" href="#_what_is_a_session_bean"></a>What Is a Session Bean?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A session bean encapsulates business logic that can be invoked programmatically by a client over local, remote, or web service client views.
+To access an application that is deployed on the server, the client invokes the session bean&#8217;s methods.
+The session bean performs work for its client, shielding it from complexity by executing business tasks inside the server.</p>
+</div>
+<div class="paragraph">
+<p>A session bean is not persistent.
+(That is, its data is not saved to a database.)</p>
+</div>
+<div class="paragraph">
+<p>For code samples, see <a href="../ejb-basicexamples/ejb-basicexamples.html#_running_the_enterprise_bean_examples" class="xref page">Running the Enterprise Bean Examples</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_types_of_session_beans"><a class="anchor" href="#_types_of_session_beans"></a>Types of Session Beans</h3>
+<div class="paragraph">
+<p>Session beans are of three types: stateful, stateless, and singleton.</p>
+</div>
+<div class="sect3">
+<h4 id="_stateful_session_beans"><a class="anchor" href="#_stateful_session_beans"></a>Stateful Session Beans</h4>
+<div class="paragraph">
+<p>The state of an object consists of the values of its instance variables.
+In a stateful session bean, the instance variables represent the state of a unique client/bean session.
+Because the client interacts ("talks") with its bean, this state is often called the conversational state.</p>
+</div>
+<div class="paragraph">
+<p>As its name suggests, a session bean is similar to an interactive session.
+A session bean is not shared; it can have only one client, in the same way that an interactive session can have only one user.
+When the client terminates, its session bean appears to terminate and is no longer associated with the client.</p>
+</div>
+<div class="paragraph">
+<p>The state is retained for the duration of the client/bean session.
+If the client removes the bean, the session ends and the state disappears.
+This transient nature of the state is not a problem, however, because when the conversation between the client and the bean ends, there is no need to retain the state.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_stateless_session_beans"><a class="anchor" href="#_stateless_session_beans"></a>Stateless Session Beans</h4>
+<div class="paragraph">
+<p>A stateless session bean does not maintain a conversational state with the client.
+When a client invokes the methods of a stateless bean, the bean&#8217;s instance variables may contain a state specific to that client but only for the duration of the invocation.
+When the method is finished, the client-specific state should not be retained.
+Clients may, however, change the state of instance variables in pooled stateless beans, and this state is held over to the next invocation of the pooled stateless bean.
+Except during method invocation, all instances of a stateless bean are equivalent, allowing the Enterprise Bean container to assign an instance to any client.
+That is, the state of a stateless session bean should apply across all clients.</p>
+</div>
+<div class="paragraph">
+<p>Because they can support multiple clients, stateless session beans can offer better scalability for applications that require large numbers of clients.
+Typically, an application requires fewer stateless session beans than stateful session beans to support the same number of clients.</p>
+</div>
+<div class="paragraph">
+<p>A stateless session bean can implement a web service, but a stateful session bean cannot.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_singleton_session_beans"><a class="anchor" href="#_singleton_session_beans"></a>Singleton Session Beans</h4>
+<div class="paragraph">
+<p>A singleton session bean is instantiated once per application and exists for the lifecycle of the application.
+Singleton session beans are designed for circumstances in which a single enterprise bean instance is shared across and concurrently accessed by clients.</p>
+</div>
+<div class="paragraph">
+<p>Singleton session beans offer similar functionality to stateless session beans but differ from them in that there is only one singleton session bean per application, as opposed to a pool of stateless session beans, any of which may respond to a client request.
+Like stateless session beans, singleton session beans can implement web service endpoints.</p>
+</div>
+<div class="paragraph">
+<p>Singleton session beans maintain their state between client invocations but are not required to maintain their state across server crashes or shutdowns.</p>
+</div>
+<div class="paragraph">
+<p>Applications that use a singleton session bean may specify that the singleton should be instantiated upon application startup, which allows the singleton to perform initialization tasks for the application.
+The singleton may perform cleanup tasks on application shutdown as well, because the singleton will operate throughout the lifecycle of the application.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_when_to_use_session_beans"><a class="anchor" href="#_when_to_use_session_beans"></a>When to Use Session Beans</h3>
+<div class="paragraph">
+<p>Stateful session beans are appropriate if any of the following conditions are true.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The bean&#8217;s state represents the interaction between the bean and a specific client.</p>
+</li>
+<li>
+<p>The bean needs to hold information about the client across method invocations.</p>
+</li>
+<li>
+<p>The bean mediates between the client and the other components of the application, presenting a simplified view to the client.</p>
+</li>
+<li>
+<p>Behind the scenes, the bean manages the work flow of several enterprise beans.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To improve performance, you might choose a stateless session bean if it has any of these traits.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The bean&#8217;s state has no data for a specific client.</p>
+</li>
+<li>
+<p>In a single method invocation, the bean performs a generic task for all clients.
+For example, you might use a stateless session bean to send an email that confirms an online order.</p>
+</li>
+<li>
+<p>The bean implements a web service.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Singleton session beans are appropriate in the following circumstances.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>State needs to be shared across the application.</p>
+</li>
+<li>
+<p>A single enterprise bean needs to be accessed by multiple threads concurrently.</p>
+</li>
+<li>
+<p>The application needs an enterprise bean to perform tasks upon application startup and shutdown.</p>
+</li>
+<li>
+<p>The bean implements a web service.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_is_a_message_driven_bean"><a class="anchor" href="#_what_is_a_message_driven_bean"></a>What Is a Message-Driven Bean?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A message-driven bean is an enterprise bean that allows Jakarta EE applications to process messages asynchronously.
+This type of bean normally acts as a Jakarta Messaging message listener, which is similar to an event listener but receives Jakarta Messaging messages instead of events.
+The messages can be sent by any Jakarta EE component (an application client, another enterprise bean, or a web component) or by a Jakarta Messaging application or system that does not use Jakarta EE technology.
+Message-driven beans can process Jakarta Messaging messages or other kinds of messages.</p>
+</div>
+<div class="sect2">
+<h3 id="_what_makes_message_driven_beans_different_from_session_beans"><a class="anchor" href="#_what_makes_message_driven_beans_different_from_session_beans"></a>What Makes Message-Driven Beans Different from Session Beans?</h3>
+<div class="paragraph">
+<p>The most visible difference between message-driven beans and session beans is that clients do not access message-driven beans through interfaces.
+Interfaces are described in the section <a href="#_accessing_enterprise_beans">Accessing Enterprise Beans</a>.
+Unlike a session bean, a message-driven bean has only a bean class.</p>
+</div>
+<div class="paragraph">
+<p>In several respects, a message-driven bean resembles a stateless session bean.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A message-driven bean&#8217;s instances retain no data or conversational state for a specific client.</p>
+</li>
+<li>
+<p>All instances of a message-driven bean are equivalent, allowing the Enterprise Bean container to assign a message to any message-driven bean instance.
+The container can pool these instances to allow streams of messages to be processed concurrently.</p>
+</li>
+<li>
+<p>A single message-driven bean can process messages from multiple clients.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The instance variables of the message-driven bean instance can contain some state across the handling of client messages, such as a Jakarta Messaging connection, an open database connection, or an object reference to an enterprise bean object.</p>
+</div>
+<div class="paragraph">
+<p>Client components do not locate message-driven beans and invoke methods directly on them.
+Instead, a client accesses a message-driven bean through, for example, Jakarta Messaging by sending messages to the message destination for which the message-driven bean class is the <code>MessageListener</code>.
+You assign a message-driven bean&#8217;s destination during deployment by using GlassFish Server resources.</p>
+</div>
+<div class="paragraph">
+<p>Message-driven beans have the following characteristics.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>They execute upon receipt of a single client message.</p>
+</li>
+<li>
+<p>They are invoked asynchronously.</p>
+</li>
+<li>
+<p>They are relatively short-lived.</p>
+</li>
+<li>
+<p>They do not represent directly shared data in the database, but they can access and update this data.</p>
+</li>
+<li>
+<p>They can be transaction-aware.</p>
+</li>
+<li>
+<p>They are stateless.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When a message arrives, the container calls the message-driven bean&#8217;s <code>onMessage</code> method to process the message.
+The <code>onMessage</code> method normally casts the message to one of the five Jakarta Messaging message types and handles it in accordance with the application&#8217;s business logic.
+The <code>onMessage</code> method can call helper methods or can invoke a session bean to process the information in the message or to store it in a database.</p>
+</div>
+<div class="paragraph">
+<p>A message can be delivered to a message-driven bean within a transaction context, so all operations within the <code>onMessage</code> method are part of a single transaction.
+If message processing is rolled back, the message will be redelivered.
+For more information, see <a href="../../messaging/jms-examples/jms-examples.html#_receiving_messages_asynchronously_using_a_message_driven_bean" class="xref page">Receiving Messages Asynchronously Using a Message-Driven Bean</a> and <a href="../../supporttechs/transactions/transactions.html#_transactions" class="xref page">Transactions</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_when_to_use_message_driven_beans"><a class="anchor" href="#_when_to_use_message_driven_beans"></a>When to Use Message-Driven Beans</h3>
+<div class="paragraph">
+<p>Session beans allow you to send Jakarta Messaging messages and to receive them synchronously but not asynchronously.
+To avoid tying up server resources, do not to use blocking synchronous receives in a server-side component; in general, Jakarta Messaging messages should not be sent or received synchronously.
+To receive messages asynchronously, use a message-driven bean.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_accessing_enterprise_beans"><a class="anchor" href="#_accessing_enterprise_beans"></a>Accessing Enterprise Beans</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The material in this section applies only to session beans and not to message-driven beans.
+Because they have a different programming model, message-driven beans do not have interfaces or no-interface views that define client access.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Clients access enterprise beans either through a no-interface view or through a business interface.
+A no-interface view of an enterprise bean exposes the public methods of the enterprise bean implementation class to clients.
+Clients using the no-interface view of an enterprise bean may invoke any public methods in the enterprise bean implementation class or any superclasses of the implementation class.
+A business interface is a standard Java programming language interface that contains the business methods of the enterprise bean.</p>
+</div>
+<div class="paragraph">
+<p>A client can access a session bean only through the methods defined in the bean&#8217;s business interface or through the public methods of an enterprise bean that has a no-interface view.
+The business interface or no-interface view defines the client&#8217;s view of an enterprise bean.
+All other aspects of the enterprise bean (method implementations and deployment settings) are hidden from the client.</p>
+</div>
+<div class="paragraph">
+<p>Well-designed interfaces and no-interface views simplify the development and maintenance of Jakarta EE applications.
+Not only do clean interfaces and no-interface views shield the clients from any complexities in the Enterprise Bean tier, but they also allow the enterprise beans to change internally without affecting the clients.
+For example, if you change the implementation of a session bean business method, you won&#8217;t have to alter the client code.
+But if you were to change the method definitions in the interfaces, you might have to modify the client code as well.
+Therefore, it is important that you design the interfaces and no-interface views carefully to isolate your clients from possible changes in the enterprise beans.</p>
+</div>
+<div class="paragraph">
+<p>Session beans can have more than one business interface.
+Session beans should, but are not required to, implement their business interface or interfaces.</p>
+</div>
+<div class="sect2">
+<h3 id="_using_enterprise_beans_in_clients"><a class="anchor" href="#_using_enterprise_beans_in_clients"></a>Using Enterprise Beans in Clients</h3>
+<div class="paragraph">
+<p>The client of an enterprise bean obtains a reference to an instance of an enterprise bean through either dependency injection, using Java programming language annotations, or JNDI lookup, using the Java Naming and Directory Interface syntax to find the enterprise bean instance.</p>
+</div>
+<div class="paragraph">
+<p>Dependency injection is the simplest way of obtaining an enterprise bean reference.
+Clients that run within a Jakarta EE server-managed environment, Jakarta Faces web applications, Jakarta RESTful web services, other enterprise beans, or Jakarta EE application clients support dependency injection using the <code>jakarta.ejb.EJB</code> annotation.</p>
+</div>
+<div class="paragraph">
+<p>Applications that run outside a Jakarta EE server-managed environment, such as Java SE applications, must perform an explicit lookup.
+JNDI supports a global syntax for identifying Jakarta EE components to simplify this explicit lookup.</p>
+</div>
+<div class="sect3">
+<h4 id="_portable_jndi_syntax"><a class="anchor" href="#_portable_jndi_syntax"></a>Portable JNDI Syntax</h4>
+<div class="paragraph">
+<p>Three JNDI namespaces are used for portable JNDI lookups: <code>java:global</code>, <code>java:module</code>, and <code>java:app</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>java:global</code> JNDI namespace is the portable way of finding remote enterprise beans using JNDI lookups.
+JNDI addresses are of the following form:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">java:global[/application name]/module name/enterprise bean name[/interface name]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Application name and module name default to the name of the application and module minus the file extension.
+Application names are required only if the application is packaged within an EAR.
+The interface name is required only if the enterprise bean implements more than one business interface.</p>
+</div>
+</li>
+<li>
+<p>The <code>java:module</code> namespace is used to look up local enterprise beans within the same module.
+JNDI addresses using the <code>java:module</code> namespace are of the following form:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">java:module/enterprise bean name/[interface name]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The interface name is required only if the enterprise bean implements more than one business interface.</p>
+</div>
+</li>
+<li>
+<p>The <code>java:app</code> namespace is used to look up local enterprise beans packaged within the same application.
+That is, the enterprise bean is packaged within an EAR file containing multiple Jakarta EE modules.
+JNDI addresses using the <code>java:app</code> namespace are of the following form:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">java:app[/module name]/enterprise bean name[/interface name]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The module name is optional.
+The interface name is required only if the enterprise bean implements more than one business interface.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example, if an enterprise bean, <code>MyBean</code>, is packaged within the web application archive <code>myApp.war</code>, the module name is <code>myApp</code>.
+The portable JNDI name is <code>java:module/MyBean</code>.
+An equivalent JNDI name using the <code>java:global</code> namespace is <code>java:global/myApp/MyBean</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_deciding_on_remote_or_local_access"><a class="anchor" href="#_deciding_on_remote_or_local_access"></a>Deciding on Remote or Local Access</h3>
+<div class="paragraph">
+<p>When you design a Jakarta EE application, one of the first decisions you make is the type of client access allowed by the enterprise beans: remote, local, or web service.</p>
+</div>
+<div class="paragraph">
+<p>Whether to allow local or remote access depends on the following factors.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Tight or loose coupling of related beans: Tightly coupled beans depend on one another.
+For example, if a session bean that processes sales orders calls a session bean that emails a confirmation message to the customer, these beans are tightly coupled.
+Tightly coupled beans are good candidates for local access.
+Because they fit together as a logical unit, they typically call each other often and would benefit from the increased performance that is possible with local access.</p>
+</li>
+<li>
+<p>Type of client: If an enterprise bean is accessed by application clients, it should allow remote access.
+In a production environment, these clients almost always run on machines other than those on which GlassFish Server is running.
+If an enterprise bean&#8217;s clients are web components or other enterprise beans, the type of access depends on how you want to distribute your components.</p>
+</li>
+<li>
+<p>Component distribution: Jakarta EE applications are scalable because their server-side components can be distributed across multiple machines.
+In a distributed application, for example, the server that the web components run on may not be the one on which the enterprise beans they access are deployed.
+In this distributed scenario, the enterprise beans should allow remote access.</p>
+</li>
+<li>
+<p>Performance: Owing to such factors as network latency, remote calls may be slower than local calls.
+On the other hand, if you distribute components among different servers, you may improve the application&#8217;s overall performance.
+Both of these statements are generalizations; performance can vary in different operational environments.
+Nevertheless, you should keep in mind how your application design might affect performance.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you aren&#8217;t sure which type of access an enterprise bean should have, choose remote access.
+This decision gives you more flexibility.
+In the future, you can distribute your components to accommodate the growing demands on your application.</p>
+</div>
+<div class="paragraph">
+<p>Although it is uncommon, it is possible for an enterprise bean to allow both remote and local access.
+If this is the case, either the business interface of the bean must be explicitly designated as a business interface by being decorated with the <code>@Remote</code> or <code>@Local</code> annotations, or the bean class must explicitly designate the business interfaces by using the <code>@Remote</code> and <code>@Local</code> annotations.
+The same business interface cannot be both a local and a remote business interface.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_local_clients"><a class="anchor" href="#_local_clients"></a>Local Clients</h3>
+<div class="paragraph">
+<p>A local client has these characteristics.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It must run in the same application as the enterprise bean it accesses.</p>
+</li>
+<li>
+<p>It can be a web component or another enterprise bean.</p>
+</li>
+<li>
+<p>To the local client, the location of the enterprise bean it accesses is not transparent.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The no-interface view of an enterprise bean is a local view.
+The public methods of the enterprise bean implementation class are exposed to local clients that access the no-interface view of the enterprise bean.
+Enterprise beans that use the no-interface view do not implement a business interface.</p>
+</div>
+<div class="paragraph">
+<p>The local business interface defines the bean&#8217;s business and lifecycle methods.
+If the bean&#8217;s business interface is not decorated with <code>@Local</code> or <code>@Remote</code>, and if the bean class does not specify the interface using <code>@Local</code> or <code>@Remote</code>, the business interface is by default a local interface.</p>
+</div>
+<div class="paragraph">
+<p>To build an enterprise bean that allows only local access, you may, but are not required to, do one of the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create an enterprise bean implementation class that does not implement a business interface, indicating that the bean exposes a no-interface view to clients.
+For example:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Session
+public class MyBean { ... }</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Annotate the business interface of the enterprise bean as a <code>@Local</code> interface.
+For example:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Local
+public interface InterfaceName { ... }</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Specify the interface by decorating the bean class with <code>@Local</code> and specify the interface name.
+For example:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Local(InterfaceName.class)
+public class BeanName implements InterfaceName  { ... }</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_accessing_local_enterprise_beans_using_the_no_interface_view"><a class="anchor" href="#_accessing_local_enterprise_beans_using_the_no_interface_view"></a>Accessing Local Enterprise Beans Using the No-Interface View</h4>
+<div class="paragraph">
+<p>Client access to an enterprise bean that exposes a local, no-interface view is accomplished through either dependency injection or JNDI lookup.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To obtain a reference to the no-interface view of an enterprise bean through dependency injection, use the <code>jakarta.ejb.EJB</code> annotation and specify the enterprise bean&#8217;s implementation class:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@EJB
+ExampleBean exampleBean;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>To obtain a reference to the no-interface view of an enterprise bean through JNDI lookup, use the <code>javax.naming.InitialContext</code> interface&#8217;s <code>lookup</code> method:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">ExampleBean exampleBean = (ExampleBean)
+        InitialContext.lookup("java:module/ExampleBean");</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Clients do not use the <code>new</code> operator to obtain a new instance of an enterprise bean that uses a no-interface view.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_accessing_local_enterprise_beans_that_implement_business_interfaces"><a class="anchor" href="#_accessing_local_enterprise_beans_that_implement_business_interfaces"></a>Accessing Local Enterprise Beans That Implement Business Interfaces</h4>
+<div class="paragraph">
+<p>Client access to enterprise beans that implement local business interfaces is accomplished through either dependency injection or JNDI lookup.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To obtain a reference to the local business interface of an enterprise bean through dependency injection, use the <code>jakarta.ejb.EJB</code> annotation and specify the enterprise bean&#8217;s local business interface name:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@EJB
+Example example;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>To obtain a reference to a local business interface of an enterprise bean through JNDI lookup, use the <code>javax.naming.InitialContext</code> interface&#8217;s <code>lookup</code> method:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">ExampleLocal example = (ExampleLocal)
+         InitialContext.lookup("java:module/ExampleLocal");</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_remote_clients"><a class="anchor" href="#_remote_clients"></a>Remote Clients</h3>
+<div class="paragraph">
+<p>A remote client of an enterprise bean has the following traits.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It can run on a different machine and a different JVM from the enterprise bean it accesses.
+(It is not required to run on a different JVM.)</p>
+</li>
+<li>
+<p>It can be a web component, an application client, or another enterprise bean.</p>
+</li>
+<li>
+<p>To a remote client, the location of the enterprise bean is transparent.</p>
+</li>
+<li>
+<p>The enterprise bean must implement a business interface.
+That is, remote clients may not access an enterprise bean through a no-interface view.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To create an enterprise bean that allows remote access, you must either</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Decorate the business interface of the enterprise bean with the <code>@Remote</code> annotation:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Remote
+public interface InterfaceName { ... }</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Or decorate the bean class with <code>@Remote</code>, specifying the business interface or interfaces:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Remote(InterfaceName.class)
+public class BeanName implements InterfaceName { ... }</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The remote interface defines the business and lifecycle methods that are specific to the bean.
+For example, the remote interface of a bean named <code>BankAccountBean</code> might have business methods named <code>deposit</code> and <code>credit</code>.
+<a href="#_interfaces_for_an_enterprise_bean_with_remote_access">Figure 1, &#8220;Interfaces for an Enterprise Bean with Remote Access&#8221;</a> shows how the interface controls the client&#8217;s view of an enterprise bean.</p>
+</div>
+<div id="_interfaces_for_an_enterprise_bean_with_remote_access" class="imageblock">
+<div class="content">
+<img src="../../common/_images/jakartaeett_dt_020.svg" alt="Diagram showing a remote client accessing an enterprise bean&#8217;s methods through its remote interface.">
+</div>
+<div class="title">Figure 1. Interfaces for an Enterprise Bean with Remote Access</div>
+</div>
+<div class="paragraph">
+<p>Client access to an enterprise bean that implements a remote business interface is accomplished through either dependency injection or JNDI lookup.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To obtain a reference to the remote business interface of an enterprise bean through dependency injection, use the <code>jakarta.ejb.EJB</code> annotation and specify the enterprise bean&#8217;s remote business interface name:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@EJB
+Example example;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>To obtain a reference to a remote business interface of an enterprise bean through JNDI lookup, use the <code>javax.naming.InitialContext</code> interface&#8217;s <code>lookup</code> method:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">ExampleRemote example = (ExampleRemote)
+        InitialContext.lookup("java:global/myApp/ExampleRemote");</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_web_service_clients"><a class="anchor" href="#_web_service_clients"></a>Web Service Clients</h3>
+<div class="paragraph">
+<p>A web service client can access a Jakarta EE application in two ways.
+First, the client can access a web service created with Jakarta XML Web Services.
+(For more information on Jakarta XML Web Services, see "Building Web Services with Jakarta XML Web Services", <a href="#9.1@websvcs:jaxws/jaxws.adoc#_building_web_services_with_jakarta_xml_web_services" class="xref unresolved" target="_blank" rel="noopener">available in a previous version of the tutorial</a>&#x2197;.)
+Second, a web service client can invoke the business methods of a stateless session bean.
+Message beans cannot be accessed by web service clients.</p>
+</div>
+<div class="paragraph">
+<p>Provided that it uses the correct protocols (SOAP, HTTP, WSDL), any web service client can access a stateless session bean, whether or not the client is written in the Java programming language.
+The client doesn&#8217;t even "know" what technology implements the service: stateless session bean, Jakarta XML Web Services, or some other technology.
+In addition, enterprise beans and web components can be clients of web services.
+This flexibility enables you to integrate Jakarta EE applications with web services.</p>
+</div>
+<div class="paragraph">
+<p>A web service client accesses a stateless session bean through the bean&#8217;s web service endpoint implementation class.
+By default, all public methods in the bean class are accessible to web service clients.
+The <code>@WebMethod</code> annotation may be used to customize the behavior of web service methods.
+If the <code>@WebMethod</code> annotation is used to decorate the bean class&#8217;s methods, only those methods decorated with <code>@WebMethod</code> are exposed to web service clients.</p>
+</div>
+<div class="paragraph">
+<p>For a code sample, see <a href="../ejb-basicexamples/ejb-basicexamples.html#_a_web_service_example_helloservice" class="xref page">A Web Service Example: helloservice</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_method_parameters_and_access"><a class="anchor" href="#_method_parameters_and_access"></a>Method Parameters and Access</h3>
+<div class="paragraph">
+<p>The type of access affects the parameters of the bean methods that are called by clients.
+The following sections apply not only to method parameters but also to method return values.</p>
+</div>
+<div class="sect3">
+<h4 id="_isolation"><a class="anchor" href="#_isolation"></a>Isolation</h4>
+<div class="paragraph">
+<p>The parameters of remote calls are more isolated than those of local calls.
+With remote calls, the client and the bean operate on different copies of a parameter object.
+If the client changes the value of the object, the value of the copy in the bean does not change.
+This layer of isolation can help protect the bean if the client accidentally modifies the data.</p>
+</div>
+<div class="paragraph">
+<p>In a local call, both the client and the bean can modify the same parameter object.
+In general, you should not rely on this side effect of local calls.
+Perhaps someday you will want to distribute your components, replacing the local calls with remote ones.</p>
+</div>
+<div class="paragraph">
+<p>As with remote clients, web service clients operate on different copies of parameters than does the bean that implements the web service.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_granularity_of_accessed_data"><a class="anchor" href="#_granularity_of_accessed_data"></a>Granularity of Accessed Data</h4>
+<div class="paragraph">
+<p>Because remote calls are likely to be slower than local calls, the parameters in remote methods should be relatively coarse-grained.
+A coarse-grained object contains more data than a fine-grained one, so fewer access calls are required.
+For the same reason, the parameters of the methods called by web service clients should also be coarse-grained.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_contents_of_an_enterprise_bean"><a class="anchor" href="#_the_contents_of_an_enterprise_bean"></a>The Contents of an Enterprise Bean</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To develop an enterprise bean, you must provide the following files.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Enterprise bean class: Implements the business methods of the enterprise bean and any lifecycle callback methods.</p>
+</li>
+<li>
+<p>Business interfaces: Define the business methods implemented by the enterprise bean class.
+A business interface is not required if the enterprise bean exposes a local, no-interface view.</p>
+</li>
+<li>
+<p>Helper classes: Other classes needed by the enterprise bean class, such as exception and utility classes.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Package the programming artifacts in the preceding list either into an Enterprise Bean JAR file (a stand-alone module that stores the enterprise bean) or within a web application archive (WAR) module.
+See <a href="../../platform/packaging/packaging.html#_packaging_enterprise_beans_in_enterprise_bean_jar_modules" class="xref page">Packaging Enterprise Beans in enterprise bean JAR Modules</a> and <a href="../../platform/packaging/packaging.html#_packaging_enterprise_beans_in_war_modules" class="xref page">Packaging Enterprise Beans in WAR Modules</a> for more information.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_naming_conventions_for_enterprise_beans"><a class="anchor" href="#_naming_conventions_for_enterprise_beans"></a>Naming Conventions for Enterprise Beans</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Because enterprise beans are composed of multiple parts, it&#8217;s useful to follow a naming convention for your applications.
+<a href="#_naming_conventions_for_enterprise_beans_2">Naming Conventions for Enterprise Beans</a> summarizes the conventions for the example beans in this tutorial.</p>
+</div>
+<table id="_naming_conventions_for_enterprise_beans_2" class="tableblock frame-all grid-all" style="width: 63%;">
+<caption class="title">Naming Conventions for Enterprise Beans</caption>
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 30%;">
+<col style="width: 30%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Item</th>
+<th class="tableblock halign-left valign-top">Syntax</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise bean name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>name</em>Bean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AccountBean</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise bean class</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>name</em>Bean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AccountBean</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business interface</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>name</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Account</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_lifecycles_of_enterprise_beans"><a class="anchor" href="#_the_lifecycles_of_enterprise_beans"></a>The Lifecycles of Enterprise Beans</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An enterprise bean goes through various stages during its lifetime, or lifecycle.
+Each type of enterprise bean (stateful session, stateless session, singleton session, or message-driven) has a different lifecycle.</p>
+</div>
+<div class="paragraph">
+<p>The descriptions that follow refer to methods that are explained along with the code examples in the next two chapters.
+If you are new to enterprise beans, you should skip this section and run the code examples first.</p>
+</div>
+<div class="sect2">
+<h3 id="_the_lifecycle_of_a_stateful_session_bean"><a class="anchor" href="#_the_lifecycle_of_a_stateful_session_bean"></a>The Lifecycle of a Stateful Session Bean</h3>
+<div class="paragraph">
+<p><a href="#_lifecycle_of_a_stateful_session_bean">Figure 2, &#8220;Lifecycle of a Stateful Session Bean&#8221;</a> illustrates the stages that a stateful session bean passes through during its lifetime.
+The client initiates the lifecycle by obtaining a reference to a stateful session bean.
+The container performs any dependency injection and then invokes the method annotated with <code>@PostConstruct</code>, if any.
+The bean is now ready to have its business methods invoked by the client.</p>
+</div>
+<div id="_lifecycle_of_a_stateful_session_bean" class="imageblock">
+<div class="content">
+<img src="../../common/_images/jakartaeett_dt_021.svg" alt="Diagram showing the lifecycle of a stateful session bean.">
+</div>
+<div class="title">Figure 2. Lifecycle of a Stateful Session Bean</div>
+</div>
+<div class="paragraph">
+<p>While in the ready stage, the Enterprise Bean container may decide to deactivate, or passivate, the bean by moving it from memory to secondary storage.
+(Typically, the Enterprise Bean container uses a least-recently-used algorithm to select a bean for passivation.)
+The Enterprise Bean container invokes the method annotated <code>@PrePassivate</code>, if any, immediately before passivating it.
+If a client invokes a business method on the bean while it is in the passive stage, the Enterprise Bean container activates the bean, calls the method annotated <code>@PostActivate</code>, if any, and then moves it to the ready stage.</p>
+</div>
+<div class="paragraph">
+<p>At the end of the lifecycle, the client invokes a method annotated <code>@Remove</code>, and the Enterprise Bean container calls the method annotated <code>@PreDestroy</code>, if any.
+The bean&#8217;s instance is then ready for garbage collection.</p>
+</div>
+<div class="paragraph">
+<p>Your code controls the invocation of only one lifecycle method: the method annotated <code>@Remove</code>.
+All other methods in <a href="#_lifecycle_of_a_stateful_session_bean">Figure 2, &#8220;Lifecycle of a Stateful Session Bean&#8221;</a> are invoked by the Enterprise Bean container.
+See <a href="../../supporttechs/resources/resources.html#_resource_adapters_and_contracts" class="xref page">Resource Adapters and Contracts</a> for more information.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_lifecycle_of_a_stateless_session_bean"><a class="anchor" href="#_the_lifecycle_of_a_stateless_session_bean"></a>The Lifecycle of a Stateless Session Bean</h3>
+<div class="paragraph">
+<p>Because a stateless session bean is never passivated, its lifecycle has only two stages: nonexistent and ready for the invocation of business methods.
+<a href="#_lifecycle_of_a_stateless_or_singleton_session_bean">Figure 3, &#8220;Lifecycle of a Stateless or Singleton Session Bean&#8221;</a> illustrates the stages of a stateless session bean.</p>
+</div>
+<div id="_lifecycle_of_a_stateless_or_singleton_session_bean" class="imageblock">
+<div class="content">
+<img src="../../common/_images/jakartaeett_dt_022.svg" alt="Diagram showing the lifecycle of a stateless or singleton session bean.">
+</div>
+<div class="title">Figure 3. Lifecycle of a Stateless or Singleton Session Bean</div>
+</div>
+<div class="paragraph">
+<p>The Enterprise Bean container typically creates and maintains a pool of stateless session beans, beginning the stateless session bean&#8217;s lifecycle.
+The container performs any dependency injection and then invokes the method annotated <code>@PostConstruct</code>, if it exists.
+The bean is now ready to have its business methods invoked by a client.</p>
+</div>
+<div class="paragraph">
+<p>At the end of the lifecycle, the Enterprise Bean container calls the method annotated <code>@PreDestroy</code>, if it exists.
+The bean&#8217;s instance is then ready for garbage collection.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_lifecycle_of_a_singleton_session_bean"><a class="anchor" href="#_the_lifecycle_of_a_singleton_session_bean"></a>The Lifecycle of a Singleton Session Bean</h3>
+<div class="paragraph">
+<p>Like a stateless session bean, a singleton session bean is never passivated and has only two stages, nonexistent and ready for the invocation of business methods, as shown in <a href="#_lifecycle_of_a_stateless_or_singleton_session_bean">Figure 3, &#8220;Lifecycle of a Stateless or Singleton Session Bean&#8221;</a>.</p>
+</div>
+<div class="paragraph">
+<p>The Enterprise Bean container initiates the singleton session bean lifecycle by creating the singleton instance.
+This occurs upon application deployment if the singleton is annotated with the <code>@Startup</code> annotation.
+The container performs any dependency injection and then invokes the method annotated <code>@PostConstruct</code>, if it exists.
+The singleton session bean is now ready to have its business methods invoked by the client.</p>
+</div>
+<div class="paragraph">
+<p>At the end of the lifecycle, the Enterprise Bean container calls the method annotated <code>@PreDestroy</code>, if it exists.
+The singleton session bean is now ready for garbage collection.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_lifecycle_of_a_message_driven_bean"><a class="anchor" href="#_the_lifecycle_of_a_message_driven_bean"></a>The Lifecycle of a Message-Driven Bean</h3>
+<div class="paragraph">
+<p><a href="#_lifecycle_of_a_message_driven_bean">Figure 4, &#8220;Lifecycle of a Message-Driven Bean&#8221;</a> illustrates the stages in the lifecycle of a message-driven bean.</p>
+</div>
+<div id="_lifecycle_of_a_message_driven_bean" class="imageblock">
+<div class="content">
+<img src="../../common/_images/jakartaeett_dt_023.svg" alt="Diagram showing the lifecycle of a message-driven bean.">
+</div>
+<div class="title">Figure 4. Lifecycle of a Message-Driven Bean</div>
+</div>
+<div class="paragraph">
+<p>The Enterprise Bean container usually creates a pool of message-driven bean instances.
+For each instance, the Enterprise Bean container performs these tasks.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If the message-driven bean uses dependency injection, the container injects these references before instantiating the instance.</p>
+</li>
+<li>
+<p>The container calls the method annotated <code>@PostConstruct</code>, if any.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Like a stateless session bean, a message-driven bean is never passivated and has only two states: nonexistent and ready to receive messages.</p>
+</div>
+<div class="paragraph">
+<p>At the end of the lifecycle, the container calls the method annotated <code>@PreDestroy</code>, if any.
+The bean&#8217;s instance is then ready for garbage collection.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_further_information_about_enterprise_beans"><a class="anchor" href="#_further_information_about_enterprise_beans"></a>Further Information about Enterprise Beans</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For more information on Jakarta Enterprise Beans technology, see the Jakarta Enterprise Beans 4.0 specification:<br>
+<a href="https://jakarta.ee/specifications/enterprise-beans/4.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/enterprise-beans/4.0/</a></p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

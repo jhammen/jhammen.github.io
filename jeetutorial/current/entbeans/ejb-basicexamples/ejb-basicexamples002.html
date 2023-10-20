@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/entbeans/pages/ejb-basicexamples/ejb-basicexamples002.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_the_cart_example"><a class="anchor" href="#_the_cart_example"></a>The cart Example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>cart</code> example represents a shopping cart in an online bookstore and uses a stateful session bean to manage the operations of the shopping cart.
+The bean&#8217;s client can add a book to the cart, remove a book, or retrieve the cart&#8217;s contents.
+To assemble <code>cart</code>, you need the following code:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Session bean class (<code>CartBean</code>)</p>
+</li>
+<li>
+<p>Remote business interface (<code>Cart</code>)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>All session beans require a session bean class.
+All enterprise beans that permit remote access must have a remote business interface.
+To meet the needs of a specific application, an enterprise bean may also need some helper classes.
+The <code>CartBean</code> session bean uses two helper classes, <code>BookException</code> and <code>IdVerifier</code>, which are discussed in the section <a href="#_helper_classes">Helper Classes</a>.</p>
+</div>
+<div class="paragraph">
+<p>The source code for this example is in the <code><em>tut-install</em>/examples/ejb/cart/</code> directory.</p>
+</div>
+<div class="sect2">
+<h3 id="_the_business_interface"><a class="anchor" href="#_the_business_interface"></a>The Business Interface</h3>
+<div class="paragraph">
+<p>The <code>Cart</code> business interface is a plain Java interface that defines all the business methods implemented in the bean class.
+If the bean class implements a single interface, that interface is assumed to the business interface.
+The business interface is a local interface unless it is annotated with the <code>jakarta.ejb.Remote</code> annotation; the <code>jakarta.ejb.Local</code> annotation is optional in this case.</p>
+</div>
+<div class="paragraph">
+<p>The bean class may implement more than one interface.
+In that case, the business interfaces must either be explicitly annotated <code>@Local</code> or <code>@Remote</code> or be specified by decorating the bean class with <code>@Local</code> or <code>@Remote</code>.
+However, the following interfaces are excluded when determining whether the bean class implements more than one interface:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>java.io.Serializable</code></p>
+</li>
+<li>
+<p><code>java.io.Externalizable</code></p>
+</li>
+<li>
+<p>Any of the interfaces defined by the <code>jakarta.ejb</code> package</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The source code for the <code>Cart</code> business interface is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package ee.jakarta.tutorial.cart.ejb;
+
+import cart.util.BookException;
+import java.util.List;
+import jakarta.ejb.Remote;
+
+@Remote
+public interface Cart {
+    public void initialize(String person) throws BookException;
+    public void initialize(String person, String id) throws BookException;
+    public void addBook(String title);
+    public void removeBook(String title) throws BookException;
+    public List&lt;String&gt; getContents();
+    public void remove();
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_session_bean_class"><a class="anchor" href="#_session_bean_class"></a>Session Bean Class</h3>
+<div class="paragraph">
+<p>The session bean class for this example is called <code>CartBean</code>.
+Like any stateful session bean, the <code>CartBean</code> class must meet the following requirements.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The class is annotated <code>@Stateful</code>.</p>
+</li>
+<li>
+<p>The class implements the business methods defined in the business interface.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Stateful session beans may also do the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Implement the business interface, a plain Java interface.
+It is good practice to implement the bean&#8217;s business interface.</p>
+</li>
+<li>
+<p>Implement any optional lifecycle callback methods, annotated <code>@PostConstruct</code>, <code>@PreDestroy</code>, <code>@PostActivate</code>, and <code>@PrePassivate</code>.</p>
+</li>
+<li>
+<p>Implement any optional business methods annotated <code>@Remove</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The source code for the <code>CartBean</code> class is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package ee.jakarta.tutorial.cart.ejb;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import ee.jakarta.tutorial.cart.util.BookException;
+import ee.jakarta.tutorial.cart.util.IdVerifier;
+import jakarta.ejb.Remove;
+import jakarta.ejb.Stateful;
+
+@Stateful
+public class CartBean implements Cart {
+    String customerId;
+    String customerName;
+    List&lt;String&gt; contents;
+
+    @Override
+    public void initialize(String person) throws BookException {
+        if (person == null) {
+            throw new BookException("Null person not allowed.");
+        } else {
+            customerName = person;
+        }
+        customerId = "0";
+        contents = new ArrayList&lt;&gt;();
+    }
+
+    @Override
+    public void initialize(String person, String id)
+                 throws BookException {
+        if (person == null) {
+            throw new BookException("Null person not allowed.");
+        } else {
+            customerName = person;
+        }
+
+        IdVerifier idChecker = new IdVerifier();
+        if (idChecker.validate(id)) {
+            customerId = id;
+        } else {
+            throw new BookException("Invalid id: " + id);
+        }
+
+        contents = new ArrayList&lt;&gt;();
+    }
+
+    @Override
+    public void addBook(String title) {
+        contents.add(title);
+    }
+
+    @Override
+    public void removeBook(String title) throws BookException {
+        boolean result = contents.remove(title);
+        if (result == false) {
+            throw new BookException("\"" + title + " not in cart.");
+        }
+    }
+
+    @Override
+    public List&lt;String&gt; getContents() {
+        return contents;
+    }
+
+    @Remove
+    @Override
+    public void remove() {
+        contents = null;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_lifecycle_callback_methods"><a class="anchor" href="#_lifecycle_callback_methods"></a>Lifecycle Callback Methods</h4>
+<div class="paragraph">
+<p>A method in the bean class may be declared as a lifecycle callback method by annotating the method with the following annotations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>jakarta.annotation.PostConstruct</code>: Methods annotated with <code>@PostConstruct</code> are invoked by the container on newly constructed bean instances after all dependency injection has completed and before the first business method is invoked on the enterprise bean.</p>
+</li>
+<li>
+<p><code>jakarta.annotation.PreDestroy</code>: Methods annotated with <code>@PreDestroy</code> are invoked after any method annotated <code>@Remove</code> has completed and before the container removes the enterprise bean instance.</p>
+</li>
+<li>
+<p><code>jakarta.ejb.PostActivate</code>: Methods annotated with <code>@PostActivate</code> are invoked by the container after the container moves the bean from secondary storage to active status.</p>
+</li>
+<li>
+<p><code>jakarta.ejb.PrePassivate</code>: Methods annotated with <code>@PrePassivate</code> are invoked by the container before it passivates the enterprise bean, meaning that the container temporarily removes the bean from the environment and saves it to secondary storage.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Lifecycle callback methods must return <code>void</code> and have no parameters.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_business_methods"><a class="anchor" href="#_business_methods"></a>Business Methods</h4>
+<div class="paragraph">
+<p>The primary purpose of a session bean is to run business tasks for the client.
+The client invokes business methods on the object reference it gets from dependency injection or JNDI lookup.
+From the client&#8217;s perspective, the business methods appear to run locally, although they run remotely in the session bean.
+The following code snippet shows how the <code>CartClient</code> program invokes the business methods:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">cart.initialize("Duke DeEarl", "123");
+...
+cart.addBook("Bel Canto");
+ ...
+List&lt;String&gt; bookList = cart.getContents();
+...
+cart.removeBook("Gravity's Rainbow");</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>CartBean</code> class implements the business methods in the following code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
+public void addBook(String title) {
+   contents.add(title);
+}
+
+@Override
+public void removeBook(String title) throws BookException {
+   boolean result = contents.remove(title);
+   if (result == false) {
+      throw new BookException("\"" + title + "not in cart.");
+   }
+}
+
+@Override
+public List&lt;String&gt; getContents() {
+   return contents;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The signature of a business method must conform to these rules.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The method name must not begin with <code>ejb</code>, to avoid conflicts with callback methods defined by the Jakarta Enterprise Beans architecture.
+For example, you cannot call a business method <code>ejbCreate</code> or <code>ejbActivate</code>.</p>
+</li>
+<li>
+<p>The access control modifier must be <code>public</code>.</p>
+</li>
+<li>
+<p>If the bean allows remote access through a remote business interface, the arguments and return types must be legal types for the Java Remote Method Invocation (RMI) API.</p>
+</li>
+<li>
+<p>If the bean is a Jakarta XML Web Services endpoint, the arguments and return types for the methods annotated <code>@WebMethod</code> must be legal types for Jakarta XML Web Services.</p>
+</li>
+<li>
+<p>If the bean is a Jakarta RESTful Web Services resource, the arguments and return types for the resource methods must be legal types for Jakarta RESTful Web Services.</p>
+</li>
+<li>
+<p>The modifier must not be <code>static</code> or <code>final</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>throws</code> clause can include exceptions that you define for your application.
+The <code>removeBook</code> method, for example, throws a <code>BookException</code> if the book is not in the cart.</p>
+</div>
+<div class="paragraph">
+<p>To indicate a system-level problem, such as the inability to connect to a database, a business method should throw a <code>jakarta.ejb.EJBException</code>.
+The container will not wrap application exceptions, such as <code>BookException</code>.
+Because <code>EJBException</code> is a subclass of <code>RuntimeException</code>, you do not need to include it in the <code>throws</code> clause of the business method.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_remove_method"><a class="anchor" href="#_the_remove_method"></a>The @Remove Method</h3>
+<div class="paragraph">
+<p>Business methods annotated with <code>jakarta.ejb.Remove</code> in the stateful session bean class can be invoked by enterprise bean clients to remove the bean instance.
+The container will remove the enterprise bean after a <code>@Remove</code> method completes, either normally or abnormally.</p>
+</div>
+<div class="paragraph">
+<p>In <code>CartBean</code>, the <code>remove</code> method is a <code>@Remove</code> method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Remove
+@Override
+public void remove() {
+    contents = null;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_helper_classes"><a class="anchor" href="#_helper_classes"></a>Helper Classes</h3>
+<div class="paragraph">
+<p>The <code>CartBean</code> session bean has two helper classes: <code>BookException</code> and <code>IdVerifier</code>.
+The <code>BookException</code> is thrown by the <code>removeBook</code> method, and the <code>IdVerifier</code> validates the <code>customerId</code> in one of the <code>create</code> methods.
+Helper classes may reside in an EJB JAR file that contains the enterprise bean class; a WAR file if the enterprise bean is packaged within a WAR; or an EAR file that contains an EJB JAR, a WAR file, or a separate library JAR file.
+In <code>cart</code>, the helper classes are included in a library JAR used by the application client and the EJB JAR.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_running_the_cart_example"><a class="anchor" href="#_running_the_cart_example"></a>Running the cart Example</h3>
+<div class="paragraph">
+<p>Now you are ready to compile the remote interface (<code>Cart.java</code>), the enterprise bean class (<code>CartBean.java</code>), the client class (<code>CartClient.java</code>), and the helper classes (<code>BookException.java</code> and <code>IdVerifier.java</code>).</p>
+</div>
+<div class="paragraph">
+<p>You can use either NetBeans IDE or Maven to build, package, deploy, and run the <code>cart</code> application.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_cart_example_using_netbeans_ide"><a class="anchor" href="#_to_run_the_cart_example_using_netbeans_ide"></a>To Run the cart Example Using NetBeans IDE</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>From the <strong>File</strong> menu, choose <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Open Project</strong> dialog box, navigate to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/ejb</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Select the <code>cart</code> folder.</p>
+</li>
+<li>
+<p>Select the <strong>Open Required Projects</strong> check box.</p>
+</li>
+<li>
+<p>Click Open Project.</p>
+</li>
+<li>
+<p>In the <strong>Projects</strong> tab, right-click the <code>cart</code> project and select <strong>Build</strong>.</p>
+<div class="paragraph">
+<p>This builds and packages the application into <code>cart.ear</code>, located in <code><em>tut-install</em>/examples/ejb/cart/cart-ear/target/</code>, and deploys this EAR file to your GlassFish Server instance.</p>
+</div>
+<div class="paragraph">
+<p>You will see the output of the <code>cart-app-client</code> application client in the Output tab:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">...
+Retrieving book title from cart: Infinite Jest
+Retrieving book title from cart: Bel Canto
+Retrieving book title from cart: Kafka on the Shore
+Removing "Gravity's Rainbow" from cart.
+Caught a BookException: "Gravity's Rainbow" not in cart.</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_cart_example_using_maven"><a class="anchor" href="#_to_run_the_cart_example_using_maven"></a>To Run the cart Example Using Maven</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see
+<a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>In a terminal window, go to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/ejb/cart/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enter the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command compiles and packages the application into an EAR file, <code>cart.ear</code>, located in the <code>target</code> directory, and deploys the EAR to your GlassFish Server instance.</p>
+</div>
+<div class="paragraph">
+<p>Then, the client stubs are retrieved and run.
+This is equivalent to running the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">appclient -client cart-ear/target/cart-earClient.jar</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The client JAR, <code>cart-earClient.jar</code>, contains the application client class, the helper class <code>BookException</code>, and the <code>Cart</code> business interface.</p>
+</div>
+<div class="paragraph">
+<p>When you run the client, the application client container injects any component references declared in the application client class, in this case the reference to the <code>Cart</code> enterprise bean.</p>
+</div>
+<div class="paragraph">
+<p>You will see the output of the <code>cart-app-client</code> application client in the terminal window:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">...
+Retrieving book title from cart: Infinite Jest
+Retrieving book title from cart: Bel Canto
+Retrieving book title from cart: Kafka on the Shore
+Removing "Gravity's Rainbow" from cart.
+Caught a BookException: "Gravity's Rainbow" not in cart.</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

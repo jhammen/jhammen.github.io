@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/messaging/pages/jms-examples/jms-examples007.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_receiving_messages_asynchronously_using_a_message_driven_bean"><a class="anchor" href="#_receiving_messages_asynchronously_using_a_message_driven_bean"></a>Receiving Messages Asynchronously Using a Message-Driven Bean</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you are writing an application to run in the Jakarta EE application client container or on the Java SE platform, and you want to receive messages asynchronously, you need to define a class that implements the <code>MessageListener</code> interface, create a <code>JMSConsumer</code>, and call the method <code>setMessageListener</code>.</p>
+</div>
+<div class="paragraph">
+<p>If you&#8217;re writing an application to run in the Jakarta EE web or enterprise bean container and want it to receive messages asynchronously, you also need to need to define a class that implements the <code>MessageListener</code> interface.
+However, instead of creating a <code>JMSConsumer</code> and calling the method <code>setMessageListener</code>, you must configure your message listener class to be a message-driven bean.
+The application server will then take care of the rest.</p>
+</div>
+<div class="paragraph">
+<p>Message-driven beans can implement any messaging type.
+Most commonly, however, they implement the Jakarta Messaging technology.</p>
+</div>
+<div class="paragraph">
+<p>This section describes a simple message-driven bean example.
+Before proceeding, you should read the basic conceptual information in the section <a href="../../entbeans/ejb-intro/ejb-intro.html#_what_is_a_message_driven_bean" class="xref page">What Is a Message-Driven Bean?</a> as well as <a href="../jms-concepts/jms-concepts.html#_using_message_driven_beans_to_receive_messages_asynchronously" class="xref page">Using Message-Driven Beans to Receive Messages Asynchronously</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_overview_of_the_simplemessage_example"><a class="anchor" href="#_overview_of_the_simplemessage_example"></a>Overview of the simplemessage Example</h3>
+<div class="paragraph">
+<p>The <code>simplemessage</code> application has the following components:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SimpleMessageClient</code>: An application client that sends several messages to a queue</p>
+</li>
+<li>
+<p><code>SimpleMessageBean</code>: A message-driven bean that asynchronously processes the messages that are sent to the queue</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="#_the_simplemessage_application">Figure 1, &#8220;The simplemessage Application&#8221;</a> illustrates the structure of this application.
+The application client sends messages to the queue, which was created administratively using the Administration Console.
+The Messaging provider (in this case, GlassFish Server) delivers the messages to the instances of the message-driven bean, which then processes the messages.</p>
+</div>
+<div id="_the_simplemessage_application" class="imageblock">
+<div class="content">
+<img src="../../common/_images/jakartaeett_dt_036.svg" alt="Diagram of application showing an application client sending a message to a queue, and the message being delivered to a message-driven bean">
+</div>
+<div class="title">Figure 1. The simplemessage Application</div>
+</div>
+<div class="paragraph">
+<p>The source code for this application is in the <code><em>tut-install</em>/examples/jms/simplemessage/</code> directory.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_simplemessage_application_client"><a class="anchor" href="#_the_simplemessage_application_client"></a>The simplemessage Application Client</h3>
+<div class="paragraph">
+<p>The <code>SimpleMessageClient</code> sends messages to the queue that the <code>SimpleMessageBean</code> listens to.
+The client starts by injecting the connection factory and queue resources:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Resource(lookup = "java:comp/DefaultJMSConnectionFactory")
+private static ConnectionFactory connectionFactory;
+
+@Resource(lookup = "jms/MyQueue")
+private static Queue queue;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next, the client creates the <code>JMSContext</code> in a <code>try-with-resources</code> block:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">String text;
+final int NUM_MSGS = 3;
+
+try (JMSContext context = connectionFactory.createContext();) { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally, the client sends several text messages to the queue:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">for (int i = 0; i &lt; NUM_MSGS; i++) {
+    text = "This is message " + (i + 1);
+    System.out.println("Sending message: " + text);
+    context.createProducer().send(queue, text);
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_simplemessage_message_driven_bean_class"><a class="anchor" href="#_the_simplemessage_message_driven_bean_class"></a>The simplemessage Message-Driven Bean Class</h3>
+<div class="paragraph">
+<p>The code for the <code>SimpleMessageBean</code> class illustrates the requirements of a message-driven bean class described in <a href="../jms-concepts/jms-concepts.html#_using_message_driven_beans_to_receive_messages_asynchronously" class="xref page">Using Message-Driven Beans to Receive Messages Asynchronously</a>.</p>
+</div>
+<div class="paragraph">
+<p>The first few lines of the <code>SimpleMessageBean</code> class use the <code>@MessageDriven</code> annotation&#8217;s <code>activationConfig</code> attribute to specify configuration properties:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@MessageDriven(activationConfig = {
+    @ActivationConfigProperty(propertyName = "destinationLookup",
+            propertyValue = "jms/MyQueue"),
+    @ActivationConfigProperty(propertyName = "destinationType",
+            propertyValue = "jakarta.jms.Queue")
+})</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See <a href="../jms-concepts/jms-concepts.html#_activationconfigproperty_settings_for_message_driven_beans" class="xref page">null</a> for a list of the available properties.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="jms-examples.html#_sending_messages_from_a_session_bean_to_an_mdb" class="xref page">Sending Messages from a Session Bean to an MDB</a> for examples of the <code>subscriptionDurability</code>, <code>clientId</code>, <code>subscriptionName</code>, and <code>messageSelector</code> properties.</p>
+</div>
+<div class="sect3">
+<h4 id="_the_onmessage_method"><a class="anchor" href="#_the_onmessage_method"></a>The onMessage Method</h4>
+<div class="paragraph">
+<p>When the queue receives a message, the enterprise bean container invokes the message listener method or methods.
+For a bean that uses Jakarta Messaging, this is the <code>onMessage</code> method of the <code>MessageListener</code> interface.</p>
+</div>
+<div class="paragraph">
+<p>In the <code>SimpleMessageBean</code> class, the <code>onMessage</code> method casts the incoming message to a <code>TextMessage</code> and displays the text:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public void onMessage(Message inMessage) {
+
+    try {
+        if (inMessage instanceof TextMessage) {
+            logger.log(Level.INFO,
+                    "MESSAGE BEAN: Message received: {0}",
+                    inMessage.getBody(String.class));
+        } else {
+            logger.log(Level.WARNING,
+                    "Message of wrong type: {0}",
+                    inMessage.getClass().getName());
+        }
+    } catch (JMSException e) {
+        logger.log(Level.SEVERE,
+                "SimpleMessageBean.onMessage: JMSException: {0}",
+                e.toString());
+        mdc.setRollbackOnly();
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_running_the_simplemessage_example"><a class="anchor" href="#_running_the_simplemessage_example"></a>Running the simplemessage Example</h3>
+<div class="paragraph">
+<p>You can use either NetBeans IDE or Maven to build, deploy, and run the <code>simplemessage</code> example.</p>
+</div>
+<div class="sect3">
+<h4 id="_creating_resources_for_the_simplemessage_example"><a class="anchor" href="#_creating_resources_for_the_simplemessage_example"></a>Creating Resources for the simplemessage Example</h4>
+<div class="paragraph">
+<p>This example uses the queue named <code>jms/MyQueue</code> and the preconfigured default connection factory <code>java:comp/DefaultJMSConnectionFactory</code>.</p>
+</div>
+<div class="paragraph">
+<p>If you have run the simple Jakarta Messaging examples in <a href="jms-examples.html#_writing_simple_jakarta_messaging_applications" class="xref page">Writing Simple Jakarta Messaging Applications</a> and have not deleted the resources, you already have the queue.
+Otherwise, follow the instructions in <a href="jms-examples.html#_to_create_resources_for_the_simple_examples" class="xref page">To Create Resources for the Simple Examples</a> to create it.</p>
+</div>
+<div class="paragraph">
+<p>For more information on creating Messaging resources, see <a href="jms-examples.html#_creating_jakarta_messaging_administered_objects" class="xref page">Creating Jakarta Messaging Administered Objects</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_simplemessage_example_using_netbeans_ide"><a class="anchor" href="#_to_run_the_simplemessage_example_using_netbeans_ide"></a>To Run the simplemessage Example Using NetBeans IDE</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>From the <strong>File</strong> menu, choose <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Open Project</strong> dialog box, navigate to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/jms/simplemessage</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Select the <code>simplemessage</code> folder.</p>
+</li>
+<li>
+<p>Make sure that the <strong>Open Required Projects</strong> check box is selected, then click <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Projects</strong> tab, right-click the <code>simplemessage</code> project and select <strong>Build</strong>.
+(If NetBeans IDE suggests that you run a priming build, click the box to do so.)</p>
+<div class="paragraph">
+<p>This command packages the application client and the message-driven bean, then creates a file named <code>simplemessage.ear</code> in the <code>simplemessage-ear/target/</code> directory.
+It then deploys the <code>simplemessage-ear</code> module, retrieves the client stubs, and runs the application client.</p>
+</div>
+<div class="paragraph">
+<p>The output in the output window looks like this (preceded by application client container output):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">Sending message: This is message 1
+Sending message: This is message 2
+Sending message: This is message 3
+To see if the bean received the messages,
+ check &lt;install_dir&gt;/domains/domain1/logs/server.log.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the server log file, lines similar to the following appear:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">MESSAGE BEAN: Message received: This is message 1
+MESSAGE BEAN: Message received: This is message 2
+MESSAGE BEAN: Message received: This is message 3</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The received messages may appear in a different order from the order in which they were sent.</p>
+</div>
+</li>
+<li>
+<p>After you have finished running the application, undeploy it using the <strong>Services</strong> tab.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_simplemessage_example_using_maven"><a class="anchor" href="#_to_run_the_simplemessage_example_using_maven"></a>To Run the simplemessage Example Using Maven</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>In a terminal window, go to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/jms/simplemessage/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>To compile the source files and package the application, use the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This target packages the application client and the message-driven bean, then creates a file named <code>simplemessage.ear</code> in the <code>simplemessage-ear/target/</code> directory.
+It then deploys the <code>simplemessage-ear</code> module, retrieves the client stubs, and runs the application client.</p>
+</div>
+<div class="paragraph">
+<p>The output in the terminal window looks like this (preceded by application client container output):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">Sending message: This is message 1
+Sending message: This is message 2
+Sending message: This is message 3
+To see if the bean received the messages,
+ check &lt;install_dir&gt;/domains/domain1/logs/server.log.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the server log file, lines similar to the following appear:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">MESSAGE BEAN: Message received: This is message 1
+MESSAGE BEAN: Message received: This is message 2
+MESSAGE BEAN: Message received: This is message 3</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The received messages may appear in a different order from the order in which they were sent.</p>
+</div>
+</li>
+<li>
+<p>After you have finished running the application, undeploy it using the <code>mvn cargo:undeploy</code> command.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

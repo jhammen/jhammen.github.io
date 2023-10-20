@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/persist/pages/persistence-intro/persistence-intro004.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_managing_entities"><a class="anchor" href="#_managing_entities"></a>Managing Entities</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Entities are managed by the entity manager, which is represented by <code>jakarta.persistence.EntityManager</code> instances.
+Each <code>EntityManager</code> instance is associated with a persistence context: a set of managed entity instances that exist in a particular data store.
+A persistence context defines the scope under which particular entity instances are created, persisted, and removed.
+The <code>EntityManager</code> interface defines the methods that are used to interact with the persistence context.</p>
+</div>
+<div class="sect2">
+<h3 id="_the_entitymanager_interface"><a class="anchor" href="#_the_entitymanager_interface"></a>The EntityManager Interface</h3>
+<div class="paragraph">
+<p>The <code>EntityManager</code> API creates and removes persistent entity instances, finds entities by the entity&#8217;s primary key, and allows queries to be run on entities.</p>
+</div>
+<div class="sect3">
+<h4 id="_container_managed_entity_managers"><a class="anchor" href="#_container_managed_entity_managers"></a>Container-Managed Entity Managers</h4>
+<div class="paragraph">
+<p>With a container-managed entity manager, an <code>EntityManager</code> instance&#8217;s persistence context is automatically propagated by the container to all application components that use the <code>EntityManager</code> instance within a single Jakarta transaction.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta transactions usually involve calls across application components.
+To complete a Jakarta transaction, these components usually need access to a single persistence context.
+This occurs when an <code>EntityManager</code> is injected into the application components by means of the <code>jakarta.persistence.PersistenceContext</code> annotation.
+The persistence context is automatically propagated with the current Jakarta transaction, and <code>EntityManager</code> references that are mapped to the same persistence unit provide access to the persistence context within that transaction.
+By automatically propagating the persistence context, application components don&#8217;t need to pass references to <code>EntityManager</code> instances to each other in order to make changes within a single transaction.
+The Jakarta EE container manages the lifecycle of container-managed entity managers.</p>
+</div>
+<div class="paragraph">
+<p>To obtain an <code>EntityManager</code> instance, inject the entity manager into the application component:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@PersistenceContext
+EntityManager em;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_application_managed_entity_managers"><a class="anchor" href="#_application_managed_entity_managers"></a>Application-Managed Entity Managers</h4>
+<div class="paragraph">
+<p>With an application-managed entity manager, on the other hand, the persistence context is not propagated to application components, and the lifecycle of <code>EntityManager</code> instances is managed by the application.</p>
+</div>
+<div class="paragraph">
+<p>Application-managed entity managers are used when applications need to access a persistence context that is not propagated with the Jakarta transaction across <code>EntityManager</code> instances in a particular persistence unit.
+In this case, each <code>EntityManager</code> creates a new, isolated persistence context.
+The <code>EntityManager</code> and its associated persistence context are created and destroyed explicitly by the application.
+They are also used when directly injecting <code>EntityManager</code> instances can&#8217;t be done because <code>EntityManager</code> instances are not thread-safe.
+<code>EntityManagerFactory</code> instances are thread-safe.</p>
+</div>
+<div class="paragraph">
+<p>Applications create <code>EntityManager</code> instances in this case by using the <code>createEntityManager</code> method of <code>jakarta.persistence.EntityManagerFactory</code>.</p>
+</div>
+<div class="paragraph">
+<p>To obtain an <code>EntityManager</code> instance, you first must obtain an <code>EntityManagerFactory</code> instance by injecting it into the application component by means of the <code>jakarta.persistence.PersistenceUnit</code> annotation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@PersistenceUnit
+EntityManagerFactory emf;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then obtain an <code>EntityManager</code> from the <code>EntityManagerFactory</code> instance:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">EntityManager em = emf.createEntityManager();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Application-managed entity managers don&#8217;t automatically propagate the Jakarta transaction context.
+Such applications need to manually gain access to the Jakarta transaction manager and add transaction demarcation information when performing entity operations.
+The <code>jakarta.transaction.UserTransaction</code> interface defines methods to begin, commit, and roll back transactions.
+Inject an instance of <code>UserTransaction</code> by creating an instance variable annotated with <code>@Resource</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Resource
+UserTransaction utx;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To begin a transaction, call the <code>UserTransaction.begin</code> method.
+When all the entity operations are complete, call the <code>UserTransaction.commit</code> method to commit the transaction.
+The <code>UserTransaction.rollback</code> method is used to roll back the current transaction.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows how to manage transactions in an application that uses an application-managed entity manager:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@PersistenceUnit
+EntityManagerFactory emf;
+EntityManager em;
+@Resource
+UserTransaction utx;
+...
+em = emf.createEntityManager();
+try {
+    utx.begin();
+    em.persist(SomeEntity);
+    em.merge(AnotherEntity);
+    em.remove(ThirdEntity);
+    utx.commit();
+} catch (Exception e) {
+    utx.rollback();
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_finding_entities_using_the_entitymanager"><a class="anchor" href="#_finding_entities_using_the_entitymanager"></a>Finding Entities Using the EntityManager</h4>
+<div class="paragraph">
+<p>The <code>EntityManager.find</code> method is used to look up entities in the data store by the entity&#8217;s primary key:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@PersistenceContext
+EntityManager em;
+public void enterOrder(int custID, CustomerOrder newOrder) {
+    Customer cust = em.find(Customer.class, custID);
+    cust.getOrders().add(newOrder);
+    newOrder.setCustomer(cust);
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_managing_an_entity_instances_lifecycle"><a class="anchor" href="#_managing_an_entity_instances_lifecycle"></a>Managing an Entity Instance&#8217;s Lifecycle</h4>
+<div class="paragraph">
+<p>You manage entity instances by invoking operations on the entity by means of an <code>EntityManager</code> instance.
+Entity instances are in one of four states: new, managed, detached, or removed.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>New entity instances have no persistent identity and are not yet associated with a persistence context.</p>
+</li>
+<li>
+<p>Managed entity instances have a persistent identity and are associated with a persistence context.</p>
+</li>
+<li>
+<p>Detached entity instances have a persistent identity and are not currently associated with a persistence context.</p>
+</li>
+<li>
+<p>Removed entity instances have a persistent identity, are associated with a persistent context, and are scheduled for removal from the data store.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_persisting_entity_instances"><a class="anchor" href="#_persisting_entity_instances"></a>Persisting Entity Instances</h4>
+<div class="paragraph">
+<p>New entity instances become managed and persistent either by invoking the <code>persist</code> method or by a cascading <code>persist</code> operation invoked from related entities that have the <code>cascade=PERSIST</code> or <code>cascade=ALL</code> elements set in the relationship annotation.
+This means that the entity&#8217;s data is stored to the database when the transaction associated with the <code>persist</code> operation is completed.
+If the entity is already managed, the <code>persist</code> operation is ignored, although the <code>persist</code> operation will cascade to related entities that have the <code>cascade</code> element set to <code>PERSIST</code> or <code>ALL</code> in the relationship annotation.
+If <code>persist</code> is called on a removed entity instance, the entity becomes managed.
+If the entity is detached, either <code>persist</code> will throw an <code>IllegalArgumentException</code>, or the transaction commit will fail.
+The following method performs a <code>persist</code> operation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@PersistenceContext
+EntityManager em;
+...
+public LineItem createLineItem(CustomerOrder order, Product product,
+        int quantity) {
+    LineItem li = new LineItem(order, product, quantity);
+    order.getLineItems().add(li);
+    em.persist(li);
+    return li;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>persist</code> operation is propagated to all entities related to the calling entity that have the <code>cascade</code> element set to <code>ALL</code> or <code>PERSIST</code> in the relationship annotation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@OneToMany(cascade=ALL, mappedBy="order")
+public Collection&lt;LineItem&gt; getLineItems() {
+    return lineItems;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_removing_entity_instances"><a class="anchor" href="#_removing_entity_instances"></a>Removing Entity Instances</h4>
+<div class="paragraph">
+<p>Managed entity instances are removed by invoking the <code>remove</code> method or by a cascading <code>remove</code> operation invoked from related entities that have the <code>cascade=REMOVE</code> or <code>cascade=ALL</code> elements set in the relationship annotation.
+If the <code>remove</code> method is invoked on a new entity, the <code>remove</code> operation is ignored, although <code>remove</code> will cascade to related entities that have the <code>cascade</code> element set to <code>REMOVE</code> or <code>ALL</code> in the relationship annotation.
+If <code>remove</code> is invoked on a detached entity, either <code>remove</code> will throw an <code>IllegalArgumentException</code>, or the transaction commit will fail.
+If invoked on an already removed entity, <code>remove</code> will be ignored.
+The entity&#8217;s data will be removed from the data store when the transaction is completed or as a result of the <code>flush</code> operation.</p>
+</div>
+<div class="paragraph">
+<p>In the following example, all <code>LineItem</code> entities associated with the order are also removed, as <code>CustomerOrder.getLineItems</code> has <code>cascade=ALL</code> set in the relationship annotation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public void removeOrder(Integer orderId) {
+    try {
+        CustomerOrder order = em.find(CustomerOrder.class, orderId);
+        em.remove(order);
+    }...
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_synchronizing_entity_data_to_the_database"><a class="anchor" href="#_synchronizing_entity_data_to_the_database"></a>Synchronizing Entity Data to the Database</h4>
+<div class="paragraph">
+<p>The state of persistent entities is synchronized to the database when the transaction with which the entity is associated commits.
+If a managed entity is in a bidirectional relationship with another managed entity, the data will be persisted, based on the owning side of the relationship.</p>
+</div>
+<div class="paragraph">
+<p>To force synchronization of the managed entity to the data store, invoke the <code>flush</code> method of the <code>EntityManager</code> instance.
+If the entity is related to another entity and the relationship annotation has the <code>cascade</code> element set to <code>PERSIST</code> or <code>ALL</code>, the related entity&#8217;s data will be synchronized with the data store when <code>flush</code> is called.</p>
+</div>
+<div class="paragraph">
+<p>If the entity is removed, calling <code>flush</code> will remove the entity data from the data store.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_persistence_units"><a class="anchor" href="#_persistence_units"></a>Persistence Units</h3>
+<div class="paragraph">
+<p>A persistence unit defines a set of all entity classes that are managed by <code>EntityManager</code> instances in an application.
+This set of entity classes represents the data contained within a single data store.</p>
+</div>
+<div class="paragraph">
+<p>Persistence units are defined by the <code>persistence.xml</code> configuration file.
+The following is an example <code>persistence.xml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;persistence&gt;
+    &lt;persistence-unit name="OrderManagement"&gt;
+        &lt;description&gt;This unit manages orders and customers.
+            It does not rely on any vendor-specific features and can
+            therefore be deployed to any persistence provider.
+        &lt;/description&gt;
+        &lt;jta-data-source&gt;jdbc/MyOrderDB&lt;/jta-data-source&gt;
+        &lt;jar-file&gt;MyOrderApp.jar&lt;/jar-file&gt;
+        &lt;class&gt;com.widgets.CustomerOrder&lt;/class&gt;
+        &lt;class&gt;com.widgets.Customer&lt;/class&gt;
+    &lt;/persistence-unit&gt;
+&lt;/persistence&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This file defines a persistence unit named <code>OrderManagement</code>, which uses a Jakarta Transactions aware data source, <code>jdbc/MyOrderDB</code>.
+The <code>jar-file</code> and <code>class</code> elements specify managed persistence classes: entity classes, embeddable classes, and mapped superclasses.
+The <code>jar-file</code> element specifies JAR files that are visible to the packaged persistence unit that contain managed persistence classes, whereas the <code>class</code> element explicitly names managed persistence classes.</p>
+</div>
+<div class="paragraph">
+<p>The <code>jta-data-source</code> (for Jakarta Transactions aware data sources) and <code>non-jta-data-source</code> (for non Jakarta Transactions aware data sources) elements specify the global JNDI name of the data source to be used by the container.</p>
+</div>
+<div class="paragraph">
+<p>The JAR file or directory whose <code>META-INF</code> directory contains <code>persistence.xml</code> is called the root of the persistence unit.
+The scope of the persistence unit is determined by the persistence unit&#8217;s root.
+Each persistence unit must be identified with a name that is unique to the persistence unit&#8217;s scope.</p>
+</div>
+<div class="paragraph">
+<p>Persistent units can be packaged as part of a WAR or enterprise bean JAR file or can be packaged as a JAR file that can then be included in an WAR or EAR file.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you package the persistent unit as a set of classes in an enterprise bean JAR file, <code>persistence.xml</code> should be put in the enterprise bean JAR&#8217;s <code>META-INF</code> directory.</p>
+</li>
+<li>
+<p>If you package the persistence unit as a set of classes in a WAR file, <code>persistence.xml</code> should be located in the WAR file&#8217;s <code>WEB-INF/classes/META-INF</code> directory.</p>
+</li>
+<li>
+<p>If you package the persistence unit in a JAR file that will be included in a WAR or EAR file, the JAR file should be located in either</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>WEB-INF/lib</code> directory of a WAR</p>
+</li>
+<li>
+<p>Or the EAR file&#8217;s library directory</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In the Java Persistence API 1.0, JAR files could be located at the root of an EAR file as the root of the persistence unit.
+This is no longer supported.
+Portable applications should use the EAR file&#8217;s library directory as the root of the persistence unit.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

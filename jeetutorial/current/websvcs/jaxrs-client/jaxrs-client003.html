@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/websvcs/pages/jaxrs-client/jaxrs-client003.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_advanced_features_of_the_client_api"><a class="anchor" href="#_advanced_features_of_the_client_api"></a>Advanced Features of the Client API</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes some of the advanced features of the Jakarta REST Client API.</p>
+</div>
+<div class="sect2">
+<h3 id="_configuring_the_client_request"><a class="anchor" href="#_configuring_the_client_request"></a>Configuring the Client Request</h3>
+<div class="paragraph">
+<p>Additional configuration options may be added to the client request after it is created but before it is invoked.</p>
+</div>
+<div class="sect3">
+<h4 id="_setting_message_headers_in_the_client_request"><a class="anchor" href="#_setting_message_headers_in_the_client_request"></a>Setting Message Headers in the Client Request</h4>
+<div class="paragraph">
+<p>You can set HTTP headers on the request by calling the <code>Invocation.Builder.header</code> method.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Client client = ClientBuilder.newClient();
+WebTarget myResource = client.target("http://example.com/webapi/read");
+String response = myResource.request(MediaType.TEXT_PLAIN)
+        .header("myHeader", "The header value")
+        .get(String.class);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you need to set multiple headers on the request, call the <code>Invocation.Builder.headers</code> method and pass in a <code>jakarta.ws.rs.core.MultivaluedMap</code> instance with the name-value pairs of the HTTP headers.
+Calling the <code>headers</code> method replaces all the existing headers with the headers supplied in the <code>MultivaluedMap</code> instance.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Client client = ClientBuilder.newClient();
+WebTarget myResource = client.target("http://example.com/webapi/read");
+MultivaluedMap&lt;String, Object&gt; myHeaders =
+    new MultivaluedMap&lt;&gt;("myHeader", "The header value");
+myHeaders.add(...);
+String response = myResource.request(MediaType.TEXT_PLAIN)
+        .headers(myHeaders)
+        .get(String.class);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>MultivaluedMap</code> interface allows you to specify multiple values for a given key.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">MultivaluedMap&lt;String, Object&gt; myHeaders =
+    new MultivaluedMap&lt;String, Object&gt;();
+List&lt;String&gt; values = new ArrayList&lt;&gt;();
+values.add(...);
+myHeaders.add("myHeader", values);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_setting_cookies_in_the_client_request"><a class="anchor" href="#_setting_cookies_in_the_client_request"></a>Setting Cookies in the Client Request</h4>
+<div class="paragraph">
+<p>You can add HTTP cookies to the request by calling the <code>Invocation.Builder.cookie</code> method, which takes a name-value pair as parameters.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Client client = ClientBuilder.newClient();
+WebTarget myResource = client.target("http://example.com/webapi/read");
+String response = myResource.request(MediaType.TEXT_PLAIN)
+        .cookie("myCookie", "The cookie value")
+        .get(String.class);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>jakarta.ws.rs.core.Cookie</code> class encapsulates the attributes of an HTTP cookie, including the name, value, path, domain, and RFC specification version of the cookie.
+In the following example, the <code>Cookie</code> object is configured with a name-value pair, a path, and a domain.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Client client = ClientBuilder.newClient();
+WebTarget myResource = client.target("http://example.com/webapi/read");
+Cookie myCookie = new Cookie("myCookie", "The cookie value",
+    "/webapi/read", "example.com");
+String response = myResource.request(MediaType.TEXT_PLAIN)
+        .cookie(myCookie)
+        .get(String.class);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_adding_filters_to_the_client"><a class="anchor" href="#_adding_filters_to_the_client"></a>Adding Filters to the Client</h4>
+<div class="paragraph">
+<p>You can register custom filters with the client request or the response received from the target resource.
+To register filter classes when the <code>Client</code> instance is created, call the <code>Client.register</code> method.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Client client = ClientBuilder.newClient().register(MyLoggingFilter.class);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the preceding example, all invocations that use this <code>Client</code> instance have the <code>MyLoggingFilter</code> filter registered with them.</p>
+</div>
+<div class="paragraph">
+<p>You can also register the filter classes on the target by calling <code>WebTarget.register</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Client client = ClientBuilder.newClient().register(MyLoggingFilter.class);
+WebTarget target = client.target("http://example.com/webapi/secure")
+        .register(MyAuthenticationFilter.class);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the preceding example, both the <code>MyLoggingFilter</code> and <code>MyAuthenticationFilter</code> filters are attached to the invocation.</p>
+</div>
+<div class="paragraph">
+<p>Request and response filter classes implement the <code>jakarta.ws.rs.client.ClientRequestFilter</code> and <code>jakarta.ws.rs.client.ClientResponseFilter</code> interfaces, respectively.
+Both of these interfaces define a single method, <code>filter</code>.
+All filters must be annotated with <code>jakarta.ws.rs.ext.Provider</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following class is a logging filter for both client requests and client responses.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Provider
+public class MyLoggingFilter implements ClientRequestFilter,
+        ClientResponseFilter {
+    static final Logger logger = Logger.getLogger(...);
+
+    // implement the ClientRequestFilter.filter method
+    @Override
+    public void filter(ClientRequestContext requestContext)
+            throws IOException {
+        logger.log(...);
+        ...
+    }
+
+    // implement the ClientResponseFilter.filter method
+    @Override
+    public void filter(ClientRequestContext requestContext,
+           ClientResponseContext responseContext) throws IOException {
+        logger.log(...);
+        ...
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the invocation must be stopped while the filter is active, call the context object&#8217;s <code>abortWith</code> method, and pass in a <code>jakarta.ws.rs.core.Response</code> instance from within the filter.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
+public void filter(ClientRequestContext requestContext) throws IOException {
+    ...
+    Response response = new Response();
+    response.status(500);
+    requestContext.abortWith(response);
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_asynchronous_invocations_in_the_client_api"><a class="anchor" href="#_asynchronous_invocations_in_the_client_api"></a>Asynchronous Invocations in the Client API</h3>
+<div class="paragraph">
+<p>In networked applications, network issues can affect the perceived performance of the application, particularly in long-running or complicated network calls.
+Asynchronous processing helps prevent blocking and makes better use of an application&#8217;s resources.</p>
+</div>
+<div class="paragraph">
+<p>In the Jakarta REST Client API, the <code>Invocation.Builder.async</code> method is used when constructing a client request to indicate that the call to the service should be performed asynchronously.
+An asynchronous invocation returns control to the caller immediately, with a return type of <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html?is-external=true"><code>java.util.concurrent.Future&lt;T&gt;</code></a> (part of the Java SE concurrency API) and with the type set to the return type of the service call.
+<code>Future&lt;T&gt;</code> objects have methods to check if the asynchronous call has been completed, to retrieve the final result, to cancel the invocation, and to check if the invocation has been cancelled.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows how to invoke an asynchronous request on a resource.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Client client = ClientBuilder.newClient();
+WebTarget myResource = client.target("http://example.com/webapi/read");
+Future&lt;String&gt; response = myResource.request(MediaType.TEXT_PLAIN)
+        .async()
+        .get(String.class);</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_using_custom_callbacks_in_asynchronous_invocations"><a class="anchor" href="#_using_custom_callbacks_in_asynchronous_invocations"></a>Using Custom Callbacks in Asynchronous Invocations</h4>
+<div class="paragraph">
+<p>The <code>InvocationCallback</code> interface defines two methods, <code>completed</code> and <code>failed</code>, that are called when an asynchronous invocation either completes successfully or fails, respectively.
+You may register an <code>InvocationCallback</code> instance on your request by creating a new instance when specifying the request method.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows how to register a callback object on an asynchronous invocation.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Client client = ClientBuilder.newClient();
+WebTarget myResource = client.target("http://example.com/webapi/read");
+Future&lt;Customer&gt; fCustomer = myResource.request(MediaType.TEXT_PLAIN)
+        .async()
+        .get(new InvocationCallback&lt;Customer&gt;() {
+            @Override
+            public void completed(Customer customer) {
+            // Do something with the customer object
+            }
+            @Override
+             public void failed(Throwable throwable) {
+            // handle the error
+            }
+        });</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_using_reactive_approach_in_asynchronous_invocations"><a class="anchor" href="#_using_reactive_approach_in_asynchronous_invocations"></a>Using Reactive Approach in Asynchronous Invocations</h4>
+<div class="paragraph">
+<p>Using custom callbacks in asynchronous invocations is easy in simple cases and when there are many independent calls to make.
+In nested calls, using custom callbacks becomes very difficult to implement, debug, and maintain.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta REST defines a new type of invoker called as <code>RxInvoker</code> and a default implementation of this type is <code>CompletionStageRxInvoker</code>.
+The new <code>rx</code> method is used as in the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CompletionStage&lt;String&gt; csf = client.target("forecast/{destination}")
+    .resolveTemplate("destination","mars")
+    .request().rx().get(String.class);
+csf.thenAccept(System.out::println);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the example, an asynchronous processing of the interface <code>CompletionStage&lt;String&gt;</code> is created and waits till it is completed and the result is displayed.
+The <code>CompletionStage</code> that is returned can then be used only to retrieve the result as shown in the above example or can be combined with other completion stages to ease and improve the processing of asynchronous tasks.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_server_sent_events"><a class="anchor" href="#_using_server_sent_events"></a>Using Server-Sent Events</h3>
+<div class="paragraph">
+<p>Server-sent Events (SSE) technology is used to asynchronously push notifications to the client over standard HTTP or HTTPS protocol.
+Clients can subscribe to event notifications that originate on a server.
+Server generates events and sends these events back to the clients that are subscribed to receive the notifications.
+The one-way communication channel connection is established by the client.
+Once the connection is established, the server sends events to the client whenever new data is available.</p>
+</div>
+<div class="paragraph">
+<p>The communication channel established by the client lasts till the client closes the connection and it is also re-used by the server to send multiple events from the server.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_overview_of_the_sse_api"><a class="anchor" href="#_overview_of_the_sse_api"></a>Overview of the SSE API</h3>
+<div class="paragraph">
+<p>The SSE API is defined in the <code>jakarta.ws.rs.sse</code> package that includes the interfaces <code>SseEventSink</code>, <code>SseEvent</code>, <code>Sse</code>, and <code>SseEventSource</code>.
+To accept connections and send events to one or more clients, inject an <code>SseEventSink</code> in the resource method that produces the media type <code>text/event-stream</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows how to accept the SSE connections and to send events to the clients:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@GET
+@Path("eventStream")
+@Produces(MediaType.SERVER_SENT_EVENTS)
+public void eventStream(@Context SseEventSink eventSink, @Context Sse sse) {
+    executor.execute(() -&gt; {
+        try (SseEventSink sink = eventSink) {
+            eventSink.send(sse.newEvent("event1"));
+            eventSink.send(sse.newEvent("event2"));
+            eventSink.send(sse.newEvent("event3"));
+        }
+    });
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>SseEventsink</code> is injected into the resource method and the underlying client connection is kept open and used to send events.
+The connection persists until the client disconnects from the server.
+The method <code>send</code> returns an instance of <code>CompletionStage&lt;T&gt;</code> which indicates the action of asynchronously sending a message to a client is enabled.</p>
+</div>
+<div class="paragraph">
+<p>The events that are streamed to the clients can be defined with the details such as <code>event</code>, <code>data</code>, <code>id</code>, <code>retry</code>, and <code>comment</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_broadcasting_using_sse"><a class="anchor" href="#_broadcasting_using_sse"></a>Broadcasting Using SSE</h3>
+<div class="paragraph">
+<p>Broadcasting is the action of sending events to multiple clients simultaneously.
+Jakarta REST SSE API provides <code>SseBroadcaster</code> to register all <code>SseEventSink</code> instances and send events to all registered event outputs.
+The life-cycle and scope of an <code>SseBroadcaster</code> is fully controlled by applications and not the Jakarta REST runtime.
+The following example show the use of broadcasters:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/")
+@Singleton
+public class SseResource {
+    @Context
+    private Sse sse;
+
+    private volatile SseBroadcaster sseBroadcaster;
+
+    @PostConstruct
+    public init() {
+        this.sseBroadcaster = sse.newBroadcaster();
+    }
+
+    @GET
+    @Path("register")
+    @Produces(MediaType.SERVER_SENT_EVENTS)
+        public void register(@Context SseEventSink eventSink) {
+        eventSink.send(sse.newEvent("welcome!"));
+        sseBroadcaster.register(eventSink);
+    }
+
+    @POST
+    @Path("broadcast")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    public void broadcast(@FormParam("event") String event) {
+        sseBroadcaster.broadcast(sse.newEvent(event));
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>@Singleton</code> annotation is defined for the resource class restricting the creation of multiple instances of the class.
+The <code>register</code> method on a broadcaster is used to add a new <code>SseEventSink</code>; the <code>broadcast</code> method is used to send an SSE event to all registered clients.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_listening_and_receiving_events"><a class="anchor" href="#_listening_and_receiving_events"></a>Listening and Receiving Events</h3>
+<div class="paragraph">
+<p>Jakarta REST SSE provides the <code>SseEventSource</code> interface for the client to subscribe to notifications.
+The client can get asynchronously notified about incoming events by invoking one of the <code>subscribe</code> methods in <code>jakarta.ws.rs.sse.SseEventSource</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows how to use the <code>SseEventSource</code> API to open an SSE connection and read some of the messages for a period:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">WebTarget target = client.target("http://...");
+try (SseEventSource source = SseEventSource.target(target).build()) {
+    source.register(System.out::println);
+    source.open();
+    Thread.sleep(500); // Consume events for just 500 ms
+    source.close();
+} catch (InterruptedException e) {
+    // falls through
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

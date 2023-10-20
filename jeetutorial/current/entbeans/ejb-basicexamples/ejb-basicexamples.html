@@ -1,0 +1,2319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Running the Enterprise Bean Examples :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">Jakarta EE Tutorial</a></li>
+    <li>Jakarta EE Web Profile</li>
+    <li>Jakarta Enterprise Beans Lite</li>
+    <li><a href="ejb-basicexamples.html">Running the Enterprise Bean Examples</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/entbeans/pages/ejb-basicexamples/ejb-basicexamples.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Running the Enterprise Bean Examples</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We are working on a fresh, updated Jakarta EE Tutorial. This section hasn&#8217;t yet been updated.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This chapter describes the Jakarta Enterprise Beans examples.
+Session beans provide a simple but powerful way to encapsulate business logic within an application.
+They can be accessed from remote Java clients, web service clients, and components running in the same server.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview_of_the_jakarta_enterprise_beans_examples"><a class="anchor" href="#_overview_of_the_jakarta_enterprise_beans_examples"></a>Overview of the Jakarta Enterprise Beans Examples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In <a href="../ejb-gettingstarted/ejb-gettingstarted.html#_getting_started_with_enterprise_beans" class="xref page">Getting Started with Enterprise Beans</a>, you built a stateless session bean named <code>ConverterBean</code>.
+This chapter examines the source code of four more session beans:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CartBean</code>: a stateful session bean that is accessed by a remote client</p>
+</li>
+<li>
+<p><code>CounterBean</code>: a singleton session bean</p>
+</li>
+<li>
+<p><code>HelloServiceBean</code>: a stateless session bean that implements a web service</p>
+</li>
+<li>
+<p><code>TimerSessionBean</code>: a stateless session bean that sets a timer</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_cart_example"><a class="anchor" href="#_the_cart_example"></a>The cart Example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>cart</code> example represents a shopping cart in an online bookstore and uses a stateful session bean to manage the operations of the shopping cart.
+The bean&#8217;s client can add a book to the cart, remove a book, or retrieve the cart&#8217;s contents.
+To assemble <code>cart</code>, you need the following code:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Session bean class (<code>CartBean</code>)</p>
+</li>
+<li>
+<p>Remote business interface (<code>Cart</code>)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>All session beans require a session bean class.
+All enterprise beans that permit remote access must have a remote business interface.
+To meet the needs of a specific application, an enterprise bean may also need some helper classes.
+The <code>CartBean</code> session bean uses two helper classes, <code>BookException</code> and <code>IdVerifier</code>, which are discussed in the section <a href="#_helper_classes">Helper Classes</a>.</p>
+</div>
+<div class="paragraph">
+<p>The source code for this example is in the <code><em>tut-install</em>/examples/ejb/cart/</code> directory.</p>
+</div>
+<div class="sect2">
+<h3 id="_the_business_interface"><a class="anchor" href="#_the_business_interface"></a>The Business Interface</h3>
+<div class="paragraph">
+<p>The <code>Cart</code> business interface is a plain Java interface that defines all the business methods implemented in the bean class.
+If the bean class implements a single interface, that interface is assumed to the business interface.
+The business interface is a local interface unless it is annotated with the <code>jakarta.ejb.Remote</code> annotation; the <code>jakarta.ejb.Local</code> annotation is optional in this case.</p>
+</div>
+<div class="paragraph">
+<p>The bean class may implement more than one interface.
+In that case, the business interfaces must either be explicitly annotated <code>@Local</code> or <code>@Remote</code> or be specified by decorating the bean class with <code>@Local</code> or <code>@Remote</code>.
+However, the following interfaces are excluded when determining whether the bean class implements more than one interface:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>java.io.Serializable</code></p>
+</li>
+<li>
+<p><code>java.io.Externalizable</code></p>
+</li>
+<li>
+<p>Any of the interfaces defined by the <code>jakarta.ejb</code> package</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The source code for the <code>Cart</code> business interface is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package ee.jakarta.tutorial.cart.ejb;
+
+import cart.util.BookException;
+import java.util.List;
+import jakarta.ejb.Remote;
+
+@Remote
+public interface Cart {
+    public void initialize(String person) throws BookException;
+    public void initialize(String person, String id) throws BookException;
+    public void addBook(String title);
+    public void removeBook(String title) throws BookException;
+    public List&lt;String&gt; getContents();
+    public void remove();
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_session_bean_class"><a class="anchor" href="#_session_bean_class"></a>Session Bean Class</h3>
+<div class="paragraph">
+<p>The session bean class for this example is called <code>CartBean</code>.
+Like any stateful session bean, the <code>CartBean</code> class must meet the following requirements.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The class is annotated <code>@Stateful</code>.</p>
+</li>
+<li>
+<p>The class implements the business methods defined in the business interface.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Stateful session beans may also do the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Implement the business interface, a plain Java interface.
+It is good practice to implement the bean&#8217;s business interface.</p>
+</li>
+<li>
+<p>Implement any optional lifecycle callback methods, annotated <code>@PostConstruct</code>, <code>@PreDestroy</code>, <code>@PostActivate</code>, and <code>@PrePassivate</code>.</p>
+</li>
+<li>
+<p>Implement any optional business methods annotated <code>@Remove</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The source code for the <code>CartBean</code> class is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package ee.jakarta.tutorial.cart.ejb;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import ee.jakarta.tutorial.cart.util.BookException;
+import ee.jakarta.tutorial.cart.util.IdVerifier;
+import jakarta.ejb.Remove;
+import jakarta.ejb.Stateful;
+
+@Stateful
+public class CartBean implements Cart {
+    String customerId;
+    String customerName;
+    List&lt;String&gt; contents;
+
+    @Override
+    public void initialize(String person) throws BookException {
+        if (person == null) {
+            throw new BookException("Null person not allowed.");
+        } else {
+            customerName = person;
+        }
+        customerId = "0";
+        contents = new ArrayList&lt;&gt;();
+    }
+
+    @Override
+    public void initialize(String person, String id)
+                 throws BookException {
+        if (person == null) {
+            throw new BookException("Null person not allowed.");
+        } else {
+            customerName = person;
+        }
+
+        IdVerifier idChecker = new IdVerifier();
+        if (idChecker.validate(id)) {
+            customerId = id;
+        } else {
+            throw new BookException("Invalid id: " + id);
+        }
+
+        contents = new ArrayList&lt;&gt;();
+    }
+
+    @Override
+    public void addBook(String title) {
+        contents.add(title);
+    }
+
+    @Override
+    public void removeBook(String title) throws BookException {
+        boolean result = contents.remove(title);
+        if (result == false) {
+            throw new BookException("\"" + title + " not in cart.");
+        }
+    }
+
+    @Override
+    public List&lt;String&gt; getContents() {
+        return contents;
+    }
+
+    @Remove
+    @Override
+    public void remove() {
+        contents = null;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_lifecycle_callback_methods"><a class="anchor" href="#_lifecycle_callback_methods"></a>Lifecycle Callback Methods</h4>
+<div class="paragraph">
+<p>A method in the bean class may be declared as a lifecycle callback method by annotating the method with the following annotations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>jakarta.annotation.PostConstruct</code>: Methods annotated with <code>@PostConstruct</code> are invoked by the container on newly constructed bean instances after all dependency injection has completed and before the first business method is invoked on the enterprise bean.</p>
+</li>
+<li>
+<p><code>jakarta.annotation.PreDestroy</code>: Methods annotated with <code>@PreDestroy</code> are invoked after any method annotated <code>@Remove</code> has completed and before the container removes the enterprise bean instance.</p>
+</li>
+<li>
+<p><code>jakarta.ejb.PostActivate</code>: Methods annotated with <code>@PostActivate</code> are invoked by the container after the container moves the bean from secondary storage to active status.</p>
+</li>
+<li>
+<p><code>jakarta.ejb.PrePassivate</code>: Methods annotated with <code>@PrePassivate</code> are invoked by the container before it passivates the enterprise bean, meaning that the container temporarily removes the bean from the environment and saves it to secondary storage.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Lifecycle callback methods must return <code>void</code> and have no parameters.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_business_methods"><a class="anchor" href="#_business_methods"></a>Business Methods</h4>
+<div class="paragraph">
+<p>The primary purpose of a session bean is to run business tasks for the client.
+The client invokes business methods on the object reference it gets from dependency injection or JNDI lookup.
+From the client&#8217;s perspective, the business methods appear to run locally, although they run remotely in the session bean.
+The following code snippet shows how the <code>CartClient</code> program invokes the business methods:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">cart.initialize("Duke DeEarl", "123");
+...
+cart.addBook("Bel Canto");
+ ...
+List&lt;String&gt; bookList = cart.getContents();
+...
+cart.removeBook("Gravity's Rainbow");</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>CartBean</code> class implements the business methods in the following code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
+public void addBook(String title) {
+   contents.add(title);
+}
+
+@Override
+public void removeBook(String title) throws BookException {
+   boolean result = contents.remove(title);
+   if (result == false) {
+      throw new BookException("\"" + title + "not in cart.");
+   }
+}
+
+@Override
+public List&lt;String&gt; getContents() {
+   return contents;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The signature of a business method must conform to these rules.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The method name must not begin with <code>ejb</code>, to avoid conflicts with callback methods defined by the Jakarta Enterprise Beans architecture.
+For example, you cannot call a business method <code>ejbCreate</code> or <code>ejbActivate</code>.</p>
+</li>
+<li>
+<p>The access control modifier must be <code>public</code>.</p>
+</li>
+<li>
+<p>If the bean allows remote access through a remote business interface, the arguments and return types must be legal types for the Java Remote Method Invocation (RMI) API.</p>
+</li>
+<li>
+<p>If the bean is a Jakarta XML Web Services endpoint, the arguments and return types for the methods annotated <code>@WebMethod</code> must be legal types for Jakarta XML Web Services.</p>
+</li>
+<li>
+<p>If the bean is a Jakarta RESTful Web Services resource, the arguments and return types for the resource methods must be legal types for Jakarta RESTful Web Services.</p>
+</li>
+<li>
+<p>The modifier must not be <code>static</code> or <code>final</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>throws</code> clause can include exceptions that you define for your application.
+The <code>removeBook</code> method, for example, throws a <code>BookException</code> if the book is not in the cart.</p>
+</div>
+<div class="paragraph">
+<p>To indicate a system-level problem, such as the inability to connect to a database, a business method should throw a <code>jakarta.ejb.EJBException</code>.
+The container will not wrap application exceptions, such as <code>BookException</code>.
+Because <code>EJBException</code> is a subclass of <code>RuntimeException</code>, you do not need to include it in the <code>throws</code> clause of the business method.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_remove_method"><a class="anchor" href="#_the_remove_method"></a>The @Remove Method</h3>
+<div class="paragraph">
+<p>Business methods annotated with <code>jakarta.ejb.Remove</code> in the stateful session bean class can be invoked by enterprise bean clients to remove the bean instance.
+The container will remove the enterprise bean after a <code>@Remove</code> method completes, either normally or abnormally.</p>
+</div>
+<div class="paragraph">
+<p>In <code>CartBean</code>, the <code>remove</code> method is a <code>@Remove</code> method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Remove
+@Override
+public void remove() {
+    contents = null;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_helper_classes"><a class="anchor" href="#_helper_classes"></a>Helper Classes</h3>
+<div class="paragraph">
+<p>The <code>CartBean</code> session bean has two helper classes: <code>BookException</code> and <code>IdVerifier</code>.
+The <code>BookException</code> is thrown by the <code>removeBook</code> method, and the <code>IdVerifier</code> validates the <code>customerId</code> in one of the <code>create</code> methods.
+Helper classes may reside in an EJB JAR file that contains the enterprise bean class; a WAR file if the enterprise bean is packaged within a WAR; or an EAR file that contains an EJB JAR, a WAR file, or a separate library JAR file.
+In <code>cart</code>, the helper classes are included in a library JAR used by the application client and the EJB JAR.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_running_the_cart_example"><a class="anchor" href="#_running_the_cart_example"></a>Running the cart Example</h3>
+<div class="paragraph">
+<p>Now you are ready to compile the remote interface (<code>Cart.java</code>), the enterprise bean class (<code>CartBean.java</code>), the client class (<code>CartClient.java</code>), and the helper classes (<code>BookException.java</code> and <code>IdVerifier.java</code>).</p>
+</div>
+<div class="paragraph">
+<p>You can use either NetBeans IDE or Maven to build, package, deploy, and run the <code>cart</code> application.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_cart_example_using_netbeans_ide"><a class="anchor" href="#_to_run_the_cart_example_using_netbeans_ide"></a>To Run the cart Example Using NetBeans IDE</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>From the <strong>File</strong> menu, choose <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Open Project</strong> dialog box, navigate to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/ejb</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Select the <code>cart</code> folder.</p>
+</li>
+<li>
+<p>Select the <strong>Open Required Projects</strong> check box.</p>
+</li>
+<li>
+<p>Click Open Project.</p>
+</li>
+<li>
+<p>In the <strong>Projects</strong> tab, right-click the <code>cart</code> project and select <strong>Build</strong>.</p>
+<div class="paragraph">
+<p>This builds and packages the application into <code>cart.ear</code>, located in <code><em>tut-install</em>/examples/ejb/cart/cart-ear/target/</code>, and deploys this EAR file to your GlassFish Server instance.</p>
+</div>
+<div class="paragraph">
+<p>You will see the output of the <code>cart-app-client</code> application client in the Output tab:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">...
+Retrieving book title from cart: Infinite Jest
+Retrieving book title from cart: Bel Canto
+Retrieving book title from cart: Kafka on the Shore
+Removing "Gravity's Rainbow" from cart.
+Caught a BookException: "Gravity's Rainbow" not in cart.</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_cart_example_using_maven"><a class="anchor" href="#_to_run_the_cart_example_using_maven"></a>To Run the cart Example Using Maven</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see
+<a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>In a terminal window, go to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/ejb/cart/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enter the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command compiles and packages the application into an EAR file, <code>cart.ear</code>, located in the <code>target</code> directory, and deploys the EAR to your GlassFish Server instance.</p>
+</div>
+<div class="paragraph">
+<p>Then, the client stubs are retrieved and run.
+This is equivalent to running the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">appclient -client cart-ear/target/cart-earClient.jar</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The client JAR, <code>cart-earClient.jar</code>, contains the application client class, the helper class <code>BookException</code>, and the <code>Cart</code> business interface.</p>
+</div>
+<div class="paragraph">
+<p>When you run the client, the application client container injects any component references declared in the application client class, in this case the reference to the <code>Cart</code> enterprise bean.</p>
+</div>
+<div class="paragraph">
+<p>You will see the output of the <code>cart-app-client</code> application client in the terminal window:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">...
+Retrieving book title from cart: Infinite Jest
+Retrieving book title from cart: Bel Canto
+Retrieving book title from cart: Kafka on the Shore
+Removing "Gravity's Rainbow" from cart.
+Caught a BookException: "Gravity's Rainbow" not in cart.</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_a_singleton_session_bean_example_counter"><a class="anchor" href="#_a_singleton_session_bean_example_counter"></a>A Singleton Session Bean Example: counter</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>counter</code> example demonstrates how to create a singleton session bean.</p>
+</div>
+<div class="sect2">
+<h3 id="_creating_a_singleton_session_bean"><a class="anchor" href="#_creating_a_singleton_session_bean"></a>Creating a Singleton Session Bean</h3>
+<div class="paragraph">
+<p>The <code>jakarta.ejb.Singleton</code> annotation is used to specify that the enterprise bean implementation class is a singleton session bean:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Singleton
+public class SingletonBean { ... }</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_initializing_singleton_session_beans"><a class="anchor" href="#_initializing_singleton_session_beans"></a>Initializing Singleton Session Beans</h4>
+<div class="paragraph">
+<p>The Enterprise Bean container is responsible for determining when to initialize a singleton session bean instance unless the singleton session bean implementation class is annotated with the <code>jakarta.ejb.Startup</code> annotation.
+In this case, sometimes called eager initialization, the Enterprise Bean container must initialize the singleton session bean upon application startup.
+The singleton session bean is initialized before the Enterprise Bean container delivers client requests to any enterprise beans in the application.
+This allows the singleton session bean to perform, for example, application startup tasks.</p>
+</div>
+<div class="paragraph">
+<p>The following singleton session bean stores the status of an application and is eagerly initialized:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Startup
+@Singleton
+public class StatusBean {
+  private String status;
+
+  @PostConstruct
+  void init {
+    status = "Ready";
+  }
+  ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sometimes multiple singleton session beans are used to initialize data for an application and therefore must be initialized in a specific order.
+In these cases, use the <code>jakarta.ejb.DependsOn</code> annotation to declare the startup dependencies of the singleton session bean.
+The <code>@DependsOn</code> annotation&#8217;s <code>value</code> attribute is one or more strings that specify the name of the target singleton session bean.
+If more than one dependent singleton bean is specified in <code>@DependsOn</code>, the order in which they are listed is not necessarily the order in which the Enterprise Bean container will initialize the target singleton session beans.</p>
+</div>
+<div class="paragraph">
+<p>The following singleton session bean, <code>PrimaryBean</code>, should be started up first:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Singleton
+public class PrimaryBean { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>SecondaryBean</code> depends on <code>PrimaryBean</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Singleton
+@DependsOn("PrimaryBean")
+public class SecondaryBean { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This guarantees that the Enterprise Bean container will initialize <code>PrimaryBean</code> before <code>SecondaryBean</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following singleton session bean, <code>TertiaryBean</code>, depends on <code>PrimaryBean</code> and <code>SecondaryBean</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Singleton
+@DependsOn({"PrimaryBean", "SecondaryBean"})
+public class TertiaryBean { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>SecondaryBean</code> explicitly requires <code>PrimaryBean</code> to be initialized before it is initialized, through its own <code>@DependsOn</code> annotation.
+In this case, the Enterprise Bean container will first initialize <code>PrimaryBean</code>, then <code>SecondaryBean</code>, and finally <code>TertiaryBean</code>.</p>
+</div>
+<div class="paragraph">
+<p>If, however, <code>SecondaryBean</code> did not explicitly depend on <code>PrimaryBean</code>, the Enterprise Bean container may initialize either <code>PrimaryBean</code> or <code>SecondaryBean</code> first.
+That is, the Enterprise Bean container could initialize the singletons in the following order: <code>SecondaryBean</code>, <code>PrimaryBean</code>, <code>TertiaryBean</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_managing_concurrent_access_in_a_singleton_session_bean"><a class="anchor" href="#_managing_concurrent_access_in_a_singleton_session_bean"></a>Managing Concurrent Access in a Singleton Session Bean</h4>
+<div class="paragraph">
+<p>Singleton session beans are designed for concurrent access, situations in which many clients need to access a single instance of a session bean at the same time.
+A singleton&#8217;s client needs only a reference to a singleton in order to invoke any business methods exposed by the singleton and doesn&#8217;t need to worry about any other clients that may be simultaneously invoking business methods on the same singleton.</p>
+</div>
+<div class="paragraph">
+<p>When creating a singleton session bean, concurrent access to the singleton&#8217;s business methods can be controlled in two ways: container-managed concurrency and bean-managed concurrency.</p>
+</div>
+<div class="paragraph">
+<p>The <code>jakarta.ejb.ConcurrencyManagement</code> annotation is used to specify container-managed or bean-managed concurrency for the singleton.
+With <code>@ConcurrencyManagement</code>, a type attribute must be set to either <code>jakarta.ejb.ConcurrencyManagementType.CONTAINER</code> or <code>jakarta.ejb.ConcurrencyManagementType.BEAN</code>.
+If no <code>@ConcurrencyManagement</code> annotation is present on the singleton implementation class, the Enterprise Bean container default of container-managed concurrency is used.</p>
+</div>
+<div class="sect4">
+<h5 id="_container_managed_concurrency"><a class="anchor" href="#_container_managed_concurrency"></a>Container-Managed Concurrency</h5>
+<div class="paragraph">
+<p>If a singleton uses container-managed concurrency, the Enterprise Bean container controls client access to the business methods of the singleton.
+The <code>jakarta.ejb.Lock</code> annotation and a <code>jakarta.ejb.LockType</code> type are used to specify the access level of the singleton&#8217;s business methods or <code>@Timeout</code> methods.
+The <code>LockType</code> enumerated types are <code>READ</code> and <code>WRITE</code>.</p>
+</div>
+<div class="paragraph">
+<p>Annotate a singleton&#8217;s business or timeout method with <code>@Lock(LockType.READ)</code> if the method can be concurrently accessed, or shared, with many clients.
+Annotate the business or timeout method with <code>@Lock(LockType.WRITE)</code> if the singleton session bean should be locked to other clients while a client is calling that method.
+Typically, the <code>@Lock(LockType.WRITE)</code> annotation is used when clients are modifying the state of the singleton.</p>
+</div>
+<div class="paragraph">
+<p>Annotating a singleton class with <code>@Lock</code> specifies that all the business methods and any timeout methods of the singleton will use the specified lock type unless they explicitly set the lock type with a method-level <code>@Lock</code> annotation.
+If no <code>@Lock</code> annotation is present on the singleton class, the default lock type, <code>@Lock(LockType.WRITE)</code>, is applied to all business and timeout methods.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows how to use the <code>@ConcurrencyManagement</code>, <code>@Lock(LockType.READ)</code>, and <code>@Lock(LockType.WRITE)</code> annotations for a singleton that uses container-managed concurrency.</p>
+</div>
+<div class="paragraph">
+<p>Although by default singletons use container-managed concurrency, the <code>@ConcurrencyManagement(CONTAINER)</code> annotation may be added at the class level of the singleton to explicitly set the concurrency management type:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ConcurrencyManagement(ConcurrencyManagementType.CONTAINER)
+@Singleton
+public class ExampleSingletonBean {
+  private String state;
+
+  @Lock(LockType.READ)
+  public String getState() {
+    return state;
+  }
+
+  @Lock(LockType.WRITE)
+  public void setState(String newState) {
+    state = newState;
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>getState</code> method can be accessed by many clients at the same time because it is annotated with <code>@Lock(LockType.READ)</code>.
+When the <code>setState</code> method is called, however, all the methods in <code>ExampleSingletonBean</code> will be locked to other clients because <code>setState</code> is annotated with <code>@Lock(LockType.WRITE)</code>.
+This prevents two clients from attempting to simultaneously change the <code>state</code> variable of <code>ExampleSingletonBean</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>getData</code> and <code>getStatus</code> methods in the following singleton are of type <code>READ</code>, and the <code>setStatus</code> method is of type <code>WRITE</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Singleton
+@Lock(LockType.READ)
+public class SharedSingletonBean {
+  private String data;
+  private String status;
+
+  public String getData() {
+    return data;
+  }
+
+  public String getStatus() {
+    return status;
+  }
+
+  @Lock(LockType.WRITE)
+  public void setStatus(String newStatus) {
+    status = newStatus;
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If a method is of locking type <code>WRITE</code>, client access to all the singleton&#8217;s methods is blocked until the current client finishes its method call or an access timeout occurs.
+When an access timeout occurs, the Enterprise Bean container throws a <code>jakarta.ejb.ConcurrentAccessTimeoutException</code>.
+The <code>jakarta.ejb.AccessTimeout</code> annotation is used to specify the number of milliseconds before an access timeout occurs.
+If added at the class level of a singleton, <code>@AccessTimeout</code> specifies the access timeout value for all methods in the singleton unless a method explicitly overrides the default with its own <code>@AccessTimeout</code> annotation.</p>
+</div>
+<div class="paragraph">
+<p>The <code>@AccessTimeout</code> annotation can be applied to both <code>@Lock(LockType.READ)</code> and <code>@Lock(LockType.WRITE)</code> methods.
+The <code>@AccessTimeout</code> annotation has one required element, <code>value</code>, and one optional element, <code>unit</code>.
+By default, the <code>value</code> is specified in milliseconds.
+To change the <code>value</code> unit, set <code>unit</code> to one of the <code>java.util.concurrent.TimeUnit</code> constants: <code>NANOSECONDS</code>, <code>MICROSECONDS</code>, <code>MILLISECONDS</code>, or <code>SECONDS</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following singleton has a default access timeout value of 120,000 milliseconds, or 2 minutes.
+The <code>doTediousOperation</code> method overrides the default access timeout and sets the value to 360,000 milliseconds, or 6 minutes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Singleton
+@AccessTimeout(value=120000)
+public class StatusSingletonBean {
+  private String status;
+
+  @Lock(LockType.WRITE)
+  public void setStatus(String new Status) {
+    status = newStatus;
+  }
+
+  @Lock(LockType.WRITE)
+  @AccessTimeout(value=360000)
+  public void doTediousOperation {
+    ...
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following singleton has a default access timeout value of 60 seconds, specified using the <code>TimeUnit.SECONDS</code> constant:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Singleton
+@AccessTimeout(value=60, unit=TimeUnit.SECONDS)
+public class StatusSingletonBean { ... }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_bean_managed_concurrency"><a class="anchor" href="#_bean_managed_concurrency"></a>Bean-Managed Concurrency</h5>
+<div class="paragraph">
+<p>Singletons that use bean-managed concurrency allow full concurrent access to all the business and timeout methods in the singleton.
+The developer of the singleton is responsible for ensuring that the state of the singleton is synchronized across all clients.
+Developers who create singletons with bean-managed concurrency are allowed to use the Java programming language synchronization primitives, such as <code>synchronization</code> and <code>volatile</code>, to prevent errors during concurrent access.</p>
+</div>
+<div class="paragraph">
+<p>Add a <code>@ConcurrencyManagement</code> annotation with the type set to <code>ConcurrencyManagementType.BEAN</code> at the class level of the singleton to specify bean-managed concurrency:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ConcurrencyManagement(ConcurrencyManagementType.BEAN)
+@Singleton
+public class AnotherSingletonBean { ... }</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_handling_errors_in_a_singleton_session_bean"><a class="anchor" href="#_handling_errors_in_a_singleton_session_bean"></a>Handling Errors in a Singleton Session Bean</h4>
+<div class="paragraph">
+<p>If a singleton session bean encounters an error when initialized by the Enterprise Bean container, that singleton instance will be destroyed.</p>
+</div>
+<div class="paragraph">
+<p>Unlike other enterprise beans, once a singleton session bean instance is initialized, it is not destroyed if the singleton&#8217;s business or lifecycle methods cause system exceptions.
+This ensures that the same singleton instance is used throughout the application lifecycle.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_architecture_of_the_counter_example"><a class="anchor" href="#_the_architecture_of_the_counter_example"></a>The Architecture of the counter Example</h3>
+<div class="paragraph">
+<p>The <code>counter</code> example consists of a singleton session bean, <code>CounterBean</code>, and a Jakarta Faces Facelets web front end.</p>
+</div>
+<div class="paragraph">
+<p><code>CounterBean</code> is a simple singleton with one method, <code>getHits</code>, that returns an integer representing the number of times a web page has been accessed.
+Here is the code of <code>CounterBean</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package ee.jakarta.tutorial.counter.ejb;
+
+import jakarta.ejb.Singleton;
+
+/**
+ * CounterBean is a simple singleton session bean that records the number
+ * of hits to a web page.
+ */
+@Singleton
+public class CounterBean {
+    private int hits = 1;
+
+    // Increment and return the number of hits
+    public int getHits() {
+        return hits++;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>@Singleton</code> annotation marks <code>CounterBean</code> as a singleton session bean.
+<code>CounterBean</code> uses a local, no-interface view.</p>
+</div>
+<div class="paragraph">
+<p><code>CounterBean</code> uses the Enterprise Bean container&#8217;s default metadata values for singletons to simplify the coding of the singleton implementation class.
+There is no <code>@ConcurrencyManagement</code> annotation on the class, so the default of container-managed concurrency access is applied.
+There is no <code>@Lock</code> annotation on the class or business method, so the default of <code>@Lock(WRITE)</code> is applied to the only business method, <code>getHits</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following version of <code>CounterBean</code> is functionally equivalent to the preceding version:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package ee.jakarta.tutorial.counter.ejb;
+
+import jakarta.ejb.Singleton;
+import jakarta.ejb.ConcurrencyManagement;
+import static jakarta.ejb.ConcurrencyManagementType.CONTAINER;
+import jakarta.ejb.Lock;
+import jakarta.ejb.LockType.WRITE;
+
+/**
+ * CounterBean is a simple singleton session bean that records the number
+ * of hits to a web page.
+ */
+@Singleton
+@ConcurrencyManagement(CONTAINER)
+public class CounterBean {
+    private int hits = 1;
+
+    // Increment and return the number of hits
+    @Lock(WRITE)
+    public int getHits() {
+        return hits++;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The web front end of <code>counter</code> consists of a Jakarta Faces managed bean, <code>Count.java</code>, that is used by the Facelets XHTML files <code>template.xhtml</code> and <code>index.xhtml</code>.
+The <code>Count</code> Jakarta Faces managed bean obtains a reference to <code>CounterBean</code> through dependency injection.
+<code>Count</code> defines a <code>hitCount</code> JavaBeans property.
+When the <code>getHitCount</code> getter method is called from the XHTML files, <code>CounterBean</code>'s <code>getHits</code> method is called to return the current number of page hits.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s the <code>Count</code> managed bean class:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Named
+@ConversationScoped
+public class Count implements Serializable {
+    @EJB
+    private CounterBean counterBean;
+
+    private int hitCount;
+
+    public Count() {
+        this.hitCount = 0;
+    }
+
+    public int getHitCount() {
+        hitCount = counterBean.getHits();
+        return hitCount;
+    }
+
+    public void setHitCount(int newHits) {
+        this.hitCount = newHits;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>template.xhtml</code> and <code>index.xhtml</code> files are used to render a Facelets view that displays the number of hits to that view.
+The <code>index.xhtml</code> file uses an expression language statement, <code>#{count.hitCount}</code>, to access the <code>hitCount</code> property of the <code>Count</code> managed bean.
+Here is the content of <code>index.xhtml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:h="jakarta.faces.html"&gt;
+    &lt;ui:composition template="/template.xhtml"&gt;
+        &lt;ui:define name="title"&gt;
+            This page has been accessed #{count.hitCount} time(s).
+        &lt;/ui:define&gt;
+        &lt;ui:define name="body"&gt;
+            Hooray!
+        &lt;/ui:define&gt;
+    &lt;/ui:composition&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_running_the_counter_example"><a class="anchor" href="#_running_the_counter_example"></a>Running the counter Example</h3>
+<div class="paragraph">
+<p>You can use either NetBeans IDE or Maven to build, package, deploy, and run the <code>counter</code> example.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_counter_example_using_netbeans_ide"><a class="anchor" href="#_to_run_the_counter_example_using_netbeans_ide"></a>To Run the counter Example Using NetBeans IDE</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>From the <strong>File</strong> menu, choose <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Open Project</strong> dialog box, navigate to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/ejb</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Select the <code>counter</code> folder.</p>
+</li>
+<li>
+<p>Click <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Projects</strong> tab, right-click the <code>counter</code> project and select <strong>Run</strong>.</p>
+<div class="paragraph">
+<p>A web browser will open the URL <a href="http://localhost:8080/counter" class="bare" target="_blank" rel="noopener">http://localhost:8080/counter</a>, which displays the number of hits.</p>
+</div>
+</li>
+<li>
+<p>Reload the page to see the hit count increment.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_counter_example_using_maven"><a class="anchor" href="#_to_run_the_counter_example_using_maven"></a>To Run the counter Example Using Maven</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>In a terminal window, go to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/ejb/counter/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enter the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will build and deploy <code>counter</code> to your GlassFish Server instance.</p>
+</div>
+</li>
+<li>
+<p>In a web browser, enter the following URL:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/counter</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Reload the page to see the hit count increment.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_a_web_service_example_helloservice"><a class="anchor" href="#_a_web_service_example_helloservice"></a>A Web Service Example: helloservice</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This example demonstrates a simple web service that generates a response based on information received from the client.
+<code>HelloServiceBean</code> is a stateless session bean that implements a single method: <code>sayHello</code>.
+This method matches the <code>sayHello</code> method invoked by the client described in "A Simple XML Web Services Application Client"
+(<a href="#9.1@websvcs:jaxws/jaxws.adoc#_a_simple_xml_web_services_application_client" class="xref unresolved" target="_blank" rel="noopener">available in a previous version of the tutorial</a>&#x2197;).</p>
+</div>
+<div class="sect2">
+<h3 id="_the_web_service_endpoint_implementation_class"><a class="anchor" href="#_the_web_service_endpoint_implementation_class"></a>The Web Service Endpoint Implementation Class</h3>
+<div class="paragraph">
+<p><code>HelloServiceBean</code> is the endpoint implementation class, typically the primary programming artifact for enterprise bean web service endpoints.
+The web service endpoint implementation class has the following requirements.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The class must be annotated with either the <code>jakarta.jws.WebService</code> or the <code>jakarta.jws.WebServiceProvider</code> annotation.</p>
+</li>
+<li>
+<p>The implementing class may explicitly reference an SEI through the <code>endpointInterface</code> element of the <code>@WebService</code> annotation but is not required to do so.
+If no <code>endpointInterface</code> is specified in <code>@WebService</code>, an SEI is implicitly defined for the implementing class.</p>
+</li>
+<li>
+<p>The business methods of the implementing class must be public and must not be declared <code>static</code> or <code>final</code>.</p>
+</li>
+<li>
+<p>Business methods that are exposed to web service clients must be annotated with <code>jakarta.jws.WebMethod</code>.</p>
+</li>
+<li>
+<p>Business methods that are exposed to web service clients must have Jakarta XML Binding-compatible parameters and return types.
+See the list of Jakarta XML Binding default data type bindings at "Types Supported by XML Web Services" (<a href="#9.1@websvcs:jaxws/jaxws.adoc#_types_supported_by_xml_web_services" class="xref unresolved" target="_blank" rel="noopener">available in a previous version of the tutorial</a>&#x2197;).</p>
+</li>
+<li>
+<p>The implementing class must not be declared <code>final</code> and must not be <code>abstract</code>.</p>
+</li>
+<li>
+<p>The implementing class must have a default public constructor.</p>
+</li>
+<li>
+<p>The endpoint class must be annotated <code>@Stateless</code>.</p>
+</li>
+<li>
+<p>The implementing class must not define the <code>finalize</code> method.</p>
+</li>
+<li>
+<p>The implementing class may use the <code>jakarta.annotation.PostConstruct</code> or <code>jakarta.annotation.PreDestroy</code> annotations on its methods for lifecycle event callbacks.</p>
+<div class="paragraph">
+<p>The <code>@PostConstruct</code> method is called by the container before the implementing class begins responding to web service clients.</p>
+</div>
+<div class="paragraph">
+<p>The <code>@PreDestroy</code> method is called by the container before the endpoint is removed from operation.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_stateless_session_bean_implementation_class"><a class="anchor" href="#_stateless_session_bean_implementation_class"></a>Stateless Session Bean Implementation Class</h3>
+<div class="paragraph">
+<p>The <code>HelloServiceBean</code> class implements the <code>sayHello</code> method, which is annotated <code>@WebMethod</code>.
+The source code for the <code>HelloServiceBean</code> class is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package ee.jakarta.tutorial.helloservice.ejb;
+
+import jakarta.ejb.Stateless;
+import jakarta.jws.WebMethod;
+import jakarta.jws.WebService;
+
+@Stateless
+@WebService
+public class HelloServiceBean {
+    private final String message = "Hello, ";
+
+    public void HelloServiceBean() {}
+
+    @WebMethod
+    public String sayHello(String name) {
+        return message + name + ".";
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_running_the_helloservice_example"><a class="anchor" href="#_running_the_helloservice_example"></a>Running the helloservice Example</h3>
+<div class="paragraph">
+<p>You can use either NetBeans IDE or Maven to build, package, and deploy the <code>helloservice</code> example.
+You can then use the Administration Console to test the web service endpoint methods.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_build_package_and_deploy_the_helloservice_example_using_netbeans_ide"><a class="anchor" href="#_to_build_package_and_deploy_the_helloservice_example_using_netbeans_ide"></a>To Build, Package, and Deploy the helloservice Example Using NetBeans IDE</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>From the <strong>File</strong> menu, choose <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Open Project</strong> dialog box, navigate to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/ejb</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Select the <code>helloservice</code> folder.</p>
+</li>
+<li>
+<p>Click <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Projects</strong> tab, right-click the <code>helloservice</code> project and select <strong>Build</strong>.</p>
+<div class="paragraph">
+<p>This builds and packages the application into <code>helloservice.ear</code>, located in <code><em>tut-install</em>/examples/ejb/helloservice/target/</code>, and deploys this EAR file to GlassFish Server.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_build_package_and_deploy_the_helloservice_example_using_maven"><a class="anchor" href="#_to_build_package_and_deploy_the_helloservice_example_using_maven"></a>To Build, Package, and Deploy the helloservice Example Using Maven</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>In a terminal window, go to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/ejb/helloservice/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enter the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This compiles the source files and packages the application into an enterprise bean JAR file located at <code><em>tut-install</em>/examples/ejb/helloservice/target/helloservice.jar</code>.
+Then the enterprise bean JAR file is deployed to GlassFish Server.</p>
+</div>
+<div class="paragraph">
+<p>Upon deployment, GlassFish Server generates additional artifacts required for web service invocation, including the WSDL file.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_test_the_service_without_a_client"><a class="anchor" href="#_to_test_the_service_without_a_client"></a>To Test the Service without a Client</h4>
+<div class="paragraph">
+<p>The GlassFish Server Administration Console allows you to test the methods of a web service endpoint.
+To test the <code>sayHello</code> method of <code>HelloServiceBean</code>, follow these steps.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open the <strong>Administration Console</strong> by opening the following URL in a
+web browser:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:4848/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>In the navigation tree, select the <strong>Applications</strong> node.</p>
+</li>
+<li>
+<p>In the <strong>Applications</strong> table, click the <code>helloservice</code> link.</p>
+</li>
+<li>
+<p>In the <strong>Modules and Components</strong> table, click the <strong>View Endpoint</strong> link.</p>
+</li>
+<li>
+<p>On the <strong>Web Service Endpoint Information</strong> page, click the <strong>Tester</strong> xref:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">/HelloServiceBeanService/HelloServiceBean?Tester</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>On the <strong>Web Service Test Links</strong> page, click the non-secure link (the one that specifies port 8080).</p>
+</li>
+<li>
+<p>On the <strong>HelloServiceBeanService Web Service Tester</strong> page, under <strong>Methods</strong>, enter a name as the parameter to the <code>sayHello</code> method.</p>
+</li>
+<li>
+<p>Click <strong>sayHello</strong>.</p>
+<div class="paragraph">
+<p>The sayHello Method invocation page opens.
+Under Method returned, you&#8217;ll see the response from the endpoint.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_the_timer_service"><a class="anchor" href="#_using_the_timer_service"></a>Using the Timer Service</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Applications that model business work flows often rely on timed notifications.
+The timer service of the enterprise bean container enables you to schedule timed notifications for all types of enterprise beans except for stateful session beans.
+You can schedule a timed notification to occur according to a calendar schedule, at a specific time, after a duration of time, or at timed intervals.
+For example, you could set timers to go off at 10:30 a.m. on May 23, in 30 days, or every 12 hours.</p>
+</div>
+<div class="paragraph">
+<p>Enterprise bean timers are either programmatic timers or automatic timers.
+Programmatic timers are set by explicitly calling one of the timer creation methods of the <code>TimerService</code> interface.
+Automatic timers are created upon the successful deployment of an enterprise bean that contains a method annotated with the <code>jakarta.ejb.Schedule</code> or <code>jakarta.ejb.Schedules</code> annotations.</p>
+</div>
+<div class="sect2">
+<h3 id="_creating_calendar_based_timer_expressions"><a class="anchor" href="#_creating_calendar_based_timer_expressions"></a>Creating Calendar-Based Timer Expressions</h3>
+<div class="paragraph">
+<p>Timers can be set according to a calendar-based schedule, expressed using a syntax similar to the UNIX <code>cron</code> utility.
+Both programmatic and automatic timers can use calendar-based timer expressions. <a href="#_calendar_based_timer_attributes">Calendar-Based Timer Attributes</a> shows the calendar-based timer attributes.</p>
+</div>
+<table id="_calendar_based_timer_attributes" class="tableblock frame-all grid-all" style="width: 99%;">
+<caption class="title">Calendar-Based Timer Attributes</caption>
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 35%;">
+<col style="width: 15%;">
+<col style="width: 35%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+<th class="tableblock halign-left valign-top">Allowable Values and Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>second</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more seconds within a minute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0</code> to <code>59</code>.
+For example: <code>second="30"</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>minute</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more minutes within an hour</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0</code> to <code>59</code>.
+For example: <code>minute="15"</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hour</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more hours within a day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0</code> to <code>23</code>.
+For example: <code>hour="13"</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dayOfWeek</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more days within a week</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>*</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>0</code> to <code>7</code> (both 0 and 7 refer to Sunday).
+For example: <code>dayOfWeek="3"</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>Sun</code>, <code>Mon</code>, <code>Tue</code>, <code>Wed</code>, <code>Thu</code>, <code>Fri</code>, <code>Sat</code>.
+For example: <code>dayOfWeek="Mon"</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dayOfMonth</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more days within a month</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>*</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>1</code> to <code>31</code>.
+For example: <code>dayOfMonth="15"</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>–7</code> to <code>–1</code> (a negative number means the nth day or days before the end of the month).
+For example: <code>dayOfMonth="–3"</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>Last</code>.
+For example: <code>dayOfMonth="Last"</code>.</p>
+</div>
+<div class="paragraph">
+<p>[<code>1st</code>, <code>2nd</code>, <code>3rd</code>, <code>4th</code>, <code>5th</code>, <code>Last</code>] [<code>Sun</code>, <code>Mon</code>, <code>Tue</code>, <code>Wed</code>, <code>Thu</code>, <code>Fri</code>, <code>Sat</code>].
+For example: <code>dayOfMonth="2nd Fri"</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>month</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more months within a year</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>*</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>1</code> to <code>12</code>.
+For example: <code>month="7"</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>Jan</code>, <code>Feb</code>, <code>Mar</code>, <code>Apr</code>, <code>May</code>, <code>Jun</code>, <code>Jul</code>, <code>Aug</code>, <code>Sep</code>, <code>Oct</code>, <code>Nov</code>, <code>Dec</code>.
+For example: <code>month="July"</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>year</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A particular calendar year</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>*</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A four-digit calendar year.
+For example: <code>year="2011"</code>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="_specifying_multiple_values_in_calendar_expressions"><a class="anchor" href="#_specifying_multiple_values_in_calendar_expressions"></a>Specifying Multiple Values in Calendar Expressions</h4>
+<div class="paragraph">
+<p>You can specify multiple values in calendar expressions, as described in the following sections.</p>
+</div>
+<div class="sect4">
+<h5 id="_using_wildcards_in_calendar_expressions"><a class="anchor" href="#_using_wildcards_in_calendar_expressions"></a>Using Wildcards in Calendar Expressions</h5>
+<div class="paragraph">
+<p>Setting an attribute to an asterisk symbol (<code>*</code>) represents all allowable values for the attribute.</p>
+</div>
+<div class="paragraph">
+<p>The following expression represents every minute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">minute="*"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following expression represents every day of the week:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">dayOfWeek="*"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_specifying_a_list_of_values"><a class="anchor" href="#_specifying_a_list_of_values"></a>Specifying a List of Values</h5>
+<div class="paragraph">
+<p>To specify two or more values for an attribute, use a comma (<code>,</code>) to separate the values.
+A range of values is allowed as part of a list.
+Wildcards and intervals, however, are not allowed.</p>
+</div>
+<div class="paragraph">
+<p>Duplicates within a list are ignored.</p>
+</div>
+<div class="paragraph">
+<p>The following expression sets the day of the week to Tuesday and Thursday:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">dayOfWeek="Tue, Thu"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following expression represents 4:00 a.m., every hour from 9:00 a.m. to 5:00 p.m. using a range, and 10:00 p.m.:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">hour="4,9-17,22"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_specifying_a_range_of_values"><a class="anchor" href="#_specifying_a_range_of_values"></a>Specifying a Range of Values</h5>
+<div class="paragraph">
+<p>Use a dash character (<code>-</code>) to specify an inclusive range of values for an attribute.
+Members of a range cannot be wildcards, lists, or intervals.
+A range of the form <code>x-x</code>, is equivalent to the single-valued expression <code>x</code>.
+A range of the form <code>x-y</code> where <code>x</code> is greater than <code>y</code> is equivalent to the expression <code>x-<em>maximumvalue</em></code>,<code><em>minimumvalue</em>-y</code>.
+That is, the expression begins at <code>x</code>, rolls over to the beginning of the allowable values, and continues up to <code>y</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following expression represents 9:00 a.m. to 5:00 p.m.:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">hour="9-17"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following expression represents Friday through Monday:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">dayOfWeek="5-1"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following expression represents the twenty-fifth day of the month to the end of the month, and the beginning of the month to the fifth day of the month:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">dayOfMonth="25-5"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is equivalent to the following expression:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">dayOfMonth="25-Last,1-5"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_specifying_intervals"><a class="anchor" href="#_specifying_intervals"></a>Specifying Intervals</h5>
+<div class="paragraph">
+<p>The forward slash (<code>/</code>) constrains an attribute to a starting point and an interval and is used to specify every <code>N</code> seconds, minutes, or hours within the minute, hour, or day.
+For an expression of the form <code>x/y</code>, <code>x</code> represents the starting point and <code>y</code> represents the interval.
+The wildcard character may be used in the <code>x</code> position of an interval and is equivalent to setting <code>x</code> to <code>0</code>.</p>
+</div>
+<div class="paragraph">
+<p>Intervals may be set only for <code>second</code>, <code>minute</code>, and <code>hour</code> attributes.</p>
+</div>
+<div class="paragraph">
+<p>The following expression represents every 10 minutes within the hour:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">minute="*/10"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is equivalent to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">minute="0,10,20,30,40,50"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following expression represents every 2 hours starting at noon:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">hour="12/2"</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_programmatic_timers"><a class="anchor" href="#_programmatic_timers"></a>Programmatic Timers</h3>
+<div class="paragraph">
+<p>When a programmatic timer expires (goes off), the container calls the method annotated <code>@Timeout</code> in the bean&#8217;s implementation class.
+The <code>@Timeout</code> method contains the business logic that handles the timed event.</p>
+</div>
+<div class="sect3">
+<h4 id="_the_timeout_method"><a class="anchor" href="#_the_timeout_method"></a>The @Timeout Method</h4>
+<div class="paragraph">
+<p>Methods annotated <code>@Timeout</code> in the enterprise bean class must return <code>void</code> and optionally take a <code>jakarta.ejb.Timer</code> object as the only parameter.
+They may not throw application exceptions:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Timeout
+public void timeout(Timer timer) {
+    System.out.println("TimerBean: timeout occurred");
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_creating_programmatic_timers"><a class="anchor" href="#_creating_programmatic_timers"></a>Creating Programmatic Timers</h4>
+<div class="paragraph">
+<p>To create a timer, the bean invokes one of the <code>create</code> methods of the <code>TimerService</code> interface.
+These methods allow single-action, interval, or calendar-based timers to be created.</p>
+</div>
+<div class="paragraph">
+<p>For single-action or interval timers, the expiration of the timer can be expressed as either a duration or an absolute time.
+The duration is expressed as a the number of milliseconds before a timeout event is triggered.
+To specify an absolute time, create a <code>java.util.Date</code> object and pass it to the <code>TimerService.createSingleActionTimer</code> or the <code>TimerService.createTimer</code> method.</p>
+</div>
+<div class="paragraph">
+<p>The following code sets a programmatic timer that will expire in 1 minute (60,000 milliseconds):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">long duration = 60000;
+Timer timer =
+    timerService.createSingleActionTimer(duration, new TimerConfig());</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following code sets a programmatic timer that will expire at 12:05 p.m. on May 1, 2015, specified as a <code>java.util.Date</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">SimpleDateFormatter formatter =
+    new SimpleDateFormatter("MM/dd/yyyy 'at' HH:mm");
+Date date = formatter.parse("05/01/2015 at 12:05");
+Timer timer = timerService.createSingleActionTimer(date, new TimerConfig());</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For calendar-based timers, the expiration of the timer is expressed as a <code>jakarta.ejb.ScheduleExpression</code> object, passed as a parameter to the <code>TimerService.createCalendarTimer</code> method.
+The <code>ScheduleExpression</code> class represents calendar-based timer expressions and has methods that correspond to the attributes described in <a href="#_creating_calendar_based_timer_expressions">Creating Calendar-Based Timer Expressions</a>.</p>
+</div>
+<div class="paragraph">
+<p>The following code creates a programmatic timer using the <code>ScheduleExpression</code> helper class:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">ScheduleExpression schedule = new ScheduleExpression();
+schedule.dayOfWeek("Mon");
+schedule.hour("12-17, 23");
+Timer timer = timerService.createCalendarTimer(schedule);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For details on the method signatures, see the <code>TimerService</code> API documentation at <a href="https://jakarta.ee/specifications/platform/9/apidocs/jakarta/ejb/TimerService.html" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/platform/9/apidocs/jakarta/ejb/TimerService.html</a>.</p>
+</div>
+<div class="paragraph">
+<p>The bean described in <a href="#_the_timersession_example">The timersession Example</a> creates a timer as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Timer timer = timerService.createTimer(intervalDuration,
+        "Created new programmatic timer");</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the <code>timersession</code> example, the method that calls <code>createTimer</code> is invoked in a business method, which is called by a client.</p>
+</div>
+<div class="paragraph">
+<p>Timers are persistent by default.
+If the server is shut down or crashes, persistent timers are saved and will become active again when the server is restarted.
+If a persistent timer expires while the server is down, the container will call the <code>@Timeout</code> method when the server is restarted.</p>
+</div>
+<div class="paragraph">
+<p>Nonpersistent programmatic timers are created by calling <code>TimerConfig.setPersistent(false)</code> and passing the <code>TimerConfig</code> object to one of the timer-creation methods.</p>
+</div>
+<div class="paragraph">
+<p>The <code>Date</code> and <code>long</code> parameters of the <code>createTimer</code> methods represent time with the resolution of milliseconds.
+However, because the timer service is not intended for real-time applications, a callback to the <code>@Timeout</code> method might not occur with millisecond precision.
+The timer service is for business applications, which typically measure time in hours, days, or longer durations.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_automatic_timers"><a class="anchor" href="#_automatic_timers"></a>Automatic Timers</h3>
+<div class="paragraph">
+<p>Automatic timers are created by the Enterprise Bean container when an enterprise bean that contains methods annotated with the <code>@Schedule</code> or <code>@Schedules</code> annotations is deployed.
+An enterprise bean can have multiple automatic timeout methods, unlike a programmatic timer, which allows only one method annotated with the <code>@Timeout</code> annotation in the enterprise bean class.</p>
+</div>
+<div class="paragraph">
+<p>Automatic timers can be configured through annotations or through the <code>ejb-jar.xml</code> deployment descriptor.</p>
+</div>
+<div class="paragraph">
+<p>Adding a <code>@Schedule</code> annotation on an enterprise bean marks that method as a timeout method according to the calendar schedule specified in the attributes of <code>@Schedule</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>@Schedule</code> annotation has elements that correspond to the calendar expressions detailed in <a href="#_creating_calendar_based_timer_expressions">Creating Calendar-Based Timer Expressions</a> and the <code>persistent</code>, <code>info</code>, and <code>timezone</code> elements.</p>
+</div>
+<div class="paragraph">
+<p>The optional <code>persistent</code> element takes a Boolean value and is used to specify whether the automatic timer should survive a server restart or crash.
+By default, all automatic timers are persistent.</p>
+</div>
+<div class="paragraph">
+<p>The optional <code>timezone</code> element is used to specify that the automatic timer is associated with a particular time zone.
+If set, this element will evaluate all timer expressions in relation to the specified time zone, regardless of the time zone in which the Enterprise Bean container is running.
+By default, all automatic timers set are in relation to the default time zone of the server.</p>
+</div>
+<div class="paragraph">
+<p>The optional <code>info</code> element is used to set an informational description of the timer.
+A timer&#8217;s information can be retrieved later by using <code>Timer.getInfo</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following timeout method uses <code>@Schedule</code> to set a timer that will expire every Sunday at midnight:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Schedule(dayOfWeek="Sun", hour="0")
+public void cleanupWeekData() { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>@Schedules</code> annotation is used to specify multiple calendar-based timer expressions for a given timeout method.</p>
+</div>
+<div class="paragraph">
+<p>The following timeout method uses the <code>@Schedules</code> annotation to set multiple calendar-based timer expressions.
+The first expression sets a timer to expire on the last day of every month.
+The second expression sets a timer to expire every Friday at 11:00 p.m.:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Schedules ({
+    @Schedule(dayOfMonth="Last"),
+    @Schedule(dayOfWeek="Fri", hour="23")
+})
+public void doPeriodicCleanup() { ... }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_canceling_and_saving_timers"><a class="anchor" href="#_canceling_and_saving_timers"></a>Canceling and Saving Timers</h3>
+<div class="paragraph">
+<p>Timers can be cancelled by the following events.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>When a single-event timer expires, the Enterprise Bean container calls the associated timeout method and then cancels the timer.</p>
+</li>
+<li>
+<p>When the bean invokes the <code>cancel</code> method of the <code>Timer</code> interface, the container cancels the timer.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If a method is invoked on a cancelled timer, the container throws the <code>jakarta.ejb.NoSuchObjectLocalException</code>.</p>
+</div>
+<div class="paragraph">
+<p>To save a <code>Timer</code> object for future reference, invoke its <code>getHandle</code> method and store the <code>TimerHandle</code> object in a database.
+(A <code>TimerHandle</code> object is serializable.)
+To reinstantiate the <code>Timer</code> object, retrieve the handle from the database and invoke <code>getTimer</code> on the handle.
+A <code>TimerHandle</code> object cannot be passed as an argument of a method defined in a remote or web service interface.
+In other words, remote clients and web service clients cannot access a bean&#8217;s <code>TimerHandle</code> object.
+Local clients, however, do not have this restriction.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_getting_timer_information"><a class="anchor" href="#_getting_timer_information"></a>Getting Timer Information</h3>
+<div class="paragraph">
+<p>In addition to defining the <code>cancel</code> and <code>getHandle</code> methods, the <code>Timer</code> interface defines methods for obtaining information about timers:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public long getTimeRemaining();
+public java.util.Date getNextTimeout();
+public java.io.Serializable getInfo();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>getInfo</code> method returns the object that was the last parameter of the <code>createTimer</code> invocation.
+For example, in the <code>createTimer</code> code snippet of the preceding section, this information parameter is a <code>String</code> object with the value <code>created timer</code>.</p>
+</div>
+<div class="paragraph">
+<p>To retrieve all of a bean&#8217;s active timers, call the <code>getTimers</code> method of the <code>TimerService</code> interface.
+The <code>getTimers</code> method returns a collection of <code>Timer</code> objects.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_transactions_and_timers"><a class="anchor" href="#_transactions_and_timers"></a>Transactions and Timers</h3>
+<div class="paragraph">
+<p>An enterprise bean usually creates a timer within a transaction.
+If this transaction is rolled back, the timer creation also is rolled back.
+Similarly, if a bean cancels a timer within a transaction that gets rolled back, the timer cancellation is rolled back.
+In this case, the timer&#8217;s duration is reset as if the cancellation had never occurred.</p>
+</div>
+<div class="paragraph">
+<p>In beans that use container-managed transactions, the <code>@Timeout</code> method usually has the <code>Required</code> or <code>RequiresNew</code> transaction attribute to preserve transaction integrity.
+With these attributes, the Enterprise Bean container begins the new transaction before calling the <code>@Timeout</code> method.
+If the transaction is rolled back, the container will call the <code>@Timeout</code> method at least one more time.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_timersession_example"><a class="anchor" href="#_the_timersession_example"></a>The timersession Example</h3>
+<div class="paragraph">
+<p>The source code for this example is in the <code><em>tut-install</em>/examples/ejb/timersession/src/main/java/</code> directory.</p>
+</div>
+<div class="paragraph">
+<p><code>TimerSessionBean</code> is a singleton session bean that shows how to set both an automatic timer and a programmatic timer.
+In the source code listing of <code>TimerSessionBean</code> that follows, the <code>setTimer</code> and <code>@Timeout</code> methods are used to set a programmatic timer.
+A <code>TimerService</code> instance is injected by the container when the bean is created.
+Because it&#8217;s a business method, <code>setTimer</code> is exposed to the local, no-interface view of <code>TimerSessionBean</code> and can be invoked by the client.
+In this example, the client invokes <code>setTimer</code> with an interval duration of 8,000 milliseconds, or 8 seconds.
+The <code>setTimer</code> method creates a new timer by invoking the <code>createTimer</code> method of <code>TimerService</code>.
+Now that the timer is set, the Enterprise Bean container will invoke the <code>programmaticTimeout</code> method of <code>TimerSessionBean</code> when the timer expires, in about 8 seconds:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">...
+    public void setTimer(long intervalDuration) {
+        logger.log(Level.INFO,
+                "Setting a programmatic timeout for {0} milliseconds from now.",
+                intervalDuration);
+        Timer timer = timerService.createTimer(intervalDuration,
+                "Created new programmatic timer");
+    }
+
+    @Timeout
+    public void programmaticTimeout(Timer timer) {
+        this.setLastProgrammaticTimeout(new Date());
+        logger.info("Programmatic timeout occurred.");
+    }
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>TimerSessionBean</code> also has an automatic timer and timeout method, <code>automaticTimeout</code>.
+The automatic timer is set to expire every 1 minute and is set by using a calendar-based timer expression in the <code>@Schedule</code> annotation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">...
+    @Schedule(minute = "*/1", hour = "*", persistent = false)
+    public void automaticTimeout() {
+        this.setLastAutomaticTimeout(new Date());
+        logger.info("Automatic timeout occured");
+    }
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>TimerSessionBean</code> also has two business methods: <code>getLastProgrammaticTimeout</code> and <code>getLastAutomaticTimeout</code>.
+Clients call these methods to get the date and time of the last timeout for the programmatic timer and automatic timer, respectively.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s the source code for the <code>TimerSessionBean</code> class:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package ee.jakarta.tutorial.timersession.ejb;
+
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import jakarta.annotation.Resource;
+import jakarta.ejb.Schedule;
+import jakarta.ejb.Singleton;
+import jakarta.ejb.Startup;
+import jakarta.ejb.Timeout;
+import jakarta.ejb.Timer;
+import jakarta.ejb.TimerService;
+
+@Singleton
+@Startup
+public class TimerSessionBean {
+    @Resource
+    TimerService timerService;
+
+    private Date lastProgrammaticTimeout;
+    private Date lastAutomaticTimeout;
+
+    private static final Logger logger =
+            Logger.getLogger("timersession.ejb.TimerSessionBean");
+
+    public void setTimer(long intervalDuration) {
+        logger.log(Level.INFO,
+                "Setting a programmatic timeout for {0} milliseconds from now.",
+                intervalDuration);
+        Timer timer = timerService.createTimer(intervalDuration,
+                "Created new programmatic timer");
+    }
+
+    @Timeout
+    public void programmaticTimeout(Timer timer) {
+        this.setLastProgrammaticTimeout(new Date());
+        logger.info("Programmatic timeout occurred.");
+    }
+
+    @Schedule(minute = "*/1", hour = "*", persistent = false)
+    public void automaticTimeout() {
+        this.setLastAutomaticTimeout(new Date());
+        logger.info("Automatic timeout occured");
+    }
+
+    public String getLastProgrammaticTimeout() {
+        if (lastProgrammaticTimeout != null) {
+            return lastProgrammaticTimeout.toString();
+        } else {
+            return "never";
+        }
+    }
+
+    public void setLastProgrammaticTimeout(Date lastTimeout) {
+        this.lastProgrammaticTimeout = lastTimeout;
+    }
+
+    public String getLastAutomaticTimeout() {
+        if (lastAutomaticTimeout != null) {
+            return lastAutomaticTimeout.toString();
+        } else {
+            return "never";
+        }
+    }
+
+    public void setLastAutomaticTimeout(Date lastAutomaticTimeout) {
+        this.lastAutomaticTimeout = lastAutomaticTimeout;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>GlassFish Server has a default minimum timeout value of 1,000 milliseconds, or 1 second.
+If you need to set the timeout value lower than 1,000 milliseconds, change the value of the Minimum Delivery Interval setting in the Administration Console.</p>
+</div>
+<div class="paragraph">
+<p>To modify the minimum timeout value, in the Administration Console expand Configurations, then expand server-config, select EJB Container, and click the EJB Timer Service tab.
+Enter a new timeout value under Minimum Delivery Interval and click Save.</p>
+</div>
+<div class="paragraph">
+<p>The lowest practical value for <code>minimum-delivery-interval-in-millis</code> is around 10 milliseconds, owing to virtual machine constraints.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_running_the_timersession_example"><a class="anchor" href="#_running_the_timersession_example"></a>Running the timersession Example</h3>
+<div class="paragraph">
+<p>You can use either NetBeans IDE or Maven to build, package, deploy, and run the <code>timersession</code> example.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_timersession_example_using_netbeans_ide"><a class="anchor" href="#_to_run_the_timersession_example_using_netbeans_ide"></a>To Run the timersession Example Using NetBeans IDE</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>From the <strong>File</strong> menu, choose <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Open Project</strong> dialog box, navigate to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/ejb</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Select the <code>timersession</code> folder.</p>
+</li>
+<li>
+<p>Click <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>From the <strong>Run</strong> menu, choose <strong>Run Project</strong>.</p>
+<div class="paragraph">
+<p>This builds and packages the application into a WAR file located at <code><em>tut-install</em>/examples/ejb/timersession/target/timersession.war</code>, deploys this WAR file to your GlassFish Server instance, and then runs the web client.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_build_package_and_deploy_the_timersession_example_using_maven"><a class="anchor" href="#_to_build_package_and_deploy_the_timersession_example_using_maven"></a>To Build, Package, and Deploy the timersession Example Using Maven</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>In a terminal window, go to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/ejb/timersession/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enter the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This builds and packages the application into a WAR file located at <code><em>tut-install</em>/examples/ejb/timersession/target/timersession.war</code> and deploys this WAR file to your GlassFish Server instance.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_web_client"><a class="anchor" href="#_to_run_the_web_client"></a>To Run the Web Client</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open a web browser to the following URL:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/timersession</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Click Set Timer to set a programmatic timer.</p>
+</li>
+<li>
+<p>Wait for a while and click the browser&#8217;s Refresh button.</p>
+<div class="paragraph">
+<p>You will see the date and time of the last programmatic and automatic timeouts.</p>
+</div>
+<div class="paragraph">
+<p>To see the messages that are logged when a timeout occurs, open the <code>server.log</code> file located in <code><em>domain-dir</em>/logs/</code>.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_handling_exceptions"><a class="anchor" href="#_handling_exceptions"></a>Handling Exceptions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The exceptions thrown by enterprise beans fall into two categories: system and application.</p>
+</div>
+<div class="paragraph">
+<p>A system exception indicates a problem with the services that support an application.
+For example, a connection to an external resource cannot be obtained, or an injected resource cannot be found.
+If it encounters a system-level problem, your enterprise bean should throw a <code>jakarta.ejb.EJBException</code>.
+Because the <code>EJBException</code> is a subclass of <code>RuntimeException</code>, you do not have to specify it in the <code>throws</code> clause of the method declaration.
+If a system exception is thrown, the Jakarta Enterprise Beans container might destroy the bean instance.
+Therefore, a system exception cannot be handled by the bean&#8217;s client program, but instead requires intervention by a system administrator.</p>
+</div>
+<div class="paragraph">
+<p>An application exception signals an error in the business logic of an enterprise bean.
+Application exceptions are typically exceptions that you&#8217;ve coded yourself, such as the <code>BookException</code> thrown by the business methods of the <code>CartBean</code> example.
+When an enterprise bean throws an application exception, the container does not wrap it in another exception.
+The client should be able to handle any application exception it receives.</p>
+</div>
+<div class="paragraph">
+<p>If a system exception occurs within a transaction, the Enterprise Bean container rolls back the transaction.
+However, if an application exception is thrown within a transaction, the container does not roll back the transaction.</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

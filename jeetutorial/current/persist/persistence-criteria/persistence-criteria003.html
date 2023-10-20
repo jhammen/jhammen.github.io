@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/persist/pages/persistence-criteria/persistence-criteria003.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_using_the_criteria_api_and_metamodel_api_to_create_basic_typesafe_queries"><a class="anchor" href="#_using_the_criteria_api_and_metamodel_api_to_create_basic_typesafe_queries"></a>Using the Criteria API and Metamodel API to Create Basic Typesafe Queries</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The basic semantics of a Criteria query consists of a <code>SELECT</code> clause, a <code>FROM</code> clause, and an optional <code>WHERE</code> clause, similar to a JPQL query.
+Criteria queries set these clauses by using Java programming language objects, so the query can be created in a typesafe manner.</p>
+</div>
+<div class="sect2">
+<h3 id="_creating_a_criteria_query"><a class="anchor" href="#_creating_a_criteria_query"></a>Creating a Criteria Query</h3>
+<div class="paragraph">
+<p>The <code>jakarta.persistence.criteria.CriteriaBuilder</code> interface is used to construct</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Criteria queries</p>
+</li>
+<li>
+<p>Selections</p>
+</li>
+<li>
+<p>Expressions</p>
+</li>
+<li>
+<p>Predicates</p>
+</li>
+<li>
+<p>Ordering</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To obtain an instance of the <code>CriteriaBuilder</code> interface, call the <code>getCriteriaBuilder</code> method on either an <code>EntityManager</code> or an <code>EntityManagerFactory</code> instance.</p>
+</div>
+<div class="paragraph">
+<p>The following code shows how to obtain a <code>CriteriaBuilder</code> instance by using the <code>EntityManager.getCriteriaBuilder</code> method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">EntityManager em = ...;
+CriteriaBuilder cb = em.getCriteriaBuilder();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Criteria queries are constructed by obtaining an instance of the following interface:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">jakarta.persistence.criteria.CriteriaQuery</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>CriteriaQuery</code> objects define a particular query that will navigate over one or more entities.
+Obtain <code>CriteriaQuery</code> instances by calling one of the <code>CriteriaBuilder.createQuery</code> methods.
+To create typesafe queries, call the <code>CriteriaBuilder.createQuery</code> method as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CriteriaQuery&lt;Pet&gt; cq = cb.createQuery(Pet.class);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>CriteriaQuery</code> object&#8217;s type should be set to the expected result type of the query.
+In the preceding code, the object&#8217;s type is set to <code>CriteriaQuery&lt;Pet&gt;</code> for a query that will find instances of the <code>Pet</code> entity.</p>
+</div>
+<div class="paragraph">
+<p>The following code snippet creates a <code>CriteriaQuery</code> object for a query that returns a <code>String</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CriteriaQuery&lt;String&gt; cq = cb.createQuery(String.class);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_query_roots"><a class="anchor" href="#_query_roots"></a>Query Roots</h3>
+<div class="paragraph">
+<p>For a particular <code>CriteriaQuery</code> object, the root entity of the query, from which all navigation originates, is called the query root.
+It is similar to the <code>FROM</code> clause in a JPQL query.</p>
+</div>
+<div class="paragraph">
+<p>Create the query root by calling the <code>from</code> method on the <code>CriteriaQuery</code> instance.
+The argument to the <code>from</code> method is either the entity class or an <code>EntityType&lt;T&gt;</code> instance for the entity.</p>
+</div>
+<div class="paragraph">
+<p>The following code sets the query root to the <code>Pet</code> entity:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CriteriaQuery&lt;Pet&gt; cq = cb.createQuery(Pet.class);
+Root&lt;Pet&gt; pet = cq.from(Pet.class);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following code sets the query root to the <code>Pet</code> class by using an <code>EntityType&lt;T&gt;</code> instance:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">EntityManager em = ...;
+Metamodel m = em.getMetamodel();
+EntityType&lt;Pet&gt; Pet_ = m.entity(Pet.class);
+Root&lt;Pet&gt; pet = cq.from(Pet_);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Criteria queries may have more than one query root.
+This usually occurs when the query navigates from several entities.</p>
+</div>
+<div class="paragraph">
+<p>The following code has two <code>Root</code> instances:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CriteriaQuery&lt;Pet&gt; cq = cb.createQuery(Pet.class);
+Root&lt;Pet&gt; pet1 = cq.from(Pet.class);
+Root&lt;Pet&gt; pet2 = cq.from(Pet.class);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_querying_relationships_using_joins"><a class="anchor" href="#_querying_relationships_using_joins"></a>Querying Relationships Using Joins</h3>
+<div class="paragraph">
+<p>For queries that navigate to related entity classes, the query must define a join to the related entity by calling one of the <code>From.join</code> methods on the query root object or another join object.
+The <code>join</code> methods are similar to the <code>JOIN</code> keyword in JPQL.</p>
+</div>
+<div class="paragraph">
+<p>The target of the join uses the Metamodel class of type <code>EntityType&lt;T&gt;</code> to specify the persistent field or property of the joined entity.</p>
+</div>
+<div class="paragraph">
+<p>The <code>join</code> methods return an object of type <code>Join&lt;X, Y&gt;</code>, where <code>X</code> is the source entity and <code>Y</code> is the target of the join.
+In the following code snippet, <code>Pet</code> is the source entity, <code>Owner</code> is the target, and <code>Pet_</code> is a statically generated metamodel class:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CriteriaQuery&lt;Pet&gt; cq = cb.createQuery(Pet.class);
+
+Root&lt;Pet&gt; pet = cq.from(Pet.class);
+Join&lt;Pet, Owner&gt; owner = pet.join(Pet_.owners);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can chain joins together to navigate to related entities of the target entity without having to create a <code>Join&lt;X, Y&gt;</code> instance for each join:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CriteriaQuery&lt;Pet&gt; cq = cb.createQuery(Pet.class);
+
+Root&lt;Pet&gt; pet = cq.from(Pet.class);
+Join&lt;Owner, Address&gt; address = pet.join(Pet_.owners).join(Owner_.addresses);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_path_navigation_in_criteria_queries"><a class="anchor" href="#_path_navigation_in_criteria_queries"></a>Path Navigation in Criteria Queries</h3>
+<div class="paragraph">
+<p><code>Path</code> objects, which are used in the <code>SELECT</code> and <code>WHERE</code> clauses of a Criteria query, can be query root entities, join entities, or other <code>Path</code> objects.
+Use the <code>Path.get</code> method to navigate to attributes of the entities of a query.</p>
+</div>
+<div class="paragraph">
+<p>The argument to the <code>get</code> method is the corresponding attribute of the entity&#8217;s Metamodel class.
+The attribute can be either a single-valued attribute, specified by <code>@SingularAttribute</code> in the Metamodel class, or a collection-valued attribute, specified by one of <code>@CollectionAttribute</code>, <code>@SetAttribute</code>, <code>@ListAttribute</code>, or <code>@MapAttribute</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following query returns the names of all the pets in the data store.
+The <code>get</code> method is called on the query root, <code>pet</code>, with the <code>name</code> attribute of the <code>Pet</code> entity&#8217;s Metamodel class, <code>Pet_</code>, as the argument:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CriteriaQuery&lt;String&gt; cq = cb.createQuery(String.class);
+
+Root&lt;Pet&gt; pet = cq.from(Pet.class);
+cq.select(pet.get(Pet_.name));</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_restricting_criteria_query_results"><a class="anchor" href="#_restricting_criteria_query_results"></a>Restricting Criteria Query Results</h3>
+<div class="paragraph">
+<p>Conditions that are set by calling the <code>CriteriaQuery.where</code> method can restrict the results of a query on the <code>CriteriaQuery</code> object.
+Calling the <code>where</code> method is analogous to setting the <code>WHERE</code> clause in a JPQL query.</p>
+</div>
+<div class="paragraph">
+<p>The <code>where</code> method evaluates instances of the <code>Expression</code> interface to restrict the results according to the conditions of the expressions.
+To create <code>Expression</code> instances, use methods defined in the <code>Expression</code> and <code>CriteriaBuilder</code> interfaces.</p>
+</div>
+<div class="sect3">
+<h4 id="_the_expression_interface_methods"><a class="anchor" href="#_the_expression_interface_methods"></a>The Expression Interface Methods</h4>
+<div class="paragraph">
+<p>An <code>Expression</code> object is used in a query&#8217;s <code>SELECT</code>, <code>WHERE</code>, or <code>HAVING</code> clause.
+<a href="#_conditional_methods_in_the_expression_interface">Conditional Methods in the Expression Interface</a> shows conditional methods you can use with <code>Expression</code> objects.</p>
+</div>
+<table id="_conditional_methods_in_the_expression_interface" class="tableblock frame-all grid-all" style="width: 50%;">
+<caption class="title">Conditional Methods in the Expression Interface</caption>
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Method</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>isNull</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tests whether an expression is null</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>isNotNull</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tests whether an expression is not null</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>in</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tests whether an expression is within a list of values</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The following query uses the <code>Expression.isNull</code> method to find all pets where the <code>color</code> attribute is null:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CriteriaQuery&lt;Pet&gt; cq = cb.createQuery(Pet.class);
+Root&lt;Pet&gt; pet = cq.from(Pet.class);
+cq.where(pet.get(Pet_.color).isNull());</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following query uses the <code>Expression.in</code> method to find all brown and black pets:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CriteriaQuery&lt;Pet&gt; cq = cb.createQuery(Pet.class);
+Root&lt;Pet&gt; pet = cq.from(Pet.class);
+cq.where(pet.get(Pet_.color).in("brown", "black"));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>in</code> method can also check whether an attribute is a member of a collection.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_expression_methods_in_the_criteriabuilder_interface"><a class="anchor" href="#_expression_methods_in_the_criteriabuilder_interface"></a>Expression Methods in the CriteriaBuilder Interface</h4>
+<div class="paragraph">
+<p>The <code>CriteriaBuilder</code> interface defines additional methods for creating expressions.
+These methods correspond to the arithmetic, string, date, time, and case operators and functions of JPQL.
+<a href="#_conditional_methods_in_the_criteriabuilder_interface">Conditional Methods in the CriteriaBuilder Interface</a> shows conditional methods you can use with <code>CriteriaBuilder</code> objects.</p>
+</div>
+<table id="_conditional_methods_in_the_criteriabuilder_interface" class="tableblock frame-all grid-all" style="width: 60%;">
+<caption class="title">Conditional Methods in the CriteriaBuilder Interface</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Conditional Method</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>equal</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tests whether two expressions are equal</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>notEqual</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tests whether two expressions are not equal</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>gt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tests whether the first numeric expression is greater than the second numeric expression</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ge</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tests whether the first numeric expression is greater than or equal to the second numeric expression</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tests whether the first numeric expression is less than the second numeric expression</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>le</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tests whether the first numeric expression is less than or equal to the second numeric expression</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>between</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tests whether the first expression is between the second and third expression in value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>like</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tests whether the expression matches a given pattern</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The following code uses the <code>CriteriaBuilder.equal</code> method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CriteriaQuery&lt;Pet&gt; cq = cb.createQuery(Pet.class);
+Root&lt;Pet&gt; pet = cq.from(Pet.class);
+cq.where(cb.equal(pet.get(Pet_.name), "Fido"));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following code uses the <code>CriteriaBuilder.gt</code> method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CriteriaQuery&lt;Pet&gt; cq = cb.createQuery(Pet.class);
+Root&lt;Pet&gt; pet = cq.from(Pet.class);
+Date someDate = new Date(...);
+cq.where(cb.gt(pet.get(Pet_.birthday), date));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following code uses the <code>CriteriaBuilder.between</code> method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CriteriaQuery&lt;Pet&gt; cq = cb.createQuery(Pet.class);
+Root&lt;Pet&gt; pet = cq.from(Pet.class);
+Date firstDate = new Date(...);
+Date secondDate = new Date(...);
+cq.where(cb.between(pet.get(Pet_.birthday), firstDate, secondDate));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following code uses the <code>CriteriaBuilder.like</code> method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CriteriaQuery&lt;Pet&gt; cq = cb.createQuery(Pet.class);
+Root&lt;Pet&gt; pet = cq.from(Pet.class);
+cq.where(cb.like(pet.get(Pet_.name), "*do"));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To specify multiple conditional predicates, use the compound predicate methods of the <code>CriteriaBuilder</code> interface, as shown in <a href="#_compound_predicate_methods_in_the_criteriabuildder_interface">Compound Predicate Methods in the CriteriaBuilder Interface</a>.</p>
+</div>
+<table id="_compound_predicate_methods_in_the_criteriabuildder_interface" class="tableblock frame-all grid-all" style="width: 50%;">
+<caption class="title">Compound Predicate Methods in the CriteriaBuilder Interface</caption>
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Method</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>and</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A logical conjunction of two Boolean expressions</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>or</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A logical disjunction of two Boolean expressions</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>not</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A logical negation of the given Boolean expression</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The following code shows the use of compound predicates in queries:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CriteriaQuery&lt;Pet&gt; cq = cb.createQuery(Pet.class);
+Root&lt;Pet&gt; pet = cq.from(Pet.class);
+cq.where(cb.equal(pet.get(Pet_.name), "Fido")
+        .and(cb.equal(pet.get(Pet_.color), "brown")));</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_managing_criteria_query_results"><a class="anchor" href="#_managing_criteria_query_results"></a>Managing Criteria Query Results</h3>
+<div class="paragraph">
+<p>For queries that return more than one result, it is often helpful to organize those results.
+The <code>CriteriaQuery</code> interface defines the following ordering and grouping methods:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>orderBy</code> method orders query results according to attributes of an entity</p>
+</li>
+<li>
+<p>The <code>groupBy</code> method groups the results of a query together according to attributes of an entity, and the <code>having</code> method restricts those groups according to a condition</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_ordering_results"><a class="anchor" href="#_ordering_results"></a>Ordering Results</h4>
+<div class="paragraph">
+<p>To order the results of a query, call the <code>CriteriaQuery.orderBy</code> method, passing in an <code>Order</code> object.
+To create an <code>Order</code> object, call either the <code>CriteriaBuilder.asc</code> or the <code>CriteriaBuilder.desc</code> method.
+The <code>asc</code> method is used to order the results by ascending value of the passed expression parameter.
+The <code>desc</code> method is used to order the results by descending value of the passed expression parameter.
+The following query shows the use of the <code>desc</code> method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CriteriaQuery&lt;Pet&gt; cq = cb.createQuery(Pet.class);
+Root&lt;Pet&gt; pet = cq.from(Pet.class);
+cq.select(pet);
+cq.orderBy(cb.desc(pet.get(Pet_.birthday)));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this query, the results will be ordered by the pet&#8217;s birthday from highest to lowest.
+That is, pets born in December will appear before pets born in May.</p>
+</div>
+<div class="paragraph">
+<p>The following query shows the use of the <code>asc</code> method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CriteriaQuery&lt;Pet&gt; cq = cb.createQuery(Pet.class);
+Root&lt;Pet&gt; pet = cq.from(Pet.class);
+Join&lt;Owner, Address&gt; address = pet.join(Pet_.owners).join(Owner_.address);
+cq.select(pet);
+cq.orderBy(cb.asc(address.get(Address_.postalCode)));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this query, the results will be ordered by the pet owner&#8217;s postal code from lowest to highest.
+That is, pets whose owner lives in the 10001 zip code will appear before pets whose owner lives in the 91000 zip code.</p>
+</div>
+<div class="paragraph">
+<p>If more than one <code>Order</code> object is passed to <code>orderBy</code>, the precedence is determined by the order in which they appear in the argument list of <code>orderBy</code>.
+The first <code>Order</code> object has precedence.</p>
+</div>
+<div class="paragraph">
+<p>The following code orders results by multiple criteria:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CriteriaQuery&lt;Pet&gt; cq = cb.createQuery(Pet.class);
+Root&lt;Pet&gt; pet = cq.from(Pet.class);
+Join&lt;Pet, Owner&gt; owner = pet.join(Pet_.owners);
+cq.select(pet);
+cq.orderBy(cb.asc(owner.get(Owner_.lastName)), owner.get(Owner_.firstName)));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The results of this query will be ordered alphabetically by the pet owner&#8217;s last name, then first name.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_grouping_results"><a class="anchor" href="#_grouping_results"></a>Grouping Results</h4>
+<div class="paragraph">
+<p>The <code>CriteriaQuery.groupBy</code> method partitions the query results into groups.
+To set these groups, pass an expression to <code>groupBy</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CriteriaQuery&lt;Pet&gt; cq = cb.createQuery(Pet.class);
+Root&lt;Pet&gt; pet = cq.from(Pet.class);
+cq.groupBy(pet.get(Pet_.color));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This query returns all <code>Pet</code> entities and groups the results by the pet&#8217;s color.</p>
+</div>
+<div class="paragraph">
+<p>Use the <code>CriteriaQuery.having</code> method in conjunction with <code>groupBy</code> to filter over the groups.
+The <code>having</code> method, which takes a conditional expression as a parameter, restricts the query result according to the conditional expression:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CriteriaQuery&lt;Pet&gt; cq = cb.createQuery(Pet.class);
+Root&lt;Pet&gt; pet = cq.from(Pet.class);
+cq.groupBy(pet.get(Pet_.color));
+cq.having(cb.in(pet.get(Pet_.color)).value("brown").value("blonde"));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, the query groups the returned <code>Pet</code> entities by color, as in the preceding example.
+However, the only returned groups will be <code>Pet</code> entities where the <code>color</code> attribute is set to <code>brown</code> or <code>blonde</code>.
+That is, no gray-colored pets will be returned in this query.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_executing_queries"><a class="anchor" href="#_executing_queries"></a>Executing Queries</h3>
+<div class="paragraph">
+<p>To prepare a query for execution, create a <code>TypedQuery&lt;T&gt;</code> object with the type of the query result, passing the <code>CriteriaQuery</code> object to <code>EntityManager.createQuery</code>.</p>
+</div>
+<div class="paragraph">
+<p>To execute a query, call either <code>getSingleResult</code> or <code>getResultList</code> on the <code>TypedQuery&lt;T&gt;</code> object.</p>
+</div>
+<div class="sect3">
+<h4 id="_single_valued_query_results"><a class="anchor" href="#_single_valued_query_results"></a>Single-Valued Query Results</h4>
+<div class="paragraph">
+<p>Use the <code>TypedQuery&lt;T&gt;.getSingleResult</code> method to execute queries that return a single result:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CriteriaQuery&lt;Pet&gt; cq = cb.createQuery(Pet.class);
+...
+TypedQuery&lt;Pet&gt; q = em.createQuery(cq);
+Pet result = q.getSingleResult();</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_collection_valued_query_results"><a class="anchor" href="#_collection_valued_query_results"></a>Collection-Valued Query Results</h4>
+<div class="paragraph">
+<p>Use the <code>TypedQuery&lt;T&gt;.getResultList</code> method to execute queries that return a collection of objects:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CriteriaQuery&lt;Pet&gt; cq = cb.createQuery(Pet.class);
+...
+TypedQuery&lt;Pet&gt; q = em.createQuery(cq);
+List&lt;Pet&gt; results = q.getResultList();</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

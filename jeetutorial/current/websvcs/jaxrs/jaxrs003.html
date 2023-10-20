@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/websvcs/pages/jaxrs/jaxrs003.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_example_applications_for_jakarta_rest"><a class="anchor" href="#_example_applications_for_jakarta_rest"></a>Example Applications for Jakarta REST</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section provides an introduction to creating, deploying, and running your own Jakarta REST applications.
+This section demonstrates the steps that are needed to create, build, deploy, and test a very simple web application that uses Jakarta REST annotations.</p>
+</div>
+<div class="sect2">
+<h3 id="_creating_a_simple_restful_web_service"><a class="anchor" href="#_creating_a_simple_restful_web_service"></a>Creating a Simple RESTful Web Service</h3>
+<div class="paragraph">
+<p>This section explains how to use NetBeans IDE to create a RESTful web service using a Maven archetype.
+The archetype generates a skeleton for the application, and you simply need to implement the appropriate method.</p>
+</div>
+<div class="paragraph">
+<p>You can find a version of this application at <code><em>jakartaee-examples</em>/tutorial/jaxrs/hello/</code>.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_create_a_restful_web_service_using_netbeans_ide"><a class="anchor" href="#_to_create_a_restful_web_service_using_netbeans_ide"></a>To Create a RESTful Web Service Using NetBeans IDE</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ensure you have installed the tutorial archetypes as described in <a href="../../intro/usingexamples/usingexamples.html#_installing_the_tutorial_archetypes" class="xref page">Installing the Tutorial Archetypes</a>.</p>
+</li>
+<li>
+<p>In NetBeans IDE, create a simple web application using the <code>jaxrs-service-archetype</code> Maven archetype.
+This archetype creates a very simple "Hello, World" web application.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>From the File menu, choose New Project.</p>
+</li>
+<li>
+<p>From Categories, select Maven.
+From Projects, select Project From Archetype.
+Click Next.</p>
+</li>
+<li>
+<p>Under Search enter <code>jaxrs-service</code>, select the <code>jaxrs-service-archetype</code>, and click Next.</p>
+</li>
+<li>
+<p>Under Project Name enter <code>HelloWorldApplication</code>, set the Project Location, and set the Package name to <code>ee.jakarta.tutorial.hello</code>, and click Finish.</p>
+<div class="paragraph">
+<p>The project is created.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>In <code>HelloWorld.java</code>, find the <code>getHtml()</code> method.
+Replace the <code>//TODO</code> comment with the following text, so that the finished product resembles the following method:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@GET
+@Produces("text/html")
+public String getHtml() {
+    return "&lt;html lang=\"en\"&gt;&lt;body&gt;&lt;h1&gt;Hello, World!!&lt;/body&gt;&lt;/h1&gt;&lt;/html&gt;";
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Because the MIME type produced is HTML, you can use HTML tags in your return statement.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Right-click the <code>HelloWorldApplication</code> project in the Projects pane and select Run.</p>
+<div class="paragraph">
+<p>This will build and deploy the application to GlassFish Server.</p>
+</div>
+</li>
+<li>
+<p>In a browser, open the following URL:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/HelloWorldApplication/HelloWorldApplication</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A browser window opens and displays the return value of <code>Hello, World!!</code></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For other sample applications that demonstrate deploying and running Jakarta REST applications using NetBeans IDE, see <a href="#_the_rsvp_example_application">The rsvp Example Application</a> and Your First Cup: An Introduction to the Jakarta EE Platform at <a href="https://eclipse-ee4j.github.io/jakartaee-firstcup/toc.html" class="bare" target="_blank" rel="noopener">https://eclipse-ee4j.github.io/jakartaee-firstcup/toc.html</a>.
+You may also look at the tutorials on the NetBeans IDE tutorial site, such as the one titled "Getting Started with RESTful Web Services" at <a href="https://netbeans.apache.org/kb/docs/websvc/rest.html" class="bare" target="_blank" rel="noopener">https://netbeans.apache.org/kb/docs/websvc/rest.html</a>.
+This tutorial includes a section on creating a CRUD application from a database.
+Create, read, update, and delete (CRUD) are the four basic functions of persistent storage and relational databases.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_rsvp_example_application"><a class="anchor" href="#_the_rsvp_example_application"></a>The rsvp Example Application</h3>
+<div class="paragraph">
+<p>The <code>rsvp</code> example application, located in the <code><em>tut-install</em>/examples/jaxrs/rsvp/</code> directory, allows invitees to an event to indicate whether they will attend.
+The events, people invited to the event, and the responses to the invite are stored in Apache Derby using Jakarta Persistence.
+The Jakarta REST resources in <code>rsvp</code> are exposed in a stateless session enterprise bean.</p>
+</div>
+<div class="sect3">
+<h4 id="_components_of_the_rsvp_example_application"><a class="anchor" href="#_components_of_the_rsvp_example_application"></a>Components of the rsvp Example Application</h4>
+<div class="paragraph">
+<p>The three enterprise beans in the <code>rsvp</code> example application are <code>rsvp.ejb.ConfigBean</code>, <code>rsvp.ejb.StatusBean</code>, and <code>rsvp.ejb.ResponseBean</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>ConfigBean</code> is a singleton session bean that initializes the data in the database.</p>
+</div>
+<div class="paragraph">
+<p><code>StatusBean</code> exposes a Jakarta REST resource for displaying the current status of all invitees to an event.
+The URI path template is declared first on the class and then on the <code>getEvent</code> method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Stateless
+@Named
+@Path("/status")
+public class StatusBean {
+    ...
+    @GET
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Path("{eventId}/")
+    public Event getEvent(@PathParam("eventId") Long eventId) {
+         ...
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The combination of the two <code>@Path</code> annotations results in the following URI path template:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/status/{eventId}/")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The URI path variable <code>eventId</code> is a <code>@PathParam</code> variable in the <code>getEvent</code> method, which responds to HTTP GET requests and has been annotated with <code>@GET</code>.
+The <code>eventId</code> variable is used to look up all the current responses in the database for that particular event.</p>
+</div>
+<div class="paragraph">
+<p><code>ResponseBean</code> exposes a Jakarta REST resource for setting an invitee&#8217;s response to a particular event.
+The URI path template for <code>ResponseBean</code> is declared as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/{eventId}/{inviteId}")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Two URI path variables are declared in the path template: <code>eventId</code> and <code>inviteId</code>.
+As in <code>StatusBean</code>, <code>eventId</code> is the unique ID for a particular event.
+Each invitee to that event has a unique ID for the invitation, and that is the <code>inviteId</code>.
+Both of these path variables are used in two Jakarta REST methods in <code>ResponseBean</code>: <code>getResponse</code> and <code>putResponse</code>.
+The <code>getResponse</code> method responds to HTTP GET requests and displays the invitee&#8217;s current response and a form to change the response.</p>
+</div>
+<div class="paragraph">
+<p>The <code>ee.jakarta.tutorial.rsvp.rest.RsvpApplication</code> class defines the root application path for the resources by applying the <code>jakarta.ws.rs.ApplicationPath</code> annotation at the class level.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ApplicationPath("/webapi")
+public class RsvpApplication extends Application {
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An invitee who wants to change his or her response selects the new response and submits the form data, which is processed as an HTTP POST request by the <code>putResponse</code> method.
+The new response is extracted from the HTTP POST request and stored as the <code>userResponse</code> string.
+The <code>putResponse</code> method uses <code>userResponse</code>, <code>eventId</code>, and <code>inviteId</code> to update the invitee&#8217;s response in the database.</p>
+</div>
+<div class="paragraph">
+<p>The events, people, and responses in <code>rsvp</code> are encapsulated in Jakarta Persistence entities.
+The <code>rsvp.entity.Event</code>, <code>rsvp.entity.Person</code>, and <code>rsvp.entity.Response</code> entities respectively represent events, invitees, and responses to an event.</p>
+</div>
+<div class="paragraph">
+<p>The <code>rsvp.util.ResponseEnum</code> class declares an enumerated type that represents all the possible response statuses an invitee may have.</p>
+</div>
+<div class="paragraph">
+<p>The web application also includes two CDI managed beans, <code>StatusManager</code> and <code>EventManager</code>, which use the Jakarta REST Client API to call the resources exposed in <code>StatusBean</code> and <code>ResponseBean</code>.
+For information on how the Client API is used in <code>rsvp</code>, see <a href="../jaxrs-client/jaxrs-client.html#_the_client_api_in_the_rsvp_example_application" class="xref page">The Client API in the rsvp Example Application</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_running_the_rsvp_example_application"><a class="anchor" href="#_running_the_rsvp_example_application"></a>Running the rsvp Example Application</h4>
+<div class="paragraph">
+<p>Both NetBeans IDE and Maven can be used to deploy and run the <code>rsvp</code> example application.</p>
+</div>
+<div class="sect4">
+<h5 id="_to_run_the_rsvp_example_application_using_netbeans_ide"><a class="anchor" href="#_to_run_the_rsvp_example_application_using_netbeans_ide"></a>To Run the rsvp Example Application Using NetBeans IDE</h5>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If the database server is not already running, start it by following the instructions in <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_apache_derby" class="xref page">Starting and Stopping Apache Derby</a>.</p>
+</li>
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>From the <strong>File</strong> menu, choose <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Open Project</strong> dialog box, navigate to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/jaxrs</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Select the <code>rsvp</code> folder.</p>
+</li>
+<li>
+<p>Click <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Projects</strong> tab, right-click the <code>rsvp</code> project and select <strong>Run</strong>.</p>
+<div class="paragraph">
+<p>The project will be compiled, assembled, and deployed to GlassFish Server.
+A web browser window will open to the following URL:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/rsvp/index.xhtml</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>In the web browser window, click the Event status link for the Duke&#8217;s Birthday event.</p>
+<div class="paragraph">
+<p>You&#8217;ll see the current invitees and their responses.</p>
+</div>
+</li>
+<li>
+<p>Click the current response of one of the invitees in the Status column of the table, select a new response, and click Update your status.</p>
+<div class="paragraph">
+<p>The invitee&#8217;s new status should now be displayed in the table of invitees and their response statuses.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_to_run_the_rsvp_example_application_using_maven"><a class="anchor" href="#_to_run_the_rsvp_example_application_using_maven"></a>To Run the rsvp Example Application Using Maven</h5>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If the database server is not already running, start it by following the instructions in <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_apache_derby" class="xref page">Starting and Stopping Apache Derby</a>.</p>
+</li>
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>In a terminal window, go to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/jaxrs/rsvp/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enter the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command builds, assembles, and deploys <code>rsvp</code> to GlassFish Server.</p>
+</div>
+</li>
+<li>
+<p>Open a web browser window to the following URL:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/rsvp/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>In the web browser window, click the Event status link for the Duke&#8217;s Birthday event.</p>
+<div class="paragraph">
+<p>You&#8217;ll see the current invitees and their responses.</p>
+</div>
+</li>
+<li>
+<p>Click the current response of one of the invitees in the Status column of the table, select a new response, and click Update your status.</p>
+<div class="paragraph">
+<p>The invitee&#8217;s new status should now be displayed in the table of invitees and their response statuses.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_real_world_examples"><a class="anchor" href="#_real_world_examples"></a>Real-World Examples</h3>
+<div class="paragraph">
+<p>Most blog sites use RESTful web services.
+These sites involve downloading XML files, in RSS or Atom format, that contain lists of links to other resources.
+Other websites and web applications that use REST-like developer interfaces to data include Twitter and Amazon S3 (Simple Storage Service).
+With Amazon S3, buckets and objects can be created, listed, and retrieved using either a REST-style HTTP interface or a SOAP interface.
+The examples that ship with Jersey include a storage service example with a RESTful interface.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/intro/pages/overview/overview008.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_jakarta_ee_apis"><a class="anchor" href="#_jakarta_ee_apis"></a>Jakarta EE APIs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="#_jakarta_ee_containers_2">Figure 1, &#8220;Jakarta EE Containers&#8221;</a> shows the relationships among the Jakarta EE
+containers.</p>
+</div>
+<div id="_jakarta_ee_containers_2" class="imageblock">
+<div class="content">
+<img src="../../common/_images/jakartaeett_dt_006.svg" alt="Diagram of Jakarta EE containers and their relationships">
+</div>
+<div class="title">Figure 1. Jakarta EE Containers</div>
+</div>
+<div class="paragraph">
+<p><a href="#_jakarta_ee_apis_in_the_web_container">Figure 2, &#8220;Jakarta EE APIs in the Web Container&#8221;</a> shows the availability of the Jakarta EE APIs in the web container.</p>
+</div>
+<div id="_jakarta_ee_apis_in_the_web_container" class="imageblock">
+<div class="content">
+<img src="../../common/_images/jakartaeett_dt_007.svg" alt="Diagram of Jakarta EE APIs in the web container">
+</div>
+<div class="title">Figure 2. Jakarta EE APIs in the Web Container</div>
+</div>
+<div class="paragraph">
+<p><a href="#_jakarta_ee_apis_in_the_enterprise_bean_container">Figure 3, &#8220;Jakarta EE APIs in the enterprise bean Container&#8221;</a> shows the availability of the Jakarta EE APIs in the enterprise bean container.</p>
+</div>
+<div id="_jakarta_ee_apis_in_the_enterprise_bean_container" class="imageblock">
+<div class="content">
+<img src="../../common/_images/jakartaeett_dt_008.svg" alt="Diagram of Jakarta EE APIs in the enterprise bean container">
+</div>
+<div class="title">Figure 3. Jakarta EE APIs in the enterprise bean Container</div>
+</div>
+<div class="paragraph">
+<p><a href="#_jakarta_ee_apis_in_the_application_client_container">Figure 4, &#8220;Jakarta EE APIs in the Application Client Container&#8221;</a> shows the availability of the Jakarta EE APIs in the application client container.</p>
+</div>
+<div id="_jakarta_ee_apis_in_the_application_client_container" class="imageblock">
+<div class="content">
+<img src="../../common/_images/jakartaeett_dt_009.svg" alt="Diagram of Jakarta EE APIs in the application client container">
+</div>
+<div class="title">Figure 4. Jakarta EE APIs in the Application Client Container</div>
+</div>
+<div class="paragraph">
+<p>The following sections give a brief summary of the technologies required by the Jakarta EE platform and the APIs used in Jakarta EE applications.</p>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_enterprise_beans_technology"><a class="anchor" href="#_jakarta_enterprise_beans_technology"></a>Jakarta Enterprise Beans Technology</h3>
+<div class="paragraph">
+<p>An enterprise bean component, or enterprise bean, is a body of code that has fields and methods to implement modules of business logic.
+You can think of an enterprise bean as a building block that can be used alone or with other enterprise beans to execute business logic on the Jakarta EE server.</p>
+</div>
+<div class="paragraph">
+<p>Enterprise beans are either session beans or message-driven beans.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A session bean represents a transient conversation with a client.
+When the client finishes executing, the session bean and its data are gone.</p>
+</li>
+<li>
+<p>A message-driven bean combines features of a session bean and a message listener, allowing a business component to receive messages asynchronously.
+Commonly, these are Jakarta Messaging messages.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta Enterprise Beans 4.0 and Jakarta Interceptors 2.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_servlet_technology"><a class="anchor" href="#_jakarta_servlet_technology"></a>Jakarta Servlet Technology</h3>
+<div class="paragraph">
+<p>Jakarta Servlet technology lets you define HTTP-specific servlet classes.
+A servlet class extends the capabilities of servers that host applications accessed by way of a request-response programming model. Although servlets can respond to any type of request, they are commonly used to extend the applications hosted by web servers.</p>
+</div>
+<div class="paragraph">
+<p>In the Jakarta EE 8 platform, new Jakarta Servlet technology features include the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Server Push</p>
+</li>
+<li>
+<p>HTTP Trailer</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Servlet 5.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_faces_technology"><a class="anchor" href="#_jakarta_faces_technology"></a>Jakarta Faces Technology</h3>
+<div class="paragraph">
+<p>Jakarta Faces technology is a user interface framework for building web applications.
+The main components of Jakarta Faces technology are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A GUI component framework.</p>
+</li>
+<li>
+<p>A flexible model for rendering components in different kinds of HTML or different markup languages and technologies.
+A <code>Renderer</code> object generates the markup to render the component and converts the data stored in a model object to types that can be represented in a view.</p>
+</li>
+<li>
+<p>A standard <code>RenderKit</code> for generating HTML 4.01 markup.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following features support the GUI components:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Input validation</p>
+</li>
+<li>
+<p>Event handling</p>
+</li>
+<li>
+<p>Data conversion between model objects and components</p>
+</li>
+<li>
+<p>Managed model object creation</p>
+</li>
+<li>
+<p>Page navigation configuration</p>
+</li>
+<li>
+<p>Jakarta Expression Language</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>All this functionality is available using standard Java APIs and XML-based configuration files.</p>
+</div>
+<div class="paragraph">
+<p>In the Jakarta EE 8 platform, new features of Jakarta Faces technology include the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Direct support for WebSockets via the new <code>&lt;f:websocket&gt;</code> tag</p>
+</li>
+<li>
+<p>Class-level bean validation via the new <code>&lt;f:validateWholeBean&gt;</code> tag</p>
+</li>
+<li>
+<p>A Jakarta Contexts and Dependency Injection compatible <code>@ManagedProperty</code> annotation</p>
+</li>
+<li>
+<p>Enhanced component search expression framework</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta Faces 3.0 and Jakarta Expression Language 4.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_server_pages_technology"><a class="anchor" href="#_jakarta_server_pages_technology"></a>Jakarta Server Pages Technology</h3>
+<div class="paragraph">
+<p>Jakarta Server Pages technology lets you put snippets of servlet code directly into a text-based document.
+A Jakarta Server Pages page is a text-based document that contains two types of text:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Static data, which can be expressed in any text-based format, such as HTML or XML</p>
+</li>
+<li>
+<p>JSP elements, which determine how the page constructs dynamic content</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Jakarta Server Pages technology is derived from and compatible with the JavaServer Pages (JSP) technology.</p>
+</div>
+<div class="paragraph">
+<p>For information about JSP technology, see <em>The Java EE 5 Tutorial</em> at <a href="https://docs.oracle.com/javaee/5/tutorial/doc/" class="bare" target="_blank" rel="noopener">https://docs.oracle.com/javaee/5/tutorial/doc/</a>.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta Server Pages 3.0 for compatibility with earlier releases but recommends the use of Facelets as the display technology in new applications.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_standard_tag_library"><a class="anchor" href="#_jakarta_standard_tag_library"></a>Jakarta Standard Tag Library</h3>
+<div class="paragraph">
+<p>The Jakarta Standard Tag Library encapsulates core functionality common to many Jakarta Server Pages applications.
+Instead of mixing tags from numerous vendors in your Jakarta Server Pages applications, you use a single, standard set of tags.
+This standardization allows you to deploy your applications on any Jakarta Server Pages container that supports Jakarta Standard Tag Library and makes it more likely that the implementation of the tags is optimized.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta Standard Tag Library has iterator and conditional tags for handling flow control, tags for manipulating XML documents, internationalization tags, tags for accessing databases using SQL, and tags for commonly used functions.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta Standard Tag Library 2.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_persistence"><a class="anchor" href="#_jakarta_persistence"></a>Jakarta Persistence</h3>
+<div class="paragraph">
+<p>Jakarta Persistence is a Java standards–based solution for persistence.
+Persistence uses an object/relational mapping approach to bridge the gap between an object-oriented model and a relational database.
+The Jakarta Persistence can also be used in Java SE applications outside of the Jakarta EE environment.
+Jakarta Persistence consists of the following areas:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Jakarta Persistence</p>
+</li>
+<li>
+<p>The query language</p>
+</li>
+<li>
+<p>Object/relational mapping metadata</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta Persistence 3.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_transactions"><a class="anchor" href="#_jakarta_transactions"></a>Jakarta Transactions</h3>
+<div class="paragraph">
+<p>Jakarta Transactions provides a standard interface for demarcating transactions.
+The Jakarta EE architecture provides a default auto commit to handle transaction commits and rollbacks.
+An auto commit means that any other applications that are viewing data will see the updated data after each database read or write operation.
+However, if your application performs two separate database access operations that depend on each other, you will want to use the Jakarta Transactions to demarcate where the entire transaction, including both operations, begins, rolls back, and commits.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta Transactions 2.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_restful_web_services"><a class="anchor" href="#_jakarta_restful_web_services"></a>Jakarta RESTful Web Services</h3>
+<div class="paragraph">
+<p>Jakarta RESTful Web Services defines APIs for the development of web services built according to the Representational State Transfer (REST) architectural style.
+A Jakarta RESTful application is a web application that consists of classes packaged as a servlet in a WAR file along with required libraries.</p>
+</div>
+<div class="paragraph">
+<p>In the Jakarta EE 8 platform, new RESTful web services features include the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Reactive Client API<br>
+When the results of an invocation on a target resource are received, enhancements to the completion stage APIs in Java SE allow the sequence of those results to be specified, prioritized, combined, or concatenated, and how exceptions can be handled.</p>
+</li>
+<li>
+<p>Enhancements in support for server-sent events<br>
+Clients may subscribe to server-issued event notifications using a long-running connection. Support for a new media type, text/event-stream, has been added.</p>
+</li>
+<li>
+<p>Support for Jakarta JSON Binding objects, and improved integration with Jakarta Contexts and Dependency Injection, Jakarta Servlet, and Jakarta Bean Validation technologies</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta RESTful Web Services 3.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_managed_beans"><a class="anchor" href="#_jakarta_managed_beans"></a>Jakarta Managed Beans</h3>
+<div class="paragraph">
+<p>Jakarta Managed Beans, lightweight container-managed objects (POJOs) with minimal requirements, support a small set of basic services, such as resource injection, lifecycle callbacks, and interceptors.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta Managed Beans specification is part of the Jakarta EE 9 platform specification.
+The Jakarta EE 9 platform requires Jakarta Managed Beans 2.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_contexts_and_dependency_injection"><a class="anchor" href="#_jakarta_contexts_and_dependency_injection"></a>Jakarta Contexts and Dependency Injection</h3>
+<div class="paragraph">
+<p>Jakarta Contexts and Dependency Injection (CDI) defines a set of contextual services, provided by Jakarta EE containers, that make it easy for developers to use enterprise beans along with Jakarta Faces technology in web applications.
+Designed for use with stateful objects, CDI also has many broader uses, allowing developers a great deal of flexibility to integrate different kinds of components in a loosely coupled but typesafe way.</p>
+</div>
+<div class="paragraph">
+<p>In the Jakarta EE 8 platform, new CDI features include the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An API for bootstrapping a CDI container in Java SE 8</p>
+</li>
+<li>
+<p>Support for observer ordering, which determines the order in which the observer methods for a particular event are invoked, and support for firing events asynchronously</p>
+</li>
+<li>
+<p>Configurators interfaces, which are used for dynamically defining and modifying CDI objects</p>
+</li>
+<li>
+<p>Built-in annotation literals, a convenience feature for creating instances of annotations, and more</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta Contexts and Dependency Injection 3.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_dependency_injection"><a class="anchor" href="#_jakarta_dependency_injection"></a>Jakarta Dependency Injection</h3>
+<div class="paragraph">
+<p>Jakarta Dependency Injection defines a standard set of annotations (and one interface) for use on injectable classes.</p>
+</div>
+<div class="paragraph">
+<p>In the Jakarta EE platform, CDI provides support for Dependency Injection.
+Specifically, you can use injection points only in a CDI-enabled application.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta Dependency Injection 2.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_bean_validation"><a class="anchor" href="#_jakarta_bean_validation"></a>Jakarta Bean Validation</h3>
+<div class="paragraph">
+<p>The Jakarta Bean Validation specification defines a metadata model and API for validating data in JavaBeans components.
+Instead of distributing validation of data over several layers, such as the browser and the server side, you can define the validation constraints in one place and share them across the different layers.</p>
+</div>
+<div class="paragraph">
+<p>In the Jakarta EE 8 platform, new Jakarta Bean Validation features include the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Support for new features in Java SE 8, such as the Date-Time API</p>
+</li>
+<li>
+<p>Addition of new built-in Jakarta Bean Validation constraints</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta Bean Validation 3.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_messaging"><a class="anchor" href="#_jakarta_messaging"></a>Jakarta Messaging</h3>
+<div class="paragraph">
+<p>Jakarta Messaging is a messaging standard that allows Jakarta EE application components to create, send, receive, and read messages.
+It enables distributed communication that is loosely coupled, reliable, and asynchronous.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta Messaging 3.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_connectors"><a class="anchor" href="#_jakarta_connectors"></a>Jakarta Connectors</h3>
+<div class="paragraph">
+<p>The Jakarta Connectors is used by tools vendors and system integrators to create resource adapters that support access to enterprise information systems that can be plugged in to any Jakarta EE product.
+A resource adapter is a software component that allows Jakarta EE application components to access and interact with the underlying resource manager of the EIS.
+Because a resource adapter is specific to its resource manager, a different resource adapter typically exists for each type of database or enterprise information system.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta Connectors also provides a performance-oriented, secure, scalable, and message-based transactional integration of Jakarta EE platform-based web services with existing EISs that can be either synchronous or asynchronous.
+Existing applications and EISs integrated through the Jakarta Connectors into the Jakarta EE platform can be exposed as XML-based web services by using Jakarta XML Web Services and Jakarta EE component models.
+Thus Jakarta XML Web Services and the Jakarta Connectors are complementary technologies for enterprise application integration (EAI) and end-to-end business integration.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta Connectors 2.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_mail"><a class="anchor" href="#_jakarta_mail"></a>Jakarta Mail</h3>
+<div class="paragraph">
+<p>Jakarta EE applications use the Jakarta Mail to send email notifications.
+The Jakarta Mail has two parts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An application-level interface used by the application components to send mail</p>
+</li>
+<li>
+<p>A service provider interface</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE platform includes the Jakarta Mail with a service provider that allows application components to send Internet mail.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta Mail 2.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_authorization"><a class="anchor" href="#_jakarta_authorization"></a>Jakarta Authorization</h3>
+<div class="paragraph">
+<p>The Jakarta Authorization specification defines a contract between a Jakarta EE application server and an authorization policy provider.
+All Jakarta EE containers support this contract.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta Authorization specification defines <code>java.security.Permission</code> classes that satisfy the Jakarta EE authorization model.
+The specification defines the binding of container-access decisions to operations on instances of these permission classes.
+It defines the semantics of policy providers that use the new permission classes to address the authorization requirements of the Jakarta EE platform, including the definition and use of roles.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta Authorization 2.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_authentication"><a class="anchor" href="#_jakarta_authentication"></a>Jakarta Authentication</h3>
+<div class="paragraph">
+<p>The Jakarta Authentication specification defines a service provider interface (SPI) by which authentication providers that implement message authentication mechanisms may be integrated in client or server message-processing containers or runtimes.
+Authentication providers integrated through this interface operate on network messages provided to them by their calling containers.
+The authentication providers transform outgoing messages so that the source of each message can be authenticated by the receiving container, and the recipient of the message can be authenticated by the message sender.
+Authentication providers authenticate each incoming message and return to their calling containers the identity established as a result of the message authentication.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta Authentication 2.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_security"><a class="anchor" href="#_jakarta_security"></a>Jakarta Security</h3>
+<div class="paragraph">
+<p>Jakarta Security specification defines portable, plug-in interfaces for HTTP authentication and identity stores, and an injectable <code>SecurityContext</code> interface that provides an API for programmatic security.</p>
+</div>
+<div class="paragraph">
+<p>Implementations of the <code>HttpAuthenticationMechanism</code> interface can be used to authenticate callers of web applications.
+An application can supply its own <code>HttpAuthenticationMechanism</code>, or use one of the default implementations provided by the container.</p>
+</div>
+<div class="paragraph">
+<p>Implementations of the <code>IdentityStore</code> interface can be used to validate user credentials and retrieve group information.
+An application can provide its own <code>IdentityStore</code>, or use the built in LDAP or Database store.</p>
+</div>
+<div class="paragraph">
+<p>The <code>HttpAuthenticationMechanism</code> and <code>IdentityStore</code> APIs provide an advantage over container-provided implementations in that they allow an application to control the authentication process, and the identity stores used for authentication, in a standard, portable way.</p>
+</div>
+<div class="paragraph">
+<p>The <code>SecurityContext</code> API is intended for use by application code to query and interact with the current security context.
+The specification also provides for default group-to-role mapping, and defines a principal type called <code>CallerPrincipal</code> that can represent the identity of an application caller.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta Security 2.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_websocket"><a class="anchor" href="#_jakarta_websocket"></a>Jakarta WebSocket</h3>
+<div class="paragraph">
+<p>WebSocket is an application protocol that provides full-duplex communications between two peers over TCP.
+Jakarta WebSocket enables Jakarta EE applications to create endpoints using annotations that specify the configuration parameters of the endpoint and designate its lifecycle callback methods.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta WebSocket 2.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_json_processing"><a class="anchor" href="#_jakarta_json_processing"></a>Jakarta JSON Processing</h3>
+<div class="paragraph">
+<p>JavaScript Object Notation (JSON) is a text-based data exchange format derived from JavaScript that is used in web services and other connected applications.
+Jakarta JSON Processing enables Jakarta EE applications to parse, transform, and query JSON data using the object model or the streaming model.</p>
+</div>
+<div class="paragraph">
+<p>In the Jakarta EE 8 platform, new features of Jakarta JSON Processing include support for the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>JSON Pointer<br>
+Defines a string syntax for referencing a specific value within a JSON document. JSON Pointer includes APIs for extracting values from a target document and transforming them to create a new JSON document.</p>
+</li>
+<li>
+<p>JSON Patch<br>
+Defines a format for expressing a sequence of operations to be applied to a JSON document.</p>
+</li>
+<li>
+<p>JSON Merge Patch<br>
+Defines a format and processing rules for applying operations to a JSON document that are based upon specific content of the target document.</p>
+</li>
+<li>
+<p>The addition of editing and transformation functions to basic JSON document processing.</p>
+</li>
+<li>
+<p>Helper classes and methods, called JSON Collectors, which leverage features of the Stream API that was introduced in Java SE 8.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta JSON Processing 2.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_json_binding"><a class="anchor" href="#_jakarta_json_binding"></a>Jakarta JSON Binding</h3>
+<div class="paragraph">
+<p>Jakarta JSON Binding provides a binding layer for converting Java objects to and from JSON messages.
+Jakarta JSON Binding also supports the ability to customize the default mapping process used in this binding layer through the use of Java annotations for a given field, JavaBean property, type or package, or by providing an implementation of a property naming strategy.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta JSON Binding 2.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_concurrency"><a class="anchor" href="#_jakarta_concurrency"></a>Jakarta Concurrency</h3>
+<div class="paragraph">
+<p>Jakarta Concurrency is a standard API for providing asynchronous capabilities to Jakarta EE application components through the following types of objects: managed executor service, managed scheduled executor service, managed thread factory, and context service.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta Concurrency 2.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_batch"><a class="anchor" href="#_jakarta_batch"></a>Jakarta Batch</h3>
+<div class="paragraph">
+<p>Batch jobs are tasks that can be executed without user interaction.
+The Batch Applications for the Java Platform specification is a batch framework that provides support for creating and running batch jobs in Java applications.
+The batch framework consists of a batch runtime, a job specification language based on XML, a Java API to interact with the batch runtime, and a Java API to implement batch artifacts.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta Batch 2.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_activation"><a class="anchor" href="#_jakarta_activation"></a>Jakarta Activation</h3>
+<div class="paragraph">
+<p>The Jakarta Activation is used by the Jakarta Mail.
+Jakarta Activation provides standard services to determine the type of an arbitrary piece of data, encapsulate access to it, discover the operations available on it, and create the appropriate JavaBeans component to perform those operations.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta Activation 2.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_xml_binding"><a class="anchor" href="#_jakarta_xml_binding"></a>Jakarta XML Binding</h3>
+<div class="paragraph">
+<p>The Jakarta XML Binding provides a convenient way to bind an XML schema to a representation in Java language programs.
+XML Binding can be used independently or in combination with Jakarta XML Web Services, in which case it provides a standard data binding for web service messages.
+All Jakarta EE application client containers, web containers, and Jakarta Enterprise Beans containers support the XML Binding API.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta XML Binding 3.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_xml_web_services"><a class="anchor" href="#_jakarta_xml_web_services"></a>Jakarta XML Web Services</h3>
+<div class="paragraph">
+<p>The Jakarta XML Web Services specification provides support for web services that use the Jakarta XML Binding API for binding XML data to Java objects.
+The Jakarta XML Web Services specification defines client APIs for accessing web services as well as techniques for implementing web service endpoints.
+The Enterprise Web Services specification describes the deployment of Jakarta XML Web Services based services and clients.
+The Jakarta Enterprise Beans and Jakarta Servlet specifications also describe aspects of such deployment.
+Jakarta XML Web Services based applications can be deployed using any of these deployment models.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta XML Web Services specification describes the support for message handlers that can process message requests and responses.
+In general, these message handlers execute in the same container and with the same privileges and execution context as the Jakarta XML Web Services client or endpoint component with which they are associated.
+These message handlers have access to the same JNDI namespace as their associated component.
+Custom serializers and deserializers, if supported, are treated in the same way as message handlers.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta XML Web Services 3.0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_soap_with_attachments"><a class="anchor" href="#_jakarta_soap_with_attachments"></a>Jakarta SOAP with Attachments</h3>
+<div class="paragraph">
+<p>The Jakarta SOAP with Attachments is a low-level API on which Jakarta XML Web Services depends.
+Jakarta SOAP with Attachments enables the production and consumption of messages that conform to the SOAP 1.1 and 1.2 specifications and the Jakarta SOAP with Attachments note.
+Most developers do not use the Jakarta SOAP with Attachments, instead using the higher-level Jakarta XML Web Services API.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_annotations"><a class="anchor" href="#_jakarta_annotations"></a>Jakarta Annotations</h3>
+<div class="paragraph">
+<p>Annotations enable a declarative style of programming in the Java platform.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 9 platform requires Jakarta Annotations 2.0.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

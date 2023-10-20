@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/entbeans/pages/ejb-basicexamples/ejb-basicexamples005.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_using_the_timer_service"><a class="anchor" href="#_using_the_timer_service"></a>Using the Timer Service</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Applications that model business work flows often rely on timed notifications.
+The timer service of the enterprise bean container enables you to schedule timed notifications for all types of enterprise beans except for stateful session beans.
+You can schedule a timed notification to occur according to a calendar schedule, at a specific time, after a duration of time, or at timed intervals.
+For example, you could set timers to go off at 10:30 a.m. on May 23, in 30 days, or every 12 hours.</p>
+</div>
+<div class="paragraph">
+<p>Enterprise bean timers are either programmatic timers or automatic timers.
+Programmatic timers are set by explicitly calling one of the timer creation methods of the <code>TimerService</code> interface.
+Automatic timers are created upon the successful deployment of an enterprise bean that contains a method annotated with the <code>jakarta.ejb.Schedule</code> or <code>jakarta.ejb.Schedules</code> annotations.</p>
+</div>
+<div class="sect2">
+<h3 id="_creating_calendar_based_timer_expressions"><a class="anchor" href="#_creating_calendar_based_timer_expressions"></a>Creating Calendar-Based Timer Expressions</h3>
+<div class="paragraph">
+<p>Timers can be set according to a calendar-based schedule, expressed using a syntax similar to the UNIX <code>cron</code> utility.
+Both programmatic and automatic timers can use calendar-based timer expressions. <a href="#_calendar_based_timer_attributes">Calendar-Based Timer Attributes</a> shows the calendar-based timer attributes.</p>
+</div>
+<table id="_calendar_based_timer_attributes" class="tableblock frame-all grid-all" style="width: 99%;">
+<caption class="title">Calendar-Based Timer Attributes</caption>
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 35%;">
+<col style="width: 15%;">
+<col style="width: 35%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+<th class="tableblock halign-left valign-top">Allowable Values and Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>second</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more seconds within a minute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0</code> to <code>59</code>.
+For example: <code>second="30"</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>minute</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more minutes within an hour</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0</code> to <code>59</code>.
+For example: <code>minute="15"</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hour</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more hours within a day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0</code> to <code>23</code>.
+For example: <code>hour="13"</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dayOfWeek</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more days within a week</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>*</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>0</code> to <code>7</code> (both 0 and 7 refer to Sunday).
+For example: <code>dayOfWeek="3"</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>Sun</code>, <code>Mon</code>, <code>Tue</code>, <code>Wed</code>, <code>Thu</code>, <code>Fri</code>, <code>Sat</code>.
+For example: <code>dayOfWeek="Mon"</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dayOfMonth</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more days within a month</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>*</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>1</code> to <code>31</code>.
+For example: <code>dayOfMonth="15"</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>–7</code> to <code>–1</code> (a negative number means the nth day or days before the end of the month).
+For example: <code>dayOfMonth="–3"</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>Last</code>.
+For example: <code>dayOfMonth="Last"</code>.</p>
+</div>
+<div class="paragraph">
+<p>[<code>1st</code>, <code>2nd</code>, <code>3rd</code>, <code>4th</code>, <code>5th</code>, <code>Last</code>] [<code>Sun</code>, <code>Mon</code>, <code>Tue</code>, <code>Wed</code>, <code>Thu</code>, <code>Fri</code>, <code>Sat</code>].
+For example: <code>dayOfMonth="2nd Fri"</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>month</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more months within a year</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>*</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>1</code> to <code>12</code>.
+For example: <code>month="7"</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>Jan</code>, <code>Feb</code>, <code>Mar</code>, <code>Apr</code>, <code>May</code>, <code>Jun</code>, <code>Jul</code>, <code>Aug</code>, <code>Sep</code>, <code>Oct</code>, <code>Nov</code>, <code>Dec</code>.
+For example: <code>month="July"</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>year</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A particular calendar year</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>*</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A four-digit calendar year.
+For example: <code>year="2011"</code>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="_specifying_multiple_values_in_calendar_expressions"><a class="anchor" href="#_specifying_multiple_values_in_calendar_expressions"></a>Specifying Multiple Values in Calendar Expressions</h4>
+<div class="paragraph">
+<p>You can specify multiple values in calendar expressions, as described in the following sections.</p>
+</div>
+<div class="sect4">
+<h5 id="_using_wildcards_in_calendar_expressions"><a class="anchor" href="#_using_wildcards_in_calendar_expressions"></a>Using Wildcards in Calendar Expressions</h5>
+<div class="paragraph">
+<p>Setting an attribute to an asterisk symbol (<code>*</code>) represents all allowable values for the attribute.</p>
+</div>
+<div class="paragraph">
+<p>The following expression represents every minute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">minute="*"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following expression represents every day of the week:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">dayOfWeek="*"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_specifying_a_list_of_values"><a class="anchor" href="#_specifying_a_list_of_values"></a>Specifying a List of Values</h5>
+<div class="paragraph">
+<p>To specify two or more values for an attribute, use a comma (<code>,</code>) to separate the values.
+A range of values is allowed as part of a list.
+Wildcards and intervals, however, are not allowed.</p>
+</div>
+<div class="paragraph">
+<p>Duplicates within a list are ignored.</p>
+</div>
+<div class="paragraph">
+<p>The following expression sets the day of the week to Tuesday and Thursday:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">dayOfWeek="Tue, Thu"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following expression represents 4:00 a.m., every hour from 9:00 a.m. to 5:00 p.m. using a range, and 10:00 p.m.:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">hour="4,9-17,22"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_specifying_a_range_of_values"><a class="anchor" href="#_specifying_a_range_of_values"></a>Specifying a Range of Values</h5>
+<div class="paragraph">
+<p>Use a dash character (<code>-</code>) to specify an inclusive range of values for an attribute.
+Members of a range cannot be wildcards, lists, or intervals.
+A range of the form <code>x-x</code>, is equivalent to the single-valued expression <code>x</code>.
+A range of the form <code>x-y</code> where <code>x</code> is greater than <code>y</code> is equivalent to the expression <code>x-<em>maximumvalue</em></code>,<code><em>minimumvalue</em>-y</code>.
+That is, the expression begins at <code>x</code>, rolls over to the beginning of the allowable values, and continues up to <code>y</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following expression represents 9:00 a.m. to 5:00 p.m.:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">hour="9-17"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following expression represents Friday through Monday:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">dayOfWeek="5-1"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following expression represents the twenty-fifth day of the month to the end of the month, and the beginning of the month to the fifth day of the month:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">dayOfMonth="25-5"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is equivalent to the following expression:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">dayOfMonth="25-Last,1-5"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_specifying_intervals"><a class="anchor" href="#_specifying_intervals"></a>Specifying Intervals</h5>
+<div class="paragraph">
+<p>The forward slash (<code>/</code>) constrains an attribute to a starting point and an interval and is used to specify every <code>N</code> seconds, minutes, or hours within the minute, hour, or day.
+For an expression of the form <code>x/y</code>, <code>x</code> represents the starting point and <code>y</code> represents the interval.
+The wildcard character may be used in the <code>x</code> position of an interval and is equivalent to setting <code>x</code> to <code>0</code>.</p>
+</div>
+<div class="paragraph">
+<p>Intervals may be set only for <code>second</code>, <code>minute</code>, and <code>hour</code> attributes.</p>
+</div>
+<div class="paragraph">
+<p>The following expression represents every 10 minutes within the hour:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">minute="*/10"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is equivalent to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">minute="0,10,20,30,40,50"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following expression represents every 2 hours starting at noon:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">hour="12/2"</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_programmatic_timers"><a class="anchor" href="#_programmatic_timers"></a>Programmatic Timers</h3>
+<div class="paragraph">
+<p>When a programmatic timer expires (goes off), the container calls the method annotated <code>@Timeout</code> in the bean&#8217;s implementation class.
+The <code>@Timeout</code> method contains the business logic that handles the timed event.</p>
+</div>
+<div class="sect3">
+<h4 id="_the_timeout_method"><a class="anchor" href="#_the_timeout_method"></a>The @Timeout Method</h4>
+<div class="paragraph">
+<p>Methods annotated <code>@Timeout</code> in the enterprise bean class must return <code>void</code> and optionally take a <code>jakarta.ejb.Timer</code> object as the only parameter.
+They may not throw application exceptions:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Timeout
+public void timeout(Timer timer) {
+    System.out.println("TimerBean: timeout occurred");
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_creating_programmatic_timers"><a class="anchor" href="#_creating_programmatic_timers"></a>Creating Programmatic Timers</h4>
+<div class="paragraph">
+<p>To create a timer, the bean invokes one of the <code>create</code> methods of the <code>TimerService</code> interface.
+These methods allow single-action, interval, or calendar-based timers to be created.</p>
+</div>
+<div class="paragraph">
+<p>For single-action or interval timers, the expiration of the timer can be expressed as either a duration or an absolute time.
+The duration is expressed as a the number of milliseconds before a timeout event is triggered.
+To specify an absolute time, create a <code>java.util.Date</code> object and pass it to the <code>TimerService.createSingleActionTimer</code> or the <code>TimerService.createTimer</code> method.</p>
+</div>
+<div class="paragraph">
+<p>The following code sets a programmatic timer that will expire in 1 minute (60,000 milliseconds):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">long duration = 60000;
+Timer timer =
+    timerService.createSingleActionTimer(duration, new TimerConfig());</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following code sets a programmatic timer that will expire at 12:05 p.m. on May 1, 2015, specified as a <code>java.util.Date</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">SimpleDateFormatter formatter =
+    new SimpleDateFormatter("MM/dd/yyyy 'at' HH:mm");
+Date date = formatter.parse("05/01/2015 at 12:05");
+Timer timer = timerService.createSingleActionTimer(date, new TimerConfig());</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For calendar-based timers, the expiration of the timer is expressed as a <code>jakarta.ejb.ScheduleExpression</code> object, passed as a parameter to the <code>TimerService.createCalendarTimer</code> method.
+The <code>ScheduleExpression</code> class represents calendar-based timer expressions and has methods that correspond to the attributes described in <a href="#_creating_calendar_based_timer_expressions">Creating Calendar-Based Timer Expressions</a>.</p>
+</div>
+<div class="paragraph">
+<p>The following code creates a programmatic timer using the <code>ScheduleExpression</code> helper class:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">ScheduleExpression schedule = new ScheduleExpression();
+schedule.dayOfWeek("Mon");
+schedule.hour("12-17, 23");
+Timer timer = timerService.createCalendarTimer(schedule);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For details on the method signatures, see the <code>TimerService</code> API documentation at <a href="https://jakarta.ee/specifications/platform/9/apidocs/jakarta/ejb/TimerService.html" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/platform/9/apidocs/jakarta/ejb/TimerService.html</a>.</p>
+</div>
+<div class="paragraph">
+<p>The bean described in <a href="#_the_timersession_example">The timersession Example</a> creates a timer as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Timer timer = timerService.createTimer(intervalDuration,
+        "Created new programmatic timer");</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the <code>timersession</code> example, the method that calls <code>createTimer</code> is invoked in a business method, which is called by a client.</p>
+</div>
+<div class="paragraph">
+<p>Timers are persistent by default.
+If the server is shut down or crashes, persistent timers are saved and will become active again when the server is restarted.
+If a persistent timer expires while the server is down, the container will call the <code>@Timeout</code> method when the server is restarted.</p>
+</div>
+<div class="paragraph">
+<p>Nonpersistent programmatic timers are created by calling <code>TimerConfig.setPersistent(false)</code> and passing the <code>TimerConfig</code> object to one of the timer-creation methods.</p>
+</div>
+<div class="paragraph">
+<p>The <code>Date</code> and <code>long</code> parameters of the <code>createTimer</code> methods represent time with the resolution of milliseconds.
+However, because the timer service is not intended for real-time applications, a callback to the <code>@Timeout</code> method might not occur with millisecond precision.
+The timer service is for business applications, which typically measure time in hours, days, or longer durations.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_automatic_timers"><a class="anchor" href="#_automatic_timers"></a>Automatic Timers</h3>
+<div class="paragraph">
+<p>Automatic timers are created by the Enterprise Bean container when an enterprise bean that contains methods annotated with the <code>@Schedule</code> or <code>@Schedules</code> annotations is deployed.
+An enterprise bean can have multiple automatic timeout methods, unlike a programmatic timer, which allows only one method annotated with the <code>@Timeout</code> annotation in the enterprise bean class.</p>
+</div>
+<div class="paragraph">
+<p>Automatic timers can be configured through annotations or through the <code>ejb-jar.xml</code> deployment descriptor.</p>
+</div>
+<div class="paragraph">
+<p>Adding a <code>@Schedule</code> annotation on an enterprise bean marks that method as a timeout method according to the calendar schedule specified in the attributes of <code>@Schedule</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>@Schedule</code> annotation has elements that correspond to the calendar expressions detailed in <a href="#_creating_calendar_based_timer_expressions">Creating Calendar-Based Timer Expressions</a> and the <code>persistent</code>, <code>info</code>, and <code>timezone</code> elements.</p>
+</div>
+<div class="paragraph">
+<p>The optional <code>persistent</code> element takes a Boolean value and is used to specify whether the automatic timer should survive a server restart or crash.
+By default, all automatic timers are persistent.</p>
+</div>
+<div class="paragraph">
+<p>The optional <code>timezone</code> element is used to specify that the automatic timer is associated with a particular time zone.
+If set, this element will evaluate all timer expressions in relation to the specified time zone, regardless of the time zone in which the Enterprise Bean container is running.
+By default, all automatic timers set are in relation to the default time zone of the server.</p>
+</div>
+<div class="paragraph">
+<p>The optional <code>info</code> element is used to set an informational description of the timer.
+A timer&#8217;s information can be retrieved later by using <code>Timer.getInfo</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following timeout method uses <code>@Schedule</code> to set a timer that will expire every Sunday at midnight:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Schedule(dayOfWeek="Sun", hour="0")
+public void cleanupWeekData() { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>@Schedules</code> annotation is used to specify multiple calendar-based timer expressions for a given timeout method.</p>
+</div>
+<div class="paragraph">
+<p>The following timeout method uses the <code>@Schedules</code> annotation to set multiple calendar-based timer expressions.
+The first expression sets a timer to expire on the last day of every month.
+The second expression sets a timer to expire every Friday at 11:00 p.m.:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Schedules ({
+    @Schedule(dayOfMonth="Last"),
+    @Schedule(dayOfWeek="Fri", hour="23")
+})
+public void doPeriodicCleanup() { ... }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_canceling_and_saving_timers"><a class="anchor" href="#_canceling_and_saving_timers"></a>Canceling and Saving Timers</h3>
+<div class="paragraph">
+<p>Timers can be cancelled by the following events.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>When a single-event timer expires, the Enterprise Bean container calls the associated timeout method and then cancels the timer.</p>
+</li>
+<li>
+<p>When the bean invokes the <code>cancel</code> method of the <code>Timer</code> interface, the container cancels the timer.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If a method is invoked on a cancelled timer, the container throws the <code>jakarta.ejb.NoSuchObjectLocalException</code>.</p>
+</div>
+<div class="paragraph">
+<p>To save a <code>Timer</code> object for future reference, invoke its <code>getHandle</code> method and store the <code>TimerHandle</code> object in a database.
+(A <code>TimerHandle</code> object is serializable.)
+To reinstantiate the <code>Timer</code> object, retrieve the handle from the database and invoke <code>getTimer</code> on the handle.
+A <code>TimerHandle</code> object cannot be passed as an argument of a method defined in a remote or web service interface.
+In other words, remote clients and web service clients cannot access a bean&#8217;s <code>TimerHandle</code> object.
+Local clients, however, do not have this restriction.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_getting_timer_information"><a class="anchor" href="#_getting_timer_information"></a>Getting Timer Information</h3>
+<div class="paragraph">
+<p>In addition to defining the <code>cancel</code> and <code>getHandle</code> methods, the <code>Timer</code> interface defines methods for obtaining information about timers:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public long getTimeRemaining();
+public java.util.Date getNextTimeout();
+public java.io.Serializable getInfo();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>getInfo</code> method returns the object that was the last parameter of the <code>createTimer</code> invocation.
+For example, in the <code>createTimer</code> code snippet of the preceding section, this information parameter is a <code>String</code> object with the value <code>created timer</code>.</p>
+</div>
+<div class="paragraph">
+<p>To retrieve all of a bean&#8217;s active timers, call the <code>getTimers</code> method of the <code>TimerService</code> interface.
+The <code>getTimers</code> method returns a collection of <code>Timer</code> objects.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_transactions_and_timers"><a class="anchor" href="#_transactions_and_timers"></a>Transactions and Timers</h3>
+<div class="paragraph">
+<p>An enterprise bean usually creates a timer within a transaction.
+If this transaction is rolled back, the timer creation also is rolled back.
+Similarly, if a bean cancels a timer within a transaction that gets rolled back, the timer cancellation is rolled back.
+In this case, the timer&#8217;s duration is reset as if the cancellation had never occurred.</p>
+</div>
+<div class="paragraph">
+<p>In beans that use container-managed transactions, the <code>@Timeout</code> method usually has the <code>Required</code> or <code>RequiresNew</code> transaction attribute to preserve transaction integrity.
+With these attributes, the Enterprise Bean container begins the new transaction before calling the <code>@Timeout</code> method.
+If the transaction is rolled back, the container will call the <code>@Timeout</code> method at least one more time.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_timersession_example"><a class="anchor" href="#_the_timersession_example"></a>The timersession Example</h3>
+<div class="paragraph">
+<p>The source code for this example is in the <code><em>tut-install</em>/examples/ejb/timersession/src/main/java/</code> directory.</p>
+</div>
+<div class="paragraph">
+<p><code>TimerSessionBean</code> is a singleton session bean that shows how to set both an automatic timer and a programmatic timer.
+In the source code listing of <code>TimerSessionBean</code> that follows, the <code>setTimer</code> and <code>@Timeout</code> methods are used to set a programmatic timer.
+A <code>TimerService</code> instance is injected by the container when the bean is created.
+Because it&#8217;s a business method, <code>setTimer</code> is exposed to the local, no-interface view of <code>TimerSessionBean</code> and can be invoked by the client.
+In this example, the client invokes <code>setTimer</code> with an interval duration of 8,000 milliseconds, or 8 seconds.
+The <code>setTimer</code> method creates a new timer by invoking the <code>createTimer</code> method of <code>TimerService</code>.
+Now that the timer is set, the Enterprise Bean container will invoke the <code>programmaticTimeout</code> method of <code>TimerSessionBean</code> when the timer expires, in about 8 seconds:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">...
+    public void setTimer(long intervalDuration) {
+        logger.log(Level.INFO,
+                "Setting a programmatic timeout for {0} milliseconds from now.",
+                intervalDuration);
+        Timer timer = timerService.createTimer(intervalDuration,
+                "Created new programmatic timer");
+    }
+
+    @Timeout
+    public void programmaticTimeout(Timer timer) {
+        this.setLastProgrammaticTimeout(new Date());
+        logger.info("Programmatic timeout occurred.");
+    }
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>TimerSessionBean</code> also has an automatic timer and timeout method, <code>automaticTimeout</code>.
+The automatic timer is set to expire every 1 minute and is set by using a calendar-based timer expression in the <code>@Schedule</code> annotation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">...
+    @Schedule(minute = "*/1", hour = "*", persistent = false)
+    public void automaticTimeout() {
+        this.setLastAutomaticTimeout(new Date());
+        logger.info("Automatic timeout occured");
+    }
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>TimerSessionBean</code> also has two business methods: <code>getLastProgrammaticTimeout</code> and <code>getLastAutomaticTimeout</code>.
+Clients call these methods to get the date and time of the last timeout for the programmatic timer and automatic timer, respectively.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s the source code for the <code>TimerSessionBean</code> class:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package ee.jakarta.tutorial.timersession.ejb;
+
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import jakarta.annotation.Resource;
+import jakarta.ejb.Schedule;
+import jakarta.ejb.Singleton;
+import jakarta.ejb.Startup;
+import jakarta.ejb.Timeout;
+import jakarta.ejb.Timer;
+import jakarta.ejb.TimerService;
+
+@Singleton
+@Startup
+public class TimerSessionBean {
+    @Resource
+    TimerService timerService;
+
+    private Date lastProgrammaticTimeout;
+    private Date lastAutomaticTimeout;
+
+    private static final Logger logger =
+            Logger.getLogger("timersession.ejb.TimerSessionBean");
+
+    public void setTimer(long intervalDuration) {
+        logger.log(Level.INFO,
+                "Setting a programmatic timeout for {0} milliseconds from now.",
+                intervalDuration);
+        Timer timer = timerService.createTimer(intervalDuration,
+                "Created new programmatic timer");
+    }
+
+    @Timeout
+    public void programmaticTimeout(Timer timer) {
+        this.setLastProgrammaticTimeout(new Date());
+        logger.info("Programmatic timeout occurred.");
+    }
+
+    @Schedule(minute = "*/1", hour = "*", persistent = false)
+    public void automaticTimeout() {
+        this.setLastAutomaticTimeout(new Date());
+        logger.info("Automatic timeout occured");
+    }
+
+    public String getLastProgrammaticTimeout() {
+        if (lastProgrammaticTimeout != null) {
+            return lastProgrammaticTimeout.toString();
+        } else {
+            return "never";
+        }
+    }
+
+    public void setLastProgrammaticTimeout(Date lastTimeout) {
+        this.lastProgrammaticTimeout = lastTimeout;
+    }
+
+    public String getLastAutomaticTimeout() {
+        if (lastAutomaticTimeout != null) {
+            return lastAutomaticTimeout.toString();
+        } else {
+            return "never";
+        }
+    }
+
+    public void setLastAutomaticTimeout(Date lastAutomaticTimeout) {
+        this.lastAutomaticTimeout = lastAutomaticTimeout;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>GlassFish Server has a default minimum timeout value of 1,000 milliseconds, or 1 second.
+If you need to set the timeout value lower than 1,000 milliseconds, change the value of the Minimum Delivery Interval setting in the Administration Console.</p>
+</div>
+<div class="paragraph">
+<p>To modify the minimum timeout value, in the Administration Console expand Configurations, then expand server-config, select EJB Container, and click the EJB Timer Service tab.
+Enter a new timeout value under Minimum Delivery Interval and click Save.</p>
+</div>
+<div class="paragraph">
+<p>The lowest practical value for <code>minimum-delivery-interval-in-millis</code> is around 10 milliseconds, owing to virtual machine constraints.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_running_the_timersession_example"><a class="anchor" href="#_running_the_timersession_example"></a>Running the timersession Example</h3>
+<div class="paragraph">
+<p>You can use either NetBeans IDE or Maven to build, package, deploy, and run the <code>timersession</code> example.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_timersession_example_using_netbeans_ide"><a class="anchor" href="#_to_run_the_timersession_example_using_netbeans_ide"></a>To Run the timersession Example Using NetBeans IDE</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>From the <strong>File</strong> menu, choose <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Open Project</strong> dialog box, navigate to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/ejb</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Select the <code>timersession</code> folder.</p>
+</li>
+<li>
+<p>Click <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>From the <strong>Run</strong> menu, choose <strong>Run Project</strong>.</p>
+<div class="paragraph">
+<p>This builds and packages the application into a WAR file located at <code><em>tut-install</em>/examples/ejb/timersession/target/timersession.war</code>, deploys this WAR file to your GlassFish Server instance, and then runs the web client.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_build_package_and_deploy_the_timersession_example_using_maven"><a class="anchor" href="#_to_build_package_and_deploy_the_timersession_example_using_maven"></a>To Build, Package, and Deploy the timersession Example Using Maven</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>In a terminal window, go to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/ejb/timersession/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enter the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This builds and packages the application into a WAR file located at <code><em>tut-install</em>/examples/ejb/timersession/target/timersession.war</code> and deploys this WAR file to your GlassFish Server instance.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_web_client"><a class="anchor" href="#_to_run_the_web_client"></a>To Run the Web Client</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open a web browser to the following URL:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/timersession</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Click Set Timer to set a programmatic timer.</p>
+</li>
+<li>
+<p>Wait for a while and click the browser&#8217;s Refresh button.</p>
+<div class="paragraph">
+<p>You will see the date and time of the last programmatic and automatic timeouts.</p>
+</div>
+<div class="paragraph">
+<p>To see the messages that are logged when a timeout occurs, open the <code>server.log</code> file located in <code><em>domain-dir</em>/logs/</code>.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Building RESTful Web Services with Jakarta REST :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">Jakarta EE Tutorial</a></li>
+    <li>Jakarta EE Core Profile</li>
+    <li>Jakarta REST</li>
+    <li><a href="jaxrs.html">Building RESTful Web Services with Jakarta REST</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/websvcs/pages/jaxrs/jaxrs.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Building RESTful Web Services with Jakarta REST</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We are working on a fresh, updated Jakarta EE Tutorial. This section hasn&#8217;t yet been updated.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This chapter describes the REST architecture, RESTful web services, and the Jakarta RESTful Web Services.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta REST makes it easy for developers to build RESTful web services using the Java programming language.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_are_restful_web_services"><a class="anchor" href="#_what_are_restful_web_services"></a>What Are RESTful Web Services?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>RESTful web services are loosely coupled, lightweight web services that are particularly well suited for creating APIs for clients spread out across the internet.
+Representational State Transfer (REST) is an architectural style of client-server application centered around the transfer of representations of resources through requests and responses.
+In the REST architectural style, data and functionality are considered resources and are accessed using Uniform Resource Identifiers (URIs), typically links on the Web.
+The resources are represented by documents and are acted upon by using a set of simple, well-defined operations.</p>
+</div>
+<div class="paragraph">
+<p>For example, a REST resource might be the current weather conditions for a city.
+The representation of that resource might be an XML document, an image file, or an HTML page.
+A client might retrieve a particular representation, modify the resource by updating its data, or delete the resource entirely.</p>
+</div>
+<div class="paragraph">
+<p>The REST architectural style is designed to use a stateless communication protocol, typically HTTP.
+In the REST architecture style, clients and servers exchange representations of resources by using a standardized interface and protocol.</p>
+</div>
+<div class="paragraph">
+<p>The following principles encourage RESTful applications to be simple, lightweight, and fast:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Resource identification through URI: A RESTful web service exposes a set of resources that identify the targets of the interaction with its clients.
+Resources are identified by URIs, which provide a global addressing space for resource and service discovery.
+See <a href="#_the_path_annotation_and_uri_path_templates">The @Path Annotation and URI Path Templates</a> for more information.</p>
+</li>
+<li>
+<p>Uniform interface: Resources are manipulated using a fixed set of four create, read, update, delete operations: PUT, GET, POST, and DELETE.
+PUT creates a new resource, which can be then deleted by using DELETE.
+GET retrieves the current state of a resource in some representation.
+POST transfers a new state onto a resource.
+See <a href="#_responding_to_http_methods_and_requests">Responding to HTTP Methods and Requests</a> for more information.</p>
+</li>
+<li>
+<p>Self-descriptive messages: Resources are decoupled from their representation so that their content can be accessed in a variety of formats, such as HTML, XML, plain text, PDF, JPEG, JSON, and other document formats.
+Metadata about the resource is available and used, for example, to control caching, detect transmission errors, negotiate the appropriate representation format, and perform authentication or access control.
+See <a href="#_responding_to_http_methods_and_requests">Responding to HTTP Methods and Requests</a> and <a href="#_using_entity_providers_to_map_http_response_and_request_entity_bodies">Using Entity Providers to Map HTTP Response and Request Entity Bodies</a> for more information.</p>
+</li>
+<li>
+<p>Stateful interactions through links: Every interaction with a resource is stateless; that is, request messages are self-contained.
+Stateful interactions are based on the concept of explicit state transfer.
+Several techniques exist to exchange state, such as URI rewriting, cookies, and hidden form fields.
+State can be embedded in response messages to point to valid future states of the interaction.
+See <a href="#_using_entity_providers_to_map_http_response_and_request_entity_bodies">Using Entity Providers to Map HTTP Response and Request Entity Bodies</a> and <a href="#_extracting_request_parameters">Extracting Request Parameters</a> in the Jakarta REST Overview document for more information.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creating_a_restful_root_resource_class"><a class="anchor" href="#_creating_a_restful_root_resource_class"></a>Creating a RESTful Root Resource Class</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Root resource classes are "plain old Java objects" (POJOs) that are either annotated with <code>@Path</code> or have at least one method annotated with <code>@Path</code> or a request method designator, such as <code>@GET</code>, <code>@PUT</code>, <code>@POST</code>, or <code>@DELETE</code>.
+Resource methods are methods of a resource class annotated with a request method designator.
+This section explains how to use Jakarta REST to annotate Java classes to create RESTful web services.</p>
+</div>
+<div class="sect2">
+<h3 id="_developing_restful_web_services_with_jakarta_rest"><a class="anchor" href="#_developing_restful_web_services_with_jakarta_rest"></a>Developing RESTful Web Services with Jakarta REST</h3>
+<div class="paragraph">
+<p>Jakarta REST is a Java programming language API designed to make it easy to develop applications that use the REST architecture.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta REST API uses Java programming language annotations to simplify the development of RESTful web services.
+Developers decorate Java programming language class files with Jakarta REST annotations to define resources and the actions that can be performed on those resources.
+Jakarta REST annotations are runtime annotations; therefore, runtime reflection will generate the helper classes and artifacts for the resource.
+A Jakarta EE application archive containing Jakarta REST resource classes will have the resources configured, the helper classes and artifacts generated, and the resource exposed to clients by deploying the archive to a Jakarta EE server.</p>
+</div>
+<div class="paragraph">
+<p><a href="#_summary_of_jakarta_rest_annotations">Summary of Jakarta REST Annotations</a> lists some of the Java programming annotations that are defined by Jakarta REST, with a brief description of how each is used.
+Further information on the Jakarta REST APIs can be viewed at <a href="https://jakarta.ee/specifications/platform/9/apidocs/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/platform/9/apidocs/</a>.</p>
+</div>
+<table id="_summary_of_jakarta_rest_annotations" class="tableblock frame-all grid-all" style="width: 99%;">
+<caption class="title">Summary of Jakarta REST Annotations</caption>
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 90%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Annotation</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Path</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>@Path</code> annotation&#8217;s value is a relative URI path indicating where the Java class will be hosted: for example, <code>/helloworld</code>.
+You can also embed variables in the URIs to make a URI path template.
+For example, you could ask for the name of a user and pass it to the application as a variable in the URI: <code>/helloworld/{username}</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@GET</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>@GET</code> annotation is a request method designator and corresponds to the similarly named HTTP method.
+The Java method annotated with this request method designator will process HTTP GET requests.
+The behavior of a resource is determined by the HTTP method to which the resource is responding.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@POST</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>@POST</code> annotation is a request method designator and corresponds to the similarly named HTTP method.
+The Java method annotated with this request method designator will process HTTP POST requests.
+The behavior of a resource is determined by the HTTP method to which the resource is responding.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@PUT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>@PUT</code> annotation is a request method designator and corresponds to the similarly named HTTP method.
+The Java method annotated with this request method designator will process HTTP PUT requests.
+The behavior of a resource is determined by the HTTP method to which the resource is responding.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@DELETE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>@DELETE</code> annotation is a request method designator and corresponds to the similarly named HTTP method.
+The Java method annotated with this request method designator will process HTTP DELETE requests.
+The behavior of a resource is determined by the HTTP method to which the resource is responding.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@HEAD</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>@HEAD</code> annotation is a request method designator and corresponds to the similarly named HTTP method.
+The Java method annotated with this request method designator will process HTTP HEAD requests.
+The behavior of a resource is determined by the HTTP method to which the resource is responding.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@OPTIONS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>@OPTIONS</code> annotation is a request method designator and corresponds to the similarly named HTTP method.
+The Java method annotated with this request method designator will process HTTP OPTIONS requests.
+The behavior of a resource is determined by the HTTP method to which the resource is responding.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@PATCH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>@PATCH</code> annotation is a request method designator and corresponds to the similarly named HTTP method.
+The Java method annotated with this request method designator will process HTTP PATCH requests.
+The behavior of a resource is determined by the HTTP method to which the resource is responding.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@PathParam</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>@PathParam</code> annotation is a type of parameter that you can extract for use in your resource class.
+URI path parameters are extracted from the request URI, and the parameter names correspond to the URI path template variable names specified in the <code>@Path</code> class-level annotation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@QueryParam</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>@QueryParam</code> annotation is a type of parameter that you can extract for use in your resource class.
+Query parameters are extracted from the request URI query parameters.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Consumes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>@Consumes</code> annotation is used to specify the MIME media types of representations a resource can consume that were sent by the client.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Produces</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>@Produces</code> annotation is used to specify the MIME media types of representations a resource can produce and send back to the client: for example, <code>"text/plain"</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Provider</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>@Provider</code> annotation is used for anything that is of interest to the Jakarta REST runtime, such as <code>MessageBodyReader</code> and <code>MessageBodyWriter</code>.
+For HTTP requests, the <code>MessageBodyReader</code> is used to map an HTTP request entity body to method parameters.
+On the response side, a return value is mapped to an HTTP response entity body by using a <code>MessageBodyWriter</code>.
+If the application needs to supply additional metadata, such as HTTP headers or a different status code, a method can return a <code>Response</code> that wraps the entity and that can be built using <code>Response.ResponseBuilder</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@ApplicationPath</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>@ApplicationPath</code> annotation is used to define the URL mapping for the application.
+The path specified by <code>@ApplicationPath</code> is the base URI for all resource URIs specified by <code>@Path</code> annotations in the resource class.
+You may only apply <code>@ApplicationPath</code> to a subclass of <code>jakarta.ws.rs.core.Application</code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_overview_of_a_jakarta_rest_application"><a class="anchor" href="#_overview_of_a_jakarta_rest_application"></a>Overview of a Jakarta REST Application</h3>
+<div class="paragraph">
+<p>The following code sample is a very simple example of a root resource class that uses Jakarta REST annotations:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package ee.jakarta.tutorial.hello;
+
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.PUT;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.UriInfo;
+
+/**
+ * Root resource (exposed at "helloworld" path)
+ */
+@Path("helloworld")
+public class HelloWorld {
+    @Context
+    private UriInfo context;
+
+    /** Creates a new instance of HelloWorld */
+    public HelloWorld() {
+    }
+
+    /**
+     * Retrieves representation of an instance of helloWorld.HelloWorld
+     * @return an instance of java.lang.String
+     */
+    @GET
+    @Produces("text/html")
+    public String getHtml() {
+        return "&lt;html lang=\"en\"&gt;&lt;body&gt;&lt;h1&gt;Hello, World!!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;";
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following sections describe the annotations used in this example.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>@Path</code> annotation&#8217;s value is a relative URI path.
+In the preceding example, the Java class will be hosted at the URI path <code>/helloworld</code>.
+This is an extremely simple use of the <code>@Path</code> annotation, with a static URI path.
+Variables can be embedded in the URIs.
+URI path templates are URIs with variables embedded within the URI syntax.</p>
+</li>
+<li>
+<p>The <code>@GET</code> annotation is a request method designator, along with <code>@POST</code>, <code>@PUT</code>, <code>@DELETE</code>, and <code>@HEAD</code>, defined by Jakarta REST and corresponding to the similarly named HTTP methods.
+In the example, the annotated Java method will process HTTP GET requests.
+The behavior of a resource is determined by the HTTP method to which the resource is responding.</p>
+</li>
+<li>
+<p>The <code>@Produces</code> annotation is used to specify the MIME media types a resource can produce and send back to the client.
+In this example, the Java method will produce representations identified by the MIME media type <code>"text/html"</code>.</p>
+</li>
+<li>
+<p>The <code>@Consumes</code> annotation is used to specify the MIME media types a resource can consume that were sent by the client.
+The example could be modified to set the message returned by the <code>getHtml</code> method, as shown in this code example:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@POST
+@Consumes("text/plain")
+public void postHtml(String message) {
+    // Store the message
+}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_path_annotation_and_uri_path_templates"><a class="anchor" href="#_the_path_annotation_and_uri_path_templates"></a>The @Path Annotation and URI Path Templates</h3>
+<div class="paragraph">
+<p>The <code>@Path</code> annotation identifies the URI path template to which the resource responds and is specified at the class or method level of a resource.
+The <code>@Path</code> annotation&#8217;s value is a partial URI path template relative to the base URI of the server on which the resource is deployed, the context root of the application, and the URL pattern to which the Jakarta REST runtime responds.</p>
+</div>
+<div class="paragraph">
+<p>URI path templates are URIs with variables embedded within the URI syntax.
+These variables are substituted at runtime in order for a resource to respond to a request based on the substituted URI.
+Variables are denoted by braces (<code>{</code> and <code>}</code>).
+For example, look at the following <code>@Path</code> annotation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/users/{username}")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this kind of example, a user is prompted to type his or her name, and then a Jakarta REST web service configured to respond to requests to this URI path template responds.
+For example, if the user types the user name "Galileo," the web service responds to the following URL:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://example.com/users/Galileo</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To obtain the value of the user name, the <code>@PathParam</code> annotation may be used on the method parameter of a request method, as shown in the following code example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/users/{username}")
+public class UserResource {
+
+    @GET
+    @Produces("text/xml")
+    public String getUser(@PathParam("username") String userName) {
+        ...
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By default, the URI variable must match the regular expression <code>"[^/]+?"</code>.
+This variable may be customized by specifying a different regular expression after the variable name.
+For example, if a user name must consist only of lowercase and uppercase alphanumeric characters, override the default regular expression in the variable definition:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("users/{username: [a-zA-Z][a-zA-Z_0-9]*}")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, the <code>username</code> variable will match only user names that begin with one uppercase or lowercase letter and zero or more alphanumeric characters and the underscore character.
+If a user name does not match that template, a 404 (Not Found) response will be sent to the client.</p>
+</div>
+<div class="paragraph">
+<p>A <code>@Path</code> value isn&#8217;t required to have leading or trailing slashes (/).
+The Jakarta REST runtime parses URI path templates the same way, whether or not they have leading or trailing slashes.</p>
+</div>
+<div class="paragraph">
+<p>A URI path template has one or more variables, with each variable name surrounded by braces: <code>{</code> to begin the variable name and <code>}</code> to end it.
+In the preceding example, <code>username</code> is the variable name.
+At runtime, a resource configured to respond to the preceding URI path template will attempt to process the URI data that corresponds to the location of <code>{username}</code> in the URI as the variable data for <code>username</code>.</p>
+</div>
+<div class="paragraph">
+<p>For example, if you want to deploy a resource that responds to the URI path template <code>http://example.com/myContextRoot/resources/{name1}/{name2}/</code>, you must first deploy the application to a Jakarta EE server that responds to requests to the <code>http://example.com/myContextRoot</code> URI and then decorate your resource with the following <code>@Path</code> annotation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/{name1}/{name2}/")
+public class SomeResource {
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, the URL pattern for the Jakarta REST helper servlet, specified in <code>web.xml</code>, is the default:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;servlet-mapping&gt;
+      &lt;servlet-name&gt;jakarta.ws.rs.core.Application&lt;/servlet-name&gt;
+      &lt;url-pattern&gt;/resources/*&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A variable name can be used more than once in the URI path template.</p>
+</div>
+<div class="paragraph">
+<p>If a character in the value of a variable would conflict with the reserved characters of a URI, the conflicting character should be substituted with percent encoding.
+For example, spaces in the value of a variable should be substituted with <code>%20</code>.</p>
+</div>
+<div class="paragraph">
+<p>When defining URI path templates, be careful that the resulting URI after substitution is valid.</p>
+</div>
+<div class="paragraph">
+<p><a href="#_examples_of_uri_path_templates">Examples of URI Path Templates</a> lists some examples of URI path template variables and how the URIs are resolved after substitution.
+The following variable names and values are used in the examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>name1</code>: <code>james</code></p>
+</li>
+<li>
+<p><code>name2</code>: <code>gatz</code></p>
+</li>
+<li>
+<p><code>name3</code>:</p>
+</li>
+<li>
+<p><code>location</code>: <code>Main%20Street</code></p>
+</li>
+<li>
+<p><code>question</code>: <code>why</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The value of the <code>name3</code> variable is an empty string.
+</td>
+</tr>
+</table>
+</div>
+<table id="_examples_of_uri_path_templates" class="tableblock frame-all grid-all" style="width: 80%;">
+<caption class="title">Examples of URI Path Templates</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">URI Path Template</th>
+<th class="tableblock halign-left valign-top">URI After Substitution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">http://example.com/{name1}/{name2}/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">http://example.com/james/gatz/</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">http://example.com/{question}/{question}/{question}/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">http://example.com/why/why/why/</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">http://example.com/maps/{location}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">http://example.com/maps/Main%20Street</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">http://example.com/{name3}/home/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">http://example.com//home/</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_responding_to_http_methods_and_requests"><a class="anchor" href="#_responding_to_http_methods_and_requests"></a>Responding to HTTP Methods and Requests</h3>
+<div class="paragraph">
+<p>The behavior of a resource is determined by the HTTP methods (typically, GET, POST, PUT, or DELETE) to which the resource is responding.</p>
+</div>
+<div class="sect3">
+<h4 id="_the_request_method_designator_annotations"><a class="anchor" href="#_the_request_method_designator_annotations"></a>The Request Method Designator Annotations</h4>
+<div class="paragraph">
+<p>Request method designator annotations are runtime annotations, defined by Jakarta REST, that correspond to the similarly named HTTP methods.
+Within a resource class file, HTTP methods are mapped to Java programming language methods by using the request method designator annotations.
+The behavior of a resource is determined by which HTTP method the resource is responding to.
+Jakarta REST defines a set of request method designators for the common HTTP methods GET, POST, PUT, DELETE, and HEAD; you can also create your own custom request method designators.
+Creating custom request method designators is outside the scope of this document.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows the use of the PUT method to create or update a storage container:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@PUT
+public Response putContainer() {
+    System.out.println("PUT CONTAINER " + container);
+
+    URI uri =  uriInfo.getAbsolutePath();
+    Container c = new Container(container, uri.toString());
+
+    Response r;
+    if (!MemoryStore.MS.hasContainer(c)) {
+        r = Response.created(uri).build();
+    } else {
+        r = Response.noContent().build();
+    }
+
+    MemoryStore.MS.createContainer(c);
+    return r;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By default, the Jakarta REST runtime will automatically support the methods HEAD and OPTIONS if not explicitly implemented.
+For HEAD, the runtime will invoke the implemented GET method, if present, and ignore the response entity, if set.
+For OPTIONS, the <code>Allow</code> response header will be set to the set of HTTP methods supported by the resource.
+In addition, the Jakarta REST runtime will return a Web Application Definition Language (WADL) document describing the resource; see <a href="https://www.w3.org/Submission/wadl/" class="bare" target="_blank" rel="noopener">https://www.w3.org/Submission/wadl/</a> for more information.</p>
+</div>
+<div class="paragraph">
+<p>Methods decorated with request method designators must return <code>void</code>, a Java programming language type, or a <code>jakarta.ws.rs.core.Response</code> object.
+Multiple parameters may be extracted from the URI by using the <code>@PathParam</code> or <code>@QueryParam</code> annotations, as described in <a href="#_extracting_request_parameters">Extracting Request Parameters</a>.
+Conversion between Java types and an entity body is the responsibility of an entity provider, such as <code>MessageBodyReader</code> or <code>MessageBodyWriter</code>.
+Methods that need to provide additional metadata with a response should return an instance of the <code>Response</code> class.
+The <code>ResponseBuilder</code> class provides a convenient way to create a <code>Response</code> instance using a builder pattern.
+The HTTP PUT and POST methods expect an HTTP request body, so you should use a <code>MessageBodyReader</code> for methods that respond to PUT and POST requests.</p>
+</div>
+<div class="paragraph">
+<p>Both <code>@PUT</code> and <code>@POST</code> can be used to create or update a resource.
+POST can mean anything, so when using POST, it is up to the application to define the semantics.
+PUT has well-defined semantics.
+When using PUT for creation, the client declares the URI for the newly created resource.</p>
+</div>
+<div class="paragraph">
+<p>PUT has very clear semantics for creating and updating a resource.
+The representation the client sends must be the same representation that is received using a GET, given the same media type.
+PUT does not allow a resource to be partially updated, a common mistake when attempting to use the PUT method.
+A common application pattern is to use POST to create a resource and return a <code>201</code> response with a location header whose value is the URI to the newly created resource.
+In this pattern, the web service declares the URI for the newly created resource.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_using_entity_providers_to_map_http_response_and_request_entity_bodies"><a class="anchor" href="#_using_entity_providers_to_map_http_response_and_request_entity_bodies"></a>Using Entity Providers to Map HTTP Response and Request Entity Bodies</h4>
+<div class="paragraph">
+<p>Entity providers supply mapping services between representations and their associated Java types.
+The two types of entity providers are <code>MessageBodyReader</code> and <code>MessageBodyWriter</code>.
+For HTTP requests, the <code>MessageBodyReader</code> is used to map an HTTP request entity body to method parameters.
+On the response side, a return value is mapped to an HTTP response entity body by using a <code>MessageBodyWriter</code>.
+If the application needs to supply additional metadata, such as HTTP headers or a different status code, a method can return a <code>Response</code> that wraps the entity and that can be built by using <code>Response.ResponseBuilder</code>.</p>
+</div>
+<div class="paragraph">
+<p><a href="#_types_supported_for_http_request_and_response_entity_bodies">Types Supported for HTTP Request and Response Entity Bodies</a> shows the standard types that are supported automatically for HTTP request and response entity bodies.
+You need to write an entity provider only if you are not choosing one of these standard types.</p>
+</div>
+<table id="_types_supported_for_http_request_and_response_entity_bodies" class="tableblock frame-all grid-all" style="width: 50%;">
+<caption class="title">Types Supported for HTTP Request and Response Entity Bodies</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Java Type</th>
+<th class="tableblock halign-left valign-top">Supported Media Types</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>byte[]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All media types (<code>*/*</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>java.lang.String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All text media types (<code>text/*</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>java.io.InputStream</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All media types (<code>*/*</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>java.io.Reader</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All media types (<code>*/*</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>java.io.File</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All media types (<code>*/*</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.activation.DataSource</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All media types (<code>*/*</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>javax.xml.transform.Source</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">XML media types (<code>text/xml</code>, <code>application/xml</code>, and <code>application/*+xml</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.xml.bind.JAXBElement</code> and application-supplied Jakarta XML Binding classes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">XML media types (<code>text/xml</code>, <code>application/xml</code>, and <code>application/*+xml</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MultivaluedMap&lt;String, String&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Form content (<code>application/x-www-form-urlencoded</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>StreamingOutput</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All media types (<code><strong>/</strong></code>), <code>MessageBodyWriter</code> only</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The following example shows how to use <code>MessageBodyReader</code> with the <code>@Consumes</code> and <code>@Provider</code> annotations:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Consumes("application/x-www-form-urlencoded")
+@Provider
+public class FormReader implements MessageBodyReader&lt;NameValuePair&gt; { }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following example shows how to use <code>MessageBodyWriter</code> with the <code>@Produces</code> and <code>@Provider</code> annotations:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Produces("text/html")
+@Provider
+public class FormWriter implements
+        MessageBodyWriter&lt;Hashtable&lt;String, String&gt;&gt; { }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following example shows how to use <code>ResponseBuilder</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@GET
+public Response getItem() {
+    System.out.println("GET ITEM " + container + " " + item);
+
+    Item i = MemoryStore.MS.getItem(container, item);
+    if (i == null)
+        throw new NotFoundException("Item not found");
+    Date lastModified = i.getLastModified().getTime();
+    EntityTag et = new EntityTag(i.getDigest());
+    ResponseBuilder rb = request.evaluatePreconditions(lastModified, et);
+    if (rb != null)
+        return rb.build();
+
+    byte[] b = MemoryStore.MS.getItemData(container, item);
+    return Response.ok(b, i.getMimeType()).
+            lastModified(lastModified).tag(et).build();
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_consumes_and_produces_to_customize_requests_and_responses"><a class="anchor" href="#_using_consumes_and_produces_to_customize_requests_and_responses"></a>Using @Consumes and @Produces to Customize Requests and Responses</h3>
+<div class="paragraph">
+<p>The information sent to a resource and then passed back to the client is specified as a MIME media type in the headers of an HTTP request or response.
+You can specify which MIME media types of representations a resource can respond to or produce by using the following annotations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>jakarta.ws.rs.Consumes</code></p>
+</li>
+<li>
+<p><code>jakarta.ws.rs.Produces</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>By default, a resource class can respond to and produce all MIME media types of representations specified in the HTTP request and response headers.</p>
+</div>
+<div class="sect3">
+<h4 id="_the_produces_annotation"><a class="anchor" href="#_the_produces_annotation"></a>The @Produces Annotation</h4>
+<div class="paragraph">
+<p>The <code>@Produces</code> annotation is used to specify the MIME media types or representations a resource can produce and send back to the client.
+If <code>@Produces</code> is applied at the class level, all the methods in a resource can produce the specified MIME types by default.
+If applied at the method level, the annotation overrides any <code>@Produces</code> annotations applied at the class level.</p>
+</div>
+<div class="paragraph">
+<p>If no methods in a resource are able to produce the MIME type in a client request, the Jakarta REST runtime sends back an HTTP "406 Not Acceptable" error.</p>
+</div>
+<div class="paragraph">
+<p>The value of <code>@Produces</code> is an array of <code>String</code> of MIME types or a comma-separated list of <code>MediaType</code> constants.
+For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Produces({"image/jpeg,image/png"})</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following example shows how to apply <code>@Produces</code> at both the class and method levels:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/myResource")
+@Produces("text/plain")
+public class SomeResource {
+    @GET
+    public String doGetAsPlainText() {
+        ...
+    }
+
+    @GET
+    @Produces("text/html")
+    public String doGetAsHtml() {
+        ...
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>doGetAsPlainText</code> method defaults to the MIME media type of the <code>@Produces</code> annotation at the class level.
+The <code>doGetAsHtml</code> method&#8217;s <code>@Produces</code> annotation overrides the class-level <code>@Produces</code> setting and specifies that the method can produce HTML rather than plain text.</p>
+</div>
+<div class="paragraph">
+<p><code>@Produces</code> can also use the constants defined in the <code>jakarta.ws.rs.core.MediaType</code> class to specify the media type.
+For example, specifying <code>MediaType.APPLICATION_XML</code> is equivalent to specifying <code>"application/xml"</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Produces(MediaType.APPLICATION_XML)
+@GET
+public Customer getCustomer() { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If a resource class is capable of producing more than one MIME media type, the resource method chosen will correspond to the most acceptable media type as declared by the client.
+More specifically, the <code>Accept</code> header of the HTTP request declares what is most acceptable.
+For example, if the <code>Accept</code> header is <code>Accept: text/plain</code>, the <code>doGetAsPlainText</code> method will be invoked.
+Alternatively, if the <code>Accept</code> header is <code>Accept: text/plain;q=0.9, text/html</code>, which declares that the client can accept media types of <code>text/plain</code> and <code>text/html</code> but prefers the latter, the <code>doGetAsHtml</code> method will be invoked.</p>
+</div>
+<div class="paragraph">
+<p>More than one media type may be declared in the same <code>@Produces</code> declaration.
+The following code example shows how this is done:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Produces({"application/xml", "application/json"})
+public String doGetAsXmlOrJson() {
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>doGetAsXmlOrJson</code> method will get invoked if either of the media types <code>application/xml</code> or <code>application/json</code> is acceptable.
+If both are equally acceptable, the former will be chosen because it occurs first.
+The preceding examples refer explicitly to MIME media types for clarity.
+It is possible to refer to constant values, which may reduce typographical errors.
+For more information, see the API documentation for the constant field values of <code>jakarta.ws.rs.core.MediaType</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_consumes_annotation"><a class="anchor" href="#_the_consumes_annotation"></a>The @Consumes Annotation</h4>
+<div class="paragraph">
+<p>The <code>@Consumes</code> annotation is used to specify which MIME media types of representations a resource can accept, or consume, from the client.
+If <code>@Consumes</code> is applied at the class level, all the response methods accept the specified MIME types by default.
+If applied at the method level, <code>@Consumes</code> overrides any <code>@Consumes</code> annotations applied at the class level.</p>
+</div>
+<div class="paragraph">
+<p>If a resource is unable to consume the MIME type of a client request, the Jakarta REST runtime sends back an HTTP 415 ("Unsupported Media Type") error.</p>
+</div>
+<div class="paragraph">
+<p>The value of <code>@Consumes</code> is an array of <code>String</code> of acceptable MIME types, or a comma-separated list of <code>MediaType</code> constants.
+For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Consumes({"text/plain,text/html"})</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is the equivalent of:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Consumes({MediaType.TEXT_PLAIN,MediaType.TEXT_HTML})</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following example shows how to apply <code>@Consumes</code> at both the class and method levels:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/myResource")
+@Consumes("multipart/related")
+public class SomeResource {
+    @POST
+    public String doPost(MimeMultipart mimeMultipartData) {
+        ...
+    }
+
+    @POST
+    @Consumes("application/x-www-form-urlencoded")
+    public String doPost2(FormURLEncodedProperties formData) {
+        ...
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>doPost</code> method defaults to the MIME media type of the <code>@Consumes</code> annotation at the class level.
+The <code>doPost2</code> method overrides the class level <code>@Consumes</code> annotation to specify that it can accept URL-encoded form data.</p>
+</div>
+<div class="paragraph">
+<p>If no resource methods can respond to the requested MIME type, an HTTP 415 ("Unsupported Media Type") error is returned to the client.</p>
+</div>
+<div class="paragraph">
+<p>The <code>HelloWorld</code> example discussed previously in this section can be modified to set the message by using <code>@Consumes</code>, as shown in the following code example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@POST
+@Consumes("text/html")
+public void postHtml(String message) {
+    // Store the message
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, the Java method will consume representations identified by the MIME media type <code>text/plain</code>.
+Note that the resource method returns <code>void</code>.
+This means that no representation is returned and that a response with a status code of HTTP 204 ("No Content") will be returned.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_extracting_request_parameters"><a class="anchor" href="#_extracting_request_parameters"></a>Extracting Request Parameters</h3>
+<div class="paragraph">
+<p>Parameters of a resource method may be annotated with parameter-based annotations to extract information from a request.
+A previous example presented the use of the <code>@PathParam</code> parameter to extract a path parameter from the path component of the request URL that matched the path declared in <code>@Path</code>.</p>
+</div>
+<div class="paragraph">
+<p>You can extract the following types of parameters for use in your resource class:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Query</p>
+</li>
+<li>
+<p>URI path</p>
+</li>
+<li>
+<p>Form</p>
+</li>
+<li>
+<p>Cookie</p>
+</li>
+<li>
+<p>Header</p>
+</li>
+<li>
+<p>Matrix</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Query parameters are extracted from the request URI query parameters and are specified by using the <code>jakarta.ws.rs.QueryParam</code> annotation in the method parameter arguments.
+The following example demonstrates using <code>@QueryParam</code> to extract query parameters from the <code>Query</code> component of the request URL:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("smooth")
+@GET
+public Response smooth(
+        @DefaultValue("2") @QueryParam("step") int step,
+        @DefaultValue("true") @QueryParam("min-m") boolean hasMin,
+        @DefaultValue("true") @QueryParam("max-m") boolean hasMax,
+        @DefaultValue("true") @QueryParam("last-m") boolean hasLast,
+        @DefaultValue("blue") @QueryParam("min-color") ColorParam minColor,
+        @DefaultValue("green") @QueryParam("max-color") ColorParam maxColor,
+        @DefaultValue("red") @QueryParam("last-color") ColorParam lastColor
+        ) { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the query parameter <code>step</code> exists in the query component of the request URI, the value of <code>step</code> will be extracted and parsed as a 32-bit signed integer and assigned to the <code>step</code> method parameter.
+If <code>step</code> does not exist, a default value of 2, as declared in the <code>@DefaultValue</code> annotation, will be assigned to the <code>step</code> method parameter.
+If the <code>step</code> value cannot be parsed as a 32-bit signed integer, an HTTP 400 ("Client Error") response is returned.</p>
+</div>
+<div class="paragraph">
+<p>User-defined Java programming language types may be used as query parameters.
+The following code example shows the <code>ColorParam</code> class used in the preceding query parameter example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class ColorParam extends Color {
+    public ColorParam(String s) {
+        super(getRGB(s));
+    }
+
+    private static int getRGB(String s) {
+        if (s.charAt(0) == '#') {
+            try {
+                Color c = Color.decode("0x" + s.substring(1));
+                return c.getRGB();
+            } catch (NumberFormatException e) {
+                throw new WebApplicationException(400);
+            }
+        } else {
+            try {
+                Field f = Color.class.getField(s);
+                return ((Color)f.get(null)).getRGB();
+            } catch (Exception e) {
+                throw new WebApplicationException(400);
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The constructor for <code>ColorParam</code> takes a single <code>String</code> parameter.</p>
+</div>
+<div class="paragraph">
+<p>Both <code>@QueryParam</code> and <code>@PathParam</code> can be used only on the following Java types.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>All primitive types except <code>char</code>.</p>
+</li>
+<li>
+<p>All wrapper classes of primitive types except <code>Character</code>.</p>
+</li>
+<li>
+<p>Any class with a constructor that accepts a single <code>String</code> argument.</p>
+</li>
+<li>
+<p>Any class with the static method named <code>valueOf(String)</code> that accepts a single <code>String</code> argument.</p>
+</li>
+<li>
+<p><code>List&lt;T&gt;</code>, <code>Set&lt;T&gt;</code>, or <code>SortedSet&lt;T&gt;</code>, where T matches the already listed criteria.
+Sometimes, parameters may contain more than one value for the same name.
+If this is the case, these types may be used to obtain all values.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If <code>@DefaultValue</code> is not used in conjunction with <code>@QueryParam</code>, and the query parameter is not present in the request, the value will be an empty collection for <code>List</code>, <code>Set</code>, or <code>SortedSet</code>; null for other object types; and the default for primitive types.</p>
+</div>
+<div class="paragraph">
+<p>URI path parameters are extracted from the request URI, and the parameter names correspond to the URI path template variable names specified in the <code>@Path</code> class-level annotation.
+URI parameters are specified using the <code>jakarta.ws.rs.PathParam</code> annotation in the method parameter arguments.
+The following example shows how to use <code>@Path</code> variables and the <code>@PathParam</code> annotation in a method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/{username}")
+public class MyResourceBean {
+    ...
+    @GET
+    public String printUsername(@PathParam("username") String userId) {
+        ...
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the preceding snippet, the URI path template variable name <code>username</code> is specified as a parameter to the <code>printUsername</code> method.
+The <code>@PathParam</code> annotation is set to the variable name <code>username</code>.
+At runtime, before <code>printUsername</code> is called, the value of <code>username</code> is extracted from the URI and cast to a <code>String</code>.
+The resulting <code>String</code> is then available to the method as the <code>userId</code> variable.</p>
+</div>
+<div class="paragraph">
+<p>If the URI path template variable cannot be cast to the specified type, the Jakarta REST runtime returns an HTTP 400 ("Bad Request") error to the client.
+If the <code>@PathParam</code> annotation cannot be cast to the specified type, the Jakarta REST runtime returns an HTTP 404 ("Not Found") error to the client.</p>
+</div>
+<div class="paragraph">
+<p>The <code>@PathParam</code> parameter and the other parameter-based annotations (<code>@MatrixParam</code>, <code>@HeaderParam</code>, <code>@CookieParam</code>, and <code>@FormParam</code>) obey the same rules as <code>@QueryParam</code>.</p>
+</div>
+<div class="paragraph">
+<p>Cookie parameters, indicated by decorating the parameter with <code>jakarta.ws.rs.CookieParam</code>, extract information from the cookies declared in cookie-related HTTP headers.
+Header parameters, indicated by decorating the parameter with <code>jakarta.ws.rs.HeaderParam</code>, extract information from the HTTP headers.
+Matrix parameters, indicated by decorating the parameter with <code>jakarta.ws.rs.MatrixParam</code>, extract information from URL path segments.</p>
+</div>
+<div class="paragraph">
+<p>Form parameters, indicated by decorating the parameter with <code>jakarta.ws.rs.FormParam</code>, extract information from a request representation that is of the MIME media type <code>application/x-www-form-urlencoded</code> and conforms to the encoding specified by HTML forms, as described in <a href="https://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.1" class="bare" target="_blank" rel="noopener">https://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.1</a>.
+This parameter is very useful for extracting information sent by POST in HTML forms.</p>
+</div>
+<div class="paragraph">
+<p>The following example extracts the <code>name</code> form parameter from the POST form data:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@POST
+@Consumes("application/x-www-form-urlencoded")
+public void post(@FormParam("name") String name) {
+    // Store the message
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To obtain a general map of parameter names and values for query and path parameters, use the following code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@GET
+public String get(@Context UriInfo ui) {
+    MultivaluedMap&lt;String, String&gt; queryParams = ui.getQueryParameters();
+    MultivaluedMap&lt;String, String&gt; pathParams = ui.getPathParameters();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following method extracts header and cookie parameter names and values into a map:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@GET
+public String get(@Context HttpHeaders hh) {
+    MultivaluedMap&lt;String, String&gt; headerParams = hh.getRequestHeaders();
+    Map&lt;String, Cookie&gt; pathParams = hh.getCookies();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In general, <code>@Context</code> can be used to obtain contextual Java types related to the request or response.</p>
+</div>
+<div class="paragraph">
+<p>For form parameters, it is possible to do the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@POST
+@Consumes("application/x-www-form-urlencoded")
+public void post(MultivaluedMap&lt;String, String&gt; formParams) {
+    // Store the message
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configuring_jakarta_rest_applications"><a class="anchor" href="#_configuring_jakarta_rest_applications"></a>Configuring Jakarta REST Applications</h3>
+<div class="paragraph">
+<p>A Jakarta REST application consists of at least one resource class packaged within a WAR file.
+The base URI from which an application&#8217;s resources respond to requests can be set one of two ways:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Using the <code>@ApplicationPath</code> annotation in a subclass of <code>jakarta.ws.rs.core.Application</code> packaged within the WAR</p>
+</li>
+<li>
+<p>Using the <code>servlet-mapping</code> tag within the WAR&#8217;s <code>web.xml</code> deployment descriptor</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_configuring_a_jakarta_rest_application_using_a_subclass_of_application"><a class="anchor" href="#_configuring_a_jakarta_rest_application_using_a_subclass_of_application"></a>Configuring a Jakarta REST Application Using a Subclass of Application</h4>
+<div class="paragraph">
+<p>Create a subclass of <code>jakarta.ws.rs.core.Application</code> to manually configure the environment in which the REST resources defined in your resource classes are run, including the base URI.
+Add a class-level <code>@ApplicationPath</code> annotation to set the base URI.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ApplicationPath("/webapi")
+public class MyApplication extends Application { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the preceding example, the base URI is set to <code>/webapi</code>, which means that all resources defined within the application are relative to <code>/webapi</code>.</p>
+</div>
+<div class="paragraph">
+<p>By default, all the resources in an archive will be processed for resources.
+Override the <code>getClasses</code> method to manually register the resource classes in the application with the Jakarta REST runtime.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
+public Set&lt;Class&lt;?&gt;&gt; getClasses() {
+    final Set&lt;Class&lt;?&gt;&gt; classes = new HashSet&lt;&gt;();
+    // register root resource
+    classes.add(MyResource.class);
+    return classes;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_configuring_the_base_uri_in_web_xml"><a class="anchor" href="#_configuring_the_base_uri_in_web_xml"></a>Configuring the Base URI in web.xml</h4>
+<div class="paragraph">
+<p>The base URI for a Jakarta REST application can be set using a <code>servlet-mapping</code> tag in the <code>web.xml</code> deployment descriptor, using the <code>Application</code> class name as the servlet.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;jakarta.ws.rs.core.Application&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/webapi/*&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This setting will also override the path set by <code>@ApplicationPath</code> when using an <code>Application</code> subclass.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;servlet-mapping&gt;
+   &lt;servlet-name&gt;com.example.rest.MyApplication&lt;/servlet-name&gt;
+   &lt;url-pattern&gt;/services/*&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_example_applications_for_jakarta_rest"><a class="anchor" href="#_example_applications_for_jakarta_rest"></a>Example Applications for Jakarta REST</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section provides an introduction to creating, deploying, and running your own Jakarta REST applications.
+This section demonstrates the steps that are needed to create, build, deploy, and test a very simple web application that uses Jakarta REST annotations.</p>
+</div>
+<div class="sect2">
+<h3 id="_creating_a_simple_restful_web_service"><a class="anchor" href="#_creating_a_simple_restful_web_service"></a>Creating a Simple RESTful Web Service</h3>
+<div class="paragraph">
+<p>This section explains how to use NetBeans IDE to create a RESTful web service using a Maven archetype.
+The archetype generates a skeleton for the application, and you simply need to implement the appropriate method.</p>
+</div>
+<div class="paragraph">
+<p>You can find a version of this application at <code><em>jakartaee-examples</em>/tutorial/jaxrs/hello/</code>.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_create_a_restful_web_service_using_netbeans_ide"><a class="anchor" href="#_to_create_a_restful_web_service_using_netbeans_ide"></a>To Create a RESTful Web Service Using NetBeans IDE</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ensure you have installed the tutorial archetypes as described in <a href="../../intro/usingexamples/usingexamples.html#_installing_the_tutorial_archetypes" class="xref page">Installing the Tutorial Archetypes</a>.</p>
+</li>
+<li>
+<p>In NetBeans IDE, create a simple web application using the <code>jaxrs-service-archetype</code> Maven archetype.
+This archetype creates a very simple "Hello, World" web application.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>From the File menu, choose New Project.</p>
+</li>
+<li>
+<p>From Categories, select Maven.
+From Projects, select Project From Archetype.
+Click Next.</p>
+</li>
+<li>
+<p>Under Search enter <code>jaxrs-service</code>, select the <code>jaxrs-service-archetype</code>, and click Next.</p>
+</li>
+<li>
+<p>Under Project Name enter <code>HelloWorldApplication</code>, set the Project Location, and set the Package name to <code>ee.jakarta.tutorial.hello</code>, and click Finish.</p>
+<div class="paragraph">
+<p>The project is created.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>In <code>HelloWorld.java</code>, find the <code>getHtml()</code> method.
+Replace the <code>//TODO</code> comment with the following text, so that the finished product resembles the following method:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@GET
+@Produces("text/html")
+public String getHtml() {
+    return "&lt;html lang=\"en\"&gt;&lt;body&gt;&lt;h1&gt;Hello, World!!&lt;/body&gt;&lt;/h1&gt;&lt;/html&gt;";
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Because the MIME type produced is HTML, you can use HTML tags in your return statement.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Right-click the <code>HelloWorldApplication</code> project in the Projects pane and select Run.</p>
+<div class="paragraph">
+<p>This will build and deploy the application to GlassFish Server.</p>
+</div>
+</li>
+<li>
+<p>In a browser, open the following URL:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/HelloWorldApplication/HelloWorldApplication</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A browser window opens and displays the return value of <code>Hello, World!!</code></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For other sample applications that demonstrate deploying and running Jakarta REST applications using NetBeans IDE, see <a href="#_the_rsvp_example_application">The rsvp Example Application</a> and Your First Cup: An Introduction to the Jakarta EE Platform at <a href="https://eclipse-ee4j.github.io/jakartaee-firstcup/toc.html" class="bare" target="_blank" rel="noopener">https://eclipse-ee4j.github.io/jakartaee-firstcup/toc.html</a>.
+You may also look at the tutorials on the NetBeans IDE tutorial site, such as the one titled "Getting Started with RESTful Web Services" at <a href="https://netbeans.apache.org/kb/docs/websvc/rest.html" class="bare" target="_blank" rel="noopener">https://netbeans.apache.org/kb/docs/websvc/rest.html</a>.
+This tutorial includes a section on creating a CRUD application from a database.
+Create, read, update, and delete (CRUD) are the four basic functions of persistent storage and relational databases.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_rsvp_example_application"><a class="anchor" href="#_the_rsvp_example_application"></a>The rsvp Example Application</h3>
+<div class="paragraph">
+<p>The <code>rsvp</code> example application, located in the <code><em>tut-install</em>/examples/jaxrs/rsvp/</code> directory, allows invitees to an event to indicate whether they will attend.
+The events, people invited to the event, and the responses to the invite are stored in Apache Derby using Jakarta Persistence.
+The Jakarta REST resources in <code>rsvp</code> are exposed in a stateless session enterprise bean.</p>
+</div>
+<div class="sect3">
+<h4 id="_components_of_the_rsvp_example_application"><a class="anchor" href="#_components_of_the_rsvp_example_application"></a>Components of the rsvp Example Application</h4>
+<div class="paragraph">
+<p>The three enterprise beans in the <code>rsvp</code> example application are <code>rsvp.ejb.ConfigBean</code>, <code>rsvp.ejb.StatusBean</code>, and <code>rsvp.ejb.ResponseBean</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>ConfigBean</code> is a singleton session bean that initializes the data in the database.</p>
+</div>
+<div class="paragraph">
+<p><code>StatusBean</code> exposes a Jakarta REST resource for displaying the current status of all invitees to an event.
+The URI path template is declared first on the class and then on the <code>getEvent</code> method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Stateless
+@Named
+@Path("/status")
+public class StatusBean {
+    ...
+    @GET
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Path("{eventId}/")
+    public Event getEvent(@PathParam("eventId") Long eventId) {
+         ...
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The combination of the two <code>@Path</code> annotations results in the following URI path template:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/status/{eventId}/")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The URI path variable <code>eventId</code> is a <code>@PathParam</code> variable in the <code>getEvent</code> method, which responds to HTTP GET requests and has been annotated with <code>@GET</code>.
+The <code>eventId</code> variable is used to look up all the current responses in the database for that particular event.</p>
+</div>
+<div class="paragraph">
+<p><code>ResponseBean</code> exposes a Jakarta REST resource for setting an invitee&#8217;s response to a particular event.
+The URI path template for <code>ResponseBean</code> is declared as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/{eventId}/{inviteId}")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Two URI path variables are declared in the path template: <code>eventId</code> and <code>inviteId</code>.
+As in <code>StatusBean</code>, <code>eventId</code> is the unique ID for a particular event.
+Each invitee to that event has a unique ID for the invitation, and that is the <code>inviteId</code>.
+Both of these path variables are used in two Jakarta REST methods in <code>ResponseBean</code>: <code>getResponse</code> and <code>putResponse</code>.
+The <code>getResponse</code> method responds to HTTP GET requests and displays the invitee&#8217;s current response and a form to change the response.</p>
+</div>
+<div class="paragraph">
+<p>The <code>ee.jakarta.tutorial.rsvp.rest.RsvpApplication</code> class defines the root application path for the resources by applying the <code>jakarta.ws.rs.ApplicationPath</code> annotation at the class level.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ApplicationPath("/webapi")
+public class RsvpApplication extends Application {
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An invitee who wants to change his or her response selects the new response and submits the form data, which is processed as an HTTP POST request by the <code>putResponse</code> method.
+The new response is extracted from the HTTP POST request and stored as the <code>userResponse</code> string.
+The <code>putResponse</code> method uses <code>userResponse</code>, <code>eventId</code>, and <code>inviteId</code> to update the invitee&#8217;s response in the database.</p>
+</div>
+<div class="paragraph">
+<p>The events, people, and responses in <code>rsvp</code> are encapsulated in Jakarta Persistence entities.
+The <code>rsvp.entity.Event</code>, <code>rsvp.entity.Person</code>, and <code>rsvp.entity.Response</code> entities respectively represent events, invitees, and responses to an event.</p>
+</div>
+<div class="paragraph">
+<p>The <code>rsvp.util.ResponseEnum</code> class declares an enumerated type that represents all the possible response statuses an invitee may have.</p>
+</div>
+<div class="paragraph">
+<p>The web application also includes two CDI managed beans, <code>StatusManager</code> and <code>EventManager</code>, which use the Jakarta REST Client API to call the resources exposed in <code>StatusBean</code> and <code>ResponseBean</code>.
+For information on how the Client API is used in <code>rsvp</code>, see <a href="../jaxrs-client/jaxrs-client.html#_the_client_api_in_the_rsvp_example_application" class="xref page">The Client API in the rsvp Example Application</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_running_the_rsvp_example_application"><a class="anchor" href="#_running_the_rsvp_example_application"></a>Running the rsvp Example Application</h4>
+<div class="paragraph">
+<p>Both NetBeans IDE and Maven can be used to deploy and run the <code>rsvp</code> example application.</p>
+</div>
+<div class="sect4">
+<h5 id="_to_run_the_rsvp_example_application_using_netbeans_ide"><a class="anchor" href="#_to_run_the_rsvp_example_application_using_netbeans_ide"></a>To Run the rsvp Example Application Using NetBeans IDE</h5>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If the database server is not already running, start it by following the instructions in <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_apache_derby" class="xref page">Starting and Stopping Apache Derby</a>.</p>
+</li>
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>From the <strong>File</strong> menu, choose <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Open Project</strong> dialog box, navigate to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/jaxrs</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Select the <code>rsvp</code> folder.</p>
+</li>
+<li>
+<p>Click <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Projects</strong> tab, right-click the <code>rsvp</code> project and select <strong>Run</strong>.</p>
+<div class="paragraph">
+<p>The project will be compiled, assembled, and deployed to GlassFish Server.
+A web browser window will open to the following URL:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/rsvp/index.xhtml</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>In the web browser window, click the Event status link for the Duke&#8217;s Birthday event.</p>
+<div class="paragraph">
+<p>You&#8217;ll see the current invitees and their responses.</p>
+</div>
+</li>
+<li>
+<p>Click the current response of one of the invitees in the Status column of the table, select a new response, and click Update your status.</p>
+<div class="paragraph">
+<p>The invitee&#8217;s new status should now be displayed in the table of invitees and their response statuses.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_to_run_the_rsvp_example_application_using_maven"><a class="anchor" href="#_to_run_the_rsvp_example_application_using_maven"></a>To Run the rsvp Example Application Using Maven</h5>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If the database server is not already running, start it by following the instructions in <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_apache_derby" class="xref page">Starting and Stopping Apache Derby</a>.</p>
+</li>
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>In a terminal window, go to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/jaxrs/rsvp/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enter the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command builds, assembles, and deploys <code>rsvp</code> to GlassFish Server.</p>
+</div>
+</li>
+<li>
+<p>Open a web browser window to the following URL:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/rsvp/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>In the web browser window, click the Event status link for the Duke&#8217;s Birthday event.</p>
+<div class="paragraph">
+<p>You&#8217;ll see the current invitees and their responses.</p>
+</div>
+</li>
+<li>
+<p>Click the current response of one of the invitees in the Status column of the table, select a new response, and click Update your status.</p>
+<div class="paragraph">
+<p>The invitee&#8217;s new status should now be displayed in the table of invitees and their response statuses.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_real_world_examples"><a class="anchor" href="#_real_world_examples"></a>Real-World Examples</h3>
+<div class="paragraph">
+<p>Most blog sites use RESTful web services.
+These sites involve downloading XML files, in RSS or Atom format, that contain lists of links to other resources.
+Other websites and web applications that use REST-like developer interfaces to data include Twitter and Amazon S3 (Simple Storage Service).
+With Amazon S3, buckets and objects can be created, listed, and retrieved using either a REST-style HTTP interface or a SOAP interface.
+The examples that ship with Jersey include a storage service example with a RESTful interface.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_further_information_about_jakarta_rest"><a class="anchor" href="#_further_information_about_jakarta_rest"></a>Further Information about Jakarta REST</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For more information about RESTful web services and Jakarta REST, see</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>"Fielding Dissertation: Chapter 5: Representational State Transfer (REST)":<br>
+<a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm" class="bare" target="_blank" rel="noopener">https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm</a></p>
+</li>
+<li>
+<p>RESTful Web Services, by Leonard Richardson and Sam Ruby, available from O&#8217;Reilly Media at <a href="https://www.oreilly.com/library/view/restful-web-services/9780596529260/" class="bare" target="_blank" rel="noopener">https://www.oreilly.com/library/view/restful-web-services/9780596529260/</a></p>
+</li>
+<li>
+<p>Jakarta RESTful Web Services 3.0 specification:<br>
+<a href="https://jakarta.ee/specifications/restful-ws/3.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/restful-ws/3.0/</a></p>
+</li>
+<li>
+<p>Jersey project:<br>
+<a href="https://eclipse-ee4j.github.io/jersey/" class="bare" target="_blank" rel="noopener">https://eclipse-ee4j.github.io/jersey/</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

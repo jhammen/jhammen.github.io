@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Developing with Jakarta Faces Technology :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">Jakarta EE Tutorial</a></li>
+    <li>Jakarta EE Web Profile</li>
+    <li>Jakarta Faces</li>
+    <li><a href="faces-develop.html">Developing with Jakarta Faces Technology</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/web/pages/faces-develop/faces-develop.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Developing with Jakarta Faces Technology</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We are working on a fresh, updated Jakarta EE Tutorial. This section hasn&#8217;t yet been updated.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This chapter provides an overview of managed beans and explains how to write methods and properties of managed beans that are used by a Jakarta Faces application.
+This chapter also introduces the Bean Validation feature.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_managed_beans_in_jakarta_faces_technology"><a class="anchor" href="#_managed_beans_in_jakarta_faces_technology"></a>Managed Beans in Jakarta Faces Technology</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A typical Jakarta Faces application includes one or more managed beans, each of which can be associated with the components used in a particular page.
+This section introduces the basic concepts of creating, configuring, and using managed beans in an application.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<a href="../faces-page/faces-page.html#_using_jakarta_faces_technology_in_web_pages" class="xref page">Using Jakarta Faces Technology in Web Pages</a> and <a href="../faces-page-core/faces-page-core.html#_using_converters_listeners_and_validators" class="xref page">Using Converters, Listeners, and Validators</a> show how to add components to a page and connect them to server-side objects by using component tags and core tags.
+These chapters also show how to provide additional functionality to the components through converters, listeners, and validators.
+Developing a Jakarta Faces application also involves the task of programming the server-side objects: managed beans, converters, event handlers, and validators.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_creating_a_managed_bean"><a class="anchor" href="#_creating_a_managed_bean"></a>Creating a Managed Bean</h3>
+<div class="paragraph">
+<p>A managed bean is created with a constructor with no arguments, a set of properties, and a set of methods that perform functions for a component.
+Each of the managed bean properties can be bound to one of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A component value</p>
+</li>
+<li>
+<p>A component instance</p>
+</li>
+<li>
+<p>A converter instance</p>
+</li>
+<li>
+<p>A listener instance</p>
+</li>
+<li>
+<p>A validator instance</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The most common functions that managed bean methods perform include the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Validating a component&#8217;s data</p>
+</li>
+<li>
+<p>Handling an event fired by a component</p>
+</li>
+<li>
+<p>Performing processing to determine the next page to which the application must navigate</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>As with all JavaBeans components, a property consists of a private data field and a set of accessor methods, as shown by this code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">private Integer userNumber = null;
+...
+public void setUserNumber(Integer user_number) {
+    userNumber = user_number;
+}
+public Integer getUserNumber() {
+    return userNumber;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When bound to a component&#8217;s value, a bean property can be any of the basic primitive and numeric types or any Java object type for which the application has access to an appropriate converter.
+For example, a property can be of type <code>java.util.Date</code> if the application has access to a converter that can convert the <code>Date</code> type to a <code>String</code> and back again.
+See <a href="#_writing_bean_properties">Writing Bean Properties</a> for information on which types are accepted by which component tags.</p>
+</div>
+<div class="paragraph">
+<p>When a bean property is bound to a component instance, the property&#8217;s type must be the same as the component object.
+For example, if a <code>jakarta.faces.component.UISelectBoolean</code> component is bound to the property, the property must accept and return a <code>UISelectBoolean</code> object.
+Likewise, if the property is bound to a converter, validator, or listener instance, the property must be of the appropriate converter, validator, or listener type.</p>
+</div>
+<div class="paragraph">
+<p>For more information on writing beans and their properties, see <a href="#_writing_bean_properties">Writing Bean Properties</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_the_el_to_reference_managed_beans"><a class="anchor" href="#_using_the_el_to_reference_managed_beans"></a>Using the EL to Reference Managed Beans</h3>
+<div class="paragraph">
+<p>To bind component values and objects to managed bean properties or to reference managed bean methods from component tags, page authors use the Expression Language syntax.
+As explained in <a href="../faces-el/faces-el.html#_overview_of_the_el" class="xref page">Overview of the EL</a>, the following are some of the features that the EL offers:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Deferred evaluation of expressions</p>
+</li>
+<li>
+<p>The ability to use a value expression to both read and write data</p>
+</li>
+<li>
+<p>Method expressions</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Deferred evaluation of expressions is important because the Jakarta Faces lifecycle is split into several phases in which component event handling, data conversion and validation, and data propagation to external objects are all performed in an orderly fashion.
+The implementation must be able to delay the evaluation of expressions until the proper phase of the lifecycle has been reached.
+Therefore, the implementation&#8217;s tag attributes always use deferred-evaluation syntax, which is distinguished by the <code>#{}</code> delimiter.</p>
+</div>
+<div class="paragraph">
+<p>To store data in external objects, almost all Jakarta Faces tag attributes use lvalue expressions, which are expressions that allow both getting and setting data on external objects.</p>
+</div>
+<div class="paragraph">
+<p>Finally, some component tag attributes accept method expressions that reference methods that handle component events or validate or convert component data.</p>
+</div>
+<div class="paragraph">
+<p>To illustrate a Jakarta Faces tag using the EL, the following tag references a method that validates user input:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:inputText id="inputGuess"
+    value="#{userNumberBean.userNumber}"
+    required="true" size="3"
+    disabled="#{userNumberBean.number eq userNumberBean.userNumber ...}"
+    validator="#{userNumberBean.validateNumberRange}"&gt;
+&lt;/h:inputText&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This tag binds the <code>inputGuess</code> component&#8217;s value to the <code>UserNumberBean.userNumber</code> managed bean property by using an lvalue expression.
+The tag uses a method expression to refer to the <code>UserNumberBean.validateNumberRange</code> method, which performs validation of the component&#8217;s local value.
+The local value is whatever the user types into the field corresponding to this tag.
+This method is invoked when the expression is evaluated.</p>
+</div>
+<div class="paragraph">
+<p>Nearly all Jakarta Faces tag attributes accept value expressions.
+In addition to referencing bean properties, value expressions can reference lists, maps, arrays, implicit objects, and resource bundles.</p>
+</div>
+<div class="paragraph">
+<p>Another use of value expressions is to bind a component instance to a managed bean property.
+A page author does this by referencing the property from the <code>binding</code> attribute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:outputLabel for="fanClub"
+               rendered="false"
+               binding="#{cashierBean.specialOfferText}"
+               value="#{bundle.DukeFanClub}"/&gt;
+&lt;/h:outputLabel&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In addition to using expressions with the standard component tags, you can configure your custom component properties to accept expressions by creating <code>jakarta.el.ValueExpression</code> or <code>jakarta.el.MethodExpression</code> instances for them.</p>
+</div>
+<div class="paragraph">
+<p>For information on the EL, see <a href="../faces-el/faces-el.html#_expression_language" class="xref page">Expression Language</a>.</p>
+</div>
+<div class="paragraph">
+<p>For information on referencing managed bean methods from component tags, see <a href="../faces-page-core/faces-page-core.html#_referencing_a_managed_bean_method" class="xref page">Referencing a Managed Bean Method</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_writing_bean_properties"><a class="anchor" href="#_writing_bean_properties"></a>Writing Bean Properties</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As explained in <a href="#_managed_beans_in_jakarta_faces_technology">Managed Beans in Jakarta Faces Technology</a>, a managed bean property can be bound to one of the following items:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A component value</p>
+</li>
+<li>
+<p>A component instance</p>
+</li>
+<li>
+<p>A converter implementation</p>
+</li>
+<li>
+<p>A listener implementation</p>
+</li>
+<li>
+<p>A validator implementation</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These properties follow the conventions of JavaBeans components (also called beans).
+For more information on JavaBeans components, see the JavaBeans Tutorial at <a href="https://docs.oracle.com/javase/tutorial/javabeans/index.html" class="bare" target="_blank" rel="noopener">https://docs.oracle.com/javase/tutorial/javabeans/index.html</a>.</p>
+</div>
+<div class="paragraph">
+<p>The component&#8217;s tag binds the component&#8217;s value to a managed bean property by using its <code>value</code> attribute and binds the component&#8217;s instance to a managed bean property by using its <code>binding</code> attribute.
+Likewise, all the converter, listener, and validator tags use their <code>binding</code> attributes to bind their associated implementations to managed bean properties.
+See <a href="../faces-custom/faces-custom.html#_binding_component_values_and_instances_to_managed_bean_properties" class="xref page">Binding Component Values and Instances to Managed Bean Properties</a> and <a href="../faces-custom/faces-custom.html#_binding_converters_listeners_and_validators_to_managed_bean_properties" class="xref page">Binding Converters, Listeners, and Validators to Managed Bean Properties</a> for more information.</p>
+</div>
+<div class="paragraph">
+<p>To bind a component&#8217;s value to a managed bean property, the type of the property must match the type of the component&#8217;s value to which it is bound.
+For example, if a managed bean property is bound to a <code>UISelectBoolean</code> component&#8217;s value, the property should accept and return a <code>boolean</code> value or a <code>Boolean</code> wrapper <code>Object</code> instance.</p>
+</div>
+<div class="paragraph">
+<p>To bind a component instance to a managed bean property, the property must match the type of component.
+For example, if a managed bean property is bound to a <code>UISelectBoolean</code> instance, the property should accept and return a <code>UISelectBoolean</code> value.</p>
+</div>
+<div class="paragraph">
+<p>Similarly, to bind a converter, listener, or validator implementation to a managed bean property, the property must accept and return the same type of converter, listener, or validator object.
+For example, if you are using the <code>convertDateTime</code> tag to bind a <code>jakarta.faces.convert.DateTimeConverter</code> to a property, that property must accept and return a <code>DateTimeConverter</code> instance.</p>
+</div>
+<div class="paragraph">
+<p>The rest of this section explains how to write properties that can be bound to component values, to component instances for the component objects described in <a href="../faces-page/faces-page.html#_adding_components_to_a_page_using_html_tag_library_tags" class="xref page">Adding Components to a Page Using HTML Tag Library Tags</a>, and to converter, listener, and validator implementations.</p>
+</div>
+<div class="sect2">
+<h3 id="_writing_properties_bound_to_component_values"><a class="anchor" href="#_writing_properties_bound_to_component_values"></a>Writing Properties Bound to Component Values</h3>
+<div class="paragraph">
+<p>To write a managed bean property that is bound to a component&#8217;s value, you must match the property type to the component&#8217;s value.</p>
+</div>
+<div class="paragraph">
+<p><a href="#_acceptable_types_of_component_values">Acceptable Types of Component Values</a> lists the <code>jakarta.faces.component</code> classes and the acceptable types of their values.</p>
+</div>
+<table id="_acceptable_types_of_component_values" class="tableblock frame-all grid-all" style="width: 99%;">
+<caption class="title">Acceptable Types of Component Values</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Component Class</th>
+<th class="tableblock halign-left valign-top">Acceptable Types of Component Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>UIInput</code>, <code>UIOutput</code>, <code>UISelectItem</code>, <code>UISelectOne</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any of the basic primitive and numeric types or any Java programming language object type for which an appropriate <code>jakarta.faces.convert.Converter</code> implementation is available</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>UIData</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>array</code> of beans, <code>List</code> of beans, single bean, <code>java.sql.ResultSet</code>, <code>jakarta.servlet.jsp.jstl.sql.Result</code>, <code>javax.sql.RowSet</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>UISelectBoolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code> or <code>Boolean</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>UISelectItems</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>java.lang.String</code>, <code>Collection</code>, <code>Array</code>, <code>Map</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>UISelectMany</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>array</code> or <code>List</code>, although elements of the <code>array</code> or <code>List</code> can be any of the standard types</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>When they bind components to properties by using the <code>value</code> attributes of the component tags, page authors need to ensure that the corresponding properties match the types of the components' values.</p>
+</div>
+<div class="sect3">
+<h4 id="_uiinput_and_uioutput_properties"><a class="anchor" href="#_uiinput_and_uioutput_properties"></a>UIInput and UIOutput Properties</h4>
+<div class="paragraph">
+<p>The <code>UIInput</code> and <code>UIOutput</code> component classes are represented by the component tags that begin with <code>h:input</code> and <code>h:output</code>, respectively (for example, <code>h:inputText</code> and <code>h:outputText</code>).</p>
+</div>
+<div class="paragraph">
+<p>In the following example, an <code>h:inputText</code> tag binds the <code>name</code> component to the <code>name</code> property of a managed bean called <code>CashierBean</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:inputText id="name"
+             size="30"
+             value="#{cashierBean.name}"
+    ...&gt;
+&lt;/h:inputText&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following code snippet from the managed bean <code>CashierBean</code> shows the bean property type bound by the preceding component tag:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">protected String name = null;
+
+public void setName(String name) {
+    this.name = name;
+}
+public String getName() {
+    return this.name;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As described in <a href="../faces-page-core/faces-page-core.html#_using_the_standard_converters" class="xref page">Using the Standard Converters</a>, to convert the value of an input or output component you can either apply a converter or create the bean property bound to the component with the matching type.
+Here is the example tag, from <a href="../faces-page-core/faces-page-core.html#_using_datetimeconverter" class="xref page">Using DateTimeConverter</a>, that displays the date on which items will be shipped.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:outputText value="#{cashierBean.shipDate}"&gt;
+    &lt;f:convertDateTime type="date" dateStyle="full" /&gt;
+&lt;/h:outputText&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The bean property represented by this tag must have a type of <code>java.util.Date</code>.
+The following code snippet shows the <code>shipDate</code> property, from the managed bean <code>CashierBean</code>, that is bound by the tag&#8217;s value in the preceding example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">private Date shipDate;
+
+public Date getShipDate() {
+    return this.shipDate;
+}
+public void setShipDate(Date shipDate) {
+    this.shipDate = shipDate;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_uidata_properties"><a class="anchor" href="#_uidata_properties"></a>UIData Properties</h4>
+<div class="paragraph">
+<p>The <code>UIData</code> component class is represented by the <code>h:dataTable</code> component tag.</p>
+</div>
+<div class="paragraph">
+<p><code>UIData</code> components must be bound to one of the managed bean property types listed in <a href="#_acceptable_types_of_component_values">Acceptable Types of Component Values</a>.
+Data components are discussed in <a href="../faces-page/faces-page.html#_using_data_bound_table_components" class="xref page">Using Data-Bound Table Components</a>.
+Here is part of the start tag of <code>dataTable</code> from that section:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:dataTable id="items"
+    ...
+    value="#{cart.items}"
+    ...
+    var="item"&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The value expression points to the <code>items</code> property of a shopping cart bean named <code>cart</code>.
+The <code>cart</code> bean maintains a map of <code>ShoppingCartItem</code> beans.</p>
+</div>
+<div class="paragraph">
+<p>The <code>getItems</code> method from the <code>cart</code> bean populates a <code>List</code> with <code>ShoppingCartItem</code> instances that are saved in the <code>items</code> map when the customer adds books to the cart, as shown in the following code segment:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public synchronized List&lt;ShoppingCartItem&gt; getItems() {
+    List&lt;ShoppingCartItem&gt; results = new ArrayList&lt;ShoppingCartItem&gt;();
+    results.addAll(this.items.values());
+    return results;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>All the components contained in the <code>UIData</code> component are bound to the properties of the <code>cart</code> bean that is bound to the entire <code>UIData</code> component.
+For example, here is the <code>h:outputText</code> tag that displays the book title in the table:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:commandLink action="#{showcart.details}"&gt;
+    &lt;h:outputText value="#{item.item.title}"/&gt;
+&lt;/h:commandLink&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The title is actually a link to the <code>bookdetails.xhtml</code> page.
+The <code>h:outputText</code> tag uses the value expression <code>#{item.item.title}</code> to bind its <code>UIOutput</code> component to the <code>title</code> property of the <code>Book</code> entity.
+The first item in the expression is the <code>ShoppingCartItem</code> instance that the <code>h:dataTable</code> tag is referencing while rendering the current row.
+The second item in expression refers to the <code>item</code> property of <code>ShoppingCartItem</code>, which returns an <code>Object</code> (in this case, a <code>Book</code>).
+The <code>title</code> part of the expression refers to the <code>title</code> property of <code>Book</code>.
+The value of the <code>UIOutput</code> component corresponding to this tag is bound to the <code>title</code> property of the <code>Book</code> entity:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">private String title;
+...
+public String getTitle() {
+    return title;
+}
+
+public void setTitle(String title) {
+    this.title = title;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The UIData component (and UIRepeat) supports the <code>Map</code> and <code>Iterable</code> interfaces, as well as custom types.</p>
+</div>
+<div class="paragraph">
+<p>For UIData and UIRepeat, the supported types are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>null</code> (becomes empty list)</p>
+</li>
+<li>
+<p><code>jakarta.faces.model.DataMode</code></p>
+</li>
+<li>
+<p><code>java.util.List</code></p>
+</li>
+<li>
+<p><code>java.lang.Object</code>[]</p>
+</li>
+<li>
+<p><code>java.sql.ResultSet</code></p>
+</li>
+<li>
+<p><code>jakarta.servlet.jsp.jstl.sql.Result</code></p>
+</li>
+<li>
+<p><code>java.util.Collection</code></p>
+</li>
+<li>
+<p><code>java.lang.Iterable</code></p>
+</li>
+<li>
+<p><code>java.util.Map</code></p>
+</li>
+<li>
+<p><code>java.lang.Object</code> (becomes ScalarDataModel)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_uiselectboolean_properties"><a class="anchor" href="#_uiselectboolean_properties"></a>UISelectBoolean Properties</h4>
+<div class="paragraph">
+<p>The <code>UISelectBoolean</code> component class is represented by the component tag <code>h:selectBooleanCheckbox</code>.</p>
+</div>
+<div class="paragraph">
+<p>Managed bean properties that hold a <code>UISelectBoolean</code> component&#8217;s data must be of <code>boolean</code> or <code>Boolean</code> type.
+The example <code>selectBooleanCheckbox</code> tag from the section <a href="../faces-page/faces-page.html#_displaying_components_for_selecting_one_value" class="xref page">Displaying Components for Selecting One Value</a> binds a component to a property.
+The following example shows a tag that binds a component value to a <code>boolean</code> property:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:selectBooleanCheckbox title="#{bundle.receiveEmails}"
+                         value="#{custFormBean.receiveEmails}"&gt;
+&lt;/h:selectBooleanCheckbox&gt;
+&lt;h:outputText value="#{bundle.receiveEmails}"&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here is an example property that can be bound to the component represented by the example tag:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">private boolean receiveEmails = false;
+...
+public void setReceiveEmails(boolean receiveEmails) {
+    this.receiveEmails = receiveEmails;
+}
+public boolean getReceiveEmails() {
+    return receiveEmails;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_uiselectmany_properties"><a class="anchor" href="#_uiselectmany_properties"></a>UISelectMany Properties</h4>
+<div class="paragraph">
+<p>The <code>UISelectMany</code> component class is represented by the component tags that begin with <code>h:selectMany</code> (for example, <code>h:selectManyCheckbox</code> and <code>h:selectManyListbox</code>).</p>
+</div>
+<div class="paragraph">
+<p>Because a <code>UISelectMany</code> component allows a user to select one or more items from a list of items, this component must map to a bean property of type <code>List</code> or <code>array</code>.
+This bean property represents the set of currently selected items from the list of available items.</p>
+</div>
+<div class="paragraph">
+<p>The following example of the <code>selectManyCheckbox</code> tag comes from <a href="../faces-page/faces-page.html#_displaying_components_for_selecting_multiple_values" class="xref page">Displaying Components for Selecting Multiple Values</a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:selectManyCheckbox id="newslettercheckbox"
+                      layout="pageDirection"
+                      value="#{cashierBean.newsletters}"&gt;
+    &lt;f:selectItems value="#{cashierBean.newsletterItems}"/&gt;
+&lt;/h:selectManyCheckbox&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here is the bean property that maps to the <code>value</code> of the <code>selectManyCheckbox</code> tag from the preceding example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">private String[] newsletters;
+
+public void setNewsletters(String[] newsletters) {
+    this.newsletters = newsletters;
+}
+public String[] getNewsletters() {
+    return this.newsletters;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>UISelectItem</code> and <code>UISelectItems</code> components are used to represent all the values in a <code>UISelectMany</code> component.
+See <a href="#_uiselectitems_properties">UISelectItems Properties</a> for information on writing the bean properties for the <code>UISelectItem</code> and <code>UISelectItems</code> components.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_uiselectone_properties"><a class="anchor" href="#_uiselectone_properties"></a>UISelectOne Properties</h4>
+<div class="paragraph">
+<p>The <code>UISelectOne</code> component class is represented by the component tags that begin with <code>h:selectOne</code> (for example, <code>h:selectOneRadio</code> and <code>h:selectOneListbox</code>).</p>
+</div>
+<div class="paragraph">
+<p><code>UISelectOne</code> properties accept the same types as <code>UIInput</code> and <code>UIOutput</code> properties, because a <code>UISelectOne</code> component represents the single selected item from a set of items.
+This item can be any of the primitive types and anything else for which you can apply a converter.</p>
+</div>
+<div class="paragraph">
+<p>Here is an example of the <code>h:selectOneMenu</code> tag from <a href="../faces-page/faces-page.html#_displaying_a_menu_using_the_hselectonemenu_tag" class="xref page">Displaying a Menu Using the h:selectOneMenu Tag</a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:selectOneMenu id="shippingOption"
+                 required="true"
+                 value="#{cashierBean.shippingOption}"&gt;
+    &lt;f:selectItem itemValue="2"
+                  itemLabel="#{bundle.QuickShip}"/&gt;
+    &lt;f:selectItem itemValue="5"
+                  itemLabel="#{bundle.NormalShip}"/&gt;
+    &lt;f:selectItem itemValue="7"
+                  itemLabel="#{bundle.SaverShip}"/&gt;
+ &lt;/h:selectOneMenu&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here is the bean property corresponding to this tag:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">private String shippingOption = "2";
+
+public void setShippingOption(String shippingOption) {
+    this.shippingOption = shippingOption;
+}
+public String getShippingOption() {
+    return this.shippingOption;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that <code>shippingOption</code> represents the currently selected item from the list of items in the <code>UISelectOne</code> component.</p>
+</div>
+<div class="paragraph">
+<p>The <code>UISelectItem</code> and <code>UISelectItems</code> components are used to represent all the values in a <code>UISelectOne</code> component.
+This is explained in <a href="../faces-page/faces-page.html#_displaying_a_menu_using_the_hselectonemenu_tag" class="xref page">Displaying a Menu Using the h:selectOneMenu Tag</a>.</p>
+</div>
+<div class="paragraph">
+<p>For information on how to write the managed bean properties for the <code>UISelectItem</code> and <code>UISelectItems</code> components, see <a href="#_uiselectitems_properties">UISelectItems Properties</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_uiselectitem_properties"><a class="anchor" href="#_uiselectitem_properties"></a>UISelectItem Properties</h4>
+<div class="paragraph">
+<p>A <code>UISelectItem</code> component represents a single value in a set of values in a <code>UISelectMany</code> or a <code>UISelectOne</code> component.
+A <code>UISelectItem</code> component must be bound to a managed bean property of type <code>jakarta.faces.model.SelectItem</code>.
+A <code>SelectItem</code> object is composed of an <code>Object</code> representing the value along with two <code>Strings</code> representing the label and the description of the <code>UISelectItem</code> object.</p>
+</div>
+<div class="paragraph">
+<p>The example <code>selectOneMenu</code> tag from <a href="#_uiselectone_properties">UISelectOne Properties</a> contains <code>selectItem</code> tags that set the values of the list of items in the page.
+Here is an example of a bean property that can set the values for this list in the bean:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">SelectItem itemOne = null;
+
+SelectItem getItemOne(){
+    return itemOne;
+}
+void setItemOne(SelectItem item) {
+    itemOne = item;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_uiselectitems_properties"><a class="anchor" href="#_uiselectitems_properties"></a>UISelectItems Properties</h4>
+<div class="paragraph">
+<p><code>UISelectItems</code> components are children of <code>UISelectMany</code> and <code>UISelectOne</code> components.
+Each <code>UISelectItems</code> component is composed of a set of either <code>UISelectItem</code> instances or any collection of objects, such as an array, a list, or even POJOs.</p>
+</div>
+<div class="paragraph">
+<p>The following code snippet from <code>CashierBean</code> shows how to write the properties for <code>selectItems</code> tags containing <code>SelectItem</code> instances.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">private String[] newsletters;
+private static final SelectItem[] newsletterItems = {
+    new SelectItem("Duke's Quarterly"),
+    new SelectItem("Innovator's Almanac"),
+    new SelectItem("Duke's Diet and Exercise Journal"),
+    new SelectItem("Random Ramblings")
+};
+...
+public void setNewsletters(String[] newsletters) {
+    this.newsletters = newsletters;
+}
+
+public String[] getNewsletters() {
+    return this.newsletters;
+}
+
+public SelectItem[] getNewsletterItems() {
+    return newsletterItems;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here, the <code>newsletters</code> property represents the <code>SelectItems</code> object, whereas the <code>newsletterItems</code> property represents a static array of <code>SelectItem</code> objects.
+The <code>SelectItem</code> class has several constructors; in this example, the first argument is an <code>Object</code> representing the value of the item, whereas the second argument is a <code>String</code> representing the label that appears in the <code>UISelectMany</code> component on the page.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_writing_properties_bound_to_component_instances"><a class="anchor" href="#_writing_properties_bound_to_component_instances"></a>Writing Properties Bound to Component Instances</h3>
+<div class="paragraph">
+<p>A property bound to a component instance returns and accepts a component instance rather than a component value.
+The following components bind a component instance to a managed bean property:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:selectBooleanCheckbox id="fanClub"
+                         rendered="false"
+                         binding="#{cashierBean.specialOffer}" /&gt;
+&lt;h:outputLabel for="fanClub"
+               rendered="false"
+               binding="#{cashierBean.specialOfferText}"
+               value="#{bundle.DukeFanClub}" /&gt;
+&lt;/h:outputLabel&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>selectBooleanCheckbox</code> tag renders a check box and binds the <code>fanClub</code> <code>UISelectBoolean</code> component to the <code>specialOffer</code> property of <code>CashierBean</code>.
+The <code>outputLabel</code> tag binds the value of the <code>value</code> attribute, which represents the check box&#8217;s label, to the <code>specialOfferText</code> property of <code>CashierBean</code>.
+If the user orders more than $100 worth of books and clicks the Submit button, the <code>submit</code> method of <code>CashierBean</code> sets both components' <code>rendered</code> properties to <code>true</code>, causing the check box and label to display when the page is re-rendered.</p>
+</div>
+<div class="paragraph">
+<p>Because the components corresponding to the example tags are bound to the managed bean properties, these properties must match the components' types.
+This means that the <code>specialOfferText</code> property must be of type <code>UIOutput</code>, and the <code>specialOffer</code> property must be of type <code>UISelectBoolean</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">UIOutput specialOfferText = null;
+UISelectBoolean specialOffer = null;
+
+public UIOutput getSpecialOfferText() {
+    return this.specialOfferText;
+}
+public void setSpecialOfferText(UIOutput specialOfferText) {
+    this.specialOfferText = specialOfferText;
+}
+
+public UISelectBoolean getSpecialOffer() {
+    return this.specialOffer;
+}
+public void setSpecialOffer(UISelectBoolean specialOffer) {
+    this.specialOffer = specialOffer;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more general information on component binding, see <a href="#_managed_beans_in_jakarta_faces_technology">Managed Beans in Jakarta Faces Technology</a>.</p>
+</div>
+<div class="paragraph">
+<p>For information on how to reference a managed bean method that performs navigation when a button is clicked, see <a href="../faces-page-core/faces-page-core.html#_referencing_a_method_that_performs_navigation" class="xref page">Referencing a Method That Performs Navigation</a>.</p>
+</div>
+<div class="paragraph">
+<p>For more information on writing managed bean methods that handle navigation, see <a href="#_writing_a_method_to_handle_navigation">Writing a Method to Handle Navigation</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_writing_properties_bound_to_converters_listeners_or_validators"><a class="anchor" href="#_writing_properties_bound_to_converters_listeners_or_validators"></a>Writing Properties Bound to Converters, Listeners, or Validators</h3>
+<div class="paragraph">
+<p>All the standard converter, listener, and validator tags included with Jakarta Faces technology support binding attributes that allow you to bind converter, listener, or validator implementations to managed bean properties.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows a standard <code>convertDateTime</code> tag using a value expression with its <code>binding</code> attribute to bind the <code>jakarta.faces.convert.DateTimeConverter</code> instance to the <code>convertDate</code> property of <code>LoginBean</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:inputText value="#{loginBean.birthDate}"&gt;
+    &lt;f:convertDateTime binding="#{loginBean.convertDate}" /&gt;
+&lt;/h:inputText&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>convertDate</code> property must therefore accept and return a <code>DateTimeConverter</code> object, as shown here:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">private DateTimeConverter convertDate;
+public DateTimeConverter getConvertDate() {
+       ...
+    return convertDate;
+}
+public void setConvertDate(DateTimeConverter convertDate) {
+    convertDate.setPattern("EEEEEEEE, MMM dd, yyyy");
+    this.convertDate = convertDate;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Because the converter is bound to a managed bean property, the managed bean property can modify the attributes of the converter or add new functionality to it.
+In the case of the preceding example, the property sets the date pattern that the converter uses to parse the user&#8217;s input into a <code>Date</code> object.</p>
+</div>
+<div class="paragraph">
+<p>The managed bean properties that are bound to validator or listener implementations are written in the same way and have the same general purpose.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_writing_managed_bean_methods"><a class="anchor" href="#_writing_managed_bean_methods"></a>Writing Managed Bean Methods</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Methods of a managed bean can perform several application-specific functions for components on the page.
+These functions include</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Performing processing associated with navigation</p>
+</li>
+<li>
+<p>Handling action events</p>
+</li>
+<li>
+<p>Performing validation on the component&#8217;s value</p>
+</li>
+<li>
+<p>Handling value-change events</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_why_use_managed_beans"><a class="anchor" href="#_why_use_managed_beans"></a>Why Use Managed Beans</h3>
+<div class="paragraph">
+<p>By using a managed bean to perform these functions, you eliminate the need to implement the <code>jakarta.faces.validator.Validator</code> interface to handle the validation or one of the listener interfaces to handle events.
+Also, by using a managed bean instead of a <code>Validator</code> implementation to perform validation, you eliminate the need to create a custom tag for the <code>Validator</code> implementation.</p>
+</div>
+<div class="paragraph">
+<p>In general, it is good practice to include these methods in the same managed bean that defines the properties for the components referencing these methods.
+The reason for doing so is that the methods might need to access the component&#8217;s data to determine how to handle the event or to perform the validation associated with the component.</p>
+</div>
+<div class="paragraph">
+<p>The following sections explain how to write various types of managed bean methods.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_writing_a_method_to_handle_navigation"><a class="anchor" href="#_writing_a_method_to_handle_navigation"></a>Writing a Method to Handle Navigation</h3>
+<div class="paragraph">
+<p>An action method, a managed bean method that handles navigation processing, must be a public method that takes no parameters and returns an <code>Object</code>, which is the logical outcome that the navigation system uses to determine the page to display next.
+This method is referenced using the component tag&#8217;s <code>action</code> attribute.</p>
+</div>
+<div class="paragraph">
+<p>The following action method is from the managed bean <code>CashierBean</code>, which is invoked when a user clicks the Submit button on the page.
+If the user has ordered more than $100 worth of books, this method sets the <code>rendered</code> properties of the <code>fanClub</code> and <code>specialOffer</code> components to <code>true</code>, causing them to be displayed on the page the next time that page is rendered.</p>
+</div>
+<div class="paragraph">
+<p>After setting the components' <code>rendered</code> properties to <code>true</code>, this method returns the logical outcome <code>null</code>.
+This causes the Jakarta Faces implementation to re-render the page without creating a new view of the page, retaining the customer&#8217;s input.
+If this method were to return <code>purchase</code>, which is the logical outcome to use to advance to a payment page, the page would re-render without retaining the customer&#8217;s input.
+In this case, you want to re-render the page without clearing the data.</p>
+</div>
+<div class="paragraph">
+<p>If the user does not purchase more than $100 worth of books or if the <code>thankYou</code> component has already been rendered, the method returns <code>bookreceipt</code>.
+The Jakarta Faces implementation loads the <code>bookreceipt.xhtml</code> page after this method returns:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public String submit() {
+    ...
+    if ((cart().getTotal() &gt; 100.00) &amp;&amp; !specialOffer.isRendered()) {
+        specialOfferText.setRendered(true);
+        specialOffer.setRendered(true);
+        return null;
+    } else if (specialOffer.isRendered() &amp;&amp; !thankYou.isRendered()) {
+        thankYou.setRendered(true);
+        return null;
+    } else {
+        ...
+        cart.clear();
+        return ("bookreceipt");
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Typically, an action method will return a <code>String</code> outcome, as shown in the preceding example.
+Alternatively, you can define an <code>Enum</code> class that encapsulates all possible outcome strings and then make an action method return an <code>enum</code> constant, which represents a particular <code>String</code> outcome defined by the <code>Enum</code> class.</p>
+</div>
+<div class="paragraph">
+<p>The following example uses an <code>Enum</code> class to encapsulate all logical outcomes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public enum Navigation  {
+    main, accountHist, accountList, atm, atmAck, transferFunds,
+     transferAck, error
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When it returns an outcome, an action method uses the dot notation to reference the outcome from the <code>Enum</code> class:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public Object submit(){
+    ...
+    return Navigation.accountHist;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The section <a href="../faces-page-core/faces-page-core.html#_referencing_a_method_that_performs_navigation" class="xref page">Referencing a Method That Performs Navigation</a> explains how a component tag references this method.
+The section <a href="#_writing_properties_bound_to_component_instances">Writing Properties Bound to Component Instances</a> explains how to write the bean properties to which the components are bound.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_writing_a_method_to_handle_an_action_event"><a class="anchor" href="#_writing_a_method_to_handle_an_action_event"></a>Writing a Method to Handle an Action Event</h3>
+<div class="paragraph">
+<p>A managed bean method that handles an action event must be a public method that accepts an action event and returns <code>void</code>.
+This method is referenced using the component tag&#8217;s <code>actionListener</code> attribute.
+Only components that implement <code>jakarta.faces.component.ActionSource</code> can refer to this method.</p>
+</div>
+<div class="paragraph">
+<p>In the following example, a method from a managed bean named <code>ActionBean</code> processes the event of a user clicking one of the links on the page:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public void chooseBookFromLink(ActionEvent event) {
+    String current = event.getComponent().getId();
+    FacesContext context = FacesContext.getCurrentInstance();
+    String bookId = books.get(current);
+    context.getExternalContext().getSessionMap().put("bookId", bookId);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This method gets the component that generated the event from the event object; then it gets the component&#8217;s ID, which is a code for the book.
+The method matches the code against a <code>HashMap</code> object that contains the book codes and corresponding book ID values.
+Finally, the method sets the book ID by using the selected value from the <code>HashMap</code> object.</p>
+</div>
+<div class="paragraph">
+<p><a href="../faces-page-core/faces-page-core.html#_referencing_a_method_that_handles_an_action_event" class="xref page">Referencing a Method That Handles an Action Event</a> explains how a component tag references this method.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_writing_a_method_to_perform_validation"><a class="anchor" href="#_writing_a_method_to_perform_validation"></a>Writing a Method to Perform Validation</h3>
+<div class="paragraph">
+<p>Instead of implementing the <code>jakarta.faces.validator.Validator</code> interface to perform validation for a component, you can include a method in a managed bean to take care of validating input for the component.
+A managed bean method that performs validation must accept a <code>jakarta.faces.context.FacesContext</code>, the component whose data must be validated, and the data to be validated, just as the <code>validate</code> method of the <code>Validator</code> interface does.
+A component refers to the managed bean method by using its <code>validator</code> attribute.
+Only values of <code>UIInput</code> components or values of components that extend <code>UIInput</code> can be validated.</p>
+</div>
+<div class="paragraph">
+<p>Here is an example of a managed bean method that validates user input, from <a href="../../cdi/cdi-basicexamples/cdi-basicexamples.html#_the_guessnumber_cdi_cdi_example" class="xref page">The guessnumber-cdi CDI Example</a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public void validateNumberRange(FacesContext context,
+                                UIComponent toValidate,
+                                Object value) {
+    if (remainingGuesses &lt;= 0) {
+        ((UIInput) toValidate).setValid(false);
+        FacesMessage message = new FacesMessage("No guesses left!");
+        context.addMessage(toValidate.getClientId(context), message);
+        return;
+    }
+
+    int input = (Integer) value;
+    if (input &lt; minimum || input&gt; maximum) {
+        ((UIInput) toValidate).setValid(false);
+
+        FacesMessage message = new FacesMessage("Invalid guess");
+        context.addMessage(toValidate.getClientId(context), message);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>validateNumberRange</code> method performs two different validations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the user has run out of guesses, the method sets the <code>valid</code> property of the <code>UIInput</code> component to <code>false</code>.
+Then it queues a message onto the <code>FacesContext</code> instance, associating the message with the component ID, and returns.</p>
+</li>
+<li>
+<p>If the user has some remaining guesses, the method then retrieves the local value of the component.
+If the input value is outside the allowable range, the method again sets the <code>valid</code> property of the <code>UIInput</code> component to <code>false</code>, queues a different message on the <code>FacesContext</code> instance, and returns.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>See <a href="../faces-page-core/faces-page-core.html#_referencing_a_method_that_performs_validation" class="xref page">Referencing a Method That Performs Validation</a> for information on how a component tag references this method.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_writing_a_method_to_handle_a_value_change_event"><a class="anchor" href="#_writing_a_method_to_handle_a_value_change_event"></a>Writing a Method to Handle a Value-Change Event</h3>
+<div class="paragraph">
+<p>A managed bean that handles a value-change event must use a public method that accepts a value-change event and returns <code>void</code>.
+This method is referenced using the component&#8217;s <code>valueChangeListener</code> attribute.
+This section explains how to write a managed bean method to replace the <code>jakarta.faces.event.ValueChangeListener</code> implementation.</p>
+</div>
+<div class="paragraph">
+<p>The following example tag comes from <a href="../faces-page-core/faces-page-core.html#_registering_a_value_change_listener_on_a_component" class="xref page">Registering a Value-Change Listener on a Component</a>, where the <code>h:inputText</code> tag with the <code>id</code> of <code>name</code> has a <code>ValueChangeListener</code> instance registered on it.
+This <code>ValueChangeListener</code> instance handles the event of entering a value in the field corresponding to the component.
+When the user enters a value, a value-change event is generated, and the <code>processValueChange(ValueChangeEvent)</code> method of the <code>ValueChangeListener</code> class is invoked:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:inputText id="name"
+             size="30"
+             value="#{cashierBean.name}"
+             required="true"
+             requiredMessage="#{bundle.ReqCustomerName}"&gt;
+     &lt;f:valueChangeListener
+         type="ee.jakarta.tutorial.dukesbookstore.listeners.NameChanged" /&gt;
+&lt;/h:inputText&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Instead of implementing <code>ValueChangeListener</code>, you can write a managed bean method to handle this event.
+To do this, you move the <code>processValueChange(ValueChangeEvent)</code> method from the <code>ValueChangeListener</code> class, called <code>NameChanged</code>, to your managed bean.</p>
+</div>
+<div class="paragraph">
+<p>Here is the managed bean method that processes the event of entering a value in the <code>name</code> field on the page:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public void processValueChange(ValueChangeEvent event)
+        throws AbortProcessingException {
+    if (null != event.getNewValue()) {
+        FacesContext.getCurrentInstance().getExternalContext().
+                getSessionMap().put("name", event.getNewValue());
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To make this method handle the <code>ValueChangeEvent</code> generated by an input component, reference this method from the component tag&#8217;s <code>valueChangeListener</code> attribute.
+See <a href="../faces-page-core/faces-page-core.html#_referencing_a_method_that_handles_a_value_change_event" class="xref page">Referencing a Method That Handles a Value-Change Event</a> for more information.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

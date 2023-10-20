@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Duke&#8217;s Tutoring Case Study Example :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">Jakarta EE Tutorial</a></li>
+    <li><a href="dukes-tutoring.html">Duke&#8217;s Tutoring Case Study Example</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/casestudies/pages/dukes-tutoring/dukes-tutoring.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Duke&#8217;s Tutoring Case Study Example</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We are working on a fresh, updated Jakarta EE Tutorial. This section hasn&#8217;t yet been updated.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The Duke&#8217;s Tutoring example application is a tracking system for a tutoring center for students.
+Students can be checked in and out and can visit the park.
+The tutoring center can track attendance and status updates and can store contact information for guardians and students.
+Administrators can maintain the tutoring center system.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_design_and_architecture_of_dukes_tutoring"><a class="anchor" href="#_design_and_architecture_of_dukes_tutoring"></a>Design and Architecture of Duke&#8217;s Tutoring</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Duke&#8217;s Tutoring is a web application that incorporates several Jakarta EE technologies.
+It exposes both a main interface (for students, guardians, and tutoring center staff) and an administration interface (for staff to maintain the system).
+The business logic for both interfaces is provided by enterprise beans.
+The enterprise beans use the Jakarta Persistence to create and store the application&#8217;s data in the database.
+<a href="#_architecture_of_the_dukes_tutoring_example_application">Figure 1, &#8220;Architecture of the Duke&#8217;s Tutoring Example Application&#8221;</a> illustrates the architecture of the application.</p>
+</div>
+<div id="_architecture_of_the_dukes_tutoring_example_application" class="imageblock">
+<div class="content">
+<img src="../../common/_images/jakartaeett_dt_061.svg" alt="Architecture diagram of the Duke&#8217;s Tutoring example application. Two clients access the main interface and the admin interface deployed in the web container. These interfaces communicate with enterprise beans deployed in the Jakarta Enterprise Beans container. The enterprise beans communicate with the database.">
+</div>
+<div class="title">Figure 1. Architecture of the Duke&#8217;s Tutoring Example Application</div>
+</div>
+<div class="paragraph">
+<p>The Duke&#8217;s Tutoring application is organized into two main projects: the <code>dukes-tutoring-common</code> library and the <code>dukes-tutoring-war</code> web application.
+The <code>dukes-tutoring-common</code> library project contains the entity classes and helper classes used by the <code>dukes-tutoring-war</code> web application, and <code>dukes-tutoring-common</code> is packaged and deployed with <code>dukes-tutoring-war</code>.
+The library JAR file is useful for allowing the entity classes and helper classes to be reused by other applications, such as a JavaFX client application.</p>
+</div>
+<div class="paragraph">
+<p>Duke&#8217;s Tutoring uses the following Jakarta EE platform features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Jakarta Persistence entities</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A custom Jakarta Bean Validation annotation, <code>@Email</code>, for validating email addresses</p>
+</li>
+<li>
+<p>A standard <code>jta-data-source</code> definition that will create the JDBC resource on deployment</p>
+</li>
+<li>
+<p>A standard property in the <code>persistence.xml</code> deployment descriptor to automatically and portably create and delete the tables in the <code>jta-data-source</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enterprise beans</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Local, no-interface view session and singleton beans</p>
+</li>
+<li>
+<p>Jakarta RESTful Web Services resources in a session bean</p>
+</li>
+<li>
+<p>Jakarta EE security constraints on the administrative interface business methods</p>
+</li>
+<li>
+<p>All enterprise beans packaged within the WAR</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>WebSocket</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A WebSocket server endpoint that automatically publishes the status of students to client endpoints</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Jakarta Contexts and Dependency Injection</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A CDI event that is fired when the status of a student changes</p>
+</li>
+<li>
+<p>Handler methods for updating the application once the status event is fired</p>
+</li>
+<li>
+<p>CDI managed beans for Facelets pages</p>
+</li>
+<li>
+<p>Bean Validation annotations in the CDI managed beans</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Jakarta Faces technology, using Facelets for the web front end</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Templating</p>
+</li>
+<li>
+<p>Composite components</p>
+</li>
+<li>
+<p>A custom formatter, <code>PhoneNumberFormatter</code></p>
+</li>
+<li>
+<p>Security constraints on the administrative interface</p>
+</li>
+<li>
+<p>Ajax-enabled Facelets components</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Duke&#8217;s Tutoring application has two main user interfaces, both packaged within a single WAR file:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The main interface, for students, guardians, and staff</p>
+</li>
+<li>
+<p>The administrative interface used by the staff to manage the students and guardians, and to generate attendance reports</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_main_interface"><a class="anchor" href="#_main_interface"></a>Main Interface</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The main interface allows students and staff to check students in and out, and record when students are outside at the playground.</p>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_persistence_entities_used_in_the_main_interface"><a class="anchor" href="#_jakarta_persistence_entities_used_in_the_main_interface"></a>Jakarta Persistence Entities Used in the Main Interface</h3>
+<div class="paragraph">
+<p>The following entities used in the main interface encapsulate data stored and manipulated by Duke&#8217;s Tutoring, and are located in the <code>dukestutoring.entity</code> package in the <code>dukes-tutoring-common</code> project.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Person</code>: The <code>Person</code> entity defines attributes common to students and guardians tracked by the application.
+These attributes are the person&#8217;s name and contact information, including phone numbers and email address.
+This entity has two subclasses, <code>Student</code> and <code>Guardian</code>.</p>
+</li>
+<li>
+<p><code>PersonDetails</code>: The <code>PersonDetails</code> entity is used to store additional data common to all people, such as attributes like pictures and the person&#8217;s birthday, which aren&#8217;t included in the <code>Person</code> entity for performance reasons.</p>
+</li>
+<li>
+<p><code>Student</code> and <code>Guardian</code>: The <code>Student</code> entity stores attributes specific to the students who come to tutoring.
+This includes information like the student&#8217;s grade level and school.
+The <code>Guardian</code> entity&#8217;s attributes are specific to the parents or guardians of a <code>Student</code>.
+Students and guardians have a many-to-many relationship.
+That is, a student may have one or more guardians, and a guardian may have one or more students.</p>
+</li>
+<li>
+<p><code>Address</code>: The <code>Address</code> entity represents a mailing address and is associated with <code>Person</code> entities.
+Addresses and people have a many-to-one relationship.
+That is, one person may have many addresses.</p>
+</li>
+<li>
+<p><code>TutoringSession</code>: The <code>TutoringSession</code> entity represents a particular day at the tutoring center.
+A particular tutoring session tracks which students attended that day, and which students went to the park.</p>
+</li>
+<li>
+<p><code>StatusEntry</code>: The <code>StatusEntry</code> entity, which logs when a student&#8217;s status changes, is associated with the <code>TutoringSession</code> entity.
+Students' statuses change when they check in to a tutoring session, when they go to the park, and when they check out.
+The status entry allows the tutoring center staff to track exactly which students attended a tutoring session, when they checked in and out, which students went to the park while they were at the tutoring center, and when they went to and came back from the park.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For information on creating Jakarta Persistence entities, see <a href="../../persist/persistence-intro/persistence-intro.html#_introduction_to_jakarta_persistence" class="xref page">Introduction to Jakarta Persistence</a>.
+For information on validating entity data, see <a href="../../persist/persistence-intro/persistence-intro.html#_validating_persistent_fields_and_properties" class="xref page">Validating Persistent Fields and Properties</a> and <a href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html#_bean_validation_advanced_topics" class="xref page">Bean Validation: Advanced Topics</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_enterprise_beans_used_in_the_main_interface"><a class="anchor" href="#_enterprise_beans_used_in_the_main_interface"></a>Enterprise Beans Used in the Main Interface</h3>
+<div class="paragraph">
+<p>The following enterprise beans used in the main interface provide the business logic for Duke&#8217;s Tutoring, and are located in the <code>dukestutoring.ejb</code> package in the <code>dukes-tutoring-war</code> project:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ConfigBean</code> is a singleton session bean used to create the default students when the application is initially deployed, and to create an automatic enterprise bean timer that creates tutoring session entities every weekday.</p>
+</li>
+<li>
+<p><code>RequestBean</code> is a stateless session bean containing the business methods for the main interface.
+The bean also has business methods for retrieving lists of students.
+These business methods use strongly typed Criteria API queries to retrieve data from the database.
+<code>RequestBean</code> also injects a CDI event instance, <code>StatusEvent</code>.
+This event is fired from the business methods when the status of a student changes.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For information on creating and using enterprise beans, see <a href="../../entbeans/ejb-intro/ejb-intro.html#_enterprise_beans" class="xref page">Enterprise Beans</a>.
+For information on creating strongly typed Criteria API queries, see <a href="../../persist/persistence-criteria/persistence-criteria.html#_using_the_criteria_api_to_create_queries" class="xref page">Using the Criteria API to Create Queries</a>.
+For information on CDI events, see <a href="../../cdi/cdi-adv/cdi-adv.html#_using_events_in_cdi_applications" class="xref page">Using Events in CDI Applications</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_websocket_endpoint_used_in_the_main_interface"><a class="anchor" href="#_websocket_endpoint_used_in_the_main_interface"></a>WebSocket Endpoint Used in the Main Interface</h3>
+<div class="paragraph">
+<p>The <code>ee.jakarta.tutorial.dukestutoring.web.websocket.StatusEndpoint</code> class is a WebSocket server endpoint that returns students and their status to client endpoints.
+The <code>StatusEndpoint.updateStatus</code> method is a CDI observer method for the <code>StatusEvent</code> event.
+When a student&#8217;s status changes in the main interface, a <code>StatusEvent</code> is fired.
+The <code>updateStatus</code> observer method is called by the container, and pushes out the status change to all the client endpoints registered with <code>StatusEndpoint</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>index.xhtml</code> Jakarta Faces page contains JavaScript code to connect to the WebSocket endpoint.
+The <code>onMessage</code> method on this page clicks a Jakarta Faces button, which makes an Ajax request to refresh the table that shows the current status of the students.</p>
+</div>
+<div class="paragraph">
+<p>For more information on WebSocket endpoints, see <a href="../../web/websocket/websocket.html#_jakarta_websocket" class="xref page">Jakarta WebSocket</a>.
+For information on CDI events, see <a href="../../cdi/cdi-adv/cdi-adv.html#_using_events_in_cdi_applications" class="xref page">Using Events in CDI Applications</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_facelets_files_used_in_the_main_interface"><a class="anchor" href="#_facelets_files_used_in_the_main_interface"></a>Facelets Files Used in the Main Interface</h3>
+<div class="paragraph">
+<p>The Duke&#8217;s Tutoring application uses Facelets to display the user interface, making extensive use of the templating features of Facelets.
+Facelets, the default display technology for Jakarta Faces technology, consists of XHTML files located in the <code><em>tut-install</em>/examples/case-studies/dukes-tutoring-war/src/main/webapp/</code> directory.</p>
+</div>
+<div class="paragraph">
+<p>The following Facelets files are used in the main interface:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>template.xhtml</code>: Template file for the main interface</p>
+</li>
+<li>
+<p><code>error.xhtml</code>: Error file if something goes wrong</p>
+</li>
+<li>
+<p><code>index.xhtml</code>: Landing page for the main interface</p>
+</li>
+<li>
+<p><code>park.xhtml</code>: Page showing who is currently at the park</p>
+</li>
+<li>
+<p><code>current.xhtml</code>: Page showing who is currently in today&#8217;s tutoring session</p>
+</li>
+<li>
+<p><code>statusEntries.xhtml</code>: Page showing the detailed status entry log for today&#8217;s session</p>
+</li>
+<li>
+<p><code>resources/components/allStudentsTable.xhtml</code>: A composite component for a table displaying all active students</p>
+</li>
+<li>
+<p><code>resources/components/allInactiveStudentsTable.xhtml</code>: A composite component for a table displaying all inactive students</p>
+</li>
+<li>
+<p><code>resources/components/currentSessionTable.xhtml</code>: A composite component for a table displaying all students in today&#8217;s session</p>
+</li>
+<li>
+<p><code>resources/components/parkTable.xhtml</code>: A composite component for a table displaying all students currently at the park</p>
+</li>
+<li>
+<p><code>WEB-INF/includes/mainNav.xhtml</code>: XHTML fragment for the main interface&#8217;s navigation bar</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For information on using Facelets, see <a href="../../web/faces-facelets/faces-facelets.html#_introduction_to_facelets" class="xref page">Introduction to Facelets</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_helper_classes_used_in_the_main_interface"><a class="anchor" href="#_helper_classes_used_in_the_main_interface"></a>Helper Classes Used in the Main Interface</h3>
+<div class="paragraph">
+<p>The following helper classes, found in the <code>dukes-tutoring-common</code> project&#8217;s <code>dukestutoring.util</code> package, are used in the main interface.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CalendarUtil</code>: A class that provides a method to strip the unnecessary time data from <code>java.util.Calendar</code> instances.</p>
+</li>
+<li>
+<p><code>Email</code>: A custom Bean Validation annotation class for validating email addresses in the <code>Person</code> entity.</p>
+</li>
+<li>
+<p><code>StatusType</code>: An enumerated type defining the different statuses that a student can have.
+Possible values are <code>IN</code>, <code>OUT</code>, and <code>PARK</code>.
+<code>StatusType</code> is used throughout the application, including in the <code>StatusEntry</code> entity, and throughout the main interface.
+<code>StatusType</code> also defines a <code>toString</code> method that returns a localized translation of the status based on the locale.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_properties_files"><a class="anchor" href="#_properties_files"></a>Properties Files</h3>
+<div class="paragraph">
+<p>The strings used in the main interface are encapsulated into resource bundles to allow the display of localized strings in multiple locales.
+Each of the properties files has locale-specific files appended with locale codes, containing the translated strings for each locale.
+For example, <code>Messages_es.properties</code> contains the localized strings for Spanish locales.</p>
+</div>
+<div class="paragraph">
+<p>The <code>dukes-tutoring-common</code> project has the following resource bundle under <code>src/main/resources/</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ee.jakarta.tutorial/dukestutoring/util/StatusMessages.properties</code>: Strings for each of the status types defined in the <code>StatusType</code> enumerated type for the default locale.
+Each supported locale has a property file of the form <code>StatusMessages<em>_locale prefix</em>.properties</code> containing the localized strings.
+For example, the strings for Spanish-speaking locales are located in <code>StatusMessages_es.properties</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>dukes-tutoring-war</code> project has the following resource bundles under <code>src/main/resources/</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ValidationMessages.properties</code>: Strings for the default locale used by the Bean Validation runtime to display validation messages.
+This file must be named <code>ValidationMessages.properties</code> and located in the default package as required by the Bean Validation specification.
+Each supported locale has a property file of the form <code>ValidationMessages<em>_locale prefix</em>.properties</code> containing the localized strings.
+For example, the strings for German-speaking locales are located in <code>ValidationMessages_de.properties</code>.</p>
+</li>
+<li>
+<p><code>ee.jakarta.tutorial/dukestutoring/web/messages/Messages.properties</code>: Strings for the default locale for the main and administration Facelets interface.
+Each supported locale has a property file of the form <code>Messages<em>_locale prefix</em>.properties</code> containing the localized strings.
+For example, the strings for simplified Chinese-speaking locales are located in <code>Messages_zh.properties</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For information on localizing web applications, see <a href="../../web/faces-configure/faces-configure.html#_registering_application_messages" class="xref page">Registering Application Messages</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_deployment_descriptors_used_in_dukes_tutoring"><a class="anchor" href="#_deployment_descriptors_used_in_dukes_tutoring"></a>Deployment Descriptors Used in Duke&#8217;s Tutoring</h3>
+<div class="paragraph">
+<p>Duke&#8217;s Tutoring uses these deployment descriptors in the <code>src/main/webapp/WEB-INF</code> directory of the <code>dukes-tutoring-war</code> project:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>faces-config.xml</code>: The Jakarta Faces configuration file</p>
+</li>
+<li>
+<p><code>glassfish-web.xml</code>: The configuration file specific to GlassFish Server, which defines security role mapping</p>
+</li>
+<li>
+<p><code>web.xml</code>: The web application configuration file</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Duke&#8217;s Tutoring also uses the following deployment descriptor in the <code>src/main/resources/META-INF</code> directory of the <code>dukes-tutoring-common</code> project:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>persistence.xml</code>: The Jakarta Persistence configuration file</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>No enterprise bean deployment descriptor is used in Duke&#8217;s Tutoring.
+Annotations in the enterprise bean class files are used for the configuration of enterprise beans in this application.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_administration_interface"><a class="anchor" href="#_administration_interface"></a>Administration Interface</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The administration interface of Duke&#8217;s Tutoring is used by the tutoring center staff to manage the data employed by the main interface: the students, the students' guardians, and the addresses.
+The administration interface uses many of the same components as the main interface.
+Additional components that are only used in the administration interface are described here.</p>
+</div>
+<div class="sect2">
+<h3 id="_enterprise_beans_used_in_the_administration_interface"><a class="anchor" href="#_enterprise_beans_used_in_the_administration_interface"></a>Enterprise Beans Used in the Administration Interface</h3>
+<div class="paragraph">
+<p>The following enterprise bean, in the <code>dukestutoring.ejb</code> package of the <code>dukes-tutoring-war</code> project, is used in the administration interface.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AdminBean</code>: A stateless session bean for all the business logic used in the administration interface.
+Calls security methods to allow invocation of the business methods only by authorized users.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_facelets_files_used_in_the_administration_interface"><a class="anchor" href="#_facelets_files_used_in_the_administration_interface"></a>Facelets Files Used in the Administration Interface</h3>
+<div class="paragraph">
+<p>The following Facelets files, under <code>src/main/webapp/</code>, are used in the administration interface:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>admin/adminTemplate.xhtml</code>: Template for the administration interface</p>
+</li>
+<li>
+<p><code>admin/index.xhtml</code>: Landing page for the administration interface</p>
+</li>
+<li>
+<p><code>login.xhtml</code>: Login page for the security-constrained administration interface</p>
+</li>
+<li>
+<p><code>loginError.xhtml</code>: Page displayed if there are errors authenticating the administration user</p>
+</li>
+<li>
+<p><code>admin/address</code> directory: Pages that allow you to create, edit, and delete <code>Address</code> entities</p>
+</li>
+<li>
+<p><code>admin/guardian</code> directory: Pages that allow you to create, edit, and delete <code>Guardian</code> entities</p>
+</li>
+<li>
+<p><code>admin/student</code> directory: Pages that allow you to create, edit, and delete <code>Student</code> entities</p>
+</li>
+<li>
+<p><code>resources/components/formLogin.xhtml</code>: Composite component for a login form using Jakarta Security</p>
+</li>
+<li>
+<p><code>WEB-INF/includes/adminNav.xhtml</code>: XHTML fragment for the administration interface&#8217;s navigation bar</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cdi_managed_beans_used_in_the_administration_interface"><a class="anchor" href="#_cdi_managed_beans_used_in_the_administration_interface"></a>CDI Managed Beans Used in the Administration Interface</h3>
+<div class="paragraph">
+<p>The CDI managed beans used in the administration interface are located in the <code>dukestutoring.web</code> package in the <code>dukes-tutoring-war</code> project.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>StudentBean.java</code>: A managed bean for the Facelets pages used to create and edit students.
+The first and last names have Bean Validation annotations that require the fields to be filled in.
+The phone numbers have Bean Validation annotations to ensure that the submitted data is well-formed.</p>
+</li>
+<li>
+<p><code>GuardianBean.java</code>: A managed bean for the Facelets pages used to create guardians for and assign guardians to students.
+The first and last names have Bean Validation annotations that require the fields to be filled in.
+The phone numbers have Bean Validation annotations to ensure that the submitted data is well-formed.</p>
+</li>
+<li>
+<p><code>AddressBean.java</code>: A managed bean for the Facelets pages used to create addresses for students.
+The street, city, province, and postal code attributes have Bean Validation annotations that require the fields to be filled in, and the postal code attribute has an additional annotation to ensure that the data is properly formed.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_helper_classes_used_in_the_administration_interface"><a class="anchor" href="#_helper_classes_used_in_the_administration_interface"></a>Helper Classes Used in the Administration Interface</h3>
+<div class="paragraph">
+<p>The following helper classes, found in the <code>dukes-tutoring-war</code> project&#8217;s <code>dukestutoring.web.util</code> package, are used in the administration interface.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>EntityConverter</code>: A parent class to <code>StudentConverter</code> and <code>GuardianConverter</code> that defines a cache to store the entity classes when converting the entities for use in Jakarta Faces user interface components.
+The cache helps increase performance.
+The cache is stored in the Jakarta Faces context.</p>
+</li>
+<li>
+<p><code>StudentConverter</code>: A Jakarta Faces converter for the <code>Student</code> entity class.
+This class contains methods to convert <code>Student</code> instances to strings and back again, so they can be used in the user interface components of the application.</p>
+</li>
+<li>
+<p><code>GuardianConverter</code>: Similar to <code>StudentConverter</code>, this class is a converter for the <code>Guardian</code> entity class.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_running_the_dukes_tutoring_case_study_application"><a class="anchor" href="#_running_the_dukes_tutoring_case_study_application"></a>Running the Duke&#8217;s Tutoring Case Study Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes how to build, package, deploy, and run the Duke&#8217;s Tutoring application.</p>
+</div>
+<div class="sect2">
+<h3 id="_running_dukes_tutoring"><a class="anchor" href="#_running_dukes_tutoring"></a>Running Duke&#8217;s Tutoring</h3>
+<div class="paragraph">
+<p>You can use either NetBeans IDE or Maven to build, package, deploy, and run Duke&#8217;s Tutoring.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_build_and_deploy_dukes_tutoring_using_netbeans_ide"><a class="anchor" href="#_to_build_and_deploy_dukes_tutoring_using_netbeans_ide"></a>To Build and Deploy Duke&#8217;s Tutoring Using NetBeans IDE</h4>
+<div class="sect4">
+<h5 id="_before_you_begin"><a class="anchor" href="#_before_you_begin"></a>Before You Begin</h5>
+<div class="paragraph">
+<p>You must have already configured GlassFish Server as a Jakarta EE server in NetBeans IDE, as described in <a href="../../intro/usingexamples/usingexamples.html#_to_add_glassfish_server_as_a_server_using_netbeans_ide" class="xref page">To Add GlassFish Server as a Server Using NetBeans IDE</a>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>If the database server is not already running, start it as described in <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_apache_derby" class="xref page">Starting and Stopping Apache Derby</a>.</p>
+</li>
+<li>
+<p>From the File menu, choose Open Project.</p>
+</li>
+<li>
+<p>In the Open Project dialog box, navigate to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/case-studies</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Select the <code>dukes-tutoring</code> folder.</p>
+</li>
+<li>
+<p>Select the Open Required Projects check box and click Open Project.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The first time you open Duke&#8217;s Tutoring in NetBeans, you will see error glyphs in the Projects tab.
+This is expected, as the metamodel files used by the enterprise beans for Criteria API queries have not yet been generated.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>In the Projects tab, right-click the <code>dukes-tutoring</code> project and select Build.</p>
+<div class="paragraph">
+<p>This command creates a JDBC security realm named tutoringRealm, builds and packages the <code>dukes-tutoring-common</code> and <code>dukes-tutoring-war</code> projects, and deploys <code>dukes-tutoring-war</code> to GlassFish Server, starting Derby and GlassFish Server if they have not already been started.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_build_and_deploy_dukes_tutoring_using_maven"><a class="anchor" href="#_to_build_and_deploy_dukes_tutoring_using_maven"></a>To Build and Deploy Duke&#8217;s Tutoring Using Maven</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has started (see <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_glassfish_server" class="xref page">Starting and Stopping GlassFish Server</a>).</p>
+</li>
+<li>
+<p>If the database server is not already running, start it as described in <a href="../../intro/usingexamples/usingexamples.html#_starting_and_stopping_apache_derby" class="xref page">Starting and Stopping Apache Derby</a>.</p>
+</li>
+<li>
+<p>In a terminal window, go to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/case-studies/dukes-tutoring/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enter the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command creates a JDBC security realm named <code>tutoringRealm</code>, builds and packages the <code>dukes-tutoring-common</code> and <code>dukes-tutoring-war</code> projects, and deploys <code>dukes-tutoring-war</code> to GlassFish Server.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_using_dukes_tutoring"><a class="anchor" href="#_using_dukes_tutoring"></a>Using Duke&#8217;s Tutoring</h4>
+<div class="paragraph">
+<p>Once Duke&#8217;s Tutoring is running on GlassFish Server, use the main interface to experiment with checking students in and out or sending them to the park.</p>
+</div>
+<div class="sect4">
+<h5 id="_to_use_the_main_interface_of_dukes_tutoring"><a class="anchor" href="#_to_use_the_main_interface_of_dukes_tutoring"></a>To Use the Main Interface of Duke&#8217;s Tutoring</h5>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In a web browser, open the main interface at the following URL:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/dukes-tutoring-war/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Use the main interface to check students in and out, and to log when the students go to the park.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_to_use_the_administration_interface_of_dukes_tutoring"><a class="anchor" href="#_to_use_the_administration_interface_of_dukes_tutoring"></a>To Use the Administration Interface of Duke&#8217;s Tutoring</h5>
+<div class="paragraph">
+<p>Follow these instructions to log in to the administration interface of Duke&#8217;s Tutoring and add new students, guardians, and addresses.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>From the main interface, open the administration interface by clicking Administration main page in the left menu.</p>
+<div class="paragraph">
+<p>This redirects you to the login page at the following URL:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/dukes-tutoring-war/admin/index.xhtml</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>On the login page, enter <code>admin@example.com</code> in the User name field, and enter <code>jakartaee</code> in the Password field.</p>
+</li>
+<li>
+<p>Use the administration interface to add or modify students, add guardians, or add addresses.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>To add a new student, click Create new student in the left menu, fill in the fields (two are required) in the form that opens, and click Submit.
+The Email, Home phone, and Mobile phone fields have formatting requirements enforced by HTML5 pass-through or by Bean Validation constraints.</p>
+</li>
+<li>
+<p>To modify a student, click Edit next to the student&#8217;s name, modify the fields in the form that opens, and click Submit.
+To edit another student, choose the student from the drop-down menu at the top of the page and click Change student.</p>
+</li>
+<li>
+<p>To remove a student, click Remove next to the student&#8217;s name, then click Confirm in the page that appears.
+This action removes the student from the tutoring session but does not remove the student from the database.
+To add the student to the tutoring session again, click Activate student in the left menu, then click Activate next to the student&#8217;s name in the page that appears.</p>
+</li>
+<li>
+<p>To add a guardian for a student, click Add guardian next to the student&#8217;s name.
+The page that appears shows the student&#8217;s name, the available guardians, and the current guardians for the student, if any.
+To add an existing guardian for that student, select the guardian from the list and click Add guardian.
+To create a new guardian for the student, fill in the fields and click Submit.
+To remove a guardian from a student, select one of the student&#8217;s current guardians from the list and click Remove guardian.</p>
+</li>
+<li>
+<p>To add an address for a student, click Add address next to the student&#8217;s name.
+In the page that appears, fill in the appropriate fields in the form that appears, and click Submit.
+Four fields are required.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The administration interface is not fully implemented.
+It is not possible to edit a guardian or to view or edit an address, although Facelets pages exist for these features.
+The application also makes no use of the properties in the <code>PersonDetails</code> entity.
+Feel free to modify the application to add these features.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

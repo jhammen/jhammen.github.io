@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/persist/pages/persistence-querylanguage/persistence-querylanguage005.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_example_queries"><a class="anchor" href="#_example_queries"></a>Example Queries</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following queries are from the <code>Player</code> entity of the <code>roster</code> application, which is documented in <a href="../persistence-basicexamples/persistence-basicexamples.html#_the_roster_application" class="xref page">The roster Application</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_simple_queries"><a class="anchor" href="#_simple_queries"></a>Simple Queries</h3>
+<div class="paragraph">
+<p>If you are unfamiliar with the query language, these simple queries are a good place to start.</p>
+</div>
+<div class="sect3">
+<h4 id="_a_basic_select_query"><a class="anchor" href="#_a_basic_select_query"></a>A Basic Select Query</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT p
+FROM Player p</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: All players.</p>
+</li>
+<li>
+<p>Description: The <code>FROM</code> clause declares an identification variable named <code>p</code>, omitting the optional keyword <code>AS</code>.
+If the <code>AS</code> keyword were included, the clause would be written as follows:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">FROM Player AS p</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>Player</code> element is the abstract schema name of the <code>Player</code> entity.</p>
+</div>
+</li>
+<li>
+<p>See also: <a href="persistence-querylanguage.html#_identification_variables" class="xref page">Identification Variables</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_eliminating_duplicate_values"><a class="anchor" href="#_eliminating_duplicate_values"></a>Eliminating Duplicate Values</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT p
+FROM Player p
+WHERE p.position = ?1</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: The players with the position specified by the query&#8217;s parameter.</p>
+</li>
+<li>
+<p>Description: The <code>DISTINCT</code> keyword eliminates duplicate values.</p>
+<div class="paragraph">
+<p>The <code>WHERE</code> clause restricts the players retrieved by checking their <code>position</code>, a persistent field of the <code>Player</code> entity.
+The <code>?1</code> element denotes the input parameter of the query.</p>
+</div>
+</li>
+<li>
+<p>See also: <a href="persistence-querylanguage.html#_input_parameters" class="xref page">Input Parameters</a> and <a href="persistence-querylanguage.html#_the_distinct_keyword" class="xref page">The DISTINCT Keyword</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_using_named_parameters"><a class="anchor" href="#_using_named_parameters"></a>Using Named Parameters</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT p
+FROM Player p
+WHERE p.position = :position AND p.name = :name</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: The players having the specified positions and names.</p>
+</li>
+<li>
+<p>Description: The <code>position</code> and <code>name</code> elements are persistent fields of the <code>Player</code> entity.
+The <code>WHERE</code> clause compares the values of these fields with the named parameters of the query, set using the <code>Query.setNamedParameter</code> method.
+The query language denotes a named input parameter using a colon (<code>:</code>) followed by an identifier.
+The first input parameter is <code>:position</code>, the second is <code>:name</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_queries_that_navigate_to_related_entities"><a class="anchor" href="#_queries_that_navigate_to_related_entities"></a>Queries That Navigate to Related Entities</h3>
+<div class="paragraph">
+<p>In the query language, an expression can traverse, or navigate, to related entities.
+These expressions are the primary difference between the Jakarta Persistence query language and SQL.
+Queries navigates to related entities, whereas SQL joins tables.</p>
+</div>
+<div class="sect3">
+<h4 id="_a_simple_query_with_relationships"><a class="anchor" href="#_a_simple_query_with_relationships"></a>A Simple Query with Relationships</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT p
+FROM Player p, IN (p.teams) t</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: All players who belong to a team.</p>
+</li>
+<li>
+<p>Description: The <code>FROM</code> clause declares two identification variables: <code>p</code> and <code>t</code>.
+The <code>p</code> variable represents the <code>Player</code> entity, and the <code>t</code> variable represents the related <code>Team</code> entity.
+The declaration for <code>t</code> references the previously declared <code>p</code> variable.
+The <code>IN</code> keyword signifies that <code>teams</code> is a collection of related entities.
+The <code>p.teams</code> expression navigates from a <code>Player</code> to its related <code>Team</code>.
+The period in the <code>p.teams</code> expression is the navigation operator.</p>
+<div class="paragraph">
+<p>You may also use the <code>JOIN</code> statement to write the same query:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT p
+FROM Player p JOIN p.teams t</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This query could also be rewritten as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT p
+FROM Player p
+WHERE p.team IS NOT EMPTY</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_navigating_to_single_valued_relationship_fields"><a class="anchor" href="#_navigating_to_single_valued_relationship_fields"></a>Navigating to Single-Valued Relationship Fields</h4>
+<div class="paragraph">
+<p>Use the <code>JOIN</code> clause statement to navigate to a single-valued relationship field:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT t
+FROM Team t JOIN t.league l
+WHERE l.sport = 'soccer' OR l.sport ='football'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, the query will return all teams that are in either soccer or football leagues.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_traversing_relationships_with_an_input_parameter"><a class="anchor" href="#_traversing_relationships_with_an_input_parameter"></a>Traversing Relationships with an Input Parameter</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT p
+FROM Player p, IN (p.teams) AS t
+WHERE t.city = :city</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: The players whose teams belong to the specified city.</p>
+</li>
+<li>
+<p>Description: This query is similar to the previous example but adds an input parameter.
+The <code>AS</code> keyword in the <code>FROM</code> clause is optional.
+In the <code>WHERE</code> clause, the period preceding the persistent variable <code>city</code> is a delimiter, not a navigation operator.
+Strictly speaking, expressions can navigate to relationship fields (related entities) but not to persistent fields.
+To access a persistent field, an expression uses the period as a delimiter.</p>
+<div class="paragraph">
+<p>Expressions cannot navigate beyond (or further qualify) relationship fields that are collections.
+In the syntax of an expression, a collection-valued field is a terminal symbol.
+Because the <code>teams</code> field is a collection, the <code>WHERE</code> clause cannot specify <code>p.teams.city</code> (an illegal expression).</p>
+</div>
+</li>
+<li>
+<p>See also: <a href="persistence-querylanguage.html#_path_expressions" class="xref page">Path Expressions</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_traversing_multiple_relationships"><a class="anchor" href="#_traversing_multiple_relationships"></a>Traversing Multiple Relationships</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT p
+FROM Player p, IN (p.teams) t
+WHERE t.league = :league</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: The players who belong to the specified league.</p>
+</li>
+<li>
+<p>Description: The expressions in this query navigate over two relationships.
+The <code>p.teams</code> expression navigates the <code>Player</code>-<code>Team</code> relationship, and the <code>t.league</code> expression navigates the <code>Team</code>-<code>League</code> relationship.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In the other examples, the input parameters are <code>String</code> objects; in this example, the parameter is an object whose type is a <code>League</code>.
+This type matches the <code>league</code> relationship field in the comparison expression of the <code>WHERE</code> clause.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_navigating_according_to_related_fields"><a class="anchor" href="#_navigating_according_to_related_fields"></a>Navigating According to Related Fields</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT p
+FROM Player p, IN (p.teams) t
+WHERE t.league.sport = :sport</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: The players who participate in the specified sport.</p>
+</li>
+<li>
+<p>Description: The <code>sport</code> persistent field belongs to the <code>League</code> entity.
+To reach the <code>sport</code> field, the query must first navigate from the <code>Player</code> entity to <code>Team</code> (<code>p.teams</code>) and then from <code>Team</code> to the <code>League</code> entity (<code>t.league</code>).
+Because it is not a collection, the <code>league</code> relationship field can be followed by the <code>sport</code> persistent field.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_queries_with_other_conditional_expressions"><a class="anchor" href="#_queries_with_other_conditional_expressions"></a>Queries with Other Conditional Expressions</h3>
+<div class="paragraph">
+<p>Every <code>WHERE</code> clause must specify a conditional expression, of which there are several kinds.
+In the previous examples, the conditional expressions are comparison expressions that test for equality.
+The following examples demonstrate some of the other kinds of conditional expressions.
+For descriptions of all conditional expressions, see <a href="persistence-querylanguage.html#_where_clause" class="xref page">WHERE Clause</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="_the_like_expression"><a class="anchor" href="#_the_like_expression"></a>The LIKE Expression</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT p
+FROM Player p
+WHERE p.name LIKE 'Mich%'</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: All players whose names begin with "Mich."</p>
+</li>
+<li>
+<p>Description: The <code>LIKE</code> expression uses wildcard characters to search for strings that match the wildcard pattern.
+In this case, the query uses the <code>LIKE</code> expression and the <code>%</code> wildcard to find all players whose names begin with the string "Mich." For example, "Michael" and "Michelle" both match the wildcard pattern.</p>
+</li>
+<li>
+<p>See also: <a href="persistence-querylanguage.html#_like_expressions" class="xref page">LIKE Expressions</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_is_null_expression"><a class="anchor" href="#_the_is_null_expression"></a>The IS NULL Expression</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT t
+FROM Team t
+WHERE t.league IS NULL</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: All teams not associated with a league.</p>
+</li>
+<li>
+<p>Description: The <code>IS NULL</code> expression can be used to check whether a relationship has been set between two entities.
+In this case, the query checks whether the teams are associated with any leagues and returns the teams that do not have a league.</p>
+</li>
+<li>
+<p>See also: <a href="persistence-querylanguage.html#_null_comparison_expressions" class="xref page">NULL Comparison Expressions</a> and <a href="persistence-querylanguage.html#_null_values" class="xref page">NULL Values</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_is_empty_expression"><a class="anchor" href="#_the_is_empty_expression"></a>The IS EMPTY Expression</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT p
+FROM Player p
+WHERE p.teams IS EMPTY</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: All players who do not belong to a team.</p>
+</li>
+<li>
+<p>Description: The <code>teams</code> relationship field of the <code>Player</code> entity is a collection.
+If a player does not belong to a team, the <code>teams</code> collection is empty, and the conditional expression is <code>TRUE</code>.</p>
+</li>
+<li>
+<p>See also: <a href="persistence-querylanguage.html#_empty_collection_comparison_expressions" class="xref page">Empty Collection Comparison Expressions</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_between_expression"><a class="anchor" href="#_the_between_expression"></a>The BETWEEN Expression</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT p
+FROM Player p
+WHERE p.salary BETWEEN :lowerSalary AND :higherSalary</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: The players whose salaries fall within the range of the specified salaries.</p>
+</li>
+<li>
+<p>Description: This <code>BETWEEN</code> expression has three arithmetic expressions: a persistent field (<code>p.salary</code>) and the two input parameters (<code>:lowerSalary</code> and <code>:higherSalary</code>).
+The following expression is equivalent to the <code>BETWEEN</code> expression:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">p.salary &gt;= :lowerSalary AND p.salary &lt;= :higherSalary</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>See also: <a href="persistence-querylanguage.html#_between_expressions" class="xref page">BETWEEN Expressions</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_comparison_operators"><a class="anchor" href="#_comparison_operators"></a>Comparison Operators</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">SELECT DISTINCT p1
+FROM Player p1, Player p2
+WHERE p1.salary &gt; p2.salary AND p2.name = :name</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data retrieved: All players whose salaries are higher than the salary of the player with the specified name.</p>
+</li>
+<li>
+<p>Description: The <code>FROM</code> clause declares two identification variables (<code>p1</code> and <code>p2</code>) of the same type (<code>Player</code>).
+Two identification variables are needed because the <code>WHERE</code> clause compares the salary of one player (<code>p2</code>) with that of the other players (<code>p1</code>).</p>
+</li>
+<li>
+<p>See also: <a href="persistence-querylanguage.html#_identification_variables" class="xref page">Identification Variables</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bulk_updates_and_deletes"><a class="anchor" href="#_bulk_updates_and_deletes"></a>Bulk Updates and Deletes</h3>
+<div class="paragraph">
+<p>The following examples show how to use the <code>UPDATE</code> and <code>DELETE</code> expressions in queries.
+<code>UPDATE</code> and <code>DELETE</code> operate on multiple entities according to the condition or conditions set in the <code>WHERE</code> clause.
+The <code>WHERE</code> clause in <code>UPDATE</code> and <code>DELETE</code> queries follows the same rules as <code>SELECT</code> queries.</p>
+</div>
+<div class="sect3">
+<h4 id="_update_queries"><a class="anchor" href="#_update_queries"></a>Update Queries</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">UPDATE Player p
+SET p.status = 'inactive'
+WHERE p.lastPlayed &lt; :inactiveThresholdDate</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Description: This query sets the status of a set of players to <code>inactive</code> if the player&#8217;s last game was longer ago than the date specified in <code>inactiveThresholdDate</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_delete_queries"><a class="anchor" href="#_delete_queries"></a>Delete Queries</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">DELETE
+FROM Player p
+WHERE p.status = 'inactive'
+AND p.teams IS EMPTY</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Description: This query deletes all inactive players who are not on a team.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

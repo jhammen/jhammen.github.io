@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Expression Language :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/9.1/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="9.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../intro/overview/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../intro/usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Platform Basics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/resource-creation/resource-creation.html">Resource Creation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/injection/injection.html">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/packaging/packaging.html">Packaging</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">The Web Tier</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-intro/jsf-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-facelets/jsf-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="jsf-el.html">Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-page/jsf-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-page-core/jsf-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-develop/jsf-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-ajax/jsf-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-advanced-cc/jsf-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-custom/jsf-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-configure/jsf-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-ws/jsf-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsonp/jsonp.html">JSON Processing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Bean Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Contexts and Dependency Injection</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Services</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/webservices-intro/webservices-intro.html">Introduction to Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/jaxws/jaxws.html">Building Web Services with Jakarta XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Enterprise Beans</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-embedded/ejb-embedded.html">Using the Embedded Enterprise Bean Container</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-intro/security-intro.html">Introduction to Security in the Jakarta EE Platform</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-webtier/security-webtier.html">Getting Started Securing Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-jakartaee/security-jakartaee.html">Getting Started Securing Enterprise Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-api/security-api.html">Using Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-advanced/security-advanced.html">Jakarta EE Security: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Supporting Technologies</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/resources/resources.html">Resource Adapters and Contracts</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/connectorexample/connectorexample.html">The Resource Adapter Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Batch Processing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Case Studies</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../casestudies/dukes-bookstore/dukes-bookstore.html">Duke&#8217;s Bookstore Case Study Example</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../casestudies/dukes-tutoring/dukes-tutoring.html">Duke&#8217;s Tutoring Case Study Example</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../casestudies/dukes-forest/dukes-forest.html">Duke&#8217;s Forest Case Study Example</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">9.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">9.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">Jakarta EE Tutorial</a></li>
+    <li>The Web Tier</li>
+    <li><a href="jsf-el.html">Expression Language</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/web/pages/jsf-el/jsf-el.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Expression Language</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This chapter introduces the Expression Language (also referred to as the EL), which provides an important mechanism for enabling the presentation layer (web pages) to communicate with the application logic (managed beans).
+The EL is used by several Jakarta EE technologies, such as Jakarta Faces technology, Jakarta Server Pages technology, and Dependency Injection for Jakarta EE (CDI).
+The EL can also be used in stand-alone environments.
+This chapter only covers the use of the EL in Jakarta EE containers.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview_of_the_el"><a class="anchor" href="#_overview_of_the_el"></a>Overview of the EL</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The EL allows page authors to use simple expressions to dynamically access data from JavaBeans components.
+For example, the <code>test</code> attribute of the following conditional tag is supplied with an EL expression that compares 0 with the number of items in the session-scoped bean named <code>cart</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;c:if test="${sessionScope.cart.numberOfItems &gt; 0}"&gt;
+  ...
+&lt;/c:if&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See <a href="../jsf-develop/jsf-develop.html#_using_the_el_to_reference_managed_beans" class="xref page">Using the EL to Reference Managed Beans</a> for more information on how to use the EL in Jakarta Faces applications.</p>
+</div>
+<div class="paragraph">
+<p>To summarize, the EL provides a way to use simple expressions to perform the following tasks:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Dynamically read application data stored in JavaBeans components, various data structures, and implicit objects</p>
+</li>
+<li>
+<p>Dynamically write data, such as user input into forms, to JavaBeans components</p>
+</li>
+<li>
+<p>Invoke arbitrary static and public methods</p>
+</li>
+<li>
+<p>Dynamically perform arithmetic, boolean, and string operations</p>
+</li>
+<li>
+<p>Dynamically construct collection objects and perform operations on collections</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In a Jakarta Faces page, an EL expression can be used either in static text or in the attribute of a custom tag or standard action.</p>
+</div>
+<div class="paragraph">
+<p>Finally, the EL provides a pluggable API for resolving expressions so that custom resolvers that can handle expressions not already supported by the EL can be implemented.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_immediate_and_deferred_evaluation_syntax"><a class="anchor" href="#_immediate_and_deferred_evaluation_syntax"></a>Immediate and Deferred Evaluation Syntax</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The EL supports both immediate and deferred evaluation of expressions.
+Immediate evaluation means that the expression is evaluated and the result returned as soon as the page is first rendered.
+Deferred evaluation means that the technology using the expression language can use its own machinery to evaluate the expression sometime later during the page&#8217;s lifecycle, whenever it is appropriate to do so.</p>
+</div>
+<div class="paragraph">
+<p>Those expressions that are evaluated immediately use the <code>${}</code> syntax. Expressions whose evaluation is deferred use the <code>#{}</code> syntax.</p>
+</div>
+<div class="paragraph">
+<p>Because of its multiphase lifecycle, Jakarta Faces technology uses mostly deferred evaluation expressions.
+During the lifecycle, component events are handled, data is validated, and other tasks are performed in a particular order.
+Therefore, a Jakarta Faces implementation must defer evaluation of expressions until the appropriate point in the lifecycle.</p>
+</div>
+<div class="paragraph">
+<p>Other technologies using the EL might have different reasons for using deferred expressions.</p>
+</div>
+<div class="sect2">
+<h3 id="_immediate_evaluation"><a class="anchor" href="#_immediate_evaluation"></a>Immediate Evaluation</h3>
+<div class="paragraph">
+<p>All expressions using the <code>${}</code> syntax are evaluated immediately.
+These expressions can appear as part of a template (static) text or as the value of a tag attribute that can accept runtime expressions.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows a tag whose <code>value</code> attribute references an immediate evaluation expression that updates the quantity of books retrieved from the backing bean named <code>catalog</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:outputText value="${catalog.bookQuantity}" /&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The Jakarta Faces implementation evaluates the expression <code>${catalog.bookQuantity}</code>, converts it, and passes the returned value to the tag handler. The value is updated on the page.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_deferred_evaluation"><a class="anchor" href="#_deferred_evaluation"></a>Deferred Evaluation</h3>
+<div class="paragraph">
+<p>Deferred evaluation expressions take the form <code>#{expr}</code> and can be evaluated at other phases of a page lifecycle as defined by whatever technology is using the expression.
+In the case of Jakarta Faces technology, its controller can evaluate the expression at different phases of the lifecycle, depending on how the expression is being used in the page.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows a Jakarta Faces <code>h:inputText</code> tag, which represents a field component into which a user enters a value.
+The <code>h:inputText</code> tag&#8217;s <code>value</code> attribute references a deferred evaluation expression that points to the <code>name</code> property of the <code>customer</code> bean:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:inputText id="name" value="#{customer.name}" /&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For an initial request of the page containing this tag, the Jakarta Faces implementation evaluates the <code>#{customer.name}</code> expression during the render-response phase of the lifecycle.
+During this phase, the expression merely accesses the value of <code>name</code> from the <code>customer</code> bean, as is done in immediate evaluation.</p>
+</div>
+<div class="paragraph">
+<p>For a postback request, the Jakarta Faces implementation evaluates the expression at different phases of the lifecycle, during which the value is retrieved from the request, validated, and propagated to the <code>customer</code> bean.</p>
+</div>
+<div class="paragraph">
+<p>As shown in this example, deferred evaluation expressions can be</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Value expressions that can be used to both read and write data</p>
+</li>
+<li>
+<p>Method expressions</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Value expressions (both immediate and deferred) and method expressions are explained in the next section.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_value_and_method_expressions"><a class="anchor" href="#_value_and_method_expressions"></a>Value and Method Expressions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The EL defines two kinds of expressions: value expressions and method expressions.
+Value expressions can be evaluated to yield a value, and method expressions are used to reference a method.</p>
+</div>
+<div class="sect2">
+<h3 id="_value_expressions"><a class="anchor" href="#_value_expressions"></a>Value Expressions</h3>
+<div class="paragraph">
+<p>Value expressions can be further categorized into <em>rvalue</em> and <em>lvalue</em> expressions.
+An <em>lvalue</em> expression can specify a target, such as an object, a bean property, or elements of a collection, that can be assigned a value.
+An <em>rvalue</em> expression cannot specify such a target.</p>
+</div>
+<div class="paragraph">
+<p>All expressions that are evaluated immediately use the <code>${}</code> delimiters, and although the expression can be an <em>lvalue</em> expression, no assignments will ever happen.
+Expressions whose evaluation can be deferred use the <code>#{}</code> delimiters and can act as both <em>rvalue</em> and <em>lvalue</em> expressions; if the expression is an <em>lvalue</em> expression, it can be assigned a new value.
+Consider the following two value expressions:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">${customer.name}
+
+#{customer.name}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The former uses immediate evaluation syntax, whereas the latter uses deferred evaluation syntax.
+The first expression accesses the <code>name</code> property, gets its value, and passes the value to the tag handler.
+With the second expression, the tag handler can defer the expression evaluation to a later time in the page lifecycle if the technology using this tag allows.</p>
+</div>
+<div class="paragraph">
+<p>In the case of Jakarta Faces technology, the latter tag&#8217;s expression is evaluated immediately during an initial request for the page.
+During a postback request, this expression can be used to set the value of the <code>name</code> property with user input.</p>
+</div>
+<div class="sect3">
+<h4 id="_referencing_objects"><a class="anchor" href="#_referencing_objects"></a>Referencing Objects</h4>
+<div class="paragraph">
+<p>A top-level identifier (such as <code>customer</code> in the expression <code>customer.name</code>) can refer to the following objects:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Lambda parameters</p>
+</li>
+<li>
+<p>EL variables</p>
+</li>
+<li>
+<p>Managed beans</p>
+</li>
+<li>
+<p>Implicit objects</p>
+</li>
+<li>
+<p>Classes of static fields and methods</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To refer to these objects, you write an expression using a variable that is the name of the object.
+The following expression references a managed bean called <code>customer</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">${customer}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can use a custom EL resolver to alter the way variables are resolved.
+For instance, you can provide an EL resolver that intercepts objects with the name <code>customer</code>, so that <code>${customer}</code> returns a value in the EL resolver instead.
+(Jakarta Faces technology uses an EL resolver to handle managed beans.)</p>
+</div>
+<div class="paragraph">
+<p>An <code>enum</code> constant is a special case of a static field, and you can reference such a constant directly.
+For example, consider this <code>enum</code> class:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public enum Suit {hearts, spades, diamonds, clubs}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the following expression, in which <code>mySuit</code> is an instance of <code>Suit</code>, you can compare <code>suit.hearts</code> to the instance:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">${mySuit == suit.hearts}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_referencing_object_properties_or_collection_elements"><a class="anchor" href="#_referencing_object_properties_or_collection_elements"></a>Referencing Object Properties or Collection Elements</h4>
+<div class="paragraph">
+<p>To refer to properties of a bean, static fields or methods of a class, or items of a collection, you use the <code>.</code> or <code>[]</code> notation.
+The same syntax can be used for attributes of an implicit object, because attributes are placed in a map.</p>
+</div>
+<div class="paragraph">
+<p>To reference the <code>name</code> property of the <code>customer</code> bean, use either the expression <code>${customer.name}</code> or the expression <code>${customer["name"]}</code>.
+Here, the part inside the brackets is a <code>String</code> literal that is the name of the property to reference.
+The <code>[]</code> syntax is more general than the <code>.</code> syntax, because the part inside the brackets can be any <code>String</code> expression, not just literals.</p>
+</div>
+<div class="paragraph">
+<p>You can use double or single quotes for the <code>String</code> literal. You can also combine the <code>[]</code> and <code>.</code> notations, as shown here:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">${customer.address["street"]}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can reference a static field or method using the syntax classname.field, as in the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Boolean.FALSE</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The classname is the name of the class without the package name.
+By default, all the <code>java.lang</code> packages are imported.
+You can import other packages, classes, and static fields as needed.</p>
+</div>
+<div class="paragraph">
+<p>If you are accessing an item in an array or list, you must use the <code>[]</code> notation and specify an index in the array or list.
+The index is an expression that can be converted to <code>int</code>.
+The following example references the first of the customer orders, assuming that <code>customer.orders</code> is a <code>List</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">${customer.orders[1]}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you are accessing an item in a <code>Map</code>, you must specify the key for the <code>Map</code>.
+If the key is a <code>String</code> literal, the dot (<code>.)</code> notation can be used.
+Assuming that <code>customer.orders</code> is a <code>Map</code> with a <code>String</code> key, the following examples reference the item with the key <code>"socks"</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">${customer.orders["socks"]}
+
+${customer.orders.socks}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_referencing_literals"><a class="anchor" href="#_referencing_literals"></a>Referencing Literals</h4>
+<div class="paragraph">
+<p>The EL defines the following literals:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Boolean: <code>true</code> and <code>false</code></p>
+</li>
+<li>
+<p>Integer: As in Java</p>
+</li>
+<li>
+<p>Floating-point: As in Java</p>
+</li>
+<li>
+<p>String: With single and double quotes; <code>"</code> is escaped as <code>\"</code>, <code>'</code> is
+escaped as <code>\'</code>, and <code>\</code> is escaped as <code>\\</code></p>
+</li>
+<li>
+<p>Null: <code>null</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Here are some examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>${"literal"}</code></p>
+</li>
+<li>
+<p><code>${true}</code></p>
+</li>
+<li>
+<p><code>${57}</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameterized_method_calls"><a class="anchor" href="#_parameterized_method_calls"></a>Parameterized Method Calls</h4>
+<div class="paragraph">
+<p>The EL offers support for parameterized method calls.</p>
+</div>
+<div class="paragraph">
+<p>Both the <code>.</code> and <code>[]</code> operators can be used for invoking method calls with parameters, as shown in the following expression syntax:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><em>expr-a</em>[<em>expr-b</em>](<em>parameters</em>)</code></p>
+</li>
+<li>
+<p><code><em>expr-a</em>.<em>identifier-b</em>(<em>parameters</em>)</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In the first expression syntax, <em>expr-a</em> is evaluated to represent a bean object.
+The expression <em>expr-b</em> is evaluated and cast to a string that represents a method in the bean represented by <em>expr-a</em>.
+In the second expression syntax, <em>expr-a</em> is evaluated to represent a bean object, and <em>identifier-b</em> is a string that represents a method in the bean object.
+The <em>parameters</em> in parentheses are the arguments for the method invocation.
+Parameters can be zero or more values of expressions, separated by commas.</p>
+</div>
+<div class="paragraph">
+<p>Parameters are supported for both value expressions and method expressions.
+In the following example, which is a modified tag from the <code>guessnumber</code> application, a random number is provided as an argument rather than from user input to the method call:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:inputText value="#{userNumberBean.userNumber('5')}"&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The preceding example uses a value expression.</p>
+</div>
+<div class="paragraph">
+<p>Consider the following example of a Jakarta Faces component tag that uses a method expression:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:commandButton action="#{trader.buy}" value="buy"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The EL expression <code>trader.buy</code> calls the <code>trader</code> bean&#8217;s <code>buy</code> method.
+You can modify the tag to pass on a parameter.
+Here is the revised tag in which a parameter is passed:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:commandButton action="#{trader.buy('SOMESTOCK')}" value="buy"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the preceding example, you are passing the string <code>'SOMESTOCK'</code> (a stock symbol) as a parameter to the <code>buy</code> method.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_where_value_expressions_can_be_used"><a class="anchor" href="#_where_value_expressions_can_be_used"></a>Where Value Expressions Can Be Used</h4>
+<div class="paragraph">
+<p>Value expressions using the <code>${}</code> delimiters can be used</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In static text</p>
+</li>
+<li>
+<p>In any standard or custom tag attribute that can accept an expression</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The value of an expression in static text is computed and inserted into the current output.
+Here is an example of an expression embedded in static text:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;some:tag&gt;
+    some text ${expr} some text
+&lt;/some:tag&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A tag attribute can be set in the following ways.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>With a single expression construct:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;some:tag value="${expr}"/&gt;
+
+&lt;another:tag value="#{expr}"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>These expressions are evaluated, and the result is converted to the attribute&#8217;s expected type.</p>
+</div>
+</li>
+<li>
+<p>With one or more expressions separated or surrounded by text:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;some:tag value="some${expr}${expr}text${expr}"/&gt;
+
+&lt;another:tag value="some#{expr}#{expr}text#{expr}"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>These kinds of expression, called composite expressions, are evaluated from left to right.
+Each expression embedded in the composite expression is converted to a <code>String</code> and then concatenated with any intervening text.
+The resulting <code>String</code> is then converted to the attribute&#8217;s expected type.</p>
+</div>
+</li>
+<li>
+<p>With text only:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;some:tag value="sometext"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The attribute&#8217;s <code>String</code> value is converted to the attribute&#8217;s expected type.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can use the string concatenation operator <code>+=</code> to create a single expression from what would otherwise be a composite expression. For example, you could change the composite expression</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;some:tag value="sometext ${expr} moretext"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>to</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;some:tag value="${sometext += expr += moretext}"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>All expressions used to set attribute values are evaluated in the context of an expected type.
+If the result of the expression evaluation does not match the expected type exactly, a type conversion will be performed.
+For example, the expression <code>${1.2E4}</code> provided as the value of an attribute of type <code>float</code> will result in the following conversion:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Float.valueOf("1.2E4").floatValue()</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_method_expressions"><a class="anchor" href="#_method_expressions"></a>Method Expressions</h3>
+<div class="paragraph">
+<p>Another feature of the EL is its support of deferred method expressions.
+A method expression is used to refer to a public method of a bean and has the same syntax as an <em>lvalue</em> expression.</p>
+</div>
+<div class="paragraph">
+<p>In Jakarta Faces technology, a component tag represents a component on a page.
+The component tag uses method expressions to specify methods that can be invoked to perform some processing for the component.
+These methods are necessary for handling events that the components generate and for validating component data, as shown in this example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:form&gt;
+    &lt;h:inputText id="name"
+                 value="#{customer.name}"
+                 validator="#{customer.validateName}"/&gt;
+    &lt;h:commandButton id="submit"
+                     action="#{customer.submit}" /&gt;
+&lt;/h:form&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>h:inputText</code> tag displays as a field. The <code>validator</code> attribute of this <code>h:inputText</code> tag references a method, called <code>validateName</code>, in the bean, called <code>customer</code>.</p>
+</div>
+<div class="paragraph">
+<p>Because a method can be invoked during different phases of the lifecycle, method expressions must always use the deferred evaluation syntax.</p>
+</div>
+<div class="paragraph">
+<p>Like lvalue expressions, method expressions can use the <code>.</code> and the <code>[]</code> operators.
+For example, <code>#{object.method}</code> is equivalent to #<code>{object["method"]}</code>.
+The literal inside the <code>[]</code> is converted to <code>String</code> and is used to find the name of the method that matches it.</p>
+</div>
+<div class="paragraph">
+<p>Method expressions can be used only in tag attributes and only in the following ways:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>With a single expression construct, where bean refers to a JavaBeans component and method refers to a method of the JavaBeans component:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;some:tag value="#{bean.method}"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The expression is evaluated to a method expression, which is passed to the tag handler.
+The method represented by the method expression can then be invoked later.</p>
+</div>
+</li>
+<li>
+<p>With text only:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;some:tag value="sometext"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Method expressions support literals primarily to support <code>action</code> attributes in Jakarta Faces technology.
+When the method referenced by this method expression is invoked, the method returns the <code>String</code> literal, which is then converted to the expected return type, as defined in the tag&#8217;s tag library descriptor.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lambda_expressions"><a class="anchor" href="#_lambda_expressions"></a>Lambda Expressions</h3>
+<div class="paragraph">
+<p>A lambda expression is a value expression with parameters.
+The syntax is similar to that of the lambda expression in the Java programming language, except that in the EL, the body of the lambda expression is an EL expression.</p>
+</div>
+<div class="paragraph">
+<p>For basic information on lambda expressions, see <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html" class="bare" target="_blank" rel="noopener">https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Lambda expressions are part of Java SE 8
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A lambda expression uses the arrow token (<code>-&gt;</code>) operator.
+The identifiers to the left of the operator are called lambda parameters.
+The body, to the right of the operator, must be an EL expression.
+The lambda parameters are enclosed in parentheses; the parentheses can be omitted if there is only one parameter.
+Here are some examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">x -&gt; x+1
+(x, y) -&gt; x + y
+() -&gt; 64</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A lambda expression behaves like a function.
+It can be invoked immediately.
+For example, the following invocation evaluates to 7:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">((x, y) -&gt; x + y)(3, 4)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can use a lambda expression in conjunction with the assignment and semicolon operators.
+For example, the following code assigns the previous lambda expression to a variable and then invokes it.
+The result is again 7:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">v = (x, y) -&gt; x + y; v(3, 4)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A lambda expression can also be passed as an argument to a method and be invoked in the method.
+It can also be nested in another lambda expression.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_operations_on_collection_objects"><a class="anchor" href="#_operations_on_collection_objects"></a>Operations on Collection Objects</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The EL supports operations on collection objects: sets, lists, and maps.
+It allows the dynamic creation of collection objects, which can then be operated on using streams and pipelines.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Like lambda expressions, operations on collection objects are part of Java SE 8.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For example, you can construct a set as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">{1,2,3}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can construct a list as follows; a list can contain various types of items:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">[1,2,3]
+[1, "two", [three,four]]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can construct a map by using a colon to define the entries, as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">{"one":1, "two":2, "three":3}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You operate on collection objects using method calls to the stream of elements derived from the collection.
+Some operations return another stream, which allows additional operations.
+Therefore, you can chain these operations together in a pipeline.</p>
+</div>
+<div class="paragraph">
+<p>A stream pipeline consists of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A source (the <code>Stream</code> object)</p>
+</li>
+<li>
+<p>Any number of intermediate operations that return a stream (for example, <code>filter</code> and <code>map</code>)</p>
+</li>
+<li>
+<p>A terminal operation that does not return a stream (for example, <code>toList()</code>)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>stream</code> method obtains a <code>Stream</code> from a <code>java.util.Collection</code> or a Java array.
+The stream operations do not modify the original collection object.</p>
+</div>
+<div class="paragraph">
+<p>For example, you might generate a list of titles of history books as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">books.stream().filter(b-&gt;b.category == "history")
+              .map(b-&gt;b.title)
+              .toList()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following simpler example returns a sorted version of the original list:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">[1,3,5,2].stream().sorted().toList()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Streams and stream operations are documented in the Java SE 8 API documentation, available at <a href="https://docs.oracle.com/javase/8/docs/api/" class="bare" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/api/</a>.
+The following subset of operations is supported by the EL:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>allMatch</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>anyMatch</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>average</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>count</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>distinct</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findFirst</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>flatMap</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>forEach</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>iterator</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>limit</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>map</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>max</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>min</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>noneMatch</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>peek</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>reduce</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sorted</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>substream</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sum</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>toArray</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><code>toList</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>See the Expression Language specification at <a href="https://jakarta.ee/specifications/expression-language/4.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/expression-language/4.0/</a> for details on these operations.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_operators"><a class="anchor" href="#_operators"></a>Operators</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In addition to the <code>.</code> and <code>[]</code> operators discussed in <a href="#_value_and_method_expressions">Value and Method Expressions</a>, the EL provides the following operators, which can be used in rvalue expressions only.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Arithmetic: <code>+</code>, <code>-</code> (binary), <code>*</code>, <code>/</code> and <code>div</code>, <code>%</code> and <code>mod</code>, <code>-</code> (unary).</p>
+</li>
+<li>
+<p>String concatenation: <code>+=</code>.</p>
+</li>
+<li>
+<p>Logical: <code>and</code>, <code>&amp;&amp;</code>, <code>or</code>, <code>||</code>, <code>not</code>, <code>!</code>.</p>
+</li>
+<li>
+<p>Relational: <code>==</code>, <code>eq</code>, <code>!=</code>, <code>ne</code>, <code>&lt;</code>, <code>lt</code>, <code>&gt;</code>, <code>gt</code>, <code>&lt;=</code>, <code>ge</code>, <code>&gt;=</code>, <code>le</code>.
+Comparisons can be made against other values or against Boolean, string, integer, or floating-point literals.</p>
+</li>
+<li>
+<p>Empty: The <code>empty</code> operator is a prefix operation that can be used to determine whether a value is <code>null</code> or empty.</p>
+</li>
+<li>
+<p>Conditional: <code>A ? B : C</code>. Evaluate <code>B</code> or <code>C</code>, depending on the result of the evaluation of <code>A</code>.</p>
+</li>
+<li>
+<p>Lambda expression: <code>-&gt;</code>, the arrow token.</p>
+</li>
+<li>
+<p>Assignment: <code>=</code>.</p>
+</li>
+<li>
+<p>Semicolon: <code>;</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The precedence of operators, highest to lowest, left to right, is as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>[] .</code></p>
+</li>
+<li>
+<p><code>()</code> (used to change the precedence of operators)</p>
+</li>
+<li>
+<p><code>-</code> (unary) <code>not ! empty</code></p>
+</li>
+<li>
+<p><code>* / div % mod</code></p>
+</li>
+<li>
+<p><code>+ -</code> (binary)</p>
+</li>
+<li>
+<p><code>+=</code></p>
+</li>
+<li>
+<p><code>&lt;&gt; &lt;= &gt;= lt gt le ge</code></p>
+</li>
+<li>
+<p><code>== != eq ne</code></p>
+</li>
+<li>
+<p><code>&amp;&amp; and</code></p>
+</li>
+<li>
+<p><code>|| or</code></p>
+</li>
+<li>
+<p><code>? :</code></p>
+</li>
+<li>
+<p><code>-&gt;</code></p>
+</li>
+<li>
+<p><code>=</code></p>
+</li>
+<li>
+<p><code>;</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_reserved_words"><a class="anchor" href="#_reserved_words"></a>Reserved Words</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following words are reserved for the EL and should not be used as identifiers:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>and</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>or</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>not</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eq</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ne</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>gt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>le</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ge</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>null</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>instanceof</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>empty</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>div</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mod</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_examples_of_el_expressions"><a class="anchor" href="#_examples_of_el_expressions"></a>Examples of EL Expressions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="#_example_expressions">Example Expressions</a> contains example EL expressions and the result of evaluating them.</p>
+</div>
+<table id="_example_expressions" class="tableblock frame-all grid-all" style="width: 80%;">
+<caption class="title">Example Expressions</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">EL Expression</th>
+<th class="tableblock halign-left valign-top">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>${1 &gt; (4/2)}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>${4.0 &gt;= 3}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>${100.0 == 100}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>${(10*10) ne 100}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>${'a' &gt; 'b'}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>${'hip' lt 'hit'}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>${4 &gt; 3}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>${1.2E4 + 1.4}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>12001.4</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>${3 div 4}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.75</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>${10 mod 4}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>${((x, y) &#8594; x + y)(3, 5.5)}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>8.5</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[1,2,3,4].stream().sum()</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[1,3,5,2].stream().sorted().toList()</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[1, 2, 3, 5]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>${!empty param.Add}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>False</code> if the request parameter named <code>Add</code> is <code>null</code> or an empty string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>${pageContext.request.contextPath}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The context path</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>${sessionScope.cart.numberOfItems}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the <code>numberOfItems</code> property of the session-scoped attribute named <code>cart</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>${param['mycom.productId']}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the request parameter named <code>mycom.productId</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>${header["host"]}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The host</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>${departments[deptName]}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the entry named <code>deptName</code> in the <code>departments</code> map</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>${requestScope['jakarta.servlet.forward.servlet_path']}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of the request-scoped attribute named <code>jakarta.servlet.forward.servlet_path</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>#{customer.lName}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gets the value of the property <code>lName</code> from the <code>customer</code> bean during an initial request; sets the value of <code>lName</code> during a postback</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>#{customer.calcTotal}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The return value of the method <code>calcTotal</code> of the <code>customer</code> bean</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_further_information_about_the_expression_language"><a class="anchor" href="#_further_information_about_the_expression_language"></a>Further Information about the Expression Language</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For more information about the Expression Language, see</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Expression Language 4.0 specification:<br>
+<a href="https://jakarta.ee/specifications/expression-language/4.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/expression-language/4.0/</a></p>
+</li>
+<li>
+<p>The EL specification website:<br>
+<a href="https://github.com/eclipse-ee4j/el-ri/tree/master/spec" class="bare" target="_blank" rel="noopener">https://github.com/eclipse-ee4j/el-ri/tree/master/spec</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/9.1/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="9.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../intro/overview/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../intro/usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Platform Basics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/resource-creation/resource-creation.html">Resource Creation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/injection/injection.html">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/packaging/packaging.html">Packaging</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">The Web Tier</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-intro/jsf-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-facelets/jsf-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-el/jsf-el.html">Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-page/jsf-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-page-core/jsf-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-develop/jsf-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-ajax/jsf-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-advanced-cc/jsf-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-custom/jsf-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="jsf-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-ws/jsf-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsonp/jsonp.html">JSON Processing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Bean Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Contexts and Dependency Injection</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Services</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/webservices-intro/webservices-intro.html">Introduction to Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/jaxws/jaxws.html">Building Web Services with Jakarta XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Enterprise Beans</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-embedded/ejb-embedded.html">Using the Embedded Enterprise Bean Container</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-intro/security-intro.html">Introduction to Security in the Jakarta EE Platform</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-webtier/security-webtier.html">Getting Started Securing Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-jakartaee/security-jakartaee.html">Getting Started Securing Enterprise Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-api/security-api.html">Using Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-advanced/security-advanced.html">Jakarta EE Security: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Supporting Technologies</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/resources/resources.html">Resource Adapters and Contracts</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/connectorexample/connectorexample.html">The Resource Adapter Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Batch Processing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Case Studies</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../casestudies/dukes-bookstore/dukes-bookstore.html">Duke&#8217;s Bookstore Case Study Example</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../casestudies/dukes-tutoring/dukes-tutoring.html">Duke&#8217;s Tutoring Case Study Example</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../casestudies/dukes-forest/dukes-forest.html">Duke&#8217;s Forest Case Study Example</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">9.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">9.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/web/pages/jsf-configure/jsf-configure013.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_basic_requirements_of_a_jakarta_faces_application"><a class="anchor" href="#_basic_requirements_of_a_jakarta_faces_application"></a>Basic Requirements of a Jakarta Faces Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In addition to configuring your application, you must satisfy other requirements of Jakarta Faces applications, including properly packaging all the necessary files and providing a deployment descriptor.
+This section describes how to perform these administrative tasks.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta Faces applications can be packaged in a WAR file, which must conform to specific requirements to execute across different containers.
+At a minimum, a WAR file for a Jakarta Faces application may contain the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A web application deployment descriptor, called <code>web.xml</code>, to configure resources required by a web application (required)</p>
+</li>
+<li>
+<p>A specific set of JAR files containing essential classes (optional)</p>
+</li>
+<li>
+<p>A set of application classes, Jakarta Faces pages, and other required resources, such as image files</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A WAR file may also contain:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An application configuration resource file, which configures application resources</p>
+</li>
+<li>
+<p>A set of tag library descriptor files</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example, a Jakarta Faces web application WAR file using Facelets typically has the following directory structure:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">$PROJECT_DIR
+[Web Pages]
++- /[xhtml or html documents]
++- /resources
++- /WEB-INF
+   +- /web.xml
+   +- /beans.xml (optional)
+   +- /classes (optional)
+   +- /lib (optional)
+   +- /faces-config.xml (optional)
+   +- /*.taglib.xml (optional)
+   +- /glassfish-web.xml (optional)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>web.xml</code> file (or web deployment descriptor), the set of JAR files, and the set of application files must be contained in the <code>WEB-INF</code> directory of the WAR file.</p>
+</div>
+<div class="sect2">
+<h3 id="_configuring_an_application_with_a_web_deployment_descriptor"><a class="anchor" href="#_configuring_an_application_with_a_web_deployment_descriptor"></a>Configuring an Application with a Web Deployment Descriptor</h3>
+<div class="paragraph">
+<p>Web applications are commonly configured using elements contained in the web application deployment descriptor, <code>web.xml</code>.
+The deployment descriptor for a Jakarta Faces application must specify certain configurations, including the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The servlet used to process Jakarta Faces requests</p>
+</li>
+<li>
+<p>The servlet mapping for the processing servlet</p>
+</li>
+<li>
+<p>The path to the configuration resource file, if it exists and is not located in a default location</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The deployment descriptor can also include other, optional configurations, such as those that</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Specify where component state is saved</p>
+</li>
+<li>
+<p>Encrypt state saved on the client</p>
+</li>
+<li>
+<p>Compress state saved on the client</p>
+</li>
+<li>
+<p>Restrict access to pages containing Jakarta Faces tags</p>
+</li>
+<li>
+<p>Turn on XML validation</p>
+</li>
+<li>
+<p>Specify the Project Stage</p>
+</li>
+<li>
+<p>Verify custom objects</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This section gives more details on these configurations.
+Where appropriate, it also describes how you can make these configurations using NetBeans IDE.</p>
+</div>
+<div class="sect3">
+<h4 id="_identifying_the_servlet_for_lifecycle_processing"><a class="anchor" href="#_identifying_the_servlet_for_lifecycle_processing"></a>Identifying the Servlet for Lifecycle Processing</h4>
+<div class="paragraph">
+<p>A requirement of a Jakarta Faces application is that all requests to the application that reference previously saved Jakarta Faces components must go through <code>jakarta.faces.webapp.FacesServlet</code>.
+A <code>FacesServlet</code> instance manages the request-processing lifecycle for web applications and initializes the resources required by Jakarta Faces technology.</p>
+</div>
+<div class="paragraph">
+<p>Before a Jakarta Faces application can launch its first web page, the web container must invoke the <code>FacesServlet</code> instance in order for the application lifecycle process to start.
+See <a href="../jsf-intro/jsf-intro.html#_the_lifecycle_of_a_jakarta_faces_application" class="xref page">The Lifecycle of a Jakarta Faces Application</a> for more information.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows the default configuration of the <code>FacesServlet</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;servlet&gt;
+    &lt;servlet-name&gt;Faces Servlet&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;jakarta.faces.webapp.FacesServlet&lt;/servlet-class&gt;
+&lt;/servlet&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You will provide a mapping configuration entry to make sure that the <code>FacesServlet</code> instance is invoked.
+The mapping to <code>FacesServlet</code> can be a prefix mapping, such as <code>/faces/<strong></code>, or an extension mapping, such as <code></strong>.xhtml</code>.
+The mapping is used to identify a page as having Jakarta Faces content.
+Because of this, the URL to the first page of the application must include the URL pattern mapping.</p>
+</div>
+<div class="paragraph">
+<p>The following elements specify a prefix mapping:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;Faces Servlet&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/faces/*&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+...
+&lt;welcome-file-list&gt;
+    &lt;welcome-file&gt;faces/greeting.xhtml&lt;/welcome-file&gt;
+&lt;/welcome-file-list&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following elements, used in the tutorial examples, specify an extension mapping:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;Faces Servlet&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;*.xhtml&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+...
+&lt;welcome-file-list&gt;
+    &lt;welcome-file&gt;index.xhtml&lt;/welcome-file&gt;
+&lt;/welcome-file-list&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When you use this mechanism, users access the application as shown in the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/guessNumber</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the case of extension mapping, if a request comes to the server for a page with an <code>.xhtml</code> extension, the container will send the request to the <code>FacesServlet</code> instance, which will expect a corresponding page of the same name containing the content to exist.</p>
+</div>
+<div class="paragraph">
+<p>To minimize clutter and allow simple, friendly URLs, you can have extensionless URLs by manually exact mapping the <code>FacesServlet</code> to the existing prefix and suffix mapping options in <code>web.xml</code>, one or more times.</p>
+</div>
+<div class="paragraph">
+<p>If you are using NetBeans IDE to create your application, a web deployment descriptor is automatically created for you with default configurations.
+If you created your application without an IDE, you can create a web deployment descriptor.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_specify_a_path_to_an_application_configuration_resource_file"><a class="anchor" href="#_to_specify_a_path_to_an_application_configuration_resource_file"></a>To Specify a Path to an Application Configuration Resource File</h4>
+<div class="paragraph">
+<p>As explained in <a href="#_application_configuration_resource_file">[_application_configuration_resource_file]</a>, an application can have multiple application configuration resource files.
+If these files are not located in the directories that the implementation searches by default or the files are not named <code>faces-config.xml</code>, you need to specify paths to these files.</p>
+</div>
+<div class="paragraph">
+<p>To specify these paths using NetBeans IDE, do the following.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Expand the node of your project in the <strong>Projects</strong> tab.</p>
+</li>
+<li>
+<p>Expand the <strong>Web Pages</strong> and <strong>WEB-INF</strong> nodes that are under the project node.</p>
+</li>
+<li>
+<p>Double-click <code>web.xml</code>.</p>
+</li>
+<li>
+<p>After the <code>web.xml</code> file appears in the editor, click <strong>General</strong> at the top of the editor window.</p>
+</li>
+<li>
+<p>Expand the <strong>Context Parameters</strong> node.</p>
+</li>
+<li>
+<p>Click <strong>Add</strong>.</p>
+</li>
+<li>
+<p>In the Add Context Parameter dialog box:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Enter <code>jakarta.faces.CONFIG_FILES</code> in the <strong>Parameter Name</strong> field.</p>
+</li>
+<li>
+<p>Enter the path to your configuration file in the <strong>Parameter Value</strong> field.</p>
+</li>
+<li>
+<p>Click <strong>OK</strong>.</p>
+</li>
+<li>
+<p>Repeat steps 1 through 7 for each configuration file.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_specify_where_state_is_saved"><a class="anchor" href="#_to_specify_where_state_is_saved"></a>To Specify Where State Is Saved</h4>
+<div class="paragraph">
+<p>For all the components in a web application, you can specify in your deployment descriptor where you want the state to be saved, on either client or server.
+You do this by setting a context parameter in your deployment descriptor.
+By default, state is saved on the server, so you need to specify this context parameter only if you want to save state on the client.
+See <a href="../jsf-custom/jsf-custom.html#_saving_and_restoring_state" class="xref page">Saving and Restoring State</a> for information on the advantages and disadvantages of each location.</p>
+</div>
+<div class="paragraph">
+<p>To specify where state is saved using NetBeans IDE, do the following.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Expand the node of your project in the <strong>Projects</strong> tab.</p>
+</li>
+<li>
+<p>Expand the <strong>Web Pages</strong> and <strong>WEB-INF</strong> nodes under the project node.</p>
+</li>
+<li>
+<p>Double-click <code>web.xml</code>.</p>
+</li>
+<li>
+<p>After the <code>web.xml</code> file appears in the editor window, click <strong>General</strong> at the top of the editor window.</p>
+</li>
+<li>
+<p>Expand the <strong>Context Parameters</strong> node.</p>
+</li>
+<li>
+<p>Click <strong>Add</strong>.</p>
+</li>
+<li>
+<p>In the Add Context Parameter dialog box:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Enter <code>jakarta.faces.STATE_SAVING_METHOD</code> in the <strong>Parameter Name</strong> field.</p>
+</li>
+<li>
+<p>Enter <code>client</code> or <code>server</code> in the <strong>Parameter Value</strong> field.</p>
+</li>
+<li>
+<p>Click <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If state is saved on the client, the state of the entire view is rendered to a hidden field on the page.
+The Jakarta Faces implementation saves the state on the server by default.
+Duke&#8217;s Forest saves its state on the client.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configuring_project_stage"><a class="anchor" href="#_configuring_project_stage"></a>Configuring Project Stage</h3>
+<div class="paragraph">
+<p>Project Stage is a context parameter identifying the status of a Jakarta Faces application in the software lifecycle.
+The stage of an application can affect the behavior of the application.
+For example, error messages can be displayed during the Development stage but suppressed during the Production stage.</p>
+</div>
+<div class="paragraph">
+<p>The possible Project Stage values are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Development</code></p>
+</li>
+<li>
+<p><code>UnitTest</code></p>
+</li>
+<li>
+<p><code>SystemTest</code></p>
+</li>
+<li>
+<p><code>Production</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Project Stage is configured through a context parameter in the web deployment descriptor file.
+Here is an example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">&lt;context-param&gt;
+    &lt;param-name&gt;jakarta.faces.PROJECT_STAGE&lt;/param-name&gt;
+    &lt;param-value&gt;Development&lt;/param-value&gt;
+&lt;/context-param&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If no Project Stage is defined, the default stage is <code>Production</code>.
+You can also add custom stages according to your requirements.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_including_the_classes_pages_and_other_resources"><a class="anchor" href="#_including_the_classes_pages_and_other_resources"></a>Including the Classes, Pages, and Other Resources</h3>
+<div class="paragraph">
+<p>When packaging web applications using the included build scripts, you&#8217;ll notice that the scripts package resources in the following ways.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>All web pages are placed at the top level of the WAR file.</p>
+</li>
+<li>
+<p>The <code>faces-config.xml</code> file and the <code>web.xml</code> file are packaged in the <code>WEB-INF</code> directory.</p>
+</li>
+<li>
+<p>All packages are stored in the <code>WEB-INF/classes/</code> directory.</p>
+</li>
+<li>
+<p>All application JAR files are packaged in the <code>WEB-INF/lib/</code> directory.</p>
+</li>
+<li>
+<p>All resource files are either under the root of the web application <code>/resources</code> directory or in the web application&#8217;s classpath, the <code>META-INF/resources/<em>resourceIdentifier</em></code> directory.
+For more information on resources, see <a href="../jsf-facelets/jsf-facelets.html#_web_resources" class="xref page">Web Resources</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When packaging your own applications, you can use NetBeans IDE or you can use XML files such as those created for Maven.
+You can modify the XML files to fit your situation.
+However, you can continue to package your WAR files by using the directory structure described in this section, because this technique complies with the commonly accepted practice for packaging web applications.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

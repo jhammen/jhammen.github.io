@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/supporttechs/pages/batch-processing/batch-processing005.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_creating_batch_artifacts"><a class="anchor" href="#_creating_batch_artifacts"></a>Creating Batch Artifacts</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>After you define a job in terms of its batch artifacts using the Job Specification Language (JSL), you create these artifacts as Java classes that implement the interfaces in the <code>jakarta.batch.api</code> package and its subpackages.</p>
+</div>
+<div class="paragraph">
+<p>This section lists the main batch artifact interfaces, demonstrates how to access context objects from the batch runtime, and provides some examples.</p>
+</div>
+<div class="sect2">
+<h3 id="_batch_artifact_interfaces"><a class="anchor" href="#_batch_artifact_interfaces"></a>Batch Artifact Interfaces</h3>
+<div class="paragraph">
+<p>The following tables list the interfaces that you implement to create batch artifacts.
+The interface implementations are referenced from the elements described in <a href="batch-processing.html#_using_the_job_specification_language" class="xref page">Using the Job Specification Language</a>.</p>
+</div>
+<div class="paragraph">
+<p><a href="#_main_batch_artifact_interfaces">Main Batch Artifact Interfaces</a> lists the interfaces to implement batch artifacts for chunk steps, task steps, and decision elements.</p>
+</div>
+<div class="paragraph">
+<p><a href="#_partition_batch_artifact_interfaces">Partition Batch Artifact Interfaces</a> lists the interfaces to implement batch artifacts for partitioned steps.</p>
+</div>
+<div class="paragraph">
+<p><a href="#_listener_batch_artifact_interfaces">Listener Batch Artifact Interfaces</a> lists the interfaces to implement batch artifacts for job and step listeners.</p>
+</div>
+<table id="_main_batch_artifact_interfaces" class="tableblock frame-all grid-all" style="width: 99%;">
+<caption class="title">Main Batch Artifact Interfaces</caption>
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 15%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Package</th>
+<th class="tableblock halign-left valign-top">Interface</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.batch.api</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Batchlet</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implements the business logic of a task-oriented step.
+It is referenced from the <code>batchlet</code> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.batch.api</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Decider</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Decides the next step, flow, or split to execute based on information from the execution of the previous step, flow, or split.
+It is referenced from the <code>decision</code> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.batch.api.chunk</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CheckPointAlgorithm</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implements a custom checkpoint policy for chunk steps.
+It is referenced from the <code>checkpoint-algorithm</code> element inside the <code>chunk</code> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.batch.api.chunk</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ItemReader</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reads items from an input source in a chunk step.
+It is referenced from the <code>reader</code> element inside the <code>chunk</code> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.batch.api.chunk</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ItemProcessor</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Processes input items to obtain output items in chunk steps.
+It is referenced from the <code>processor</code> element inside the <code>chunk</code> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.batch.api.chunk</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ItemWriter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Writes output items in chunk steps.
+It is referenced from the <code>writer</code> element inside the <code>chunk</code> element.</p></td>
+</tr>
+</tbody>
+</table>
+<table id="_partition_batch_artifact_interfaces" class="tableblock frame-all grid-all" style="width: 99%;">
+<caption class="title">Partition Batch Artifact Interfaces</caption>
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 15%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Package</th>
+<th class="tableblock halign-left valign-top">Interface</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.batch.api.partition</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PartitionPlan</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides details on how to execute a partitioned step, such as the number of partitions, the number of threads, and the parameters for each partition.
+This artifact is not referenced directly from the job definition file.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.batch.api.partition</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PartitionMapper</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides a <code>PartitionPlan</code> object.
+It is referenced from the <code>mapper</code> element inside the <code>partition</code> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.batch.api.partition</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PartitionReducer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Receives control when a partitioned step begins, ends, or rolls back.
+It is referenced from the <code>reducer</code> element inside the <code>partition</code> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.batch.api.partition</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PartitionCollector</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sends intermediary results from each partition to a partition analyzer.
+It is referenced from the <code>collector</code> element inside the <code>partition</code> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.batch.api.partition</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PartitionAnalyzer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Processes data and final results from each partition.
+It is referenced from the <code>analyzer</code> element inside the <code>partition</code> element.</p></td>
+</tr>
+</tbody>
+</table>
+<table id="_listener_batch_artifact_interfaces" class="tableblock frame-all grid-all" style="width: 99%;">
+<caption class="title">Listener Batch Artifact Interfaces</caption>
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 15%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Package</th>
+<th class="tableblock halign-left valign-top">Interface</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.batch.api.listener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>JobListener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intercepts job execution before and after running a job.
+It is referenced from the <code>listener</code> element inside the <code>job</code> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.batch.api.listener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>StepListener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intercepts step execution before and after running a step.
+It is referenced from the <code>listener</code> element inside the <code>step</code> element</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.batch.api.chunk.listener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ChunkListener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intercepts chunk processing in chunk steps before and after processing each chunk, and on errors.
+It is referenced from the <code>listener</code> element inside the <code>step</code> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.batch.api.chunk.listener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ItemReadListener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intercepts item reading in chunk steps before and after reading each item, and on errors.
+It is referenced from the <code>listener</code> element inside the <code>step</code> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.batch.api.chunk.listener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ItemProcessListener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intercepts item processing in chunk steps before and after processing each item, and on errors.
+It is referenced from the <code>listener</code> element inside the <code>step</code> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.batch.api.chunk.listener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ItemWriteListener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intercepts item writing in chunk steps before and after writing each item, and on errors.
+It is referenced from the <code>listener</code> element inside the <code>step</code> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.batch.api.chunk.listener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RetryReadListener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intercepts retry item reading in chunk steps when an exception occurs.
+It is referenced from the <code>listener</code> element inside the <code>step</code> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.batch.api.chunk.listener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RetryProcessListener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intercepts retry item processing in chunk steps when an exception occurs.
+It is referenced from the <code>listener</code> element inside the <code>step</code> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.batch.api.chunk.listener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RetryWriteListener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intercepts retry item writing in chunk steps when an exception occurs.
+It is referenced from the <code>listener</code> element inside the <code>step</code> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.batch.api.chunk.listener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SkipReadListener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intercepts skippable exception handling for item readers in chunk steps.
+It is referenced from the <code>listener</code> element inside the <code>step</code> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.batch.api.chunk.listener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SkipProcessListener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intercepts skippable exception handling for item processors in chunk steps.
+It is referenced from the <code>listener</code> element inside the <code>step</code> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.batch.api.chunk.listener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SkipWriteListener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intercepts skippable exception handling for item writers in chunk steps.
+It is referenced from the <code>listener</code> element inside the <code>step</code> element.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_dependency_injection_in_batch_artifacts"><a class="anchor" href="#_dependency_injection_in_batch_artifacts"></a>Dependency Injection in Batch Artifacts</h3>
+<div class="paragraph">
+<p>To ensure that Jakarta Contexts and Dependency Injection (CDI) works in your batch artifacts, follow these steps.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Define your batch artifact implementations as CDI named beans using the <code>Named</code> annotation.</p>
+<div class="paragraph">
+<p>For example, define an item reader implementation in a chunk step as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Named("MyItemReaderImpl")
+public class MyItemReaderImpl implements ItemReader {
+    /* ... Override the ItemReader interface methods ... */
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Provide a public, empty, no-argument constructor for your batch artifacts.</p>
+<div class="paragraph">
+<p>For example, provide the following constructor for the artifact above:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public MyItemReaderImpl() {}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Specify the CDI name for the batch artifacts in the job definition file, instead of using the fully qualified name of the class.</p>
+<div class="paragraph">
+<p>For example, define the step for the artifact above as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;step id="stepA" next="stepB"&gt;
+  &lt;chunk&gt;
+    &lt;reader ref="MyItemReaderImpl"&gt;&lt;/reader&gt;
+    ...
+  &lt;/chunk&gt;
+&lt;/step&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This example uses the CDI name (<code>MyItemReaderImpl</code>) instead of the fully qualified name of the class (<code>com.example.pkg.MyItemReaderImpl</code>) to specify a batch artifact.</p>
+</div>
+</li>
+<li>
+<p>Ensure that your module is a CDI bean archive by annotating your batch artifacts with the <code>jakarta.enterprise.context.Dependent</code> annotation or by including an empty <code>beans.xml</code> deployment description with your application.
+For example, the following batch artifact is annotated with <code>@Dependent</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Dependent
+@Named("MyItemReaderImpl")
+public class MyItemReaderImpl implements ItemReader { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information on bean archives, see <a href="../../cdi/cdi-adv/cdi-adv.html#_packaging_cdi_applications" class="xref page">Packaging CDI Applications</a> in <a href="../../cdi/cdi-adv/cdi-adv.html#_jakarta_contexts_and_dependency_injection_advanced_topics" class="xref page">Jakarta Contexts and Dependency Injection: Advanced Topics</a>.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Jakarta Contexts and Dependency Injection (CDI) is required in order to access context objects from the batch runtime in batch artifacts.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You may encounter the following errors if you do not follow this procedure.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The batch runtime cannot locate some batch artifacts.</p>
+</li>
+<li>
+<p>The batch artifacts throw null pointer exceptions when accessing injected objects.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_the_context_objects_from_the_batch_runtime"><a class="anchor" href="#_using_the_context_objects_from_the_batch_runtime"></a>Using the Context Objects from the Batch Runtime</h3>
+<div class="paragraph">
+<p>The batch runtime provides context objects that implement the <code>JobContext</code> and <code>StepContext</code> interfaces in the <code>jakarta.batch.runtime.context</code> package.
+These objects are associated with the current job and step, respectively, and enable you to do the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Get information from the current job or step, such as its name, instance ID, execution ID, batch status, and exit status</p>
+</li>
+<li>
+<p>Set the user-defined exit status</p>
+</li>
+<li>
+<p>Store user data</p>
+</li>
+<li>
+<p>Get property values from the job or step definition</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can inject context objects from the batch runtime inside batch artifact implementations like item readers, item processors, item writers, batchlets, listeners, and so on.
+The following example demonstrates how to access property values from the job definition file in an item reader implementation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Dependent
+@Named("MyItemReaderImpl")
+public class MyItemReaderImpl implements ItemReader {
+    @Inject
+    JobContext jobCtx;
+
+    public MyItemReaderImpl() {}
+
+    @Override
+    public void open(Serializable checkpoint) throws Exception {
+        String fileName = jobCtx.getProperties()
+                                .getProperty("log_file_name");
+        ...
+    }
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See <a href="#_dependency_injection_in_batch_artifacts">Dependency Injection in Batch Artifacts</a> for instructions on how to define your batch artifacts to use dependency injection.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Do not access batch context objects inside artifact constructors.</p>
+</div>
+<div class="paragraph">
+<p>Because the job does not run until you submit it to the batch runtime, the batch context objects are not available when CDI instantiates your artifacts upon loading your application.
+The instantiation of these beans fails and the batch runtime cannot find your batch artifacts when your application submits the job.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

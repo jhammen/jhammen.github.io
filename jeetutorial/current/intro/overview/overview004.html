@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/intro/pages/overview/overview004.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_distributed_multitiered_applications"><a class="anchor" href="#_distributed_multitiered_applications"></a>Distributed Multitiered Applications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Jakarta EE platform uses a distributed multitiered application model for enterprise applications.
+Application logic is divided into components according to function, and the application components that make up a Jakarta EE application are installed on various machines depending on the tier in the multitiered Jakarta EE environment to which the application component belongs.</p>
+</div>
+<div class="paragraph">
+<p><a href="#_multitiered_applications">Figure 1, &#8220;Multitiered Applications&#8221;</a> shows two multitiered Jakarta EE applications divided into the tiers described in the following list. The Jakarta EE application parts shown in <a href="#_multitiered_applications">Figure 1, &#8220;Multitiered Applications&#8221;</a> are presented in <a href="#_jakarta_ee_components">Jakarta EE Components</a>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Client-tier components run on the client machine.</p>
+</li>
+<li>
+<p>Web-tier components run on the Jakarta EE server.</p>
+</li>
+<li>
+<p>Business-tier components run on the Jakarta EE server.</p>
+</li>
+<li>
+<p>Enterprise information system (EIS)-tier software runs on the EIS server.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Although a Jakarta EE application can consist of all tiers shown in <a href="#_multitiered_applications">Figure 1, &#8220;Multitiered Applications&#8221;</a>, Jakarta EE multitiered applications are generally considered to be three-tiered applications because they are distributed over three locations: client machines, the Jakarta EE server machine, and the database or legacy machines at the back end.
+Three-tiered applications that run in this way extend the standard two-tiered client-and-server model by placing a multithreaded application server between the client application and back-end storage.</p>
+</div>
+<div id="_multitiered_applications" class="imageblock">
+<div class="content">
+<img src="../../common/_images/jakartaeett_dt_001.svg" alt="Diagram of multitiered application structure, including client tier, web tier, business tier, and EIS tier.">
+</div>
+<div class="title">Figure 1. Multitiered Applications</div>
+</div>
+<div class="sect2">
+<h3 id="_security"><a class="anchor" href="#_security"></a>Security</h3>
+<div class="paragraph">
+<p>Although other enterprise application models require platform-specific security measures in each application, the Jakarta EE security environment enables security constraints to be defined at deployment time.
+The Jakarta EE platform makes applications portable to a wide variety of security implementations by shielding application developers from the complexity of implementing security features.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE platform provides standard declarative access control rules that are defined by the developer and interpreted when the application is deployed on the server.
+Jakarta EE also provides standard login mechanisms so that application developers do not have to implement these mechanisms in their applications.
+The same application works in a variety of security environments without changing the source code.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_ee_components"><a class="anchor" href="#_jakarta_ee_components"></a>Jakarta EE Components</h3>
+<div class="paragraph">
+<p>Jakarta EE applications are made up of components.
+A Jakarta EE component is a self-contained functional software unit that is assembled into a Jakarta EE application with its related classes and files and that communicates with other components.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE specification defines the following Jakarta EE components:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Application clients and applets are components that run on the client.</p>
+</li>
+<li>
+<p>Jakarta Servlet, Jakarta Faces, and Jakarta Server Pages technology components are web components that run on the server.</p>
+</li>
+<li>
+<p>Enterprise bean components (enterprise beans) are business components that run on the server.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Jakarta EE components are written in the Java programming language and are compiled in the same way as any program in the language.
+The differences between Jakarta EE components and "standard" Java classes are that Jakarta EE components are assembled into a Jakarta EE application, they are verified to be well formed and in compliance with the Jakarta EE specification, and they are deployed to production, where they are run and managed by the Jakarta EE server.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_ee_clients"><a class="anchor" href="#_jakarta_ee_clients"></a>Jakarta EE Clients</h3>
+<div class="paragraph">
+<p>A Jakarta EE client is usually either a web client or an application client.</p>
+</div>
+<div class="sect3">
+<h4 id="_web_clients"><a class="anchor" href="#_web_clients"></a>Web Clients</h4>
+<div class="paragraph">
+<p>A web client consists of two parts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Dynamic web pages containing various types of markup language (HTML, XML, and so on), which are generated by web components running in the web tier</p>
+</li>
+<li>
+<p>A web browser, which renders the pages received from the server</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A web client is sometimes called a thin client.
+Thin clients usually do not query databases, execute complex business rules, or connect to legacy applications.
+When you use a thin client, such heavyweight operations are off-loaded to enterprise beans executing on the Jakarta EE server, where they can leverage the security, speed, services, and reliability of Jakarta EE server-side technologies.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_application_clients"><a class="anchor" href="#_application_clients"></a>Application Clients</h4>
+<div class="paragraph">
+<p>An application client runs on a client machine and provides a way for users to handle tasks that require a richer user interface than can be provided by a markup language.
+An application client typically has a graphical user interface (GUI) created from the Swing API or the Abstract Window Toolkit (AWT) API, but a command-line interface is certainly possible.</p>
+</div>
+<div class="paragraph">
+<p>Application clients directly access enterprise beans running in the business tier.
+However, if application requirements warrant it, an application client can open an HTTP connection to establish communication with a servlet running in the web tier.
+Application clients written in languages other than Java can interact with Jakarta EE servers, enabling the Jakarta EE platform to interoperate with legacy systems, clients, and non-Java languages.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_applets"><a class="anchor" href="#_applets"></a>Applets</h4>
+<div class="paragraph">
+<p>A web page received from the web tier can include an embedded applet.
+Written in the Java programming language, an applet is a small client application that executes in the Java virtual machine installed in the web browser.
+However, client systems will likely need the Java Plug-in and possibly a security policy file for the applet to successfully execute in the web browser.</p>
+</div>
+<div class="paragraph">
+<p>Web components are the preferred API for creating a web client program because no plug-ins or security policy files are needed on the client systems.
+Also, web components enable cleaner and more modular application design because they provide a way to separate applications programming from web page design.
+Personnel involved in web page design thus do not need to understand Java programming language syntax to do their jobs.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_javabeans_component_architecture"><a class="anchor" href="#_the_javabeans_component_architecture"></a>The JavaBeans Component Architecture</h4>
+<div class="paragraph">
+<p>The server and client tiers might also include components based on the JavaBeans component architecture (JavaBeans components) to manage the data flow between the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An application client or applet and components running on the Jakarta EE server</p>
+</li>
+<li>
+<p>Server components and a database</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>JavaBeans components are not considered Jakarta EE components by the Jakarta EE specification.</p>
+</div>
+<div class="paragraph">
+<p>JavaBeans components have properties and have <code>get</code> and <code>set</code> methods for accessing those properties.
+JavaBeans components used in this way are typically simple in design and implementation but should conform to the naming and design conventions outlined in the JavaBeans component architecture.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_jakarta_ee_server_communications"><a class="anchor" href="#_jakarta_ee_server_communications"></a>Jakarta EE Server Communications</h4>
+<div class="paragraph">
+<p><a href="#_server_communication">Figure 2, &#8220;Server Communication&#8221;</a> shows the various elements that can make up the client tier.
+The client communicates with the business tier running on the Jakarta EE server either directly or, as in the case of a client running in a browser, by going through web pages or servlets running in the web tier.</p>
+</div>
+<div id="_server_communication" class="imageblock">
+<div class="content">
+<img src="../../common/_images/jakartaeett_dt_002.svg" alt="Diagram of client-server communication. Application clients access the business tier directly. Browsers, web pages, and applets access the web tier.">
+</div>
+<div class="title">Figure 2. Server Communication</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_web_components"><a class="anchor" href="#_web_components"></a>Web Components</h3>
+<div class="paragraph">
+<p>Jakarta EE web components are either servlets or web pages created using Jakarta Faces technology and/or Jakarta Server Pages technology.
+Servlets are Java programming language classes that dynamically process requests and construct responses.
+Jakarta Server Pages are text-based documents that execute as servlets but allow a more natural approach to creating static content.
+Jakarta Faces technology builds on servlets and Jakarta Server Pages technology and provides a user interface component framework for web applications.</p>
+</div>
+<div class="paragraph">
+<p>Static HTML pages and applets are bundled with web components during application assembly but are not considered web components by the Jakarta EE specification.
+Server-side utility classes can also be bundled with web components and, like HTML pages, are not considered web components.</p>
+</div>
+<div class="paragraph">
+<p>As shown in <a href="#_web_tier_and_jakarta_ee_applications">Figure 3, &#8220;Web Tier and Jakarta EE Applications&#8221;</a>, the web tier, like the client tier, might include a JavaBeans component to manage the user input and send that input to enterprise beans running in the business tier for processing.</p>
+</div>
+<div id="_web_tier_and_jakarta_ee_applications" class="imageblock">
+<div class="content">
+<img src="../../common/_images/jakartaeett_dt_003.svg" alt="Diagram of client-server communication showing detail of JavaBeans components and web pages in the web tier.">
+</div>
+<div class="title">Figure 3. Web Tier and Jakarta EE Applications</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_business_components"><a class="anchor" href="#_business_components"></a>Business Components</h3>
+<div class="paragraph">
+<p>Business code, which is logic that solves or meets the needs of a particular business domain such as banking, retail, or finance, is handled by enterprise beans running in either the business tier or the web tier.
+<a href="#_business_and_eis_tiers">Figure 4, &#8220;Business and EIS Tiers&#8221;</a> shows how an enterprise bean receives data from client programs, processes it (if necessary), and sends it to the enterprise information system tier for storage.
+An enterprise bean also retrieves data from storage, processes it (if necessary), and sends it back to the client program.</p>
+</div>
+<div id="_business_and_eis_tiers" class="imageblock">
+<div class="content">
+<img src="../../common/_images/jakartaeett_dt_004.svg" alt="Diagram of client-server communication showing detail of entities, session beans, and message-driven beans in the business tier.">
+</div>
+<div class="title">Figure 4. Business and EIS Tiers</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_enterprise_information_system_tier"><a class="anchor" href="#_enterprise_information_system_tier"></a>Enterprise Information System Tier</h3>
+<div class="paragraph">
+<p>The enterprise information system tier handles EIS software and includes enterprise infrastructure systems, such as enterprise resource planning (ERP), mainframe transaction processing, database systems, and other legacy information systems.
+For example, Jakarta EE application components might need access to enterprise information systems for database connectivity.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

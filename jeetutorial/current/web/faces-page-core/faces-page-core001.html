@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/web/pages/faces-page-core/faces-page-core001.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_using_the_standard_converters"><a class="anchor" href="#_using_the_standard_converters"></a>Using the Standard Converters</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Jakarta Faces implementation provides a set of <code>Converter</code> implementations that you can use to convert component data.
+The purpose of conversion is to take the String-based data coming in from the Servlet API and convert it to strongly typed Java objects suitable for the business domain.
+For more information on the conceptual details of the conversion model, see <a href="../faces-intro/faces-intro.html#_conversion_model" class="xref page">Conversion Model</a>.</p>
+</div>
+<div class="paragraph">
+<p>The standard <code>Converter</code> implementations are located in the <code>jakarta.faces.convert</code> package.
+Normally, converters are implicitly assigned based on the type of the EL expression pointed to by the value of the component.
+However, these converters can also be accessed by a converter ID.
+<a href="#_converter_classes_and_converter_ids">Converter Classes and Converter IDs</a> shows the converter classes and their associated converter IDs.</p>
+</div>
+<table id="_converter_classes_and_converter_ids" class="tableblock frame-all grid-all" style="width: 60%;">
+<caption class="title">Converter Classes and Converter IDs</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Class in the jakarta.faces.convert Package</th>
+<th class="tableblock halign-left valign-top">Converter ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BigDecimalConverter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.faces.BigDecimal</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BigIntegerConverter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.faces.BigInteger</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BooleanConverter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.faces.Boolean</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ByteConverter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.faces.Byte</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CharacterConverter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.faces.Character</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DateTimeConverter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.faces.DateTime</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DoubleConverter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.faces.Double</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EnumConverter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.faces.Enum</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>FloatConverter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.faces.Float</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>IntegerConverter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.faces.Integer</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LongConverter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.faces.Long</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NumberConverter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.faces.Number</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ShortConverter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.faces.Short</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>A standard error message is associated with each of these converters.
+If you have registered one of these converters onto a component on your page and the converter is not able to convert the component&#8217;s value, the converter&#8217;s error message will display on the page.
+For example, the following error message appears if <code>BigIntegerConverter</code> fails to convert a value:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">{0} must be a number consisting of one or more digits</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this case, the <code>{0}</code> substitution parameter will be replaced with the name of the input component on which the converter is registered.</p>
+</div>
+<div class="paragraph">
+<p>Two of the standard converters (<code>DateTimeConverter</code> and <code>NumberConverter</code>) have their own tags, which allow you to configure the format of the component data using the tag attributes.
+For more information about using <code>DateTimeConverter</code>, see <a href="#_using_datetimeconverter">Using DateTimeConverter</a>.
+For more information about using <code>NumberConverter</code>, see <a href="#_using_numberconverter">Using NumberConverter</a>.
+The following section explains how to convert a component&#8217;s value, including how to register other standard converters with a component.</p>
+</div>
+<div class="sect2">
+<h3 id="_converting_a_components_value"><a class="anchor" href="#_converting_a_components_value"></a>Converting a Component&#8217;s Value</h3>
+<div class="paragraph">
+<p>To use a particular converter to convert a component&#8217;s value, you need to register the converter onto the component.
+You can register any of the standard converters in one of the following ways.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Nest one of the standard converter tags inside the component&#8217;s tag.
+These tags are <code>f:convertDateTime</code> and <code>f:convertNumber</code>, which are described in <a href="#_using_numberconverter">Using NumberConverter</a>, respectively.</p>
+</li>
+<li>
+<p>Bind the value of the component to a managed bean property of the same type as the converter.
+This is the most common technique.</p>
+</li>
+<li>
+<p>Refer to the converter from the component tag&#8217;s <code>converter</code> attribute, specifying the ID of the converter class.</p>
+</li>
+<li>
+<p>Nest an <code>f:converter</code> tag inside of the component tag, and use either the <code>f:converter</code> tag&#8217;s <code>converterId</code> attribute or its <code>binding</code> attribute to refer to the converter.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>As an example of the second technique, if you want a component&#8217;s data to be converted to an <code>Integer</code>, you can simply bind the component&#8217;s value to a managed bean property.
+Here is an example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Integer age = 0;
+public Integer getAge(){ return age;}
+public void setAge(Integer age) {this.age = age;}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The data from the <code>h:inputText</code> tag in the this example will be converted to a <code>java.lang.Integer</code> value.
+The <code>Integer</code> type is a supported type of <code>NumberConverter</code>.
+If you don&#8217;t need to specify any formatting instructions using the <code>f:convertNumber</code> tag attributes, and if one of the standard converters will suffice, you can simply reference that converter by using the component tag&#8217;s <code>converter</code> attribute.</p>
+</div>
+<div class="paragraph">
+<p>You can also nest an <code>f:converter</code> tag within the component tag and use either the converter tag&#8217;s <code>converterId</code> attribute or its <code>binding</code> attribute to reference the converter.</p>
+</div>
+<div class="paragraph">
+<p>The <code>converterId</code> attribute must reference the converter&#8217;s ID.
+Here is an example that uses one of the converter IDs listed in <a href="#_converter_classes_and_converter_ids">Converter Classes and Converter IDs</a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:inputText value="#{loginBean.age}"&gt;
+    &lt;f:converter converterId="jakarta.faces.Integer" /&gt;
+&lt;/h:inputText&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Instead of using the <code>converterId</code> attribute, the <code>f:converter</code> tag can use the <code>binding</code> attribute.
+The <code>binding</code> attribute must resolve to a bean property that accepts and returns an appropriate <code>Converter</code> instance.</p>
+</div>
+<div class="paragraph">
+<p>You can also create custom converters and register them on components using the <code>f:converter</code> tag.
+For details, see <a href="../faces-custom/faces-custom.html#_creating_and_using_a_custom_converter" class="xref page">Creating and Using a Custom Converter</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_datetimeconverter"><a class="anchor" href="#_using_datetimeconverter"></a>Using DateTimeConverter</h3>
+<div class="paragraph">
+<p>You can convert a component&#8217;s data to a <code>java.util.Date</code> by nesting the <code>convertDateTime</code> tag inside the component tag.
+The <code>convertDateTime</code> tag has several attributes that allow you to specify the format and type of the data.
+<a href="#_attributes_for_the_fconvertdatetime_tag">Attributes for the f:convertDateTime Tag</a> lists the attributes.</p>
+</div>
+<div class="paragraph">
+<p>Here is a simple example of a <code>convertDateTime</code> tag:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:outputText value="#{cashierBean.shipDate}"&gt;
+    &lt;f:convertDateTime type="date" dateStyle="full" /&gt;
+&lt;/h:outputText&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When binding the <code>DateTimeConverter</code> to a component, ensure that the managed bean property to which the component is bound is of type <code>java.util.Date</code>.
+In the preceding example, <code>cashierBean.shipDate</code> must be of type <code>java.util.Date</code>.</p>
+</div>
+<div class="paragraph">
+<p>The example tag can display the following output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">Saturday, September 21, 2013</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also display the same date and time by using the following tag in which the date format is specified:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:outputText value="#{cashierBean.shipDate}"&gt;
+    &lt;f:convertDateTime pattern="EEEEEEEE, MMM dd, yyyy" /&gt;
+&lt;/h:outputText&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you want to display the example date in Spanish, you can use the <code>locale</code> attribute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:outputText value="#{cashierBean.shipDate}"&gt;
+    &lt;f:convertDateTime dateStyle="full"
+                       locale="es"
+                       timeStyle="long" type="both" /&gt;
+&lt;/h:outputText&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This tag would display the following output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jueves 24 de octubre de 2013 15:07:04 GMT</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Refer to the "Customizing Formats" lesson of the Java Tutorial at <a href="https://docs.oracle.com/javase/tutorial/i18n/format/simpleDateFormat.html" class="bare" target="_blank" rel="noopener">https://docs.oracle.com/javase/tutorial/i18n/format/simpleDateFormat.html</a> for more information on how to format the output using the <code>pattern</code> attribute of the <code>convertDateTime</code> tag.</p>
+</div>
+<table id="_attributes_for_the_fconvertdatetime_tag" class="tableblock frame-all grid-all" style="width: 99%;">
+<caption class="title">Attributes for the f:convertDateTime Tag</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>binding</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DateTimeConverter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used to bind a converter to a managed bean property.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>dateStyle</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Defines the format, as specified by <code>java.text.DateFormat</code>, of a date or the date part of a <code>date</code> string.
+Applied only if <code>type</code> is <code>date</code> or <code>both</code> and if <code>pattern</code> is not defined.
+Valid values: <code>default</code>, <code>short</code>, <code>medium</code>, <code>long</code>, and <code>full</code>.
+If no value is specified, <code>default</code> is used.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>for</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used with composite components.
+Refers to one of the objects within the composite component inside which this tag is nested.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>locale</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code> or <code>Locale</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>Locale</code> whose predefined styles for dates and times are used during formatting or parsing.
+If not specified, the <code>Locale</code> returned by <code>FacesContext.getLocale</code> will be used.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>pattern</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Custom formatting pattern that determines how the date/time string should be formatted and parsed.
+If this attribute is specified, <code>dateStyle</code> and <code>timeStyle</code> attributes are ignored.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="#_type_attribute_and_default_pattern_values">Type Attribute and Default Pattern Values</a> for the default values when <code>pattern</code> is not specified.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>timeStyle</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Defines the format, as specified by <code>java.text.DateFormat</code>, of a <code>time</code> or the time part of a <code>date</code> string.
+Applied only if <code>type</code> is time and <code>pattern</code> is not defined.
+Valid values: <code>default</code>, <code>short</code>, <code>medium</code>, <code>long</code>, and <code>full</code>.
+If no value is specified, <code>default</code> is used.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>timeZone</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code> or <code>TimeZone</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Time zone in which to interpret any time information in the <code>date</code> string.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>type</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specifies whether the string value will contain a date, a time, or both.
+Valid values are: <code>date</code>, <code>time</code>, <code>both</code>, <code>LocalDate</code>, <code>LocalTime</code>, <code>LocalDateTime</code>, <code>OffsetTime</code>, <code>OffsetDateTime</code>, or <code>ZonedDateTime</code>.
+If no value is specified, <code>date</code> is used.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="#_type_attribute_and_default_pattern_values">Type Attribute and Default Pattern Values</a> for additional information.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="_type_attribute_and_default_pattern_values" class="tableblock frame-all grid-all" style="width: 99%;">
+<caption class="title">Type Attribute and Default Pattern Values</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type Attribute</th>
+<th class="tableblock halign-left valign-top">Class</th>
+<th class="tableblock halign-left valign-top">Default When Pattern Is Not Specified</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>both</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>java.util.Date</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DateFormat.getDateTimeInstance(dateStyle,timeStyle)</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>date</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>java.util.Date</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DateFormat.getDateTimeInstance(dateStyle)</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>time</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>java.util.Date</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DateFormat.getDateTimeInstance(timeStyle)</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>localDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>java.time.LocalDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DateTimeFormatter.ofLocalizedDate(dateStyle)</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>localTime</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>java.time.LocalTime</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DateTimeFormatter.ofLocalizedTime(dateStyle)</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>localDateTime</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>java.time.LocalDateTime</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DateTimeFormatter.ofLocalizedDateTime(dateStyle)</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>offsetTime</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>java.time.OffsetTime</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DateTimeFormatter.ISO_OFFSET_TIME</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>offsetDateTime</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>java.time.OffsetDateTime</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DateTimeFormatter.ISO_OFFSET_DATE_TIME</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>zonedDateTime</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>java.time.ZonedDateTime</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DateTimeFormatter.ISO_ZONED_DATE_TIME</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_using_numberconverter"><a class="anchor" href="#_using_numberconverter"></a>Using NumberConverter</h3>
+<div class="paragraph">
+<p>You can convert a component&#8217;s data to a <code>java.lang.Number</code> by nesting the <code>convertNumber</code> tag inside the component tag.
+The <code>convertNumber</code> tag has several attributes that allow you to specify the format and type of the data.
+<a href="#_attributes_for_the_fconvertnumber_tag">Attributes for the f:convertNumber Tag</a> lists the attributes.</p>
+</div>
+<div class="paragraph">
+<p>The following example uses a <code>convertNumber</code> tag to display the total prices of the contents of a shopping cart:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:outputText value="#{cart.total}"&gt;
+    &lt;f:convertNumber currencySymbol="$" type="currency"/&gt;
+&lt;/h:outputText&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When binding the <code>NumberConverter</code> to a component, ensure that the managed bean property to which the component is bound is of a primitive type or has a type of <code>java.lang.Number</code>.
+In the preceding example, <code>cart.total</code> is of type <code>double</code>.</p>
+</div>
+<div class="paragraph">
+<p>Here is an example of a number that this tag can display:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">$934</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This result can also be displayed by using the following tag in which the currency pattern is specified:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:outputText id="cartTotal" value="#{cart.total}"&gt;
+    &lt;f:convertNumber pattern="$####" /&gt;
+&lt;/h:outputText&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See the "Customizing Formats" lesson of the Java Tutorial at <a href="https://docs.oracle.com/javase/tutorial/i18n/format/decimalFormat.html" class="bare" target="_blank" rel="noopener">https://docs.oracle.com/javase/tutorial/i18n/format/decimalFormat.html</a> for more information on how to format the output by using the <code>pattern</code> attribute of the <code>convertNumber</code> tag.</p>
+</div>
+<table id="_attributes_for_the_fconvertnumber_tag" class="tableblock frame-all grid-all" style="width: 99%;">
+<caption class="title">Attributes for the f:convertNumber Tag</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>binding</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NumberConverter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used to bind a converter to a managed bean property.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>currencyCode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ISO 4217 currency code, used only when formatting currencies.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>currencySymbol</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Currency symbol, applied only when formatting currencies.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>for</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used with composite components.
+Refers to one of the objects within the composite component inside which this tag is nested.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>groupingUsed</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies whether formatted output contains grouping separators.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>integerOnly</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies whether only the integer part of the value will be parsed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>locale</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code> or <code>Locale</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Locale</code> whose number styles are used to format or parse data.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxFractionDigits</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>int</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Maximum number of digits formatted in the fractional part of the output.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxIntegerDigits</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>int</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Maximum number of digits formatted in the integer part of the output.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>minFractionDigits</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>int</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Minimum number of digits formatted in the
+fractional part of the output.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>minIntegerDigits</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>int</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Minimum number of digits formatted in the integer part of the output.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pattern</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Custom formatting pattern that determines how the number string is formatted and parsed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>type</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies whether the string value is parsed and formatted as a <code>number</code>, <code>currency</code>, or <code>percentage</code>.
+If not specified, <code>number</code> is used.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

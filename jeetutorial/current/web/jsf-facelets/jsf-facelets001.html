@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/9.1/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="9.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../intro/overview/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../intro/usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Platform Basics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/resource-creation/resource-creation.html">Resource Creation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/injection/injection.html">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/packaging/packaging.html">Packaging</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">The Web Tier</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-intro/jsf-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="jsf-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-el/jsf-el.html">Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-page/jsf-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-page-core/jsf-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-develop/jsf-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-ajax/jsf-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-advanced-cc/jsf-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-custom/jsf-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-configure/jsf-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-ws/jsf-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsonp/jsonp.html">JSON Processing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Bean Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Contexts and Dependency Injection</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Services</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/webservices-intro/webservices-intro.html">Introduction to Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/jaxws/jaxws.html">Building Web Services with Jakarta XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Enterprise Beans</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-embedded/ejb-embedded.html">Using the Embedded Enterprise Bean Container</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-intro/security-intro.html">Introduction to Security in the Jakarta EE Platform</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-webtier/security-webtier.html">Getting Started Securing Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-jakartaee/security-jakartaee.html">Getting Started Securing Enterprise Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-api/security-api.html">Using Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-advanced/security-advanced.html">Jakarta EE Security: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Supporting Technologies</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/resources/resources.html">Resource Adapters and Contracts</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/connectorexample/connectorexample.html">The Resource Adapter Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Batch Processing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Case Studies</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../casestudies/dukes-bookstore/dukes-bookstore.html">Duke&#8217;s Bookstore Case Study Example</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../casestudies/dukes-tutoring/dukes-tutoring.html">Duke&#8217;s Tutoring Case Study Example</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../casestudies/dukes-forest/dukes-forest.html">Duke&#8217;s Forest Case Study Example</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">9.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">9.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/web/pages/jsf-facelets/jsf-facelets001.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_what_is_facelets"><a class="anchor" href="#_what_is_facelets"></a>What Is Facelets?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Facelets is a powerful but lightweight page declaration language that is used to build Jakarta Faces views using HTML style templates and to build component trees.
+Facelets features include the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Use of XHTML for creating web pages</p>
+</li>
+<li>
+<p>Support for Facelets tag libraries in addition to Jakarta Faces and JSTL tag libraries</p>
+</li>
+<li>
+<p>Support for the Expression Language (EL)</p>
+</li>
+<li>
+<p>Templating for components and pages</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The advantages of Facelets for large-scale development projects include the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Support for code reuse through templating and composite components</p>
+</li>
+<li>
+<p>Functional extensibility of components and other server-side objects through customization</p>
+</li>
+<li>
+<p>Faster compilation time</p>
+</li>
+<li>
+<p>Compile-time EL validation</p>
+</li>
+<li>
+<p>High-performance rendering</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In short, the use of Facelets reduces the time and effort that needs to be spent on development and deployment.</p>
+</div>
+<div class="paragraph">
+<p>Facelets views are usually created as XHTML pages.
+Jakarta Faces implementations support XHTML pages created in conformance with the XHTML Transitional Document Type Definition (DTD), as listed at <a href="https://www.w3.org/TR/xhtml1/#a_dtd_XHTML-1.0-Transitional" class="bare" target="_blank" rel="noopener">https://www.w3.org/TR/xhtml1/#a_dtd_XHTML-1.0-Transitional</a>.
+By convention, web pages built with XHTML have an <code>.xhtml</code> extension.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta Faces technology supports various tag libraries to add components to a web page.
+To support the Jakarta Faces tag library mechanism, Facelets uses XML namespace declarations.
+<a href="#_tag_libraries_supported_by_facelets">Tag Libraries Supported by Facelets</a> lists the tag libraries supported by Facelets.</p>
+</div>
+<table id="_tag_libraries_supported_by_facelets" class="tableblock frame-all grid-all" style="width: 99%;">
+<caption class="title">Tag Libraries Supported by Facelets</caption>
+<colgroup>
+<col style="width: 26.3157%;">
+<col style="width: 26.3157%;">
+<col style="width: 10.5263%;">
+<col style="width: 15.7894%;">
+<col style="width: 21.0529%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Tag Library</th>
+<th class="tableblock halign-left valign-top">URI</th>
+<th class="tableblock halign-left valign-top">Prefix</th>
+<th class="tableblock halign-left valign-top">Example</th>
+<th class="tableblock halign-left valign-top">Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Faces Facelets Tag Library</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">http://xmlns.jcp.org/jsf/facelets</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ui:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ui:component</code></p>
+<p class="tableblock"><code>ui:insert</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tags for templating</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Faces HTML Tag Library</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">http://xmlns.jcp.org/jsf/html</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>h:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>h:head</code></p>
+<p class="tableblock"><code>h:body</code></p>
+<p class="tableblock"><code>h:outputText</code></p>
+<p class="tableblock"><code>h:inputText</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Faces component tags for all <code>UIComponent</code> objects</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Faces Core Tag Library</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">http://xmlns.jcp.org/jsf/core</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>f:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>f:actionListener</code></p>
+<p class="tableblock"><code>f:attribute</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tags for Jakarta Faces custom actions that are independent of any particular render kit</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pass-through Elements Tag Library</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">http://xmlns.jcp.org/jsf</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jsf:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jsf:id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tags to support HTML5-friendly markup</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pass-through Attributes Tag Library</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">http://xmlns.jcp.org/jsf/passthrough</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>p:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>p:type</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tags to support HTML5-friendly markup</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Composite Component Tag Library</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">http://xmlns.jcp.org/jsf/composite</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cc:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cc:interface</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tags to support composite components</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSTL Core Tag Library</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">http://xmlns.jcp.org/jsp/jstl/core</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c:forEach</code></p>
+<p class="tableblock"><code>c:catch</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSTL 1.2 Core Tags</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSTL Functions Tag Library</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">http://xmlns.jcp.org/jsp/jstl/functions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fn:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fn:toUpperCase</code></p>
+<p class="tableblock"><code>fn:toLowerCase</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSTL 1.2 Functions Tags</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Facelets provides two namespaces to support HTML5-friendly markup.
+For details, see <a href="#_html5_friendly_markup">[_html5_friendly_markup]</a>.</p>
+</div>
+<div class="paragraph">
+<p>Facelets supports tags for composite components, for which you can declare custom prefixes.
+For more information on composite components, see <a href="#_composite_components">[_composite_components]</a>.</p>
+</div>
+<div class="paragraph">
+<p>The namespace prefixes shown in the table are conventional, not mandatory.
+As is always the case when you declare an XML namespace, you can specify any prefix in your Facelets page.
+For example, you can declare the prefix for the composite component tag library as</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">xmlns:composite="http://xmlns.jcp.org/jsf/composite"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>instead of as</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">xmlns:cc="http://xmlns.jcp.org/jsf/composite"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Based on the Jakarta Faces support for Expression Language (EL) syntax, Facelets uses EL expressions to reference properties and methods of managed beans.
+EL expressions can be used to bind component objects or values to methods or properties of managed beans that are used as backing beans.
+For more information on using EL expressions, see <a href="../jsf-develop/jsf-develop.html#_using_the_el_to_reference_managed_beans" class="xref page">Using the EL to Reference Managed Beans</a>.</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

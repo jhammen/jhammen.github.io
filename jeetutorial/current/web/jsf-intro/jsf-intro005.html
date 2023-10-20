@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/9.1/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="9.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../intro/overview/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../intro/usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Platform Basics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/resource-creation/resource-creation.html">Resource Creation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/injection/injection.html">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/packaging/packaging.html">Packaging</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">The Web Tier</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="jsf-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-facelets/jsf-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-el/jsf-el.html">Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-page/jsf-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-page-core/jsf-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-develop/jsf-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-ajax/jsf-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-advanced-cc/jsf-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-custom/jsf-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-configure/jsf-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-ws/jsf-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsonp/jsonp.html">JSON Processing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Bean Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Contexts and Dependency Injection</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Services</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/webservices-intro/webservices-intro.html">Introduction to Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/jaxws/jaxws.html">Building Web Services with Jakarta XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Enterprise Beans</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-embedded/ejb-embedded.html">Using the Embedded Enterprise Bean Container</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-intro/security-intro.html">Introduction to Security in the Jakarta EE Platform</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-webtier/security-webtier.html">Getting Started Securing Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-jakartaee/security-jakartaee.html">Getting Started Securing Enterprise Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-api/security-api.html">Using Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-advanced/security-advanced.html">Jakarta EE Security: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Supporting Technologies</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/resources/resources.html">Resource Adapters and Contracts</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/connectorexample/connectorexample.html">The Resource Adapter Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Batch Processing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Case Studies</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../casestudies/dukes-bookstore/dukes-bookstore.html">Duke&#8217;s Bookstore Case Study Example</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../casestudies/dukes-tutoring/dukes-tutoring.html">Duke&#8217;s Tutoring Case Study Example</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../casestudies/dukes-forest/dukes-forest.html">Duke&#8217;s Forest Case Study Example</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">9.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">9.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/web/pages/jsf-intro/jsf-intro005.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_user_interface_component_model"><a class="anchor" href="#_user_interface_component_model"></a>User Interface Component Model</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In addition to the lifecycle description, an overview of Jakarta Faces architecture provides better understanding of the technology.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta Faces components are the building blocks of a Jakarta Faces view.
+A component can be a user interface (UI) component or a non-UI component.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta Faces UI components are configurable, reusable elements that compose the user interfaces of Jakarta Faces applications.
+A component can be simple, such as a button, or can be compound, such as a table composed of multiple components.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta Faces technology provides a rich, flexible component architecture that includes the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A set of <code>jakarta.faces.component.UIComponent</code> classes for specifying the state and behavior of UI components</p>
+</li>
+<li>
+<p>A rendering model that defines how to render the components in various ways</p>
+</li>
+<li>
+<p>A conversion model that defines how to register data converters onto a component</p>
+</li>
+<li>
+<p>An event and listener model that defines how to handle component events</p>
+</li>
+<li>
+<p>A validation model that defines how to register validators onto a component</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This section briefly describes each of these pieces of the component architecture.</p>
+</div>
+<div class="sect2">
+<h3 id="_user_interface_component_classes"><a class="anchor" href="#_user_interface_component_classes"></a>User Interface Component Classes</h3>
+<div class="paragraph">
+<p>Jakarta Faces technology provides a set of UI component classes and associated behavioral interfaces that specify all the UI component functionality, such as holding component state, maintaining a reference to objects, and driving event handling and rendering for a set of standard components.</p>
+</div>
+<div class="paragraph">
+<p>The component classes are completely extensible, allowing component writers to create their own custom components.
+See <a href="../jsf-custom/jsf-custom.html#_creating_custom_ui_components_and_other_custom_objects" class="xref page">Creating Custom UI Components and Other Custom Objects</a> for more information.</p>
+</div>
+<div class="paragraph">
+<p>The abstract base class for all components is <code>jakarta.faces.component.UIComponent</code>.
+Jakarta Faces UI component classes extend the <code>UIComponentBase</code> class (a subclass of <code>UIComponent</code>), which defines the default state and behavior of a component.
+The following set of component classes is included with Jakarta Faces technology.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>UIColumn</code>: Represents a single column of data in a <code>UIData</code> component.</p>
+</li>
+<li>
+<p><code>UICommand</code>: Represents a control that fires actions when activated.</p>
+</li>
+<li>
+<p><code>UIData</code>: Represents a data binding to a collection of data represented by a <code>jakarta.faces.model.DataModel</code> instance.</p>
+</li>
+<li>
+<p><code>UIForm</code>: Represents an input form to be presented to the user.
+Its child components represent (among other things) the input fields to be included when the form is submitted.
+This component is analogous to the <code>form</code> tag in HTML.</p>
+</li>
+<li>
+<p><code>UIGraphic</code>: Displays an image.</p>
+</li>
+<li>
+<p><code>UIInput</code>: Takes data input from a user.
+This class is a subclass of <code>UIOutput</code>.</p>
+</li>
+<li>
+<p><code>UIMessage</code>: Displays a localized error message.</p>
+</li>
+<li>
+<p><code>UIMessages</code>: Displays a set of localized error messages.</p>
+</li>
+<li>
+<p><code>UIOutcomeTarget</code>: Displays a link in the form of a link or a button.</p>
+</li>
+<li>
+<p><code>UIOutput</code>: Displays data output on a page.</p>
+</li>
+<li>
+<p><code>UIPanel</code>: Manages the layout of its child components.</p>
+</li>
+<li>
+<p><code>UIParameter</code>: Represents substitution parameters.</p>
+</li>
+<li>
+<p><code>UISelectBoolean</code>: Allows a user to set a <code>boolean</code> value on a control by selecting or deselecting it.
+This class is a subclass of the <code>UIInput</code> class.</p>
+</li>
+<li>
+<p><code>UISelectItem</code>: Represents a single item in a set of items.</p>
+</li>
+<li>
+<p><code>UISelectItems</code>: Represents an entire set of items.</p>
+</li>
+<li>
+<p><code>UISelectMany</code>: Allows a user to select multiple items from a group of items.
+This class is a subclass of the <code>UIInput</code> class.</p>
+</li>
+<li>
+<p><code>UISelectOne</code>: Allows a user to select one item from a group of items.
+This class is a subclass of the <code>UIInput</code> class.</p>
+</li>
+<li>
+<p><code>UIViewParameter</code>: Represents the query parameters in a request.
+This class is a subclass of the <code>UIInput</code> class.</p>
+</li>
+<li>
+<p><code>UIViewRoot</code>: Represents the root of the component tree.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In addition to extending <code>UIComponentBase</code>, the component classes also implement one or more behavioral interfaces, each of which defines certain behavior for a set of components whose classes implement the interface.</p>
+</div>
+<div class="paragraph">
+<p>These behavioral interfaces, all defined in the <code>jakarta.faces.component</code> package unless otherwise stated, are as follows.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ActionSource</code>: Indicates that the component can fire an action event.
+This interface is intended for use with components based on JavaServer Faces technology 1.1_01 and earlier versions.
+This interface is deprecated in JavaServer Faces 2.</p>
+</li>
+<li>
+<p><code>ActionSource2</code>: Extends <code>ActionSource</code> and therefore provides the same functionality.
+However, it allows components to use the Expression Language (EL) when they are referencing methods that handle action events.</p>
+</li>
+<li>
+<p><code>EditableValueHolder</code>: Extends <code>ValueHolder</code> and specifies additional features for editable components, such as validation and emitting value-change events.</p>
+</li>
+<li>
+<p><code>NamingContainer</code>: Mandates that each component rooted at this component have a unique ID.</p>
+</li>
+<li>
+<p><code>StateHolder</code>: Denotes that a component has state that must be saved between requests.</p>
+</li>
+<li>
+<p><code>ValueHolder</code>: Indicates that the component maintains a local value as well as the option of accessing data in the model tier.</p>
+</li>
+<li>
+<p><code>jakarta.faces.event.SystemEventListenerHolder</code>: Maintains a list of <code>jakarta.faces.event.SystemEventListener</code> instances for each type of <code>jakarta.faces.event.SystemEvent</code> defined by that class.</p>
+</li>
+<li>
+<p><code>jakarta.faces.component.behavior.ClientBehaviorHolder</code>: Adds the ability to attach <code>jakarta.faces.component.behavior.ClientBehavior</code> instances, such as a reusable script.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>UICommand</code> implements <code>ActionSource2</code> and <code>StateHolder</code>.
+<code>UIOutput</code> and component classes that extend <code>UIOutput</code> implement <code>StateHolder</code> and <code>ValueHolder</code>.
+<code>UIInput</code> and component classes that extend <code>UIInput</code> implement <code>EditableValueHolder</code>, <code>StateHolder</code>, and <code>ValueHolder</code>.
+<code>UIComponentBase</code> implements <code>StateHolder</code>.</p>
+</div>
+<div class="paragraph">
+<p>Only component writers will need to use the component classes and behavioral interfaces directly.
+Page authors and application developers will use a standard component by including a tag that represents it on a page.
+Most of the components can be rendered in different ways on a page.
+For example, a <code>UICommand</code> component can be rendered as a button or a link.</p>
+</div>
+<div class="paragraph">
+<p>The next section explains how the rendering model works and how page authors can choose to render the components by selecting the appropriate tags.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_component_rendering_model"><a class="anchor" href="#_component_rendering_model"></a>Component Rendering Model</h3>
+<div class="paragraph">
+<p>The Jakarta Faces component architecture is designed such that the functionality of the components is defined by the component classes, whereas the component rendering can be defined by a separate renderer class.
+This design has several benefits, including the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Component writers can define the behavior of a component once but create multiple renderers, each of which defines a different way to render the component to the same client or to different clients.</p>
+</li>
+<li>
+<p>Page authors and application developers can change the appearance of a component on the page by selecting the tag that represents the appropriate combination of component and renderer.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A render kit defines how component classes map to component tags that are appropriate for a particular client.
+The Jakarta Faces implementation includes a standard HTML render kit for rendering to an HTML client.</p>
+</div>
+<div class="paragraph">
+<p>The render kit defines a set of <code>jakarta.faces.render.Renderer</code> classes for each component that it supports.
+Each <code>Renderer</code> class defines a different way to render the particular component to the output defined by the render kit.
+For example, a <code>UISelectOne</code> component has three different renderers.
+One of them renders the component as a group of options.
+Another renders the component as a combo box.
+The third one renders the component as a list box.
+Similarly, a <code>UICommand</code> component can be rendered as a button or a link, using the <code>h:commandButton</code> or <code>h:commandLink</code> tag.
+The <code>command</code> part of each tag corresponds to the <code>UICommand</code> class, specifying the functionality, which is to fire an action.
+The <code>Button</code> or <code>Link</code> part of each tag corresponds to a separate <code>Renderer</code> class that defines how the component appears on the page.</p>
+</div>
+<div class="paragraph">
+<p>Each custom tag defined in the standard HTML render kit is composed of the component functionality (defined in the <code>UIComponent</code> class) and the rendering attributes (defined by the <code>Renderer</code> class).</p>
+</div>
+<div class="paragraph">
+<p>The section <a href="../jsf-page/jsf-page.html#_adding_components_to_a_page_using_html_tag_library_tags" class="xref page">Adding Components to a Page Using HTML Tag Library Tags</a> lists all supported component tags and illustrates how to use the tags in an example.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta Faces implementation provides a custom tag library for rendering components in HTML.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_conversion_model"><a class="anchor" href="#_conversion_model"></a>Conversion Model</h3>
+<div class="paragraph">
+<p>A Jakarta Faces application can optionally associate a component with server-side object data.
+This object is a JavaBeans component, such as a managed bean.
+An application gets and sets the object data for a component by calling the appropriate object properties for that component.</p>
+</div>
+<div class="paragraph">
+<p>When a component is bound to an object, the application has two views of the component&#8217;s data.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The model view, in which data is represented as data types, such as <code>int</code> or <code>long</code>.</p>
+</li>
+<li>
+<p>The presentation view, in which data is represented in a manner that can be read or modified by the user.
+For example, a <code>java.util.Date</code> might be represented as a text string in the format <code>mm/dd/yy</code> or as a set of three text strings.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Jakarta Faces implementation automatically converts component data between these two views when the bean property associated with the component is of one of the types supported by the component&#8217;s data.
+For example, if a <code>UISelectBoolean</code> component is associated with a bean property of type <code>java.lang.Boolean</code>, the Jakarta Faces implementation will automatically convert the component&#8217;s data from <code>String</code> to <code>Boolean</code>.
+In addition, some component data must be bound to properties of a particular type.
+For example, a <code>UISelectBoolean</code> component must be bound to a property of type <code>boolean</code> or <code>java.lang.Boolean</code>.</p>
+</div>
+<div class="paragraph">
+<p>Sometimes you might want to convert a component&#8217;s data to a type other than a standard type, or you might want to convert the format of the data.
+To facilitate this, Jakarta Faces technology allows you to register a <code>jakarta.faces.convert.Converter</code> implementation on <code>UIOutput</code> components and components whose classes subclass <code>UIOutput</code>.
+If you register the <code>Converter</code> implementation on a component, the <code>Converter</code> implementation converts the component&#8217;s data between the two views.</p>
+</div>
+<div class="paragraph">
+<p>You can either use the standard converters supplied with the Jakarta Faces implementation or create your own custom converter.
+Custom converter creation is covered in <a href="../jsf-custom/jsf-custom.html#_creating_custom_ui_components_and_other_custom_objects" class="xref page">Creating Custom UI Components and Other Custom Objects</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_event_and_listener_model"><a class="anchor" href="#_event_and_listener_model"></a>Event and Listener Model</h3>
+<div class="paragraph">
+<p>The Jakarta Faces event and listener model is similar to the JavaBeans event model in that it has strongly typed event classes and listener interfaces that an application can use to handle events generated by components.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta Faces specification defines three types of events: application events, system events, and data-model events.</p>
+</div>
+<div class="paragraph">
+<p>Application events are tied to a particular application and are generated by a <code>UIComponent</code>.
+They represent the standard events available in previous versions of Jakarta Faces technology.</p>
+</div>
+<div class="paragraph">
+<p>An event object identifies the component that generated the event and stores information about the event.
+To be notified of an event, an application must provide an implementation of the listener class and must register it on the component that generates the event.
+When the user activates a component, such as by clicking a button, an event is fired.
+This causes the Jakarta Faces implementation to invoke the listener method that processes the event.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta Faces supports two kinds of application events: action events and value-change events.</p>
+</div>
+<div class="paragraph">
+<p>An action event (class <code>jakarta.faces.event.ActionEvent</code>) occurs when the user activates a component that implements <code>ActionSource</code>.
+These components include buttons and links.</p>
+</div>
+<div class="paragraph">
+<p>A value-change event (class <code>jakarta.faces.event.ValueChangeEvent</code>) occurs when the user changes the value of a component represented by <code>UIInput</code> or one of its subclasses.
+An example is selecting a check box, an action that results in the component&#8217;s value changing to <code>true</code>.
+The component types that can generate these types of events are the <code>UIInput</code>, <code>UISelectOne</code>, <code>UISelectMany</code>, and <code>UISelectBoolean</code> components.
+Value-change events are fired only if no validation errors are detected.</p>
+</div>
+<div class="paragraph">
+<p>Depending on the value of the <code>immediate</code> property (see <a href="../jsf-page/jsf-page.html#_the_immediate_attribute" class="xref page">The immediate Attribute</a>) of the component emitting the event, action events can be processed during the Invoke Application phase or the Apply Request Values phase, and value-change events can be processed during the Process Validations phase or the Apply Request Values phase.</p>
+</div>
+<div class="paragraph">
+<p>System events are generated by an <code>Object</code> rather than a <code>UIComponent</code>.
+They are generated during the execution of an application at predefined times.
+They are applicable to the entire application rather than to a specific component.</p>
+</div>
+<div class="paragraph">
+<p>A data-model event occurs when a new row of a <code>UIData</code> component is selected.</p>
+</div>
+<div class="paragraph">
+<p>There are two ways to cause your application to react to action events or value-change events that are emitted by a standard component:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Implement an event listener class to handle the event, and register the listener on the component by nesting either an <code>f:valueChangeListener</code> tag or an <code>f:actionListener</code> tag inside the component tag.</p>
+</li>
+<li>
+<p>Implement a method of a managed bean to handle the event, and refer to the method with a method expression from the appropriate attribute of the component&#8217;s tag.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>See <a href="../jsf-custom/jsf-custom.html#_implementing_an_event_listener" class="xref page">Implementing an Event Listener</a> for information on how to implement an event listener.
+See <a href="../jsf-page-core/jsf-page-core.html#_registering_listeners_on_components" class="xref page">Registering Listeners on Components</a> for information on how to register the listener on a component.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="../jsf-develop/jsf-develop.html#_writing_a_method_to_handle_an_action_event" class="xref page">Writing a Method to Handle an Action Event</a> and <a href="../jsf-develop/jsf-develop.html#_writing_a_method_to_handle_a_value_change_event" class="xref page">Writing a Method to Handle a Value-Change Event</a> for information on how to implement managed bean methods that handle these events.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="../jsf-page-core/jsf-page-core.html#_referencing_a_managed_bean_method" class="xref page">Referencing a Managed Bean Method</a> for information on how to refer to the managed bean method from the component tag.</p>
+</div>
+<div class="paragraph">
+<p>When emitting events from custom components, you must implement the appropriate event class and manually queue the event on the component in addition to implementing an event listener class or a managed bean method that handles the event.
+<a href="../jsf-custom/jsf-custom.html#_handling_events_for_custom_components" class="xref page">Handling Events for Custom Components</a> explains how to do this.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_validation_model"><a class="anchor" href="#_validation_model"></a>Validation Model</h3>
+<div class="paragraph">
+<p>Jakarta Faces technology supports a mechanism for validating the local data of editable components (such as text fields).
+This validation occurs before the corresponding model data is updated to match the local value.</p>
+</div>
+<div class="paragraph">
+<p>Like the conversion model, the validation model defines a set of standard classes for performing common data validation checks.
+The Jakarta Faces core tag library also defines a set of tags that correspond to the standard <code>jakarta.faces.validator.Validator</code> implementations.
+See <a href="../jsf-page-core/jsf-page-core.html#_using_the_standard_validators" class="xref page">Using the Standard Validators</a> for a list of all the standard validation classes and corresponding tags.</p>
+</div>
+<div class="paragraph">
+<p>Most of the tags have a set of attributes for configuring the validator&#8217;s properties, such as the minimum and maximum allowable values for the component&#8217;s data.
+The page author registers the validator on a component by nesting the validator&#8217;s tag within the component&#8217;s tag.</p>
+</div>
+<div class="paragraph">
+<p>In addition to validators that are registered on the component, you can declare a default validator that is registered on all <code>UIInput</code> components in the application.
+For more information on default validators, see <a href="../jsf-configure/jsf-configure.html#_using_default_validators" class="xref page">Using Default Validators</a>.</p>
+</div>
+<div class="paragraph">
+<p>The validation model also allows you to create your own custom validator and corresponding tag to perform custom validation.
+The validation model provides two ways to implement custom validation.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Implement a <code>Validator</code> interface that performs the validation.</p>
+</li>
+<li>
+<p>Implement a managed bean method that performs the validation.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you are implementing a <code>Validator</code> interface, you must also do the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Register the <code>Validator</code> implementation with the application.</p>
+</li>
+<li>
+<p>Create a custom tag or use an <code>f:validator</code> tag to register the validator on the component.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In the previously described standard validation model, the validator is defined for each input component on a page.
+The Bean Validation model allows the validator to be applied to all fields in a page.
+See <a href="#introduction-to-jakarta-bean-validation">[introduction-to-jakarta-bean-validation]</a> and <a href="#bean-validation-advanced-topics">[bean-validation-advanced-topics]</a> for more information on Bean Validation.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

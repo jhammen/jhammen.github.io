@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Jakarta Transactions :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">Jakarta EE Tutorial</a></li>
+    <li>Advanced</li>
+    <li>Web Profile</li>
+    <li><a href="transactions.html">Jakarta Transactions</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/supporttechs/pages/transactions/transactions.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Jakarta Transactions</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We are working on a fresh, updated Jakarta EE Tutorial. This section hasn&#8217;t yet been updated.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This chapter describes types of transactions and how they are managed in different applications.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview_of_transactions"><a class="anchor" href="#_overview_of_transactions"></a>Overview of Transactions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A typical enterprise application accesses and stores information in one or more databases.
+Because this information is critical for business operations, it must be accurate, current, and reliable.
+Data integrity would be lost if multiple programs were allowed to update the same information simultaneously or if a system that failed while processing a business transaction were to leave the affected data only partially updated.
+By preventing both of these scenarios, software transactions ensure data integrity.
+Transactions control the concurrent access of data by multiple programs.
+In the event of a system failure, transactions make sure that after recovery, the data will be in a consistent state.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_transactions_in_jakarta_ee_applications"><a class="anchor" href="#_transactions_in_jakarta_ee_applications"></a>Transactions in Jakarta EE Applications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In a Jakarta EE application, a transaction is a series of actions that must all complete successfully, or else all the changes in each action are backed out.
+Transactions end in either a commit or a rollback.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta Transactions allows applications to access transactions in a manner that is independent of specific implementations.
+Jakarta Transactions specifies standard Java interfaces between a transaction manager and the parties involved in a distributed transaction system: the transactional application, the Jakarta EE server, and the manager that controls access to the shared resources affected by the transactions.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta Transactions defines the <code>UserTransaction</code> interface that applications use to start, commit, or roll back transactions.
+Application components get a <code>UserTransaction</code> object through a JNDI lookup by using the name <code>java:comp/UserTransaction</code> or by requesting injection of a <code>UserTransaction</code> object.
+An application server uses a number of Jakarta Transactions defined interfaces to communicate with a transaction manager; a transaction manager uses Jakarta Transactions defined interfaces to interact with a resource manager.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta Transactions 2.0 specification is available at <a href="https://jakarta.ee/specifications/transactions/2.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/transactions/2.0/</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_is_a_transaction"><a class="anchor" href="#_what_is_a_transaction"></a>What Is a Transaction?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To emulate a business transaction, a program may need to perform several steps.
+A financial program, for example, might transfer funds from a checking account to a savings account by using the steps listed in the following pseudocode:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">begin transaction
+    debit checking account
+    credit savings account
+    update history log
+commit transaction</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Either all or none of the three steps must complete.
+Otherwise, data integrity is lost.
+Because the steps within a transaction are a unified whole, a transaction is often defined as an indivisible unit of work.</p>
+</div>
+<div class="paragraph">
+<p>A transaction can end in two ways: with a commit or with a rollback.
+When a transaction commits, the data modifications made by its statements are saved.
+If a statement within a transaction fails, the transaction rolls back, undoing the effects of all statements in the transaction.
+In the pseudocode, for example, if a disk drive were to crash during the <code>credit</code> step, the transaction would roll back and undo the data modifications made by the <code>debit</code> statement.
+Although the transaction fails, data integrity would be intact because the accounts still balance.</p>
+</div>
+<div class="paragraph">
+<p>In the preceding pseudocode, the <code>begin</code> and <code>commit</code> statements mark the boundaries of the transaction.
+When designing an enterprise bean, you determine how the boundaries are set by specifying either container-managed or bean-managed transactions.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_container_managed_transactions"><a class="anchor" href="#_container_managed_transactions"></a>Container-Managed Transactions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In an enterprise bean with container-managed transaction demarcation, the enterprise bean container sets the boundaries of the transactions.
+You can use container-managed transactions with any type of enterprise bean: session or message-driven.
+Container-managed transactions simplify development because the enterprise bean code does not explicitly mark the transaction&#8217;s boundaries.
+The code does not include statements that begin and end the transaction.
+By default, if no transaction demarcation is specified, enterprise beans use container-managed transaction demarcation.</p>
+</div>
+<div class="paragraph">
+<p>Typically, the container begins a transaction immediately before an enterprise bean method starts and commits the transaction just before the method exits.
+Each method can be associated with a single transaction.
+Nested or multiple transactions are not allowed within a method.</p>
+</div>
+<div class="paragraph">
+<p>Container-managed transactions do not require all methods to be associated with transactions.
+When developing a bean, you can set the transaction attributes to specify which of the bean&#8217;s methods are associated with transactions.</p>
+</div>
+<div class="paragraph">
+<p>Enterprise beans that use container-managed transaction demarcation must not use any transaction-management methods that interfere with the container&#8217;s transaction demarcation boundaries.
+Examples of such methods are the <code>commit</code>, <code>setAutoCommit</code>, and <code>rollback</code> methods of <code>java.sql.Connection</code> or the <code>commit</code> and <code>rollback</code> methods of <code>jakarta.jms.Session</code>.
+If you require control over the transaction demarcation, you must use application-managed transaction demarcation.</p>
+</div>
+<div class="paragraph">
+<p>Enterprise beans that use container-managed transaction demarcation also must not use the <code>jakarta.transaction.UserTransaction</code> interface.</p>
+</div>
+<div class="sect2">
+<h3 id="_transaction_attributes"><a class="anchor" href="#_transaction_attributes"></a>Transaction Attributes</h3>
+<div class="paragraph">
+<p>A transaction attribute controls the scope of a transaction.
+<a href="#_transaction_scope">Figure 1, &#8220;Transaction Scope&#8221;</a> illustrates why controlling the scope is important.
+In the diagram, <code>method-A</code> begins a transaction and then invokes <code>method-B</code> of <code>Bean-2</code>.
+When <code>method-B</code> executes, does it run within the scope of the transaction started by <code>method-A</code>, or does it execute with a new transaction? The answer depends on the transaction attribute of <code>method-B</code>.</p>
+</div>
+<div id="_transaction_scope" class="imageblock">
+<div class="content">
+<img src="../../common/_images/jakartaeett_dt_050.svg" alt="A diagram showing a transaction between two beans.">
+</div>
+<div class="title">Figure 1. Transaction Scope</div>
+</div>
+<div class="paragraph">
+<p>A transaction attribute can have one of the following values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Required</code></p>
+</li>
+<li>
+<p><code>RequiresNew</code></p>
+</li>
+<li>
+<p><code>Mandatory</code></p>
+</li>
+<li>
+<p><code>NotSupported</code></p>
+</li>
+<li>
+<p><code>Supports</code></p>
+</li>
+<li>
+<p><code>Never</code></p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_required_attribute"><a class="anchor" href="#_required_attribute"></a>Required Attribute</h4>
+<div class="paragraph">
+<p>If the client is running within a transaction and invokes the enterprise bean&#8217;s method, the method executes within the client&#8217;s transaction.
+If the client is not associated with a transaction, the container starts a new transaction before running the method.</p>
+</div>
+<div class="paragraph">
+<p>The <code>Required</code> attribute is the implicit transaction attribute for all enterprise bean methods running with container-managed transaction demarcation.
+You typically do not set the <code>Required</code> attribute unless you need to override another transaction attribute.
+Because transaction attributes are declarative, you can easily change them later.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_requiresnew_attribute"><a class="anchor" href="#_requiresnew_attribute"></a>RequiresNew Attribute</h4>
+<div class="paragraph">
+<p>If the client is running within a transaction and invokes the enterprise bean&#8217;s method, the container takes the following steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Suspends the client&#8217;s transaction</p>
+</li>
+<li>
+<p>Starts a new transaction</p>
+</li>
+<li>
+<p>Delegates the call to the method</p>
+</li>
+<li>
+<p>Resumes the client&#8217;s transaction after the method completes</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If the client is not associated with a transaction, the container starts a new transaction before running the method.</p>
+</div>
+<div class="paragraph">
+<p>You should use the <code>RequiresNew</code> attribute when you want to ensure that the method always runs within a new transaction.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mandatory_attribute"><a class="anchor" href="#_mandatory_attribute"></a>Mandatory Attribute</h4>
+<div class="paragraph">
+<p>If the client is running within a transaction and invokes the enterprise bean&#8217;s method, the method executes within the client&#8217;s transaction.
+If the client is not associated with a transaction, the container throws a <code>TransactionRequiredException</code>.</p>
+</div>
+<div class="paragraph">
+<p>Use the <code>Mandatory</code> attribute if the enterprise bean&#8217;s method must use the transaction of the client.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_notsupported_attribute"><a class="anchor" href="#_notsupported_attribute"></a>NotSupported Attribute</h4>
+<div class="paragraph">
+<p>If the client is running within a transaction and invokes the enterprise bean&#8217;s method, the container suspends the client&#8217;s transaction before invoking the method.
+After the method has completed, the container resumes the client&#8217;s transaction.</p>
+</div>
+<div class="paragraph">
+<p>If the client is not associated with a transaction, the container does not start a new transaction before running the method.</p>
+</div>
+<div class="paragraph">
+<p>Use the <code>NotSupported</code> attribute for methods that don&#8217;t need transactions.
+Because transactions involve overhead, this attribute may improve performance.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supports_attribute"><a class="anchor" href="#_supports_attribute"></a>Supports Attribute</h4>
+<div class="paragraph">
+<p>If the client is running within a transaction and invokes the enterprise bean&#8217;s method, the method executes within the client&#8217;s transaction.
+If the client is not associated with a transaction, the container does not start a new transaction before running the method.</p>
+</div>
+<div class="paragraph">
+<p>Because the transactional behavior of the method may vary, you should use the <code>Supports</code> attribute with caution.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_never_attribute"><a class="anchor" href="#_never_attribute"></a>Never Attribute</h4>
+<div class="paragraph">
+<p>If the client is running within a transaction and invokes the enterprise bean&#8217;s method, the container throws a <code>RemoteException</code>.
+If the client is not associated with a transaction, the container does not start a new transaction before running the method.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_summary_of_transaction_attributes"><a class="anchor" href="#_summary_of_transaction_attributes"></a>Summary of Transaction Attributes</h4>
+<div class="paragraph">
+<p><a href="#_transaction_attributes_and_scope">Transaction Attributes and Scope</a> summarizes the effects of the transaction attributes.
+Both the <code>T1</code> and the <code>T2</code> transactions are controlled by the container.
+A <code>T1</code> transaction is associated with the client that calls a method in the enterprise bean.
+In most cases, the client is another enterprise bean.
+A <code>T2</code> transaction is started by the container just before the method executes.</p>
+</div>
+<div class="paragraph">
+<p>In the last column of <a href="#_transaction_attributes_and_scope">Transaction Attributes and Scope</a>, the word "None" means that the business method does not execute within a transaction controlled by the container.
+However, the database calls in such a business method might be controlled by the transaction manager of the database management system.</p>
+</div>
+<table id="_transaction_attributes_and_scope" class="tableblock frame-all grid-all" style="width: 60%;">
+<caption class="title">Transaction Attributes and Scope</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Transaction Attribute</th>
+<th class="tableblock halign-left valign-top">Client&#8217;s Transaction</th>
+<th class="tableblock halign-left valign-top">Business Method&#8217;s Transaction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Required</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Required</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RequiresNew</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RequiresNew</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Mandatory</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Mandatory</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NotSupported</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NotSupported</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Supports</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Supports</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Never</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Never</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_setting_transaction_attributes"><a class="anchor" href="#_setting_transaction_attributes"></a>Setting Transaction Attributes</h4>
+<div class="paragraph">
+<p>Transaction attributes are specified by decorating the enterprise bean class or method with a <code>jakarta.ejb.TransactionAttribute</code> annotation and setting it to one of the <code>jakarta.ejb.TransactionAttributeType</code> constants.</p>
+</div>
+<div class="paragraph">
+<p>If you decorate the enterprise bean class with <code>@TransactionAttribute</code>, the specified <code>TransactionAttributeType</code> is applied to all the business methods in the class.
+Decorating a business method with <code>@TransactionAttribute</code> applies the <code>TransactionAttributeType</code> only to that method.
+If a <code>@TransactionAttribute</code> annotation decorates both the class and the method, the method <code>TransactionAttributeType</code> overrides the class <code>TransactionAttributeType</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>TransactionAttributeType</code> constants shown in <a href="#_transactionattributetype_constants">TransactionAttributeType Constants</a> encapsulate the transaction attributes described earlier in this section.</p>
+</div>
+<table id="_transactionattributetype_constants" class="tableblock frame-all grid-all" style="width: 34%;">
+<caption class="title">TransactionAttributeType Constants</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Transaction Attribute</th>
+<th class="tableblock halign-left valign-top">TransactionAttributeType Constant</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Required</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TransactionAttributeType.REQUIRED</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RequiresNew</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TransactionAttributeType.REQUIRES_NEW</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Mandatory</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TransactionAttributeType.MANDATORY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NotSupported</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TransactionAttributeType.NOT_SUPPORTED</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Supports</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TransactionAttributeType.SUPPORTS</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Never</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TransactionAttributeType.NEVER</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The following code snippet demonstrates how to use the <code>@TransactionAttribute</code> annotation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@TransactionAttribute(NOT_SUPPORTED)
+@Stateful
+public class TransactionBean implements Transaction {
+...
+    @TransactionAttribute(REQUIRES_NEW)
+    public void firstMethod() {...}
+
+    @TransactionAttribute(REQUIRED)
+    public void secondMethod() {...}
+
+    public void thirdMethod() {...}
+
+    public void fourthMethod() {...}
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, the <code>TransactionBean</code> class&#8217;s transaction attribute has been set to <code>NotSupported</code>, <code>firstMethod</code> has been set to <code>RequiresNew</code>, and <code>secondMethod</code> has been set to <code>Required</code>.
+Because a <code>@TransactionAttribute</code> set on a method overrides the class <code>@TransactionAttribute</code>, calls to <code>firstMethod</code> will create a new transaction, and calls to <code>secondMethod</code> will either run in the current transaction or start a new transaction.
+Calls to <code>thirdMethod</code> or <code>fourthMethod</code> do not take place within a transaction.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_rolling_back_a_container_managed_transaction"><a class="anchor" href="#_rolling_back_a_container_managed_transaction"></a>Rolling Back a Container-Managed Transaction</h3>
+<div class="paragraph">
+<p>There are two ways to roll back a container-managed transaction.
+First, if a system exception is thrown, the container will automatically roll back the transaction.
+Second, by invoking the <code>setRollbackOnly</code> method of the <code>EJBContext</code> interface, the bean method instructs the container to roll back the transaction.
+If the bean throws an application exception, the rollback is not automatic but can be initiated by a call to <code>setRollbackOnly</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_synchronizing_a_session_beans_instance_variables"><a class="anchor" href="#_synchronizing_a_session_beans_instance_variables"></a>Synchronizing a Session Bean&#8217;s Instance Variables</h3>
+<div class="paragraph">
+<p>The <code>SessionSynchronization</code> interface, which is optional, allows stateful session bean instances to receive transaction synchronization notifications.
+For example, you could synchronize the instance variables of an enterprise bean with their corresponding values in the database.
+The container invokes the <code>SessionSynchronization</code> methods (<code>afterBegin</code>, <code>beforeCompletion</code>, and <code>afterCompletion</code>) at each of the main stages of a transaction.</p>
+</div>
+<div class="paragraph">
+<p>The <code>afterBegin</code> method informs the instance that a new transaction has begun.
+The container invokes <code>afterBegin</code> immediately before it invokes the business method.</p>
+</div>
+<div class="paragraph">
+<p>The container invokes the <code>beforeCompletion</code> method after the business method has finished but just before the transaction commits.
+The <code>beforeCompletion</code> method is the last opportunity for the session bean to roll back the transaction (by calling <code>setRollbackOnly</code>).</p>
+</div>
+<div class="paragraph">
+<p>The <code>afterCompletion</code> method indicates that the transaction has completed.
+This method has a single <code>boolean</code> parameter whose value is <code>true</code> if the transaction was committed and <code>false</code> if it was rolled back.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_methods_not_allowed_in_container_managed_transactions"><a class="anchor" href="#_methods_not_allowed_in_container_managed_transactions"></a>Methods Not Allowed in Container-Managed Transactions</h3>
+<div class="paragraph">
+<p>You should not invoke any method that might interfere with the transaction boundaries set by the container.
+The following methods are prohibited:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>commit</code>, <code>setAutoCommit</code>, and <code>rollback</code> methods of <code>java.sql.Connection</code></p>
+</li>
+<li>
+<p>The <code>getUserTransaction</code> method of <code>jakarta.ejb.EJBContext</code></p>
+</li>
+<li>
+<p>Any method of <code>jakarta.transaction.UserTransaction</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can, however, use these methods to set boundaries in application-managed transactions.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bean_managed_transactions"><a class="anchor" href="#_bean_managed_transactions"></a>Bean-Managed Transactions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In bean-managed transaction demarcation, the code in the session or message-driven bean explicitly marks the boundaries of the transaction.
+Although beans with container-managed transactions require less coding, they have one limitation: When a method is executing, it can be associated with either a single transaction or no transaction at all.
+If this limitation will make coding your bean difficult, you should consider using bean-managed transactions.</p>
+</div>
+<div class="paragraph">
+<p>The following pseudocode illustrates the kind of fine-grained control you can obtain with application-managed transactions.
+By checking various conditions, the pseudocode decides whether to start or stop certain transactions within the business method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">begin transaction
+...
+    update table-a
+...
+if (condition-x)
+   commit transaction
+else if (condition-y)
+   update table-b
+   commit transaction
+else
+   rollback transaction
+   begin transaction
+   update table-c
+   commit transaction</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When coding an application-managed transaction for session or message-driven beans, you must decide whether to use Java Database Connectivity or Jakarta transactions.
+The sections that follow discuss both types of transactions.</p>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_transactions"><a class="anchor" href="#_jakarta_transactions"></a>Jakarta Transactions</h3>
+<div class="paragraph">
+<p>Jakarta Transactions allows you to demarcate transactions in a manner that is independent of the transaction manager implementation.
+GlassFish Server implements the transaction manager with the Java Transaction Service (JTS).
+However, your code doesn&#8217;t call the JTS methods directly but instead invokes the Jakarta Transactions methods, which then call the lower-level JTS routines.</p>
+</div>
+<div class="paragraph">
+<p>A Jakarta transaction is controlled by the Jakarta EE transaction manager.
+You may want to use a Jakarta transaction because it can span updates to multiple databases from different vendors.
+A particular DBMS&#8217;s transaction manager may not work with heterogeneous databases.
+However, the Jakarta EE transaction manager does have one limitation: It does not support nested transactions.
+In other words, it cannot start a transaction for an instance until the preceding transaction has ended.</p>
+</div>
+<div class="paragraph">
+<p>To demarcate a Jakarta transaction, you invoke the <code>begin</code>, <code>commit</code>, and <code>rollback</code> methods of the <code>jakarta.transaction.UserTransaction</code> interface.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_returning_without_committing"><a class="anchor" href="#_returning_without_committing"></a>Returning without Committing</h3>
+<div class="paragraph">
+<p>In a stateless session bean with bean-managed transactions, a business method must commit or roll back a transaction before returning.
+However, a stateful session bean does not have this restriction.</p>
+</div>
+<div class="paragraph">
+<p>In a stateful session bean with a Jakarta transaction, the association between the bean instance and the transaction is retained across multiple client calls.
+Even if each business method called by the client opens and closes the database connection, the association is retained until the instance completes the transaction.</p>
+</div>
+<div class="paragraph">
+<p>In a stateful session bean with a JDBC transaction, the JDBC connection retains the association between the bean instance and the transaction across multiple calls.
+If the connection is closed, the association is not retained.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_methods_not_allowed_in_bean_managed_transactions"><a class="anchor" href="#_methods_not_allowed_in_bean_managed_transactions"></a>Methods Not Allowed in Bean-Managed Transactions</h3>
+<div class="paragraph">
+<p>Do not invoke the <code>getRollbackOnly</code> and <code>setRollbackOnly</code> methods of the <code>EJBContext</code> interface in bean-managed transactions.
+These methods should be used only in container-managed transactions.
+For bean-managed transactions, invoke the <code>getStatus</code> and <code>rollback</code> methods of the <code>UserTransaction</code> interface.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_transaction_timeouts"><a class="anchor" href="#_transaction_timeouts"></a>Transaction Timeouts</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For container-managed transactions, you can use the Administration Console to configure the transaction timeout interval.
+See <a href="../../intro/usingexamples/usingexamples.html#_starting_the_administration_console" class="xref page">Starting the Administration Console</a>.</p>
+</div>
+<div class="paragraph">
+<p>For enterprise beans with bean-managed Jakarta transactions, you invoke the <code>setTransactionTimeout</code> method of the <code>UserTransaction</code> interface.</p>
+</div>
+<div class="sect2">
+<h3 id="_to_set_a_transaction_timeout"><a class="anchor" href="#_to_set_a_transaction_timeout"></a>To Set a Transaction Timeout</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the Administration Console, expand the Configurations node, then expand the server-config node and select Transaction Service.</p>
+</li>
+<li>
+<p>On the Transaction Service page, set the value of the Transaction Timeout field to the value of your choice (for example, 5).</p>
+<div class="paragraph">
+<p>With this setting, if the transaction has not completed within 5 seconds, the enterprise bean container rolls it back.</p>
+</div>
+<div class="paragraph">
+<p>The default value is 0, meaning that the transaction will not time out.</p>
+</div>
+</li>
+<li>
+<p>Click Save.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_updating_multiple_databases"><a class="anchor" href="#_updating_multiple_databases"></a>Updating Multiple Databases</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Jakarta EE transaction manager controls all enterprise bean transactions except for bean-managed JDBC transactions.
+The Jakarta EE transaction manager allows an enterprise bean to update multiple databases within a transaction.
+<a href="#_updating_multiple_databases_2">Figure 2, &#8220;Updating Multiple Databases&#8221;</a> and <a href="#_updating_multiple_databases_across_jakarta_ee_servers">Figure 3, &#8220;Updating Multiple Databases Across Jakarta EE Servers&#8221;</a> show two scenarios for updating multiple databases in a single transaction.</p>
+</div>
+<div class="paragraph">
+<p>In <a href="#_updating_multiple_databases_2">Figure 2, &#8220;Updating Multiple Databases&#8221;</a>, the client invokes a business method in <code>Bean-A</code>.
+The business method begins a transaction, updates Database X, updates Database Y, and invokes a business method in <code>Bean-B</code>.
+The second business method updates Database Z and returns control to the business method in <code>Bean-A</code>, which commits the transaction.
+All three database updates occur in the same transaction.</p>
+</div>
+<div class="paragraph">
+<p>In <a href="#_updating_multiple_databases_across_jakarta_ee_servers">Figure 3, &#8220;Updating Multiple Databases Across Jakarta EE Servers&#8221;</a>, the client calls a business method in <code>Bean-A</code>, which begins a transaction and updates Database X.
+Then <code>Bean-A</code> invokes a method in <code>Bean-B</code>, which resides in a remote Jakarta EE server.
+The method in <code>Bean-B</code> updates Database Y.
+The transaction managers of the Jakarta EE servers ensure that both databases are updated in the same transaction.</p>
+</div>
+<div id="_updating_multiple_databases_2" class="imageblock">
+<div class="content">
+<img src="../../common/_images/jakartaeett_dt_051.svg" alt="A diagram showing Bean-A updating databases X and Y, and Bean-B updating database Z.">
+</div>
+<div class="title">Figure 2. Updating Multiple Databases</div>
+</div>
+<div id="_updating_multiple_databases_across_jakarta_ee_servers" class="imageblock">
+<div class="content">
+<img src="../../common/_images/jakartaeett_dt_052.svg" alt="A diagram showing Bean-A on one Jakarta EE server updating database X, and Bean-B on another Jakarta EE server updating database Y.">
+</div>
+<div class="title">Figure 3. Updating Multiple Databases Across Jakarta EE Servers</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_transactions_in_web_components"><a class="anchor" href="#_transactions_in_web_components"></a>Transactions in Web Components</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can demarcate a transaction in a web component by using either the <code>java.sql.Connection</code> or the <code>jakarta.transaction.UserTransaction</code> interface.
+These are the same interfaces that a session bean with bean-managed transactions can use.
+Transactions demarcated with the <code>UserTransaction</code> interface are discussed in <a href="#_jakarta_transactions">Jakarta Transactions</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_further_information_about_transactions"><a class="anchor" href="#_further_information_about_transactions"></a>Further Information about Transactions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For more information about transactions, see the Jakarta Transactions 2.0 specification at <a href="https://jakarta.ee/specifications/transactions/2.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/transactions/2.0/</a>.</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

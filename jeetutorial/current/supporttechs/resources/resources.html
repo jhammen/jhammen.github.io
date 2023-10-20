@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Resource Adapters and Contracts :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">Jakarta EE Tutorial</a></li>
+    <li><a href="resources.html">Resource Adapters and Contracts</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/supporttechs/pages/resources/resources.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Resource Adapters and Contracts</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We are working on a fresh, updated Jakarta EE Tutorial. This section hasn&#8217;t yet been updated.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This chapter examines resource adapters and explains how communications between Jakarta EE servers and EIS systems are mediated by them.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_is_a_resource_adapter"><a class="anchor" href="#_what_is_a_resource_adapter"></a>What Is a Resource Adapter?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A resource adapter is a Jakarta EE component that implements the Jakarta Connectors API for a specific EIS.
+Examples of EISs include enterprise resource planning, mainframe transaction processing, and database systems.
+In a Jakarta EE server, Jakarta Messaging and Jakarta Mail also act as EISs that you access using resource adapters.
+As illustrated in <a href="#_resource_adapters">Figure 1, &#8220;Resource Adapters&#8221;</a>, the resource adapter facilitates communication between a Jakarta EE application and an EIS.</p>
+</div>
+<div id="_resource_adapters" class="imageblock">
+<div class="content">
+<img src="../../common/_images/jakartaeett_dt_053.svg" alt="Resource Adapter Contracts">
+</div>
+<div class="title">Figure 1. Resource Adapters</div>
+</div>
+<div class="paragraph">
+<p>Stored in a Resource Adapter Archive (RAR) file, a resource adapter can be deployed on any Jakarta EE server, much like a Jakarta EE application.
+A RAR file may be contained in an Enterprise Archive (EAR) file, or it may exist as a separate file.</p>
+</div>
+<div class="paragraph">
+<p>A resource adapter is analogous to a JDBC driver.
+Both provide a standard API through which an application can access a resource that is outside the Jakarta EE server.
+For a resource adapter, the target system is an EIS; for a JDBC driver, it is a DBMS.
+Resource adapters and JDBC drivers are rarely created by application developers.
+In most cases, both types of software are built by vendors that sell tools, servers, or integration software.</p>
+</div>
+<div class="paragraph">
+<p>The resource adapter mediates communication between the Jakarta EE server and the EIS by means of contracts.
+The application contract defines the API through which a Jakarta EE component, such as an enterprise bean, accesses the EIS.
+This API is the only view that the component has of the EIS.
+The system contracts link the resource adapter to important services that are managed by the Jakarta EE server.
+The resource adapter itself and its system contracts are transparent to the Jakarta EE component.</p>
+</div>
+<div class="sect2">
+<h3 id="_management_contracts"><a class="anchor" href="#_management_contracts"></a>Management Contracts</h3>
+<div class="paragraph">
+<p>Jakarta Connectors defines system contracts that enable resource adapter lifecycle and thread management.</p>
+</div>
+<div class="sect3">
+<h4 id="_lifecycle_management"><a class="anchor" href="#_lifecycle_management"></a>Lifecycle Management</h4>
+<div class="paragraph">
+<p>Jakarta Connectors specifies a lifecycle management contract that allows an application server to manage the lifecycle of a resource adapter.
+This contract provides a mechanism for the application server to bootstrap a resource adapter instance during the deployment or application server startup.
+This contract also provides a means for the application server to notify the resource adapter instance when it is undeployed or when an orderly shutdown of the application server takes place.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_work_management_contract"><a class="anchor" href="#_work_management_contract"></a>Work Management Contract</h4>
+<div class="paragraph">
+<p>Jakarta Connectors work management contract ensures that resource adapters use threads in the proper, recommended manner.
+This contract also enables an application server to manage threads for resource adapters.</p>
+</div>
+<div class="paragraph">
+<p>Resource adapters that improperly use threads can jeopardize the entire application server environment.
+For example, a resource adapter might create too many threads or might not properly release threads it has created.
+Poor thread handling inhibits application server shutdown and impacts the application server&#8217;s performance because creating and destroying threads are expensive operations.</p>
+</div>
+<div class="paragraph">
+<p>The work management contract establishes a means for the application server to pool and reuse threads, similar to pooling and reusing connections.
+By adhering to this contract, the resource adapter does not have to manage threads itself.
+Instead, the resource adapter has the application server create and provide needed threads.
+When it is finished with a given thread, the resource adapter returns the thread to the application server.
+The application server manages the thread, either returning it to a pool for later reuse or destroying it.
+Handling threads in this manner results in increased application server performance and more efficient use of resources.</p>
+</div>
+<div class="paragraph">
+<p>In addition to moving thread management to the application server, the Connector Architecture provides a flexible model for a resource adapter that uses threads.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The requesting thread can choose to block (stop its own execution) until the work thread completes.</p>
+</li>
+<li>
+<p>The requesting thread can block while it waits to get the work thread.
+When the application server provides a work thread, the requesting thread and the work thread execute in parallel.</p>
+</li>
+<li>
+<p>The resource adapter can opt to submit the work for the thread to a queue.
+The thread executes the work from the queue at some later point.
+The resource adapter continues its own execution from the point it submitted the work to the queue, no matter when the thread executes it.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>With the latter two approaches, the submitting thread and the work thread may execute simultaneously or independently.
+For these approaches, the contract specifies a listener mechanism to notify the resource adapter that the thread has completed its operation.
+The resource adapter can also specify the execution context for the thread, and the work management contract controls the context in which the thread executes.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_generic_work_context_contract"><a class="anchor" href="#_generic_work_context_contract"></a>Generic Work Context Contract</h3>
+<div class="paragraph">
+<p>The work management contract between the application server and a resource adapter enables a resource adapter to do a task, such as communicating with the EIS or delivering messages, by delivering <code>Work</code> instances for execution.</p>
+</div>
+<div class="paragraph">
+<p>A generic work context contract enables a resource adapter to control the contexts in which the <code>Work</code> instances that it submits are executed by the application server&#8217;s <code>WorkManager</code>.
+A generic work context mechanism also enables an application server to support message inflow and delivery schemes.
+It also provides a richer contextual <code>Work</code> execution environment to the resource adapter while still maintaining control over concurrent behavior in a managed environment.</p>
+</div>
+<div class="paragraph">
+<p>The generic work context contract standardizes the transaction context and the security context.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_outbound_and_inbound_contracts"><a class="anchor" href="#_outbound_and_inbound_contracts"></a>Outbound and Inbound Contracts</h3>
+<div class="paragraph">
+<p>The Connector Architecture defines the following outbound contracts, system-level contracts between an application server and an EIS that enable outbound connectivity to an EIS.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The connection management contract supports connection pooling, a technique that enhances application performance and scalability.
+Connection pooling is transparent to the application, which simply obtains a connection to the EIS.</p>
+</li>
+<li>
+<p>The transaction management contract extends the connection management contract and provides support for management of both local and XA transactions.</p>
+<div class="paragraph">
+<p>A local transaction is limited in scope to a single EIS system, and the EIS resource manager itself manages such a transaction.
+An XA transaction or global transaction can span multiple resource managers.
+This form of transaction requires transaction coordination by an external transaction manager, typically bundled with an application server.
+A transaction manager uses a two-phase commit protocol to manage a transaction that spans multiple resource managers or EISs, and uses one-phase commit optimization if only one resource manager is participating in an XA transaction.</p>
+</div>
+</li>
+<li>
+<p>The security management contract provides mechanisms for authentication, authorization, and secure communication between a Jakarta EE server and an EIS to protect the information in the EIS.</p>
+<div class="paragraph">
+<p>A work security map matches EIS identities to the application server domain&#8217;s identities.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Inbound contracts are system contracts between a Jakarta EE server and an EIS that enable inbound connectivity from the EIS: pluggability contracts for message providers and contracts for importing transactions.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_metadata_annotations"><a class="anchor" href="#_metadata_annotations"></a>Metadata Annotations</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Jakarta Connectors provides a set of annotations to minimize the need for deployment descriptors.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>@Connector</code> annotation can be used by the resource adapter developer to specify that the JavaBeans component is a resource adapter JavaBeans component.
+This annotation is used for providing metadata about the capabilities of the resource adapter.
+Optionally, you can provide a JavaBeans component implementing the <code>ResourceAdapter</code> interface, as in the following example:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Connector(
+    displayName = "TrafficRA",
+    vendorName = "Jakarta EE Tutorial",
+    version = "9.0"
+)
+public class TrafficResourceAdapter implements ResourceAdapter,
+                                               Serializable {
+    ...
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>The <code>@ConnectionDefinition</code> annotation defines a set of connection interfaces and classes pertaining to a particular connection type, as in the following example:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ConnectionDefinition(
+    connectionFactory = TradeConnectionFactory.class,
+    connectionFactoryImpl = TradeConnectionFactoryImpl.class,
+    connection = TradeConnection.class,
+    connectionImpl = TradeConnectionImpl.class
+)
+public class TradeManagedConnectionFactory ... {
+    ...
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>The <code>@AdministeredObject</code> annotation designates a JavaBeans component as an administered object.</p>
+</li>
+<li>
+<p>The <code>@Activation</code> annotation contains configuration information pertaining to inbound connectivity from an EIS instance, as in the following example:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Activation(
+        messageListeners = { TrafficListener.class }
+)
+public class TrafficActivationSpec implements ActivationSpec,
+                                              Serializable {
+    ...
+    @ConfigProperty()
+    /* port to listen to requests from the EIS */
+    private String port;
+    ...
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>The <code>@ConfigProperty</code> annotation can be used on JavaBeans components to provide additional configuration information that may be used by the deployer and resource adapter provider.
+The preceding example code shows several <code>@ConfigProperty</code> annotations.</p>
+</li>
+<li>
+<p>The <code>@ConnectionFactoryDefinition</code> annotation is a resource definition annotation that is used to define a connector connection factory and register it in JNDI under the name specified in the mandatory <code>name</code> annotation element.
+The mandatory <code>interfaceName</code> annotation element specifies the fully qualified name of the connection factory interface class.
+The <code>transactionSupport</code> annotation element specifies the level of transaction support the connection factory needs to support.
+The <code>minPoolSize</code> and <code>maxPoolSize</code> annotation elements specify the minimum or maximum number of connections that should be allocated for a connection pool that backs this connection factory resource.
+Additional properties associated with the connection factory being defined can be specified through the <code>properties</code> element.</p>
+<div class="paragraph">
+<p>Since repeated annotations are not allowed, the <code>@ConnectionFactoryDefinitions</code> annotation acts as a container for multiple connector connection factory definitions.
+The <code>value</code> annotation element contains the multiple connector connection factory definitions.</p>
+</div>
+</li>
+<li>
+<p>The <code>@AdministeredObjectDefinition</code> annotation is a resource definition annotation that is used to define an administered object and register it in JNDI under the name specified in the mandatory <code>name</code> annotation element.
+The mandatory fully qualified name of the administered object&#8217;s class must be indicated by the <code>className</code> element.
+Additional properties that must be configured in the administered object can be specified through the <code>properties</code> element.</p>
+<div class="paragraph">
+<p>Since repeated annotations are not allowed, the <code>@AdministeredObjectDefinitions</code> annotation acts as a container for multiple administered object definitions.
+The <code>value</code> annotation element contains the multiple administered object definitions.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The specification allows a resource adapter to be developed in mixed-mode form, that is the ability for a resource adapter developer to use both metadata annotations and deployment descriptors in applications.
+An application assembler or deployer may use the deployment descriptor to override the metadata annotations specified by the resource adapter developer.</p>
+</div>
+<div class="paragraph">
+<p>The deployment descriptor for a resource adapter, if present, is named <code>ra.xml</code>.
+The <code>metadata-complete</code> attribute defines whether the deployment descriptor for the resource adapter module is complete or whether the class files available to the module and packaged with the resource adapter need to be examined for annotations that specify deployment information.</p>
+</div>
+<div class="paragraph">
+<p>For the complete list of annotations and JavaBeans components provided in the Jakarta EE platform, see the Jakarta Connectors 2.0 specification.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_common_client_interface"><a class="anchor" href="#_common_client_interface"></a>Common Client Interface</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section explains how components use the Jakarta Connectors Common Client Interface (CCI) API and a resource adapter to access data from an EIS.
+The CCI API defines a set of interfaces and classes whose methods allow a client to perform typical data access operations.
+The CCI interfaces and classes are as follows.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ConnectionFactory</code>: Provides an application component with a <code>Connection</code> instance to an EIS.</p>
+</li>
+<li>
+<p><code>Connection</code>: Represents the connection to the underlying EIS.</p>
+</li>
+<li>
+<p><code>ConnectionSpec</code>: Provides a means for an application component to pass connection-request-specific properties to the <code>ConnectionFactory</code> when making a connection request.</p>
+</li>
+<li>
+<p><code>Interaction</code>: Provides a means for an application component to execute EIS functions, such as database stored procedures.</p>
+</li>
+<li>
+<p><code>InteractionSpec</code>: Holds properties pertaining to an application component&#8217;s interaction with an EIS.</p>
+</li>
+<li>
+<p><code>Record</code>: The superinterface for the various kinds of record instances.
+Record instances can be <code>MappedRecord</code>, <code>IndexedRecord</code>, or <code>ResultSet</code> instances, all of which inherit from the <code>Record</code> interface.</p>
+</li>
+<li>
+<p><code>RecordFactory</code>: Provides an application component with a <code>Record</code> instance.</p>
+</li>
+<li>
+<p><code>IndexedRecord</code>: Represents an ordered collection of <code>Record</code> instances based on the <code>java.util.List</code> interface.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A client or application component that uses the CCI to interact with an underlying EIS does so in a prescribed manner.
+The component must establish a connection to the EIS&#8217;s resource manager, and it does so using the <code>ConnectionFactory</code>.
+The <code>Connection</code> object represents the connection to the EIS and is used for subsequent interactions with the EIS.</p>
+</div>
+<div class="paragraph">
+<p>The component performs its interactions with the EIS, such as accessing data from a specific table, using an <code>Interaction</code> object.
+The application component defines the Interaction object by using an <code>InteractionSpec</code> object.
+When it reads data from the EIS, such as from database tables, or writes to those tables, the application component does so by using a particular type of <code>Record</code> instance: a <code>MappedRecord</code>, an <code>IndexedRecord</code>, or a <code>ResultSet</code> instance.</p>
+</div>
+<div class="paragraph">
+<p>Note, too, that a client application that relies on a CCI resource adapter is very much like any other Jakarta EE client that uses enterprise bean methods.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_resource_adapters_with_jakarta_contexts_and_dependency_injection_cdi"><a class="anchor" href="#_using_resource_adapters_with_jakarta_contexts_and_dependency_injection_cdi"></a>Using Resource Adapters with Jakarta Contexts and Dependency Injection (CDI)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For details about CDI, see <a href="../../cdi/cdi-basic/cdi-basic.html#_introduction_to_jakarta_contexts_and_dependency_injection" class="xref page">Introduction to Jakarta Contexts and Dependency Injection</a> and <a href="../../cdi/cdi-adv/cdi-adv.html#_jakarta_contexts_and_dependency_injection_advanced_topics" class="xref page">Jakarta Contexts and Dependency Injection: Advanced Topics</a>.</p>
+</div>
+<div class="paragraph">
+<p>Do not specify the following classes in the resource adapter as CDI managed beans (that is, do not inject them), because the behavior of these classes as CDI managed beans has not been portably defined.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Resource adapter beans: These beans are classes that are annotated with the <code>jakarta.resource.spi.Connector</code> annotation or are declared as corresponding elements in the resource adapter deployment descriptor, <code>ra.xml</code>.</p>
+</li>
+<li>
+<p>Managed connection factory beans: These beans are classes that are annotated with the <code>jakarta.resource.spi.ConnectorDefinition</code> annotation or the <code>jakarta.resource.spi.ConnectorDefinitions</code> annotation or are declared as corresponding elements in <code>ra.xml</code>.</p>
+</li>
+<li>
+<p>Activation specification beans: These beans are classes that are annotated with the <code>jakarta.resource.spi.Activation</code> annotation or are declared as corresponding elements in <code>ra.xml</code>.</p>
+</li>
+<li>
+<p>Administered object beans: These beans are classes that are annotated with the <code>jakarta.resource.spi.AdministeredObject</code> annotation or are declared as corresponding elements in <code>ra.xml</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Other types of classes in the resource adapter can be CDI managed beans and will behave in a portable manner.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_further_information_about_resource_adapters"><a class="anchor" href="#_further_information_about_resource_adapters"></a>Further Information about Resource Adapters</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For more information about resource adapters and annotations, see</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Jakarta EE 9 Platform Specification:<br>
+<a href="https://jakarta.ee/specifications/platform/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/platform/</a></p>
+</li>
+<li>
+<p>Jakarta Connectors 2.0 specification:<br>
+<a href="https://jakarta.ee/specifications/connectors/2.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/connectors/2.0/</a></p>
+</li>
+<li>
+<p>Jakarta Enterprise Beans specification:<br>
+<a href="https://jakarta.ee/specifications/enterprise-beans/4.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/enterprise-beans/4.0/</a></p>
+</li>
+<li>
+<p>Jakarta Annotations:<br>
+<a href="https://jakarta.ee/specifications/annotations/2.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/annotations/2.0/</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

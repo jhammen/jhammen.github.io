@@ -1,0 +1,2748 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Creating Custom UI Components and Other Custom Objects :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">Jakarta EE Tutorial</a></li>
+    <li>Jakarta EE Web Profile</li>
+    <li>Jakarta Faces</li>
+    <li><a href="faces-custom.html">Creating Custom UI Components and Other Custom Objects</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/web/pages/faces-custom/faces-custom.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Creating Custom UI Components and Other Custom Objects</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We are working on a fresh, updated Jakarta EE Tutorial. This section hasn&#8217;t yet been updated.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This chapter describes creating custom components for applications that have additional functionality not provided by standard Jakarta Faces components.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction_to_creating_custom_components"><a class="anchor" href="#_introduction_to_creating_custom_components"></a>Introduction to Creating Custom Components</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Jakarta Faces technology offers a basic set of standard, reusable UI components that enable quick and easy construction of user interfaces for web applications.
+These components mostly map one-to-one to the elements in HTML 4.
+But often an application requires a component that has additional functionality or requires a completely new component.
+Jakarta Faces technology allows extension of standard components to enhance their functionality or to create custom components.
+A rich ecosystem of third-party component libraries is built on this extension capability, but it is beyond the scope of this tutorial to examine them.
+A web search for "Faces Component Libraries" (or "JSF Component Libraries") is a good starting point to learn more about this important aspect of using Jakarta Faces technology.</p>
+</div>
+<div class="paragraph">
+<p>In addition to extending the functionality of standard components, a component writer might want to give a page author the ability to change the appearance of the component on the page or to alter listener behavior.
+Alternatively, the component writer might want to render a component to a different kind of client device type, such as a smartphone or a tablet instead of a desktop computer.
+Enabled by the flexible Jakarta Faces architecture, a component writer can separate the definition of the component behavior from its appearance by delegating the rendering of the component to a separate renderer.
+In this way, a component writer can define the behavior of a custom component once but create multiple renderers, each of which defines a different way to render the component to a particular kind of client device.</p>
+</div>
+<div class="paragraph">
+<p>A <code>jakarta.faces.component.UIComponent</code> is a Java class that is responsible for representing a self-contained piece of the user interface during the request-processing lifecycle.
+It is intended to represent the meaning of the component; the visual representation of the component is the responsibility of the <code>jakarta.faces.render.Renderer</code>.
+There can be multiple instances of the same <code>UIComponent</code> class in any given Jakarta Faces view, just as there can be multiple instances of any Java class in any given Java program.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta Faces technology provides the ability to create custom components by extending the <code>UIComponent</code> class, the base class for all standard UI components.
+A custom component can be used anywhere an ordinary component can be used, such as within a composite component.
+A <code>UIComponent</code> is identified by two names: <code>component-family</code> specifies the general purpose of the component (input or output, for instance), and <code>component-type</code> indicates the specific purpose of a component, such as a text input field or a command button.</p>
+</div>
+<div class="paragraph">
+<p>A <code>Renderer</code> is a helper to the <code>UIComponent</code> that deals with how that specific <code>UIComponent</code> class should appear in a specific kind of client device.
+Renderers are identified by two names: <code>render-kit-id</code> and <code>renderer-type</code>.
+A render kit is just a bucket into which a particular group of renderers is placed, and the <code>render-kit-id</code> identifies the group.
+Most Jakarta Faces component libraries provide their own render kits.</p>
+</div>
+<div class="paragraph">
+<p>A <code>jakarta.faces.view.facelets.Tag</code> object is a helper to the <code>UIComponent</code> and <code>Renderer</code> that allows the page author to include an instance of a <code>UIComponent</code> in a Jakarta Faces view.
+A tag represents a specific combination of <code>component-type</code> and <code>renderer-type</code>.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="#_component_renderer_and_tag_combinations">Component, Renderer, and Tag Combinations</a> for information on how components, renderers, and tags interact.</p>
+</div>
+<div class="paragraph">
+<p>This chapter uses the image map component from the Duke&#8217;s Bookstore case study example to explain how you can create simple custom components, custom renderers, and associated custom tags, and take care of all the other details associated with using the components and renderers in an application.
+See <a href="../../casestudies/dukes-bookstore/dukes-bookstore.html#_dukes_bookstore_case_study_example" class="xref page">Duke&#8217;s Bookstore Case Study Example</a> for more information about this example.</p>
+</div>
+<div class="paragraph">
+<p>The chapter also describes how to create other custom objects: custom converters, custom listeners, and custom validators.
+It also describes how to bind component values and instances to data objects and how to bind custom objects to managed bean properties.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_determining_whether_you_need_a_custom_component_or_renderer"><a class="anchor" href="#_determining_whether_you_need_a_custom_component_or_renderer"></a>Determining Whether You Need a Custom Component or Renderer</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Jakarta Faces implementation supports a very basic set of components and associated renderers.
+This section helps you to decide whether you can use standard components and renderers in your application or need a custom component or custom renderer.</p>
+</div>
+<div class="sect2">
+<h3 id="_when_to_use_a_custom_component"><a class="anchor" href="#_when_to_use_a_custom_component"></a>When to Use a Custom Component</h3>
+<div class="paragraph">
+<p>A component class defines the state and behavior of a UI component.
+This behavior includes converting the value of a component to the appropriate markup, queuing events on components, performing validation, and any other behavior related to how the component interacts with the browser and the request-processing lifecycle.</p>
+</div>
+<div class="paragraph">
+<p>You need to create a custom component in the following situations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You need to add new behavior to a standard component, such as generating an additional type of event (for example, notifying another part of the page that something changed in this component as a result of user interaction).</p>
+</li>
+<li>
+<p>You need to take a different action in the request processing of the value of a component from what is available in any of the existing standard components.</p>
+</li>
+<li>
+<p>You want to take advantage of an HTML capability offered by your target browser, but none of the standard Jakarta Faces components take advantage of the capability in the way you want, if at all.
+The current release does not contain standard components for complex HTML components, such as frames; however, because of the extensibility of the component architecture, you can use Jakarta Faces technology to create components like these.
+The Duke&#8217;s Bookstore case study creates custom components that correspond to the HTML <code>map</code> and <code>area</code> tags.</p>
+</li>
+<li>
+<p>You need to render to a non-HTML client that requires extra components not supported by HTML.
+Eventually, the standard HTML render kit will provide support for all standard HTML components.
+However, if you are rendering to a different client, such as a phone, you might need to create custom components to represent the controls uniquely supported by the client.
+For example, some component architectures for wireless clients include support for tickers and progress bars, which are not available on an HTML client.
+In this case, you might also need a custom renderer along with the component, or you might need only a custom renderer.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You do not need to create a custom component in the following cases.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You need to aggregate components to create a new component that has its own unique behavior.
+In this situation, you can use a composite component to combine existing standard components.
+For more information on composite components, see <a href="../faces-facelets/faces-facelets.html#_composite_components" class="xref page">Composite Components</a> and <a href="../faces-advanced-cc/faces-advanced-cc.html#_composite_components_advanced_topics_and_an_example" class="xref page">Composite Components: Advanced Topics and an Example</a>.</p>
+</li>
+<li>
+<p>You simply need to manipulate data on the component or add application-specific functionality to it.
+In this situation, you should create a managed bean for this purpose and bind it to the standard component rather than create a custom component.
+See <a href="../faces-develop/faces-develop.html#_managed_beans_in_jakarta_faces_technology" class="xref page">Managed Beans in Jakarta Faces Technology</a> for more information on managed beans.</p>
+</li>
+<li>
+<p>You need to convert a component&#8217;s data to a type not supported by its renderer.
+See <a href="../faces-page-core/faces-page-core.html#_using_the_standard_converters" class="xref page">Using the Standard Converters</a> for more information about converting a component&#8217;s data.</p>
+</li>
+<li>
+<p>You need to perform validation on the component data.
+Standard validators and custom validators can be added to a component by using the validator tags from the page.
+See <a href="../faces-page-core/faces-page-core.html#_using_the_standard_validators" class="xref page">Using the Standard Validators</a> and <a href="#_creating_and_using_a_custom_validator">Creating and Using a Custom Validator</a> for more information about validating a component&#8217;s data.</p>
+</li>
+<li>
+<p>You need to register event listeners on components.
+You can either register event listeners on components using the <code>f:valueChangeListener</code> and <code>f:actionListener</code> tags, or you can point at an event-processing method on a managed bean using the component&#8217;s <code>actionListener</code> or <code>valueChangeListener</code> attributes.
+See <a href="#_implementing_an_event_listener">Implementing an Event Listener</a> and <a href="../faces-develop/faces-develop.html#_writing_managed_bean_methods" class="xref page">Writing Managed Bean Methods</a> for more information.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_when_to_use_a_custom_renderer"><a class="anchor" href="#_when_to_use_a_custom_renderer"></a>When to Use a Custom Renderer</h3>
+<div class="paragraph">
+<p>A renderer, which generates the markup to display a component on a web page, allows you to separate the semantics of a component from its appearance.
+By keeping this separation, you can support different kinds of client devices with the same kind of authoring experience.
+You can think of a renderer as a "client adapter." It produces output suitable for consumption and display by the client and accepts input from the client when the user interacts with that component.</p>
+</div>
+<div class="paragraph">
+<p>If you are creating a custom component, you need to ensure, among other things, that your component class performs these operations that are central to rendering the component:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Decoding: Converting the incoming request parameters to the local value of the component</p>
+</li>
+<li>
+<p>Encoding: Converting the current local value of the component into the corresponding markup that represents it in the response</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Jakarta Faces specification supports two programming models for handling encoding and decoding.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Direct implementation: The component class itself implements the decoding and encoding.</p>
+</li>
+<li>
+<p>Delegated implementation: The component class delegates the implementation of encoding and decoding to a separate renderer.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>By delegating the operations to the renderer, you have the option of associating your custom component with different renderers so that you can render the component on different clients.
+If you don&#8217;t plan to render a particular component on different clients, it may be simpler to let the component class handle the rendering.
+However, a separate renderer enables you to preserve the separation of semantics from appearance.
+The Duke&#8217;s Bookstore application separates the renderers from the components, although it renders only to HTML 4 web browsers.</p>
+</div>
+<div class="paragraph">
+<p>If you aren&#8217;t sure whether you will need the flexibility offered by separate renderers but you want to use the simpler direct-implementation approach, you can actually use both models.
+Your component class can include some default rendering code, but it can delegate rendering to a renderer if there is one.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_component_renderer_and_tag_combinations"><a class="anchor" href="#_component_renderer_and_tag_combinations"></a>Component, Renderer, and Tag Combinations</h3>
+<div class="paragraph">
+<p>When you create a custom component, you can create a custom renderer to go with it.
+To associate the component with the renderer and to reference the component from the page, you will also need a custom tag.</p>
+</div>
+<div class="paragraph">
+<p>Although you need to write the custom component and renderer, there is no need to write code for a custom tag (called a tag handler).
+If you specify the component and renderer combination, Facelets creates the tag handler automatically.</p>
+</div>
+<div class="paragraph">
+<p>In rare situations, you might use a custom renderer with a standard component rather than a custom component.
+Or you might use a custom tag without a renderer or a component.
+This section gives examples of these situations and summarizes what is required for a custom component, renderer, and tag.</p>
+</div>
+<div class="paragraph">
+<p>You would use a custom renderer without a custom component if you wanted to add some client-side validation on a standard component.
+You would implement the validation code with a client-side scripting language, such as JavaScript, and then render the JavaScript with the custom renderer.
+In this situation, you need a custom tag to go with the renderer so that its tag handler can register the renderer on the standard component.</p>
+</div>
+<div class="paragraph">
+<p>Custom components as well as custom renderers need custom tags associated with them.
+However, you can have a custom tag without a custom renderer or custom component.
+For example, suppose that you need to create a custom validator that requires extra attributes on the validator tag.
+In this case, the custom tag corresponds to a custom validator and not to a custom component or custom renderer.
+In any case, you still need to associate the custom tag with a server-side object.</p>
+</div>
+<div class="paragraph">
+<p><a href="#_requirements_for_custom_components_custom_renderers_and_custom_tags">Requirements for Custom Components, Custom Renderers and Custom Tags</a> summarizes what you must or can associate with a custom component, custom renderer, or custom tag.</p>
+</div>
+<table id="_requirements_for_custom_components_custom_renderers_and_custom_tags" class="tableblock frame-all grid-all" style="width: 90%;">
+<caption class="title">Requirements for Custom Components, Custom Renderers and Custom Tags</caption>
+<colgroup>
+<col style="width: 34%;">
+<col style="width: 30%;">
+<col style="width: 36%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Custom Item</th>
+<th class="tableblock halign-left valign-top">Must Have</th>
+<th class="tableblock halign-left valign-top">Can Have</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Custom component</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Custom tag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Custom renderer or standard renderer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Custom renderer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Custom tag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Custom component or standard component</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Custom Jakarta Faces tag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Some server-side object, like a component, a custom renderer, or custom validator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Custom component or standard component associated with a custom renderer</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_understanding_the_image_map_example"><a class="anchor" href="#_understanding_the_image_map_example"></a>Understanding the Image Map Example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Duke&#8217;s Bookstore includes a custom image map component on the <code>index.xhtml</code> page.
+This image map displays a selection of six book titles.
+When the user clicks one of the book titles in the image map, the application goes to a page that displays the title of the selected book as well as information about a featured book.
+The page allows the user to add either book (or none) to the shopping cart.</p>
+</div>
+<div class="sect2">
+<h3 id="_why_use_jakarta_faces_technology_to_implement_an_image_map"><a class="anchor" href="#_why_use_jakarta_faces_technology_to_implement_an_image_map"></a>Why Use Jakarta Faces Technology to Implement an Image Map?</h3>
+<div class="paragraph">
+<p>Jakarta Faces technology is an ideal framework to use for implementing this kind of image map because it can perform the work that must be done on the server without requiring you to create a server-side image map.</p>
+</div>
+<div class="paragraph">
+<p>In general, client-side image maps are preferred over server-side image maps for several reasons.
+One reason is that the client-side image map allows the browser to provide immediate feedback when a user positions the mouse over a hotspot.
+Another reason is that client-side image maps perform better because they don&#8217;t require round-trips to the server.
+However, in some situations, your image map might need to access the server to retrieve data or to change the appearance of nonform controls, tasks that a client-side image map cannot do.</p>
+</div>
+<div class="paragraph">
+<p>Because the image map custom component uses Jakarta Faces technology, it has the best of both styles of image maps: It can handle the parts of the application that need to be performed on the server while allowing the other parts of the application to be performed on the client side.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_understanding_the_rendered_html"><a class="anchor" href="#_understanding_the_rendered_html"></a>Understanding the Rendered HTML</h3>
+<div class="paragraph">
+<p>Here is an abbreviated version of the form part of the HTML page that the application needs to render:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">&lt;form id="j_idt13" name="j_idt13" method="post"
+        action="/dukesbookstore/index.xhtml" ...&gt;
+    ...
+    &lt;img id="j_idt13:mapImage"
+         src="/dukesbookstore/jakarta.faces.resource/book_all.jpg?ln=images"
+         alt="Choose a Book from our Catalog"
+         usemap="#bookMap" /&gt;
+    ...
+    &lt;map name="bookMap"&gt;
+       &lt;area alt="Duke"
+          coords="67,23,212,268"
+          shape="rect"
+          onmouseout="document.forms[0]['j_idt13:mapImage'].src='resources/images/book_all.jpg'"
+          onmouseover="document.forms[0]['j_idt13:mapImage'].src='resources/images/book_201.jpg'"
+          onclick="document.forms[0]['bookMap_current'].value='Duke'; document.forms[0].submit()"
+       /&gt;
+    ...
+       &lt;input type="hidden" name="bookMap_current"&gt;
+    &lt;/map&gt;
+    ...
+&lt;/form&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>img</code> tag associates an image (<code>book_all.jpg</code>) with the image map referenced in the <code>usemap</code> attribute value.</p>
+</div>
+<div class="paragraph">
+<p>The <code>map</code> tag specifies the image map and contains a set of <code>area</code> tags.</p>
+</div>
+<div class="paragraph">
+<p>Each <code>area</code> tag specifies a region of the image map.
+The <code>onmouseover</code>, <code>onmouseout</code>, and <code>onclick</code> attributes define which JavaScript code is executed when these events occur.
+When the user moves the mouse over a region, the <code>onmouseover</code> function associated with the region displays the map with that region highlighted.
+When the user moves the mouse out of a region, the <code>onmouseout</code> function redisplays the original image.
+If the user clicks on a region, the <code>onclick</code> function sets the value of the <code>input</code> tag to the ID of the selected area and submits the page.</p>
+</div>
+<div class="paragraph">
+<p>The <code>input</code> tag represents a hidden control that stores the value of the currently selected area between client-server exchanges so that the server-side component classes can retrieve the value.</p>
+</div>
+<div class="paragraph">
+<p>The server-side objects retrieve the value of <code>bookMap_current</code> and set the locale in the <code>jakarta.faces.context.FacesContext</code> instance according to the region that was selected.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_understanding_the_facelets_page"><a class="anchor" href="#_understanding_the_facelets_page"></a>Understanding the Facelets Page</h3>
+<div class="paragraph">
+<p>Here is an abbreviated form of the Facelets page that the image map component uses to generate the HTML page shown in the preceding section.
+It uses custom <code>bookstore:map</code> and <code>bookstore:area</code> tags to represent the custom components:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:form&gt;
+    ...
+        &lt;h:graphicImage id="mapImage"
+                        name="book_all.jpg"
+                        library="images"
+                        alt="#{bundle.ChooseBook}"
+                        usemap="#bookMap" /&gt;
+        &lt;bookstore:map id="bookMap"
+                       current="map1"
+                       immediate="true"
+                       action="bookstore"&gt;
+            &lt;f:actionListener
+                type="dukesbookstore.listeners.MapBookChangeListener" /&gt;
+            &lt;bookstore:area id="map1" value="#{Book201}"
+                            onmouseover="resources/images/book_201.jpg"
+                            onmouseout="resources/images/book_all.jpg"
+                            targetImage="mapImage" /&gt;
+            &lt;bookstore:area id="map2" value="#{Book202}"
+                            onmouseover="resources/images/book_202.jpg"
+                            onmouseout="resources/images/book_all.jpg"
+                            targetImage="mapImage"/&gt;
+            ...
+        &lt;/bookstore:map&gt;
+    ...
+&lt;/h:form&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>alt</code> attribute of the <code>h:graphicImage</code> tag maps to the localized string <code>"Choose a Book from our Catalog"</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>f:actionListener</code> tag within the <code>bookstore:map</code> tag points to a listener class for an action event.
+The <code>processAction</code> method of the listener places the book ID for the selected map area into the session map.
+The way this event is handled is explained more in <a href="#_handling_events_for_custom_components">Handling Events for Custom Components</a>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>action</code> attribute of the <code>bookstore:map</code> tag specifies a logical outcome <code>String</code>, <code>"bookstore"</code>, which by implicit navigation rules sends the application to the page <code>bookstore.xhtml</code>.
+For more information on navigation, see <a href="../faces-configure/faces-configure.html#_configuring_navigation_rules" class="xref page">Configuring Navigation Rules</a>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>immediate</code> attribute of the <code>bookstore:map</code> tag is set to <code>true</code>, which indicates that the default <code>jakarta.faces.event.ActionListener</code> implementation should execute during the Apply Request Values phase of the request-processing lifecycle, instead of waiting for the Invoke Application phase.
+Because the request resulting from clicking the map does not require any validation, data conversion, or server-side object updates, it makes sense to skip directly to the Invoke Application phase.</p>
+</div>
+<div class="paragraph">
+<p>The <code>current</code> attribute of the <code>bookstore:map</code> tag is set to the default area, which is <code>map1</code> (the book My Early Years: Growing Up on Star7, by Duke).</p>
+</div>
+<div class="paragraph">
+<p>Notice that the <code>bookstore:area</code> tags do not contain any of the JavaScript, coordinate, or shape data that is displayed on the HTML page.
+The JavaScript is generated by the <code>dukesbookstore.renderers.AreaRenderer</code> class.
+The <code>onmouseover</code> and <code>onmouseout</code> attribute values indicate the image to be loaded when these events occur.
+How the JavaScript is generated is explained more in <a href="#_performing_encoding">Performing Encoding</a>.</p>
+</div>
+<div class="paragraph">
+<p>The coordinate, shape, and alternate text data are obtained through the <code>value</code> attribute, whose value refers to an attribute in application scope.
+The value of this attribute is a bean, which stores the <code>coords</code>, <code>shape</code>, and <code>alt</code> data.
+How these beans are stored in the application scope is explained more in the next section.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_summary_of_the_image_map_application_classes"><a class="anchor" href="#_summary_of_the_image_map_application_classes"></a>Summary of the Image Map Application Classes</h3>
+<div class="paragraph">
+<p><a href="#_image_map_classes">Image Map Classes</a> summarizes all the classes needed to implement the image map component.</p>
+</div>
+<table id="_image_map_classes" class="tableblock frame-all grid-all" style="width: 60%;">
+<caption class="title">Image Map Classes</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Class</th>
+<th class="tableblock halign-left valign-top">Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AreaSelectedEvent</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The <code>jakarta.faces.event.ActionEvent</code> indicating that an <code>AreaComponent</code> from the <code>MapComponent</code> has been selected.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AreaComponent</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The class that defines <code>AreaComponent</code>, which corresponds to the <code>bookstore:area</code> custom tag.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MapComponent</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The class that defines <code>MapComponent</code>, which corresponds to the <code>bookstore:map</code> custom tag.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AreaRenderer</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This <code>jakarta.faces.render.Renderer</code> performs the delegated rendering for <code>AreaComponent</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ImageArea</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The bean that stores the shape and coordinates of the hotspots.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MapBookChangeListener</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The action listener for the <code>MapComponent</code>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The Duke&#8217;s Bookstore source directory, called bookstore-dir, is <code><em>tut-install</em>/examples/case-studies/dukes-bookstore/src/java/dukesbookstore/</code>.
+The event and listener classes are located in <code><em>bookstore-dir</em>/listeners/</code>.
+The component classes are located in <code><em>bookstore-dir</em>/components/</code>.
+The renderer classes are located in <code><em>bookstore-dir</em>/renderers/</code>.
+<code>ImageArea</code> is located in <code><em>bookstore-dir</em>/model/</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_steps_for_creating_a_custom_component"><a class="anchor" href="#_steps_for_creating_a_custom_component"></a>Steps for Creating a Custom Component</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can apply the following steps while developing your own custom component.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a custom component class that does the following:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Overrides the <code>getFamily</code> method to return the component family, which is used to look up renderers that can render the component</p>
+</li>
+<li>
+<p>Includes the rendering code or delegates it to a renderer (explained in <a href="#_create_custom_component_step_2">Step 2</a>)</p>
+</li>
+<li>
+<p>Enables component attributes to accept expressions</p>
+</li>
+<li>
+<p>Queues an event on the component if the component generates events</p>
+</li>
+<li>
+<p>Saves and restores the component state</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><a id="_create_custom_component_step_2"></a> Delegate rendering to a renderer if your component does not handle the rendering.
+To do this:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Create a custom renderer class by extending <code>jakarta.faces.render.Renderer</code>.</p>
+</li>
+<li>
+<p>Register the renderer to a render kit.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Register the component.</p>
+</li>
+<li>
+<p>Create an event handler if your component generates events.</p>
+</li>
+<li>
+<p>Create a tag library descriptor (TLD) that defines the custom tag.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>See <a href="../faces-configure/faces-configure.html#_registering_a_custom_component" class="xref page">Registering a Custom Component</a> and <a href="../faces-configure/faces-configure.html#_registering_a_custom_renderer_with_a_render_kit" class="xref page">Registering a Custom Renderer with a Render Kit</a> for information on registering the custom component and the renderer.
+The section <a href="#_using_a_custom_component">Using a Custom Component</a> discusses how to use the custom component in a Jakarta Faces page.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creating_custom_component_classes"><a class="anchor" href="#_creating_custom_component_classes"></a>Creating Custom Component Classes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As explained in <a href="#_when_to_use_a_custom_component">When to Use a Custom Component</a>, a component class defines the state and behavior of a UI component.
+The state information includes the component&#8217;s type, identifier, and local value.
+The behavior defined by the component class includes the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Decoding (converting the request parameter to the component&#8217;s local value)</p>
+</li>
+<li>
+<p>Encoding (converting the local value into the corresponding markup)</p>
+</li>
+<li>
+<p>Saving the state of the component</p>
+</li>
+<li>
+<p>Updating the bean value with the local value</p>
+</li>
+<li>
+<p>Processing validation on the local value</p>
+</li>
+<li>
+<p>Queueing events</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>jakarta.faces.component.UIComponentBase</code> class defines the default behavior of a component class.
+All the classes representing the standard components extend from <code>UIComponentBase</code>.
+These classes add their own behavior definitions, as your custom component class will do.</p>
+</div>
+<div class="paragraph">
+<p>Your custom component class must either extend <code>UIComponentBase</code> directly or extend a class representing one of the standard components.
+These classes are located in the <code>jakarta.faces.component</code> package, and their names begin with <code>UI</code>.</p>
+</div>
+<div class="paragraph">
+<p>If your custom component serves the same purpose as a standard component, you should extend that standard component rather than directly extend <code>UIComponentBase</code>.
+For example, suppose you want to create an editable menu component.
+It makes sense to have this component extend <code>UISelectOne</code> rather than <code>UIComponentBase</code> because you can reuse the behavior already defined in <code>UISelectOne</code>.
+The only new functionality you need to define is to make the menu editable.</p>
+</div>
+<div class="paragraph">
+<p>Whether you decide to have your component extend <code>UIComponentBase</code> or a standard component, you might also want your component to implement one or more of these behavioral interfaces defined in the <code>jakarta.faces.component</code> package:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ActionSource</code>: Indicates that the component can fire a <code>jakarta.faces.event.ActionEvent</code></p>
+</li>
+<li>
+<p><code>ActionSource2</code>: Extends <code>ActionSource</code> and allows component properties referencing methods that handle action events to use method expressions as defined by the EL</p>
+</li>
+<li>
+<p><code>EditableValueHolder</code>: Extends <code>ValueHolder</code> and specifies additional features for editable components, such as validation and emitting value-change events</p>
+</li>
+<li>
+<p><code>NamingContainer</code>: Mandates that each component rooted at this component has a unique ID</p>
+</li>
+<li>
+<p><code>StateHolder</code>: Denotes that a component has state that must be saved between requests</p>
+</li>
+<li>
+<p><code>ValueHolder</code>: Indicates that the component maintains a local value as well as the option of accessing data in the model tier</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If your component extends <code>UIComponentBase</code>, it automatically implements only <code>StateHolder</code>.
+Because all components directly or indirectly extend <code>UIComponentBase</code>, they all implement <code>StateHolder</code>.
+Any component that implements <code>StateHolder</code> also implements the <code>StateHelper</code> interface, which extends <code>StateHolder</code> and defines a <code>Map</code>-like contract that makes it easy for components to save and restore a partial view state.</p>
+</div>
+<div class="paragraph">
+<p>If your component extends one of the other standard components, it might also implement other behavioral interfaces in addition to <code>StateHolder</code>.
+If your component extends <code>UICommand</code>, it automatically implements <code>ActionSource2</code>.
+If your component extends <code>UIOutput</code> or one of the component classes that extend <code>UIOutput</code>, it automatically implements <code>ValueHolder</code>.
+If your component extends <code>UIInput</code>, it automatically implements <code>EditableValueHolder</code> and <code>ValueHolder</code>.
+See the Jakarta Faces API documentation to find out what the other component classes implement.</p>
+</div>
+<div class="paragraph">
+<p>You can also make your component explicitly implement a behavioral interface that it doesn&#8217;t already by virtue of extending a particular standard component.
+For example, if you have a component that extends <code>UIInput</code> and you want it to fire action events, you must make it explicitly implement <code>ActionSource2</code> because a <code>UIInput</code> component doesn&#8217;t automatically implement this interface.</p>
+</div>
+<div class="paragraph">
+<p>The Duke&#8217;s Bookstore image map example has two component classes: <code>AreaComponent</code> and <code>MapComponent</code>.
+The <code>MapComponent</code> class extends <code>UICommand</code> and therefore implements <code>ActionSource2</code>, which means it can fire action events when a user clicks on the map.
+The <code>AreaComponent</code> class extends the standard component <code>UIOutput</code>.
+The <code>@FacesComponent</code> annotation registers the components with the Jakarta Faces implementation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@FacesComponent("DemoMap")
+public class MapComponent extends UICommand {...}
+
+@FacesComponent("DemoArea")
+public class AreaComponent extends UIOutput {...}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>MapComponent</code> class represents the component corresponding to the <code>bookstore:map</code> tag:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;bookstore:map id="bookMap"
+               current="map1"
+               immediate="true"
+               action="bookstore"&gt;
+    ...
+&lt;/bookstore:map&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>AreaComponent</code> class represents the component corresponding to the <code>bookstore:area</code> tag:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;bookstore:area id="map1" value="#{Book201}"
+                onmouseover="resources/images/book_201.jpg"
+                onmouseout="resources/images/book_all.jpg"
+                targetImage="mapImage"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>MapComponent</code> has one or more <code>AreaComponent</code> instances as children.
+Its behavior consists of the following actions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Retrieving the value of the currently selected area</p>
+</li>
+<li>
+<p>Defining the properties corresponding to the component&#8217;s values</p>
+</li>
+<li>
+<p>Generating an event when the user clicks on the image map</p>
+</li>
+<li>
+<p>Queuing the event</p>
+</li>
+<li>
+<p>Saving its state</p>
+</li>
+<li>
+<p>Rendering the HTML <code>map</code> tag and the HTML <code>input</code> tag</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>MapComponent</code> delegates the rendering of the HTML <code>map</code> and <code>input</code> tags to the <code>MapRenderer</code> class.</p>
+</div>
+<div class="paragraph">
+<p><code>AreaComponent</code> is bound to a bean that stores the shape and coordinates of the region of the image map.
+You will see how all this data is accessed through the value expression in <a href="#_creating_the_renderer_class">Creating the Renderer Class</a>.
+The behavior of <code>AreaComponent</code> consists of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Retrieving the shape and coordinate data from the bean</p>
+</li>
+<li>
+<p>Setting the value of the hidden tag to the <code>id</code> of this component</p>
+</li>
+<li>
+<p>Rendering the <code>area</code> tag, including the JavaScript for the <code>onmouseover</code>, <code>onmouseout</code>, and <code>onclick</code> functions</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Although these tasks are actually performed by <code>AreaRenderer</code>, <code>AreaComponent</code> must delegate the tasks to <code>AreaRenderer</code>.
+See <a href="#_delegating_rendering_to_a_renderer">Delegating Rendering to a Renderer</a> for more information.</p>
+</div>
+<div class="paragraph">
+<p>The rest of this section describes the tasks that <code>MapComponent</code> performs as well as the encoding and decoding that it delegates to <code>MapRenderer</code>.
+<a href="#_handling_events_for_custom_components">Handling Events for Custom Components</a> details how <code>MapComponent</code> handles events.</p>
+</div>
+<div class="sect2">
+<h3 id="_specifying_the_component_family"><a class="anchor" href="#_specifying_the_component_family"></a>Specifying the Component Family</h3>
+<div class="paragraph">
+<p>If your custom component class delegates rendering, it needs to override the <code>getFamily</code> method of <code>UIComponent</code> to return the identifier of a component family, which is used to refer to a component or set of components that can be rendered by a renderer or set of renderers.
+The component family is used along with the renderer type to look up renderers that can render the component:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public String getFamily() {
+    return ("Map");
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The component family identifier, <code>Map</code>, must match that defined by the <code>component-family</code> elements included in the component and renderer configurations in the application configuration resource file.
+<a href="../faces-configure/faces-configure.html#_registering_a_custom_renderer_with_a_render_kit" class="xref page">Registering a Custom Renderer with a Render Kit</a> explains how to define the component family in the renderer configuration.
+<a href="../faces-configure/faces-configure.html#_registering_a_custom_component" class="xref page">Registering a Custom Component</a> explains how to define the component family in the component configuration.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_performing_encoding"><a class="anchor" href="#_performing_encoding"></a>Performing Encoding</h3>
+<div class="paragraph">
+<p>During the Render Response phase, the Jakarta Faces implementation processes the encoding methods of all components and their associated renderers in the view.
+The encoding methods convert the current local value of the component into the corresponding markup that represents it in the response.</p>
+</div>
+<div class="paragraph">
+<p>The <code>UIComponentBase</code> class defines a set of methods for rendering markup: <code>encodeBegin</code>, <code>encodeChildren</code>, and <code>encodeEnd</code>.
+If the component has child components, you might need to use more than one of these methods to render the component; otherwise, all rendering should be done in <code>encodeEnd</code>.
+Alternatively, you can use the <code>encodeALL</code> method, which encompasses all the methods.</p>
+</div>
+<div class="paragraph">
+<p>Because <code>MapComponent</code> is a parent component of <code>AreaComponent</code>, the <code>area</code> tags must be rendered after the beginning <code>map</code> tag and before the ending <code>map</code> tag.
+To accomplish this, the <code>MapRenderer</code> class renders the beginning <code>map</code> tag in <code>encodeBegin</code> and the rest of the <code>map</code> tag in <code>encodeEnd</code>.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta Faces implementation automatically invokes the <code>encodeEnd</code> method of <code>AreaComponent</code>'s renderer after it invokes <code>MapRenderer</code>'s <code>encodeBegin</code> method and before it invokes <code>MapRenderer</code>'s <code>encodeEnd</code> method.
+If a component needs to perform the rendering for its children, it does this in the <code>encodeChildren</code> method.</p>
+</div>
+<div class="paragraph">
+<p>Here are the <code>encodeBegin</code> and <code>encodeEnd</code> methods of <code>MapRenderer</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
+public void encodeBegin(FacesContext context, UIComponent component)
+        throws IOException {
+    if ((context == null)|| (component == null)) {
+        throw new NullPointerException();
+    }
+    MapComponent map = (MapComponent) component;
+    ResponseWriter writer = context.getResponseWriter();
+    writer.startElement("map", map);
+    writer.writeAttribute("name", map.getId(), "id");
+}
+
+@Override
+public void encodeEnd(FacesContext context, UIComponent component)
+        throws IOException {
+    if ((context == null) || (component == null)){
+        throw new NullPointerException();
+    }
+    MapComponent map = (MapComponent) component;
+    ResponseWriter writer = context.getResponseWriter();
+    writer.startElement("input", map);
+    writer.writeAttribute("type", "hidden", null);
+    writer.writeAttribute("name", getName(context,map), "clientId");
+    writer.endElement("input");
+    writer.endElement("map");
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice that <code>encodeBegin</code> renders only the beginning <code>map</code> tag.
+The <code>encodeEnd</code> method renders the <code>input</code> tag and the ending <code>map</code> tag.</p>
+</div>
+<div class="paragraph">
+<p>The encoding methods accept a <code>UIComponent</code> argument and a <code>jakarta.faces.context.FacesContext</code> argument.
+The <code>FacesContext</code> instance contains all the information associated with the current request.
+The <code>UIComponent</code> argument is the component that needs to be rendered.</p>
+</div>
+<div class="paragraph">
+<p>The rest of the method renders the markup to the <code>jakarta.faces.context.ResponseWriter</code> instance, which writes out the markup to the current response.
+This basically involves passing the HTML tag names and attribute names to the <code>ResponseWriter</code> instance as strings, retrieving the values of the component attributes, and passing these values to the <code>ResponseWriter</code> instance.</p>
+</div>
+<div class="paragraph">
+<p>The <code>startElement</code> method takes a <code>String</code> (the name of the tag) and the component to which the tag corresponds (in this case, <code>map</code>).
+(Passing this information to the <code>ResponseWriter</code> instance helps design-time tools know which portions of the generated markup are related to which components.)</p>
+</div>
+<div class="paragraph">
+<p>After calling <code>startElement</code>, you can call <code>writeAttribute</code> to render the tag&#8217;s attributes.
+The <code>writeAttribute</code> method takes the name of the attribute, its value, and the name of a property or attribute of the containing component corresponding to the attribute.
+The last parameter can be null, and it won&#8217;t be rendered.</p>
+</div>
+<div class="paragraph">
+<p>The <code>name</code> attribute value of the <code>map</code> tag is retrieved using the <code>getId</code> method of <code>UIComponent</code>, which returns the component&#8217;s unique identifier.
+The <code>name</code> attribute value of the <code>input</code> tag is retrieved using the <code>getName(FacesContext, UIComponent)</code> method of <code>MapRenderer</code>.</p>
+</div>
+<div class="paragraph">
+<p>If you want your component to perform its own rendering but delegate to a renderer if there is one, include the following lines in the encoding method to check whether there is a renderer associated with this component:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">if (getRendererType() != null) {
+    super.encodeEnd(context);
+    return;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If there is a renderer available, this method invokes the superclass&#8217;s <code>encodeEnd</code> method, which does the work of finding the renderer.
+The <code>MapComponent</code> class delegates all rendering to <code>MapRenderer</code>, so it does not need to check for available renderers.</p>
+</div>
+<div class="paragraph">
+<p>In some custom component classes that extend standard components, you might need to implement other methods in addition to <code>encodeEnd</code>.
+For example, if you need to retrieve the component&#8217;s value from the request parameters, you must also implement the <code>decode</code> method.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_performing_decoding"><a class="anchor" href="#_performing_decoding"></a>Performing Decoding</h3>
+<div class="paragraph">
+<p>During the Apply Request Values phase, the Jakarta Faces implementation processes the <code>decode</code> methods of all components in the tree.
+The <code>decode</code> method extracts a component&#8217;s local value from incoming request parameters and uses a <code>jakarta.faces.convert.Converter</code> implementation to convert the value to a type that is acceptable to the component class.</p>
+</div>
+<div class="paragraph">
+<p>A custom component class or its renderer must implement the <code>decode</code> method only if it must retrieve the local value or if it needs to queue events.
+The component queues the event by calling <code>queueEvent</code>.</p>
+</div>
+<div class="paragraph">
+<p>Here is the <code>decode</code> method of <code>MapRenderer</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
+public void decode(FacesContext context, UIComponent component) {
+    if ((context == null) || (component == null)) {
+        throw new NullPointerException();
+    }
+    MapComponent map = (MapComponent) component;
+    String key = getName(context, map);
+    String value = (String) context.getExternalContext().
+            getRequestParameterMap().get(key);
+    if (value != null)
+        map.setCurrent(value);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>decode</code> method first gets the name of the hidden <code>input</code> field by calling <code>getName(FacesContext, UIComponent)</code>.
+It then uses that name as the key to the request parameter map to retrieve the current value of the <code>input</code> field.
+This value represents the currently selected area.
+Finally, it sets the value of the <code>MapComponent</code> class&#8217;s <code>current</code> attribute to the value of the <code>input</code> field.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_enabling_component_properties_to_accept_expressions"><a class="anchor" href="#_enabling_component_properties_to_accept_expressions"></a>Enabling Component Properties to Accept Expressions</h3>
+<div class="paragraph">
+<p>Nearly all the attributes of the standard Jakarta Faces tags can accept expressions, whether they are value expressions or method expressions.
+It is recommended that you also enable your component attributes to accept expressions because it gives you much more flexibility when you write Facelets pages.</p>
+</div>
+<div class="paragraph">
+<p>To enable the attributes to accept expressions, the component class must implement getter and setter methods for the component properties.
+These methods can use the facilities offered by the <code>StateHelper</code> interface to store and retrieve not only the values for these properties but also the state of the components across multiple requests.</p>
+</div>
+<div class="paragraph">
+<p>Because <code>MapComponent</code> extends <code>UICommand</code>, the <code>UICommand</code> class already does the work of getting the <code>ValueExpression</code> and <code>MethodExpression</code> instances associated with each of the attributes that it supports.
+Similarly, the <code>UIOutput</code> class that <code>AreaComponent</code> extends already obtains the <code>ValueExpression</code> instances for its supported attributes.
+For both components, the simple getter and setter methods store and retrieve the key values and state for the attributes, as shown in this code fragment from <code>AreaComponent</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">enum PropertyKeys {
+    alt, coords, shape, targetImage;
+}
+public String getAlt() {
+    return (String) getStateHelper().eval(PropertyKeys.alt, null);
+}
+public void setAlt(String alt) {
+    getStateHelper().put(PropertyKeys.alt, alt);
+}
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>However, if you have a custom component class that extends <code>UIComponentBase</code>, you will need to implement the methods that get the <code>ValueExpression</code> and <code>MethodExpression</code> instances associated with those attributes that are enabled to accept expressions.
+For example, you could include a method that gets the <code>ValueExpression</code> instance for the <code>immediate</code> attribute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public boolean isImmediate() {
+    if (this.immediateSet) {
+        return (this.immediate);
+    }
+    ValueExpression ve = getValueExpression("immediate");
+    if (ve != null) {
+        Boolean value = (Boolean) ve.getValue(
+            getFacesContext().getELContext());
+        return (value.booleanValue());
+    } else {
+        return (this.immediate);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The properties corresponding to the component attributes that accept method expressions must accept and return a <code>MethodExpression</code> object.
+For example, if <code>MapComponent</code> extended <code>UIComponentBase</code> instead of <code>UICommand</code>, it would need to provide an <code>action</code> property that returns and accepts a <code>MethodExpression</code> object:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public MethodExpression getAction() {
+    return (this.action);
+}
+public void setAction(MethodExpression action) {
+    this.action = action;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_saving_and_restoring_state"><a class="anchor" href="#_saving_and_restoring_state"></a>Saving and Restoring State</h3>
+<div class="paragraph">
+<p>As described in <a href="#_enabling_component_properties_to_accept_expressions">Enabling Component Properties to Accept Expressions</a>, use of the <code>StateHelper</code> interface facilities allows you to save the component&#8217;s state at the same time you set and retrieve property values.
+The <code>StateHelper</code> implementation allows partial state saving; it saves only the changes in the state since the initial request, not the entire state, because the full state can be restored during the Restore View phase.</p>
+</div>
+<div class="paragraph">
+<p>Component classes that implement <code>StateHolder</code> may prefer to implement the <code>saveState(FacesContext)</code> and <code>restoreState(FacesContext, Object)</code> methods to help the Jakarta Faces implementation save and restore the state of components across multiple requests.</p>
+</div>
+<div class="paragraph">
+<p>To save a set of values, you can implement the <code>saveState(FacesContext)</code> method.
+This method is called during the Render Response phase, during which the state of the response is saved for processing on subsequent requests.
+Here is a hypothetical method from <code>MapComponent</code>, which has only one attribute, <code>current</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
+public Object saveState(FacesContext context) {
+    Object values[] = new Object[2];
+    values[0] = super.saveState(context);
+    values[1] = current;
+    return (values);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This method initializes an array, which will hold the saved state.
+It next saves all of the state associated with the component.</p>
+</div>
+<div class="paragraph">
+<p>A component that implements <code>StateHolder</code> may also provide an implementation for <code>restoreState(FacesContext, Object)</code>, which restores the state of the component to that saved with the <code>saveState(FacesContext)</code> method.
+The <code>restoreState(FacesContext, Object)</code> method is called during the Restore View phase, during which the Jakarta Faces implementation checks whether there is any state that was saved during the last Render Response phase and needs to be restored in preparation for the next postback.</p>
+</div>
+<div class="paragraph">
+<p>Here is a hypothetical <code>restoreState(FacesContext, Object)</code> method from <code>MapComponent</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public void restoreState(FacesContext context, Object state) {
+    Object values[] = (Object[]) state;
+    super.restoreState(context, values[0]);
+    current = (String) values[1];
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This method takes a <code>FacesContext</code> and an <code>Object</code> instance, representing the array that is holding the state for the component.
+This method sets the component&#8217;s properties to the values saved in the <code>Object</code> array.</p>
+</div>
+<div class="paragraph">
+<p>Whether or not you implement these methods in your component class, you can use the <code>jakarta.faces.STATE_SAVING_METHOD</code> context parameter to specify in the deployment descriptor where you want the state to be saved: either <code>client</code> or <code>server</code>.
+If state is saved on the client, the state of the entire view is rendered to a hidden field on the page.
+By default, the state is saved on the server.</p>
+</div>
+<div class="paragraph">
+<p>The web applications in the Duke&#8217;s Forest case study save their view state on the client.</p>
+</div>
+<div class="paragraph">
+<p>Saving state on the client uses more bandwidth as well as more client resources, whereas saving it on the server uses more server resources.
+You may also want to save state on the client if you expect your users to disable cookies.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_delegating_rendering_to_a_renderer"><a class="anchor" href="#_delegating_rendering_to_a_renderer"></a>Delegating Rendering to a Renderer</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Both <code>MapComponent</code> and <code>AreaComponent</code> delegate all of their rendering to a separate renderer.
+The section <a href="#_performing_encoding">Performing Encoding</a> explains how <code>MapRenderer</code> performs the encoding for <code>MapComponent</code>.
+This section explains in detail the process of delegating rendering to a renderer using <code>AreaRenderer</code>, which performs the rendering for <code>AreaComponent</code>.</p>
+</div>
+<div class="paragraph">
+<p>To delegate rendering, you perform the tasks described in the following topics:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#_creating_the_renderer_class">Creating the Renderer Class</a></p>
+</li>
+<li>
+<p><a href="#_identifying_the_renderer_type">Identifying the Renderer Type</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_creating_the_renderer_class"><a class="anchor" href="#_creating_the_renderer_class"></a>Creating the Renderer Class</h3>
+<div class="paragraph">
+<p>When delegating rendering to a renderer, you can delegate all encoding and decoding to the renderer, or you can choose to do part of it in the component class.
+The <code>AreaComponent</code> class delegates encoding to the <code>AreaRenderer</code> class.</p>
+</div>
+<div class="paragraph">
+<p>The renderer class begins with a <code>@FacesRenderer</code> annotation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@FacesRenderer(componentFamily = "Area", rendererType = "DemoArea")
+public class AreaRenderer extends Renderer { }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>@FacesRenderer</code> annotation registers the renderer class with the Jakarta Faces implementation as a renderer class.
+The annotation identifies the component family as well as the renderer type.</p>
+</div>
+<div class="paragraph">
+<p>To perform the rendering for <code>AreaComponent</code>, <code>AreaRenderer</code> must implement an <code>encodeEnd</code> method.
+The <code>encodeEnd</code> method of <code>AreaRenderer</code> retrieves the shape, coordinates, and alternative text values stored in the <code>ImageArea</code> bean that is bound to <code>AreaComponent</code>.
+Suppose that the <code>area</code> tag currently being rendered has a <code>value</code> attribute value of <code>"book203"</code>.
+The following line from <code>encodeEnd</code> gets the value of the attribute <code>"book203"</code> from the <code>FacesContext</code> instance:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">ImageArea ia = (ImageArea)area.getValue();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The attribute value is the <code>ImageArea</code> bean instance, which contains the <code>shape</code>, <code>coords</code>, and <code>alt</code> values associated with the <code>book203</code> <code>AreaComponent</code> instance.
+<a href="#_configuring_model_data">Configuring Model Data</a> describes how the application stores these values.</p>
+</div>
+<div class="paragraph">
+<p>After retrieving the <code>ImageArea</code> object, the method renders the values for <code>shape</code>, <code>coords</code>, and <code>alt</code> by simply calling the associated accessor methods and passing the returned values to the <code>ResponseWriter</code> instance, as shown by these lines of code, which write out the shape and coordinates:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">writer.startElement("area", area);
+writer.writeAttribute("alt", iarea.getAlt(), "alt");
+writer.writeAttribute("coords", iarea.getCoords(), "coords");
+writer.writeAttribute("shape", iarea.getShape(), "shape");</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>encodeEnd</code> method also renders the JavaScript for the <code>onmouseout</code>, <code>onmouseover</code>, and <code>onclick</code> attributes.
+The Facelets page needs to provide only the path to the images that are to be loaded during an <code>onmouseover</code> or <code>onmouseout</code> action:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;bookstore:area id="map3" value="#{Book203}"
+                onmouseover="resources/images/book_203.jpg"
+                onmouseout="resources/images/book_all.jpg"
+                targetImage="mapImage"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>AreaRenderer</code> class takes care of generating the JavaScript for these actions, as shown in the following code from <code>encodeEnd</code>.
+The JavaScript that <code>AreaRenderer</code> generates for the <code>onclick</code> action sets the value of the hidden field to the value of the current area&#8217;s component ID and submits the page.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">sb = new StringBuffer("document.forms[0]['").append(targetImageId).
+        append("'].src='");
+sb.append(
+        getURI(context,
+        (String) area.getAttributes().get("onmouseout")));
+sb.append("'");
+writer.writeAttribute("onmouseout", sb.toString(), "onmouseout");
+sb = new StringBuffer("document.forms[0]['").append(targetImageId).
+        append("'].src='");
+sb.append(
+        getURI(context,
+        (String) area.getAttributes().get("onmouseover")));
+sb.append("'");
+writer.writeAttribute("onmouseover", sb.toString(), "onmouseover");
+sb = new StringBuffer("document.forms[0]['");
+sb.append(getName(context, area));
+sb.append("'].value='");
+sb.append(iarea.getAlt());
+sb.append("'; document.forms[0].submit()");
+writer.writeAttribute("onclick", sb.toString(), "value");
+writer.endElement("area");</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By submitting the page, this code causes the Jakarta Faces lifecycle to return back to the Restore View phase.
+This phase saves any state information, including the value of the hidden field, so that a new request component tree is constructed.
+This value is retrieved by the <code>decode</code> method of the <code>MapComponent</code> class.
+This decode method is called by the Jakarta Faces implementation during the Apply Request Values phase, which follows the Restore View phase.</p>
+</div>
+<div class="paragraph">
+<p>In addition to the <code>encodeEnd</code> method, <code>AreaRenderer</code> contains an empty constructor.
+This is used to create an instance of <code>AreaRenderer</code> so that it can be added to the render kit.</p>
+</div>
+<div class="paragraph">
+<p>The <code>@FacesRenderer</code> annotation registers the renderer class with the Jakarta Faces implementation as a renderer class.
+The annotation identifies the component family as well as the renderer type.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_identifying_the_renderer_type"><a class="anchor" href="#_identifying_the_renderer_type"></a>Identifying the Renderer Type</h3>
+<div class="paragraph">
+<p>Register the renderer with a render kit by using the <code>@FacesRenderer</code> annotation (or by using the application configuration resource file, as explained in <a href="../faces-configure/faces-configure.html#_registering_a_custom_renderer_with_a_render_kit" class="xref page">Registering a Custom Renderer with a Render Kit</a>).
+During the Render Response phase, the Jakarta Faces implementation calls the <code>getRendererType</code> method of the component&#8217;s tag handler to determine which renderer to invoke, if there is one.</p>
+</div>
+<div class="paragraph">
+<p>You identify the type associated with the renderer in the <code>rendererType</code> element of the <code>@FacesRenderer</code> annotation for <code>AreaRenderer</code> as well as in the <code>renderer-type</code> element of the tag library descriptor.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_implementing_an_event_listener"><a class="anchor" href="#_implementing_an_event_listener"></a>Implementing an Event Listener</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Jakarta Faces technology supports action events and value-change events for components.</p>
+</div>
+<div class="paragraph">
+<p>Action events occur when the user activates a component that implements <code>jakarta.faces.component.ActionSource</code>.
+These events are represented by the class <code>jakarta.faces.event.ActionEvent</code>.</p>
+</div>
+<div class="paragraph">
+<p>Value-change events occur when the user changes the value of a component that implements <code>jakarta.faces.component.EditableValueHolder</code>.
+These events are represented by the class <code>jakarta.faces.event.ValueChangeEvent</code>.</p>
+</div>
+<div class="paragraph">
+<p>One way to handle events is to implement the appropriate listener classes.
+Listener classes that handle the action events in an application must implement the interface <code>jakarta.faces.event.ActionListener</code>.
+Similarly, listeners that handle the value-change events must implement the interface <code>jakarta.faces.event.ValueChangeListener</code>.</p>
+</div>
+<div class="paragraph">
+<p>This section explains how to implement the two listener classes.</p>
+</div>
+<div class="paragraph">
+<p>To handle events generated by custom components, you must implement an event listener and an event handler and manually queue the event on the component.
+See <a href="#_handling_events_for_custom_components">Handling Events for Custom Components</a> for more information.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You do not need to create an <code>ActionListener</code> implementation to handle an event that results solely in navigating to a page and does not perform any other application-specific processing.
+See <a href="../faces-develop/faces-develop.html#_writing_a_method_to_handle_navigation" class="xref page">Writing a Method to Handle Navigation</a> for information on how to manage page navigation.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_implementing_value_change_listeners"><a class="anchor" href="#_implementing_value_change_listeners"></a>Implementing Value-Change Listeners</h3>
+<div class="paragraph">
+<p>A <code>jakarta.faces.event.ValueChangeListener</code> implementation must include a <code>processValueChange(ValueChangeEvent)</code> method.
+This method processes the specified value-change event and is invoked by the Jakarta Faces implementation when the value-change event occurs.
+The <code>ValueChangeEvent</code> instance stores the old and the new values of the component that fired the event.</p>
+</div>
+<div class="paragraph">
+<p>In the Duke&#8217;s Bookstore case study, the <code>NameChanged</code> listener implementation is registered on the <code>name</code> <code>UIInput</code> component on the <code>bookcashier.xhtml</code> page.
+This listener stores into session scope the name the user entered in the field corresponding to the name component.</p>
+</div>
+<div class="paragraph">
+<p>The <code>bookreceipt.xhtml</code> subsequently retrieves the name from the session scope:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:outputFormat title="thanks"
+                value="#{bundle.ThankYouParam}"&gt;
+    &lt;f:param value="#{sessionScope.name}"/&gt;
+&lt;/h:outputFormat&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the <code>bookreceipt.xhtml</code> page is loaded, it displays the name inside the message:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">"Thank you, {0}, for purchasing your books from us."</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here is part of the <code>NameChanged</code> listener implementation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class NameChanged extends Object implements ValueChangeListener {
+
+    @Override
+    public void processValueChange(ValueChangeEvent event)
+            throws AbortProcessingException {
+
+        if (null != event.getNewValue()) {
+            FacesContext.getCurrentInstance().getExternalContext().
+                getSessionMap().put("name", event.getNewValue());
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the user enters the name in the field, a value-change event is generated, and the <code>processValueChange(ValueChangeEvent)</code> method of the <code>NameChanged</code> listener implementation is invoked.
+This method first gets the ID of the component that fired the event from the <code>ValueChangeEvent</code> object, and it puts the value, along with an attribute name, into the session map of the <code>FacesContext</code> instance.</p>
+</div>
+<div class="paragraph">
+<p><a href="../faces-page-core/faces-page-core.html#_registering_a_value_change_listener_on_a_component" class="xref page">Registering a Value-Change Listener on a Component</a> explains how to
+register this listener onto a component.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_implementing_action_listeners"><a class="anchor" href="#_implementing_action_listeners"></a>Implementing Action Listeners</h3>
+<div class="paragraph">
+<p>A <code>jakarta.faces.event.ActionListener</code> implementation must include a <code>processAction(ActionEvent)</code> method.
+The <code>processAction(ActionEvent)</code> method processes the specified action event.
+The Jakarta Faces implementation invokes the <code>processAction(ActionEvent)</code> method when the <code>ActionEvent</code> occurs.</p>
+</div>
+<div class="paragraph">
+<p>The Duke&#8217;s Bookstore case study uses two <code>ActionListener</code> implementations, <code>LinkBookChangeListener</code> and <code>MapBookChangeListener</code>.
+See <a href="#_handling_events_for_custom_components">Handling Events for Custom Components</a> for details on <code>MapBookChangeListener</code>.</p>
+</div>
+<div class="paragraph">
+<p><a href="../faces-page-core/faces-page-core.html#_registering_an_action_listener_on_a_component" class="xref page">Registering an Action Listener on a Component</a> explains how to register this listener onto a component.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_handling_events_for_custom_components"><a class="anchor" href="#_handling_events_for_custom_components"></a>Handling Events for Custom Components</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As explained in <a href="#_implementing_an_event_listener">Implementing an Event Listener</a>, events are automatically queued on standard components that fire events.
+A custom component, on the other hand, must manually queue events from its <code>decode</code> method if it fires events.</p>
+</div>
+<div class="paragraph">
+<p><a href="#_performing_decoding">Performing Decoding</a> explains how to queue an event on <code>MapComponent</code> using its <code>decode</code> method.
+This section explains how to write the class that represents the event of clicking on the map and how to write the method that processes this event.</p>
+</div>
+<div class="paragraph">
+<p>As explained in <a href="#_understanding_the_facelets_page">Understanding the Facelets Page</a>, the <code>actionListener</code> attribute of the <code>bookstore:map</code> tag points to the <code>MapBookChangeListener</code> class.
+The listener class&#8217;s <code>processAction</code> method processes the event of clicking the image map.
+Here is the <code>processAction</code> method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
+public void processAction(ActionEvent actionEvent)
+        throws AbortProcessingException {
+
+    AreaSelectedEvent event = (AreaSelectedEvent) actionEvent;
+    String current = event.getMapComponent().getCurrent();
+    FacesContext context = FacesContext.getCurrentInstance();
+    String bookId = books.get(current);
+    context.getExternalContext().getSessionMap().put("bookId", bookId);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the Jakarta Faces implementation calls this method, it passes in an <code>ActionEvent</code> object that represents the event generated by clicking on the image map.
+Next, it casts it to an <code>AreaSelectedEvent</code> object (see <code><em>tut-install</em>/examples/case-studies/dukes-bookstore/src/java/dukesbookstore/listeners/AreaSelectedEvent.java</code>).
+Then this method gets the <code>MapComponent</code> associated with the event.
+Next, it gets the value of the <code>MapComponent</code> object&#8217;s <code>current</code> attribute, which indicates the currently selected area.
+The method then uses the value of the <code>current</code> attribute to get the book&#8217;s ID value from a <code>HashMap</code> object, which is constructed elsewhere in the <code>MapBookChangeListener</code> class.
+Finally, the method places the ID obtained from the <code>HashMap</code> object into the session map for the application.</p>
+</div>
+<div class="paragraph">
+<p>In addition to the method that processes the event, you need the event class itself.
+This class is very simple to write; you have it extend <code>ActionEvent</code> and provide a constructor that takes the component on which the event is queued and a method that returns the component.
+Here is the <code>AreaSelectedEvent</code> class used with the image map:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class AreaSelectedEvent extends ActionEvent {
+    public AreaSelectedEvent(MapComponent map) {
+        super(map);
+    }
+    public MapComponent getMapComponent() {
+        return ((MapComponent) getComponent());
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As explained in the section <a href="#_creating_custom_component_classes">Creating Custom Component Classes</a>, in order for <code>MapComponent</code> to fire events in the first place, it must implement <code>ActionSource</code>.
+Because <code>MapComponent</code> extends <code>UICommand</code>, it also implements <code>ActionSource</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_defining_the_custom_component_tag_in_a_tag_library_descriptor"><a class="anchor" href="#_defining_the_custom_component_tag_in_a_tag_library_descriptor"></a>Defining the Custom Component Tag in a Tag Library Descriptor</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To use a custom tag, you declare it in a Tag Library Descriptor (TLD).
+The TLD file defines how the custom tag is used in a Jakarta Faces page.
+The web container uses the TLD to validate the tag.
+The set of tags that are part of the HTML render kit are defined in the HTML_BASIC TLD, available in the <a href="https://jakarta.ee/specifications/faces/3.0/renderkitdoc/" target="_blank" rel="noopener">Jakarta Faces standard HTML tag library</a>.</p>
+</div>
+<div class="paragraph">
+<p>The TLD file name must end with <code>taglib.xml</code>.
+In the Duke&#8217;s Bookstore case study, the custom tags <code>area</code> and <code>map</code> are defined in the file <code>web/WEB-INF/bookstore.taglib.xml</code>.</p>
+</div>
+<div class="paragraph">
+<p>All tag definitions must be nested inside the <code>facelet-taglib</code> element in the TLD.
+Each tag is defined by a <code>tag</code> element.
+Here are the tag definitions for the <code>area</code> and <code>map</code> components:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;facelet-taglib xmlns="https://jakarta.ee/xml/ns/jakartaee"
+...&gt;
+    &lt;namespace&gt;http://dukesbookstore&lt;/namespace&gt;
+    &lt;tag&gt;
+        &lt;tag-name&gt;area&lt;/tag-name&gt;
+        &lt;component&gt;
+            &lt;component-type&gt;DemoArea&lt;/component-type&gt;
+            &lt;renderer-type&gt;DemoArea&lt;/renderer-type&gt;
+        &lt;/component&gt;
+    &lt;/tag&gt;
+    &lt;tag&gt;
+        &lt;tag-name&gt;map&lt;/tag-name&gt;
+        &lt;component&gt;
+            &lt;component-type&gt;DemoMap&lt;/component-type&gt;
+            &lt;renderer-type&gt;DemoMap&lt;/renderer-type&gt;
+        &lt;/component&gt;
+    &lt;/tag&gt;
+&lt;/facelet-taglib&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>component-type</code> element specifies the name defined in the <code>@FacesComponent</code> annotation, and the <code>renderer-type</code> element specifies the <code>rendererType</code> defined in the <code>@FacesRenderer</code> annotation.</p>
+</div>
+<div class="paragraph">
+<p>The <code>facelet-taglib</code> element must also include a <code>namespace</code> element, which defines the namespace to be specified in pages that use the custom component.
+See <a href="#_using_a_custom_component">Using a Custom Component</a> for information on specifying the namespace in pages.</p>
+</div>
+<div class="paragraph">
+<p>The TLD file is located in the <code>WEB-INF</code> directory.
+In addition, an entry is included in the web deployment descriptor (<code>web.xml</code>) to identify the custom tag library descriptor file, as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">    &lt;context-param&gt;
+        &lt;param-name&gt;jakarta.faces.FACELETS_LIBRARIES&lt;/param-name&gt;
+        &lt;param-value&gt;/WEB-INF/bookstore.taglib.xml&lt;/param-value&gt;
+    &lt;/context-param&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_a_custom_component"><a class="anchor" href="#_using_a_custom_component"></a>Using a Custom Component</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To use a custom component in a page, you add the custom tag associated with the component to the page.</p>
+</div>
+<div class="paragraph">
+<p>As explained in <a href="#_defining_the_custom_component_tag_in_a_tag_library_descriptor">Defining the Custom Component Tag in a Tag Library Descriptor</a>, you must ensure that the TLD that defines any custom tags is packaged in the application if you intend to use the tags in your pages.
+TLD files are stored in the <code>WEB-INF/</code> directory or subdirectory of the WAR file or in the <code>META-INF/</code> directory or subdirectory of a tag library packaged in a JAR file.</p>
+</div>
+<div class="paragraph">
+<p>You also need to include a namespace declaration in the page so that the page has access to the tags.
+The custom tags for the Duke&#8217;s Bookstore case study are defined in <code>bookstore.taglib.xml</code>.
+The <code>ui:composition</code> tag on the <code>index.xhtml</code> page declares the namespace defined in the tag library:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:h="jakarta.faces.html"
+                xmlns:f="jakarta.faces.core"
+                xmlns:bookstore="http://dukesbookstore"
+                template="./bookstoreTemplate.xhtml"&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally, to use a custom component in a page, you add the component&#8217;s tag to the page.</p>
+</div>
+<div class="paragraph">
+<p>The Duke&#8217;s Bookstore case study includes a custom image map component on the <code>index.xhtml</code> page.
+This component allows you to select a book by clicking on a region of the image map:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">...
+&lt;h:graphicImage id="mapImage"
+                name="book_all.jpg"
+                library="images"
+                alt="#{bundle.chooseLocale}"
+                usemap="#bookMap" /&gt;
+&lt;bookstore:map id="bookMap"
+               current="map1"
+               immediate="true"
+               action="bookstore"&gt;
+    &lt;f:actionListener
+        type="ee.jakarta.tutorial.dukesbookstore.listeners.MapBookChangeListener" /&gt;
+    &lt;bookstore:area id="map1" value="#{Book201}"
+                    onmouseover="resources/images/book_201.jpg"
+                    onmouseout="resources/images/book_all.jpg"
+                    targetImage="mapImage" /&gt;
+    ...
+    &lt;bookstore:area id="map6" value="#{Book207}"
+                    onmouseover="resources/images/book_207.jpg"
+                    onmouseout="resources/images//book_all.jpg"
+                    targetImage="mapImage" /&gt;
+&lt;/bookstore:map&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The standard <code>h:graphicImage</code> tag associates an image (<code>book_all.jpg</code>) with an image map that is referenced in the <code>usemap</code> attribute value.</p>
+</div>
+<div class="paragraph">
+<p>The custom <code>bookstore:map</code> tag that represents the custom component, <code>MapComponent</code>, specifies the image map and contains a set of <code>bookstore:area</code> tags.
+Each custom <code>bookstore:area</code> tag represents a custom <code>AreaComponent</code> and specifies a region of the image map.</p>
+</div>
+<div class="paragraph">
+<p>On the page, the <code>onmouseover</code> and <code>onmouseout</code> attributes specify the image that is displayed when the user performs the actions described by the attributes.
+The custom renderer also renders an <code>onclick</code> attribute.</p>
+</div>
+<div class="paragraph">
+<p>In the rendered HTML page, the <code>onmouseover</code>, <code>onmouseout</code>, and <code>onclick</code> attributes define which JavaScript code is executed when these events occur.
+When the user moves the mouse over a region, the <code>onmouseover</code> function associated with the region displays the map with that region highlighted.
+When the user moves the mouse out of a region, the <code>onmouseout</code> function redisplays the original image.
+When the user clicks a region, the <code>onclick</code> function sets the value of a hidden <code>input</code> tag to the ID of the selected area and submits the page.</p>
+</div>
+<div class="paragraph">
+<p>When the custom renderer renders these attributes in HTML, it also renders the JavaScript code.
+The custom renderer also renders the entire <code>onclick</code> attribute rather than letting the page author set it.</p>
+</div>
+<div class="paragraph">
+<p>The custom renderer that renders the HTML <code>map</code> tag also renders a hidden <code>input</code> component that holds the current area.
+The server-side objects retrieve the value of the hidden <code>input</code> field and set the locale in the <code>FacesContext</code> instance according to which region was selected.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creating_and_using_a_custom_converter"><a class="anchor" href="#_creating_and_using_a_custom_converter"></a>Creating and Using a Custom Converter</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A Jakarta Faces converter class converts strings to objects and objects to strings as required.
+Several standard converters are provided by Jakarta Faces for this purpose.
+See <a href="../faces-page-core/faces-page-core.html#_using_the_standard_converters" class="xref page">Using the Standard Converters</a> for more information on these included converters.</p>
+</div>
+<div class="paragraph">
+<p>As explained in <a href="../faces-intro/faces-intro.html#_conversion_model" class="xref page">Conversion Model</a>, if the standard converters included with Jakarta Faces cannot perform the data conversion that you need, you can create a custom converter to perform this specialized conversion.
+This implementation, at a minimum, must define how to convert data both ways between the two views of the data described in <a href="../faces-intro/faces-intro.html#_conversion_model" class="xref page">Conversion Model</a>.</p>
+</div>
+<div class="paragraph">
+<p>All custom converters must implement the <code>jakarta.faces.convert.Converter</code> interface.
+This section explains how to implement this interface to perform a custom data conversion.</p>
+</div>
+<div class="paragraph">
+<p>The Duke&#8217;s Bookstore case study uses a custom <code>Converter</code> implementation, located in <code><em>tut-install</em>/examples/case-studies/dukes-bookstore/src/java/dukesbookstore/converters/CreditCardConverter.java</code>, to convert the data entered in the Credit Card Number field on the <code>bookcashier.xhtml</code> page.
+It strips blanks and hyphens from the text string and formats it so that a blank space separates every four characters.</p>
+</div>
+<div class="paragraph">
+<p>Another common use case for a custom converter is in a list for a nonstandard object type.
+In the Duke&#8217;s Tutoring case study, the <code>Student</code> and <code>Guardian</code> entities require a custom converter so that they can be converted to and from a <code>UISelectItems</code> input component.</p>
+</div>
+<div class="sect2">
+<h3 id="_creating_a_custom_converter"><a class="anchor" href="#_creating_a_custom_converter"></a>Creating a Custom Converter</h3>
+<div class="paragraph">
+<p>The <code>CreditCardConverter</code> custom converter class is created as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@FacesConverter("ccno")
+public class CreditCardConverter implements Converter {
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>@FacesConverter</code> annotation registers the custom converter class as a converter with the name of <code>ccno</code> with the Jakarta Faces implementation.
+Alternatively, you can register the converter with entries in the application configuration resource file, as shown in <a href="../faces-configure/faces-configure.html#_registering_a_custom_converter" class="xref page">Registering a Custom Converter</a>.</p>
+</div>
+<div class="paragraph">
+<p>To define how the data is converted from the presentation view to the model view, the <code>Converter</code> implementation must implement the <code>getAsObject(FacesContext, UIComponent, String)</code> method from the <code>Converter</code> interface.
+Here is the implementation of this method from <code>CreditCardConverter</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
+public Object getAsObject(FacesContext context,
+        UIComponent component, String newValue)
+        throws ConverterException {
+
+    if (newValue.isEmpty()) {
+        return null;
+    }
+    // Since this is only a String to String conversion,
+    // this conversion does not throw ConverterException.
+
+    String convertedValue = newValue.trim();
+    if ( (convertedValue.contains("-")) || (convertedValue.contains(" "))) {
+        char[] input = convertedValue.toCharArray();
+        StringBuilder builder = new StringBuilder(input.length);
+        for (int i = 0; i &lt; input.length; ++i) {
+            if ((input[i] == '-') || (input[i] == ' ')) {
+            } else {
+                builder.append(input[i]);
+            }
+        }
+        convertedValue = builder.toString();
+    }
+    return convertedValue;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>During the Apply Request Values phase, when the components' <code>decode</code> methods are processed, the Jakarta Faces implementation looks up the component&#8217;s local value in the request and calls the <code>getAsObject</code> method.
+When calling this method, the Jakarta Faces implementation passes in the current <code>FacesContext</code> instance, the component whose data needs conversion, and the local value as a <code>String</code>.
+The method then writes the local value to a character array, trims the hyphens and blanks, adds the rest of the characters to a <code>String</code>, and returns the <code>String</code>.</p>
+</div>
+<div class="paragraph">
+<p>To define how the data is converted from the model view to the presentation view, the <code>Converter</code> implementation must implement the <code>getAsString(FacesContext, UIComponent, Object)</code> method from the <code>Converter</code> interface.
+Here is an implementation of this method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
+public String getAsString(FacesContext context,
+        UIComponent component, Object value)
+        throws ConverterException {
+
+    String inputVal = null;
+    if ( value == null ) {
+        return "";
+    }
+    // value must be of a type that can be cast to a String.
+    try {
+        inputVal = (String)value;
+    } catch (ClassCastException ce) {
+        FacesMessage errMsg = new FacesMessage(CONVERSION_ERROR_MESSAGE_ID);
+        FacesContext.getCurrentInstance().addMessage(null, errMsg);
+        throw new ConverterException(errMsg.getSummary());
+    }
+    // insert spaces after every four characters for better
+    // readability if they are not already present.
+    char[] input = inputVal.toCharArray();
+    StringBuilder builder = new StringBuilder(input.length + 3);
+    for (int i = 0; i &lt; input.length; ++i) {
+        if ((i % 4) == 0 &amp;&amp; (i != 0)) {
+            if ((input[i] != ' ') || (input[i] != '-')){
+                builder.append(" ");
+                // if there are any "-"'s convert them to blanks.
+            } else if (input[i] == '-') {
+                builder.append(" ");
+            }
+         }
+         builder.append(input[i]);
+    }
+    String convertedValue = builder.toString();
+    return convertedValue;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>During the Render Response phase, in which the components' <code>encode</code> methods are called, the Jakarta Faces implementation calls the <code>getAsString</code> method in order to generate the appropriate output.
+When the Jakarta Faces implementation calls this method, it passes in the current <code>FacesContext</code>, the <code>UIComponent</code> whose value needs to be converted, and the bean value to be converted.
+Because this converter does a <code>String</code>-to-<code>String</code> conversion, this method can cast the bean value to a <code>String</code>.</p>
+</div>
+<div class="paragraph">
+<p>If the value cannot be converted to a <code>String</code>, the method throws an exception, passing an error message from the resource bundle that is registered with the application.
+<a href="../faces-configure/faces-configure.html#_registering_application_messages" class="xref page">Registering Application Messages</a> explains how to register custom error messages with the application.</p>
+</div>
+<div class="paragraph">
+<p>If the value can be converted to a <code>String</code>, the method reads the <code>String</code> to a character array and loops through the array, adding a space after every four characters.</p>
+</div>
+<div class="paragraph">
+<p>You can also create a custom converter with a <code>@FacesConverter</code> annotation that specifies the <code>forClass</code> attribute, as shown in the following example from the Duke&#8217;s Tutoring case study:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@FacesConverter(forClass=Guardian.class, value="guardian")
+public class GuardianConverter extends EntityConverter implements Converter { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>forClass</code> attribute registers the converter as the default converter for the <code>Guardian</code> class.
+Therefore, whenever that class is specified by a <code>value</code> attribute of an input component, the converter is invoked automatically.</p>
+</div>
+<div class="paragraph">
+<p>A converter class can be a separate Java POJO class, as in the Duke&#8217;s Bookstore case study.
+If it needs to access objects defined in a managed bean class, however, it can be a subclass of a Jakarta Faces managed bean, as in the <code>address-book</code> persistence example, in which the converters use an enterprise bean that is injected into the managed bean class.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_a_custom_converter"><a class="anchor" href="#_using_a_custom_converter"></a>Using a Custom Converter</h3>
+<div class="paragraph">
+<p>To apply the data conversion performed by a custom converter to a particular component&#8217;s value, you must do one of the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Reference the converter from the component tag&#8217;s <code>converter</code> attribute.</p>
+</li>
+<li>
+<p>Nest an <code>f:converter</code> tag inside the component&#8217;s tag and reference the custom converter from one of the <code>f:converter</code> tag&#8217;s attributes.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you are using the component tag&#8217;s <code>converter</code> attribute, this attribute must reference the <code>Converter</code> implementation&#8217;s identifier or the fully-qualified class name of the converter.
+<a href="#_creating_and_using_a_custom_converter">Creating and Using a Custom Converter</a> explains how to implement a custom converter.</p>
+</div>
+<div class="paragraph">
+<p>The identifier for the credit card converter class is <code>ccno</code>, the value specified in the <code>@FacesConverter</code> annotation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@FacesConverter("ccno")
+public class CreditCardConverter implements Converter {
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Therefore, the <code>CreditCardConverter</code> instance can be registered on the <code>ccno</code> component as shown in the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:inputText id="ccno"
+             size="19"
+             converter="ccno"
+             value="#{cashierBean.creditCardNumber}"
+             required="true"
+             requiredMessage="#{bundle.ReqCreditCard}"&gt;
+    ...
+&lt;/h:inputText&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By setting the <code>converter</code> attribute of a component&#8217;s tag to the converter&#8217;s identifier or its class name, you cause that component&#8217;s local value to be automatically converted according to the rules specified in the <code>Converter</code> implementation.</p>
+</div>
+<div class="paragraph">
+<p>Instead of referencing the converter from the component tag&#8217;s <code>converter</code> attribute, you can reference the converter from an <code>f:converter</code> tag nested inside the component&#8217;s tag.
+To reference the custom converter using the <code>f:converter</code> tag, you do one of the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Set the <code>f:converter</code> tag&#8217;s <code>converterId</code> attribute to the <code>Converter</code> implementation&#8217;s identifier defined in the <code>@FacesConverter</code> annotation or in the application configuration resource file.
+This method is shown in <code>bookcashier.xhtml</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:inputText id="ccno"
+             size="19"
+             value="#{cashierBean.creditCardNumber}"
+             required="true"
+             requiredMessage="#{bundle.ReqCreditCard}"&gt;
+    &lt;f:converter converterId="ccno"/&gt;
+    &lt;f:validateRegex
+       pattern="\d{16}|\d{4} \d{4} \d{4} \d{4}|\d{4}-\d{4}-\d{4}-\d{4}"/&gt;
+&lt;/h:inputText&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Bind the <code>Converter</code> implementation to a managed bean property using the <code>f:converter</code> tag&#8217;s <code>binding</code> attribute, as described in <a href="#_binding_converters_listeners_and_validators_to_managed_bean_properties">Binding Converters, Listeners, and Validators to Managed Bean Properties</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Jakarta Faces implementation calls the converter&#8217;s <code>getAsObject</code> method to strip spaces and hyphens from the input value.
+The <code>getAsString</code> method is called when the <code>bookcashier.xhtml</code> page is redisplayed; this happens if the user orders more than $100 worth of books.</p>
+</div>
+<div class="paragraph">
+<p>In the Duke&#8217;s Tutoring case study, each converter is registered as the converter for a particular class.
+The converter is automatically invoked whenever that class is specified by a <code>value</code> attribute of an input component.
+In the following example, the <code>itemValue</code> attribute calls the converter for the <code>Guardian</code> class:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:selectManyListbox id="selectGuardiansMenu"
+                     title="#{bundle['action.add.guardian']}"
+                     value="#{guardianManager.selectedGuardians}"
+                     size="5"
+                     converter="guardian"&gt;
+    &lt;f:selectItems value="#{guardianManager.allGuardians}"
+                   var="selectedGuardian"
+                   itemLabel="#{selectedGuardian.name}"
+                   itemValue="#{selectedGuardian}" /&gt;
+&lt;/h:selectManyListbox&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creating_and_using_a_custom_validator"><a class="anchor" href="#_creating_and_using_a_custom_validator"></a>Creating and Using a Custom Validator</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If the standard validators or Bean Validation don&#8217;t perform the validation checking you need, you can create a custom validator to validate user input.
+As explained in <a href="../faces-intro/faces-intro.html#_validation_model" class="xref page">Validation Model</a>, there are two ways to implement validation code.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Implement a managed bean method that performs the validation.</p>
+</li>
+<li>
+<p>Provide an implementation of the <code>jakarta.faces.validator.Validator</code> interface to perform the validation.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="../faces-develop/faces-develop.html#_writing_a_method_to_perform_validation" class="xref page">Writing a Method to Perform Validation</a> explains how to implement a managed bean method to perform validation.
+The rest of this section explains how to implement the <code>Validator</code> interface.</p>
+</div>
+<div class="paragraph">
+<p>If you choose to implement the <code>Validator</code> interface and you want to allow the page author to configure the validator&#8217;s attributes from the page, you also must specify a custom tag for registering the validator on a component.</p>
+</div>
+<div class="paragraph">
+<p>If you prefer to configure the attributes in the <code>Validator</code> implementation, you can forgo specifying a custom tag and instead let the page author register the validator on a component using the <code>f:validator</code> tag, as described in <a href="#_using_a_custom_validator">Using a Custom Validator</a>.</p>
+</div>
+<div class="paragraph">
+<p>You can also create a managed bean property that accepts and returns the <code>Validator</code> implementation you create, as described in <a href="../faces-develop/faces-develop.html#_writing_properties_bound_to_converters_listeners_or_validators" class="xref page">Writing Properties Bound to Converters, Listeners, or Validators</a>.
+You can use the <code>f:validator</code> tag&#8217;s binding attribute to bind the <code>Validator</code> implementation to the managed bean property.</p>
+</div>
+<div class="paragraph">
+<p>Usually, you will want to display an error message when data fails validation.
+You need to store these error messages in a resource bundle.</p>
+</div>
+<div class="paragraph">
+<p>After creating the resource bundle, you have two ways to make the messages available to the application.
+You can queue the error messages onto the <code>FacesContext</code> programmatically, or you can register the error messages in the application configuration resource file, as explained in <a href="../faces-configure/faces-configure.html#_registering_application_messages" class="xref page">Registering Application Messages</a>.</p>
+</div>
+<div class="paragraph">
+<p>For example, an e-commerce application might use a general-purpose custom validator called <code>FormatValidator.java</code> to validate input data against a format pattern that is specified in the custom validator tag.
+This validator would be used with a Credit Card Number field on a Facelets page.
+Here is the custom validator tag:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;mystore:formatValidator
+ formatPatterns="9999999999999999|9999 9999 9999 9999|9999-9999-9999-9999"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>According to this validator, the data entered in the field must be one of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A 16-digit number with no spaces</p>
+</li>
+<li>
+<p>A 16-digit number with a space between every four digits</p>
+</li>
+<li>
+<p>A 16-digit number with hyphens between every four digits</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>f:validateRegex</code> tag makes a custom validator unnecessary in this situation.
+However, the rest of this section describes how this validator would be implemented and how to specify a custom tag so that the page author could register the validator on a component.</p>
+</div>
+<div class="sect2">
+<h3 id="_implementing_the_validator_interface"><a class="anchor" href="#_implementing_the_validator_interface"></a>Implementing the Validator Interface</h3>
+<div class="paragraph">
+<p>A <code>Validator</code> implementation must contain a constructor, a set of accessor methods for any attributes on the tag, and a <code>validate</code> method, which overrides the <code>validate</code> method of the <code>Validator</code> interface.</p>
+</div>
+<div class="paragraph">
+<p>The hypothetical <code>FormatValidator</code> class also defines accessor methods for setting the <code>formatPatterns</code> attribute, which specifies the acceptable format patterns for input into the fields.
+The setter method calls the <code>parseFormatPatterns</code> method, which separates the components of the pattern string into a string array, <code>formatPatternsList</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public String getFormatPatterns() {
+    return (this.formatPatterns);
+}
+public void setFormatPatterns(String formatPatterns) {
+    this.formatPatterns = formatPatterns;
+    parseFormatPatterns();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In addition to defining accessor methods for the attributes, the class overrides the <code>validate</code> method of the <code>Validator</code> interface.
+This method validates the input and also accesses the custom error messages to be displayed when the <code>String</code> is invalid.</p>
+</div>
+<div class="paragraph">
+<p>The <code>validate</code> method performs the actual validation of the data.
+It takes the <code>FacesContext</code> instance, the component whose data needs to be validated, and the value that needs to be validated.
+A validator can validate only data of a component that implements <code>jakarta.faces.component.EditableValueHolder</code>.</p>
+</div>
+<div class="paragraph">
+<p>Here is an implementation of the <code>validate</code> method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@FacesValidator
+public class FormatValidator implements Validator, StateHolder {
+    ...
+    public void validate(FacesContext context, UIComponent component,
+                         Object toValidate) {
+
+        boolean valid = false;
+        String value = null;
+        if ((context == null) || (component == null)) {
+            throw new NullPointerException();
+        }
+        if (!(component instanceof UIInput)) {
+            return;
+        }
+        if ( null == formatPatternsList || null == toValidate) {
+            return;
+        }
+        value = toValidate.toString();
+        // validate the value against the list of valid patterns.
+        Iterator patternIt = formatPatternsList.iterator();
+        while (patternIt.hasNext()) {
+            valid = isFormatValid(
+                ((String)patternIt.next()), value);
+            if (valid) {
+                break;
+            }
+        }
+        if ( !valid ) {
+            FacesMessage errMsg =
+                new FacesMessage(FORMAT_INVALID_MESSAGE_ID);
+            FacesContext.getCurrentInstance().addMessage(null, errMsg);
+            throw new ValidatorException(errMsg);
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>@FacesValidator</code> annotation registers the <code>FormatValidator</code> class as a validator with the Jakarta Faces implementation.
+The <code>validate</code> method gets the local value of the component and converts it to a <code>String</code>.
+It then iterates over the <code>formatPatternsList</code> list, which is the list of acceptable patterns that was parsed from the <code>formatPatterns</code> attribute of the custom validator tag.</p>
+</div>
+<div class="paragraph">
+<p>While iterating over the list, this method checks the pattern of the component&#8217;s local value against the patterns in the list.
+If the pattern of the local value does not match any pattern in the list, this method generates an error message.
+It then creates a <code>jakarta.faces.application.FacesMessage</code> and queues it on the <code>FacesContext</code> for display, using a <code>String</code> that represents the key in the <code>Properties</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public static final String FORMAT_INVALID_MESSAGE_ID =
+     "FormatInvalid";
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally, the method passes the message to the constructor of <code>jakarta.faces.validator.ValidatorException</code>.</p>
+</div>
+<div class="paragraph">
+<p>When the error message is displayed, the format pattern will be substituted for the <code>{0}</code> in the error message, which, in English, is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Input must match one of the following patterns: {0}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You may wish to save and restore state for your validator, although state saving is not usually necessary.
+To do so, you will need to implement the <code>StateHolder</code> interface as well as the <code>Validator</code> interface.
+To implement <code>StateHolder</code>, you would need to implement its four methods: <code>saveState(FacesContext)</code>, <code>restoreState(FacesContext, Object)</code>, <code>isTransient</code>, and <code>setTransient(boolean)</code>.
+See <a href="#_saving_and_restoring_state">Saving and Restoring State</a> for more information.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_specifying_a_custom_tag"><a class="anchor" href="#_specifying_a_custom_tag"></a>Specifying a Custom Tag</h3>
+<div class="paragraph">
+<p>If you implemented a <code>Validator</code> interface rather than implementing a managed bean method that performs the validation, you need to do one of the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Allow the page author to specify the <code>Validator</code> implementation to use with the <code>f:validator</code> tag.
+In this case, the <code>Validator</code> implementation must define its own properties.
+<a href="#_using_a_custom_validator">Using a Custom Validator</a> explains how to use the <code>f:validator</code> tag.</p>
+</li>
+<li>
+<p>Specify a custom tag that provides attributes for configuring the properties of the validator from the page.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To create a custom tag, you need to add the tag to the tag library descriptor for the application, <code>bookstore.taglib.xml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;tag&gt;
+    &lt;tag-name&gt;validator&lt;/tag-name&gt;
+    &lt;validator&gt;
+        &lt;validator-id&gt;formatValidator&lt;/validator-id&gt;
+        &lt;validator-class&gt;
+            dukesbookstore.validators.FormatValidator
+        &lt;/validator-class&gt;
+    &lt;/validator&gt;
+&lt;/tag&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>tag-name</code> element defines the name of the tag as it must be used in a Facelets page.
+The <code>validator-id</code> element identifies the custom validator.
+The <code>validator-class</code> element wires the custom tag to its implementation class.</p>
+</div>
+<div class="paragraph">
+<p><a href="#_using_a_custom_validator">Using a Custom Validator</a> explains how to use the custom validator tag on the page.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_a_custom_validator"><a class="anchor" href="#_using_a_custom_validator"></a>Using a Custom Validator</h3>
+<div class="paragraph">
+<p>To register a custom validator on a component, you must do one of the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Nest the validator&#8217;s custom tag inside the tag of the component whose value you want to be validated.</p>
+</li>
+<li>
+<p>Nest the standard <code>f:validator</code> tag within the tag of the component and reference the custom <code>Validator</code> implementation from the <code>f:validator</code> tag.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Here is a hypothetical custom <code>formatValidator</code> tag for the Credit Card Number field, nested within the <code>h:inputText</code> tag:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:inputText id="ccno" size="19"
+  ...
+  required="true"&gt;
+  &lt;mystore:formatValidator
+  formatPatterns="9999999999999999|9999 9999 9999 9999|9999-9999-9999-9999"/&gt;
+&lt;/h:inputText&gt;
+&lt;h:message styleClass="validationMessage" for="ccno"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This tag validates the input of the <code>ccno</code> field against the patterns defined by the page author in the <code>formatPatterns</code> attribute.</p>
+</div>
+<div class="paragraph">
+<p>You can use the same custom validator for any similar component by simply nesting the custom validator tag within the component tag.</p>
+</div>
+<div class="paragraph">
+<p>If the application developer who created the custom validator prefers to configure the attributes in the <code>Validator</code> implementation rather than allow the page author to configure the attributes from the page, the developer will not create a custom tag for use with the validator.</p>
+</div>
+<div class="paragraph">
+<p>In this case, the page author must nest the <code>f:validator</code> tag inside the tag of the component whose data needs to be validated.
+Then the page author needs to do one of the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Set the <code>f:validator</code> tag&#8217;s <code>validatorId</code> attribute to the ID of the validator that is defined in the application configuration resource file.</p>
+</li>
+<li>
+<p>Bind the custom <code>Validator</code> implementation to a managed bean property using the <code>f:validator</code> tag&#8217;s <code>binding</code> attribute, as described in <a href="#_binding_converters_listeners_and_validators_to_managed_bean_properties">Binding Converters, Listeners, and Validators to Managed Bean Properties</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following tag registers a hypothetical validator on a component using an <code>f:validator</code> tag and references the ID of the validator:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:inputText id="name" value="#{CustomerBean.name}"
+            size="10" ...&gt;
+    &lt;f:validator validatorId="customValidator" /&gt;
+    ...
+&lt;/h:inputText&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_binding_component_values_and_instances_to_managed_bean_properties"><a class="anchor" href="#_binding_component_values_and_instances_to_managed_bean_properties"></a>Binding Component Values and Instances to Managed Bean Properties</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A component tag can wire its data to a managed bean by one of the following methods:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Binding its component&#8217;s value to a bean property</p>
+</li>
+<li>
+<p>Binding its component&#8217;s instance to a bean property</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To bind a component&#8217;s value to a managed bean property, a component tag&#8217;s <code>value</code> attribute uses an EL value expression.
+To bind a component instance to a bean property, a component tag&#8217;s <code>binding</code> attribute uses a value expression.</p>
+</div>
+<div class="paragraph">
+<p>When a component instance is bound to a managed bean property, the property holds the component&#8217;s local value.
+Conversely, when a component&#8217;s value is bound to a managed bean property, the property holds the value stored in the managed bean.
+This value is updated with the local value during the Update Model Values phase of the lifecycle.
+There are advantages to both of these methods.</p>
+</div>
+<div class="paragraph">
+<p>Binding a component instance to a bean property has the following advantages.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The managed bean can programmatically modify component attributes.</p>
+</li>
+<li>
+<p>The managed bean can instantiate components rather than let the page author do so.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Binding a component&#8217;s value to a bean property has the following advantages.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The page author has more control over the component attributes.</p>
+</li>
+<li>
+<p>The managed bean has no dependencies on the Jakarta Faces API (such as the component classes), allowing for greater separation of the presentation layer from the model layer.</p>
+</li>
+<li>
+<p>The Jakarta Faces implementation can perform conversions on the data based on the type of the bean property without the developer needing to apply a converter.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In most situations, you will bind a component&#8217;s value rather than its instance to a bean property.
+You&#8217;ll need to use a component binding only when you need to change one of the component&#8217;s attributes dynamically.
+For example, if an application renders a component only under certain conditions, it can set the component&#8217;s <code>rendered</code> property accordingly by accessing the property to which the component is bound.</p>
+</div>
+<div class="paragraph">
+<p>When referencing the property using the component tag&#8217;s <code>value</code> attribute, you need to use the proper syntax.
+For example, suppose a managed bean called <code>MyBean</code> has this <code>int</code> property:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">protected int currentOption = null;
+public int getCurrentOption(){...}
+public void setCurrentOption(int option){...}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>value</code> attribute that references this property must have this value-binding expression:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">#{myBean.currentOption}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In addition to binding a component&#8217;s value to a bean property, the <code>value</code> attribute can specify a literal value or can map the component&#8217;s data to any primitive (such as <code>int</code>), structure (such as an array), or collection (such as a list), independent of a JavaBeans component.
+<a href="#_examples_of_value_binding_expressions">Examples of Value-Binding Expressions</a> lists some example value-binding expressions that you can use with the <code>value</code> attribute.</p>
+</div>
+<table id="_examples_of_value_binding_expressions" class="tableblock frame-all grid-all" style="width: 60%;">
+<caption class="title">Examples of Value-Binding Expressions</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Value</th>
+<th class="tableblock halign-left valign-top">Expression</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cart.numberOfItems &gt; 0</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A property initialized from a context initialization parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>initParam.quantity</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A bean property</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cashierBean.name</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A value in an array</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>books[3]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A value in a collection</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>books["fiction"]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A property of an object in an array of objects</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>books[3].price</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The next two sections explain how to use the <code>value</code> attribute to bind a component&#8217;s value to a bean property or other data objects and how to use the <code>binding</code> attribute to bind a component instance to a bean property.</p>
+</div>
+<div class="sect2">
+<h3 id="_binding_a_component_value_to_a_property"><a class="anchor" href="#_binding_a_component_value_to_a_property"></a>Binding a Component Value to a Property</h3>
+<div class="paragraph">
+<p>To bind a component&#8217;s value to a managed bean property, you specify the name of the bean and the property using the <code>value</code> attribute.</p>
+</div>
+<div class="paragraph">
+<p>This means that the first part of the EL value expression must match the name of the managed bean up to the first period (<code>.</code>) and the part of the value expression after the period must match the property of the managed bean.</p>
+</div>
+<div class="paragraph">
+<p>For example, in the Duke&#8217;s Bookstore case study, the <code>h:dataTable</code> tag in <code>bookcatalog.xhtml</code> sets the value of the component to the value of the <code>books</code> property of the <code>BookstoreBean</code> backing bean, whose name is <code>store</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:dataTable id="books"
+             value="#{store.books}"
+             var="book"
+             headerClass="list-header"
+             styleClass="list-background"
+             rowClasses="list-row-even, list-row-odd"
+             border="1"
+             summary="#{bundle.BookCatalog}"&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The value is obtained by calling the backing bean&#8217;s <code>getBooks</code> method, which in turn calls the <code>BookRequestBean</code> session bean&#8217;s <code>getBooks</code> method.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_binding_a_component_value_to_an_implicit_object"><a class="anchor" href="#_binding_a_component_value_to_an_implicit_object"></a>Binding a Component Value to an Implicit Object</h3>
+<div class="paragraph">
+<p>One external data source that a <code>value</code> attribute can refer to is an implicit object.</p>
+</div>
+<div class="paragraph">
+<p>The <code>bookreceipt.xhtml</code> page of the Duke&#8217;s Bookstore case study has a reference to an implicit object:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:outputFormat title="thanks"
+                value="#{bundle.ThankYouParam}"&gt;
+    &lt;f:param value="#{sessionScope.name}"/&gt;
+&lt;/h:outputFormat&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This tag gets the name of the customer from the session scope and inserts it into the parameterized message at the key <code>ThankYouParam</code> from the resource bundle.
+For example, if the name of the customer is Gwen Canigetit, this tag will render:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">Thank you, Gwen Canigetit, for purchasing your books from us.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Retrieving values from other implicit objects is done in a similar way to the example shown in this section.
+<a href="#_implicit_objects">Implicit Objects</a> lists the implicit objects to which a value attribute can refer.
+All of the implicit objects, except for the scope objects, are read-only and therefore should not be used as values for a <code>UIInput</code> component.</p>
+</div>
+<table id="_implicit_objects" class="tableblock frame-all grid-all" style="width: 75%;">
+<caption class="title">Implicit Objects</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Implicit Object</th>
+<th class="tableblock halign-left valign-top">What It Is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>applicationScope</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A <code>Map</code> of the application scope attribute values, keyed by attribute name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cookie</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A <code>Map</code> of the cookie values for the current request, keyed by cookie name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>facesContext</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>FacesContext</code> instance for the current request</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>header</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A <code>Map</code> of HTTP header values for the current request, keyed by header name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>headerValues</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A <code>Map</code> of <code>String</code> arrays containing all the header values for HTTP headers in the current request, keyed by header name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>initParam</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A <code>Map</code> of the context initialization parameters for this web application</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>param</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A <code>Map</code> of the request parameters for this request, keyed by parameter name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>paramValues</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A <code>Map</code> of <code>String</code> arrays containing all the parameter values for request parameters in the current request, keyed by parameter name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>requestScope</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A <code>Map</code> of the request attributes for this request, keyed by attribute name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sessionScope</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A <code>Map</code> of the session attributes for this request, keyed by attribute name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The root <code>UIComponent</code> in the current component tree stored in the <code>FacesRequest</code> for this request</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_binding_a_component_instance_to_a_bean_property"><a class="anchor" href="#_binding_a_component_instance_to_a_bean_property"></a>Binding a Component Instance to a Bean Property</h3>
+<div class="paragraph">
+<p>A component instance can be bound to a bean property using a value expression with the <code>binding</code> attribute of the component&#8217;s tag.
+You usually bind a component instance rather than its value to a bean property if the bean must dynamically change the component&#8217;s attributes.</p>
+</div>
+<div class="paragraph">
+<p>Here are two tags from the <code>bookcashier.xhtml</code> page that bind components to bean properties:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:selectBooleanCheckbox id="fanClub"
+                         rendered="false"
+                         binding="#{cashierBean.specialOffer}" /&gt;
+&lt;h:outputLabel for="fanClub"
+               rendered="false"
+               binding="#{cashierBean.specialOfferText}"
+               value="#{bundle.DukeFanClub}"/&gt;
+&lt;/h:outputLabel&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>h:selectBooleanCheckbox</code> tag renders a check box and binds the <code>fanClub</code> <code>UISelectBoolean</code> component to the <code>specialOffer</code> property of the <code>cashier</code> bean.
+The <code>h:outputLabel</code> tag binds the component representing the check box&#8217;s label to the <code>specialOfferText</code> property of the <code>cashier</code> bean.
+If the application&#8217;s locale is English, the <code>h:outputLabel</code> tag renders</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">I'd like to join the Duke Fan Club, free with my purchase of over $100</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>rendered</code> attributes of both tags are set to <code>false</code> to prevent the check box and its label from being rendered.
+If the customer makes a large order and clicks the Submit button, the <code>submit</code> method of <code>CashierBean</code> sets both components' <code>rendered</code> properties to <code>true</code>, causing the check box and its label to be rendered.</p>
+</div>
+<div class="paragraph">
+<p>These tags use component bindings rather than value bindings because the managed bean must dynamically set the values of the components' <code>rendered</code> properties.</p>
+</div>
+<div class="paragraph">
+<p>If the tags were to use value bindings instead of component bindings, the managed bean would not have direct access to the components and would therefore require additional code to access the components from the <code>FacesContext</code> instance to change the components' <code>rendered</code> properties.</p>
+</div>
+<div class="paragraph">
+<p><a href="../faces-develop/faces-develop.html#_writing_properties_bound_to_component_instances" class="xref page">Writing Properties Bound to Component Instances</a> explains how to write the bean properties bound to the example components.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_binding_converters_listeners_and_validators_to_managed_bean_properties"><a class="anchor" href="#_binding_converters_listeners_and_validators_to_managed_bean_properties"></a>Binding Converters, Listeners, and Validators to Managed Bean Properties</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As described in <a href="../faces-page/faces-page.html#_adding_components_to_a_page_using_html_tag_library_tags" class="xref page">Adding Components to a Page Using HTML Tag Library Tags</a>, a page author can bind converter, listener, and validator implementations to managed bean properties using the <code>binding</code> attributes of the tags that are used to register the implementations on components.</p>
+</div>
+<div class="paragraph">
+<p>This technique has similar advantages to binding component instances to managed bean properties, as described in <a href="#_binding_component_values_and_instances_to_managed_bean_properties">Binding Component Values and Instances to Managed Bean Properties</a>.
+In particular, binding a converter, listener, or validator implementation to a managed bean property yields the following benefits.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The managed bean can instantiate the implementation instead of
+allowing the page author to do so.</p>
+</li>
+<li>
+<p>The managed bean can programmatically modify the attributes of the implementation.
+In the case of a custom implementation, the only other way to modify the attributes outside of the implementation class would be to create a custom tag for it and require the page author to set the attribute values from the page.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Whether you are binding a converter, listener, or validator to a managed bean property, the process is the same for any of the implementations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Nest the converter, listener, or validator tag within an appropriate component tag.</p>
+</li>
+<li>
+<p>Make sure that the managed bean has a property that accepts and returns the converter, listener, or validator implementation class that you want to bind to the property.</p>
+</li>
+<li>
+<p>Reference the managed bean property using a value expression from the <code>binding</code> attribute of the converter, listener, or validator tag.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example, say that you want to bind the standard <code>DateTime</code> converter to a managed bean property because you want to set the formatting pattern of the user&#8217;s input in the managed bean rather than on the Facelets page.
+First, the page registers the converter onto the component by nesting the <code>f:convertDateTime</code> tag within the component tag.
+Then, the page references the property with the <code>binding</code> attribute of the <code>f:convertDateTime</code> tag:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:inputText value="#{loginBean.birthDate}"&gt;
+    &lt;f:convertDateTime binding="#{loginBean.convertDate}" /&gt;
+&lt;/h:inputText&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>convertDate</code> property would look something like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">private DateTimeConverter convertDate;
+public DateTimeConverter getConvertDate() {
+    ...
+    return convertDate;
+}
+public void setConvertDate(DateTimeConverter convertDate) {
+    convertDate.setPattern("EEEEEEEE, MMM dd, yyyy");
+    this.convertDate = convertDate;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See <a href="../faces-develop/faces-develop.html#_writing_properties_bound_to_converters_listeners_or_validators" class="xref page">Writing Properties Bound to Converters, Listeners, or Validators</a> for more information on writing managed bean properties for converter, listener, and validator implementations.</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

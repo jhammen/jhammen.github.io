@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/10/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Core Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta REST</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta JSON</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jsonp/jsonp.html">JSON Processing</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta CDI Full</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security.html">Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Servlets</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Faces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-intro/faces-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-facelets/faces-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page/faces-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-page-core/faces-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-develop/faces-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ajax/faces-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-advanced-cc/faces-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-custom/faces-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-configure/faces-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-ws/faces-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../web/websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Enterprise Beans Lite</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Platform</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/mail-api/mail-api.html">Jakarta Mail</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Jakarta Batch</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authentication/security-authentication.html">Jakarta Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../security/security-authorization/security-authorization.html">Jakarta Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Jakarta Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Optional Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/faces-el/faces-el.html">Jakarta Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">Jakarta XML Binding</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Archived</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-pages/jakarta-pages.html">Jakarta Pages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../web/jakarta-tags/jakarta-tags.html">Jakarta Tags</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Full Profile</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entbeans/ejb-full/ejb-full.html">Jakarta Enterprise Beans Full</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/beanvalidation/pages/bean-validation-advanced/bean-validation-advanced001.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_creating_custom_constraints"><a class="anchor" href="#_creating_custom_constraints"></a>Creating Custom Constraints</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Jakarta Bean Validation defines annotations, interfaces, and classes to allow developers to create custom constraints.</p>
+</div>
+<div class="sect2">
+<h3 id="_using_the_built_in_constraints_to_make_a_new_constraint"><a class="anchor" href="#_using_the_built_in_constraints_to_make_a_new_constraint"></a>Using the Built-In Constraints to Make a New Constraint</h3>
+<div class="paragraph">
+<p>Jakarta Bean Validation includes several built-in constraints that can be combined to create new, reusable constraints.
+This can simplify constraint definition by allowing developers to define a custom constraint made up of several built-in constraints that may then be applied to component attributes with a single annotation.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Pattern.List({
+  /* A number of format “+1-NNN-NNN-NNNN” */
+  @Pattern(regexp = “\\+1-\\d{3}-\\d{3}-\\d{4})
+})
+@Constraint(validatedBy = {})
+@Documented
+@Target({ElementType.METHOD,
+    ElementType.FIELD,
+    ElementType.ANNOTATION_TYPE,
+    ElementType.CONSTRUCTOR,
+    ElementType.PARAMETER
+    ElementType.Type_Use})
+@Retention(RetentionPolicy.RUNTIME)
+@Repeatable(List.class)
+public @interface USPhoneNumber {
+
+  String message() default "Not a valid US Phone Number";
+
+  Class&lt;?&gt;[] groups() default {};
+
+  Class&lt;? extends Payload&gt;[] payload() default {};
+
+  @Target({ElementType.METHOD,
+     ElementType.FIELD,
+     ElementType.ANNOTATION_TYPE,
+     ElementType.CONSTRUCTOR,
+     ElementType.PARAMETER
+     ElementType.Type_Use })
+  @Retention(RetentionPolicy.RUNTIME)
+  @Documented
+  @interface List {
+  USPhoneNumber[] value();
+
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also implement a <code>Constraint Validator</code> to validate the constraint <code>@USPhoneNumber</code>.
+For more information about using <code>Constraint Validator</code>, see <code>jakarta.validation.ConstraintValidator</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@USPhoneNumber
+protected String phone;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_removing_ambiguity_in_constraint_targets"><a class="anchor" href="#_removing_ambiguity_in_constraint_targets"></a>Removing Ambiguity in Constraint Targets</h3>
+<div class="paragraph">
+<p>Custom constraints that can be applied to both return values and method parameters require a <code>validationAppliesTo</code> element to identify the target of the constraint.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Constraint(validatedBy=MyConstraintValidator.class)
+@Target({ METHOD, FIELD, TYPE, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
+@Retention(RUNTIME)
+public @interface MyConstraint {
+  String message() default "{com.example.constraint.MyConstraint.message}";
+  Class&lt;?&gt;[] groups() default {};
+  ConstraintTarget validationAppliesTo() default ConstraintTarget.PARAMETERS;
+...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This constraint sets the <code>validationAppliesTo</code> target by default to the method parameters.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@MyConstraint(validationAppliesTo=ConstraintTarget.RETURN_TYPE)
+public String doSomething(String param1, String param2) { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the preceding example, the target is set to the return value of the method.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_implementing_temporal_constraints_using_clockprovider"><a class="anchor" href="#_implementing_temporal_constraints_using_clockprovider"></a>Implementing Temporal Constraints Using ClockProvider</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>From Bean Validation 2.0 onwards, a <code>Clock</code> instance is available for validator implementations to validate any temporal date or time based constraints.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
+ClockProvider clockProvider = validatorFactory.getClockProvider();
+java.time.Clock Clock = clockProvider.getClock();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also register a custom <code>ClockProvider</code> with a <code>ValidatorFactory</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">//Register a custom clock provider implementation with validator factory
+ValidatorFactory factory = Validation
+       .byDefaultProvider().configure()
+          .clockProvider( new CustomClockProvider() )
+          .buildValidatorFactory();
+
+//Retrieve and use the custom Clock Provider and Clock in the Validator implementation
+public class CustomConstraintValidator implements ConstraintValidator&lt;CustomConstraint, Object&gt; {
+
+    public boolean isValid(Object value, ConstraintValidatorContext context){
+        java.time.Clock clock = context.getClockProvider().getClock();
+        ...
+        ...
+
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See ClockProvider in <a href="https://jakarta.ee/specifications/platform/9/apidocs/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/platform/9/apidocs/</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_custom_constraints"><a class="anchor" href="#_custom_constraints"></a>Custom Constraints</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Consider an employee in a firm located in U.S.A.
+When you register the phone number of an employee or modify the phone number, the phone number needs to be validated to ensure that the phone number conforms to US phone number pattern.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class Employee extends Person {
+
+  @USPhoneNumber
+  protected String phone;
+
+  public Employee(String name, String phone, int age){
+    super(name, age);
+    this.phone = phone;
+  }
+
+  public String getPhone() {
+    return phone;
+  }
+
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The constraint definition <code>@USPhoneNumber</code> is define in the sample listed under <a href="#_using_the_built_in_constraints_to_make_a_new_constraint">Using the Built-In Constraints to Make a New Constraint</a>.
+In the sample, another constraint <code>@Pattern</code> is used to validate the phone number.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_in_built_value_extractors_in_custom_containers"><a class="anchor" href="#_using_in_built_value_extractors_in_custom_containers"></a>Using In-Built Value Extractors in Custom Containers</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Cascading validation</dt>
+<dd>
+<p>Bean Validation supports cascading validation for various entities.
+You can specify <code>@Valid</code> on a member of the object that is validated to ensure that the member is also validated in a cascading fashion.
+You can validate type arguments, for example, parameterized types and its members if the members have the specified <code>@Valid</code> annotation.</p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class Department {
+    private List&lt;@Valid Employee&gt; employeesList;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By specifying <code>@Valid</code> on a parameterized type, when an instance of <code>Department</code> is validated, all elements such as <code>Employee</code> in the <code>employeesList</code> are also validated.
+In this example, each employee&#8217;s "phone" is validated against the constraint <code>@USPhoneNumber</code>.</p>
+</div>
+<div class="paragraph">
+<p>For more information see <a href="https://jakarta.ee/specifications/platform/9/apidocs/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/platform/9/apidocs/</a></p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Value Extractor</dt>
+<dd>
+<p>While validating the object or the object graph, it may be necessary to validate the constraints in the parameterized types of a container as well.
+To validate the elements of the container, the validator must extract the values of these elements in the container.
+For example, in order to validate the element values of <code>List</code> against one or more constraints such as <code>List&lt;@NotOnVacation Employee&gt;</code> or to apply cascading validation to <code>List&lt;@Valid Employee&gt;</code>, you need a value extractor for the container <code>List</code>.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Jakarta Bean validation provides in-built value extractors for most commonly used container types such as List, Iterable, and others.
+However, it is also possible to implement and register value-extractor implementations for custom container types or override the in-built value-extractor implementations.</p>
+</div>
+<div class="paragraph">
+<p>Consider a Statistics Calculator for a group of <code>Person</code> entity and <code>Employee</code> is one of the sub-type of the entity <code>Person</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class StatsCalculator&lt;T extends Person&gt; {
+
+  /* Cascading validation as well as @NotNull constraint */
+  private List&lt;@NotNull @Valid T&gt; members = new ArrayList&lt;T&gt;();
+
+
+  public void addMember(T member) {
+    members.add(member);
+  }
+
+  public boolean removeMember(T member) {
+    return members.remove(member);
+  }
+
+  public int getAverageAge() {
+
+    if (members.size() == 0)
+      return 0;
+
+    short sum = 0;
+    for (T member : members) {
+      if(member != null) {
+        sum += member.getAge();
+      }
+    }
+    return sum / members.size();
+  }
+
+  public int getOldest() {
+    int oldest = -1;
+
+    for (T member : members) {
+      if(member != null) {
+        if (member.getAge() &gt; oldest) {
+          oldest = member.getAge();
+        }
+      }
+    }
+    return oldest;
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the <code>StatsCalculator</code> is validated, the "members" field is also validated.
+The in-built value extractor for <code>List</code> is used to extract the values of <code>List</code> to validate the elements in <code>List</code>.
+In the case of an employee based List, each "Employee" element is validated.
+For example, an employee’s "phone" is validated using the <code>@USPhoneNumber</code> constraint.</p>
+</div>
+<div class="paragraph">
+<p>In the following example, let us consider a <code>StatisticsPrinter</code> that prints the statistics or displays the statistics on screen.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class StatisticsPrinter {
+  private StatsCalculator&lt;@Valid Employee&gt; calculator;
+
+  public StatisticsPrinter(StatsCalculator&lt;Employee&gt; statsCalculator){
+    this.calculator = statsCalculator;
+  }
+
+  public void displayStatistics(){
+    //Use StatsCalculator, get stats, format and display them.
+  }
+
+  public void printStatistics(){
+    //Use StatsCalculator, get stats, format and print them.
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The container <code>StatisticsPrinter</code> uses <code>StatisticsCalculator</code>.
+When <code>StatisticsPrinter</code> is validated, the <code>StatisticsCalculator</code> is also validated by using the cascading validation such as <code>@Valid</code> annotation.
+However, in order to retrieve the values of <code>StatsCalculator</code> container type, a value extractor is required.
+An implementation of <code>ValueExtractor</code> for <code>StatsCalculator</code> is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class ExtractorForStatsCalculator implements ValueExtractor&lt;StatsCalculator&lt;@ExtractedValue ?&gt;&gt; {
+
+  @Override
+  public void extractValues(StatsCalculator&lt;@ExtractedValue ?&gt; statsCalculator,
+      ValueReceiver valueReceiver) {
+      /* Simple value retrieval is done here.
+          It is possible to adapt or unwrap the value if required.*/
+    valueReceiver.value("&lt;extracted value&gt;", statsCalculator);
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There are multiple mechanisms to register the <code>ValueExtractor</code> with Jakarta Bean Validation.
+See, &#8220;Registering ValueExtractor&#8221; implementations section in the Jakarta Bean Validation specification <a href="https://jakarta.ee/specifications/bean-validation/3.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/bean-validation/3.0/</a>.
+One of the mechanisms is to register the value extractor with Jakarta Bean Validation Context.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">ValidatorFactory validatorFactory = Validation
+        .buildDefaultValidatorFactory();
+
+    ValidatorContext context = validatorFactory.
+        usingContext()
+        .addValueExtractor(new ExtractorForStatsCalculator());
+
+
+    Validator validator = context.getValidator();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Using this validator, <code>StatsisticsPrinter</code> is validated in the following sequence of operations:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>StatisticsPrinter</code> is validated.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>The members of <code>StatisticsPrinter</code> that need cascading validation are validated.</p>
+</li>
+<li>
+<p>For container types, value extractor is determined. In the case of <code>StatsCalculator</code>, <code>ExtractorForStatsCalculator</code> is found and then values are retrieved for validation.</p>
+</li>
+<li>
+<p><code>StatsCalculator</code> and its members such as <code>List</code> are validated.</p>
+</li>
+<li>
+<p>In-built <code>ValueExtractor</code> for <code>java.util.List</code> is used to retrieve the values of elements of the list and the validated.
+In this case, Employee and the field "phone" that is annotated with <code>@USPhoneNumber</code> constraint is validated.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

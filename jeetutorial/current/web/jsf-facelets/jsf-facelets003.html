@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script>!function (theme) {
+        if (theme === 'dark') document.documentElement.classList.add('theme-dark')
+      }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+    </script>
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a id="site-title" class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+ -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="../../../../jakartaee-tutorial/9.1/jakarta-ee-tutorial.pdf">Download</a>
+          </span>
+        </div>
+      </div>
+      <div class="navbar-theme-switcher">
+        <span class="switch" title="Switch between Light and Dark Theme">
+          <input id="theme-switcher-checkbox" type="checkbox" />
+          <label for="theme-switcher-checkbox">Dark Theme</label>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakartaee-tutorial" data-version="9.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Preface</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Introduction</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../intro/overview/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../intro/usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Platform Basics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/resource-creation/resource-creation.html">Resource Creation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/injection/injection.html">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/packaging/packaging.html">Packaging</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">The Web Tier</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../webapp/webapp.html">Getting Started with Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-intro/jsf-intro.html">Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="jsf-facelets.html">Introduction to Facelets</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-el/jsf-el.html">Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-page/jsf-page.html">Using Jakarta Faces Technology in Web Pages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-page-core/jsf-page-core.html">Using Converters, Listeners, and Validators</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-develop/jsf-develop.html">Developing with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-ajax/jsf-ajax.html">Using Ajax with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-advanced-cc/jsf-advanced-cc.html">Composite Components: Advanced Topics and an Example</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-custom/jsf-custom.html">Creating Custom UI Components and Other Custom Objects</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-configure/jsf-configure.html">Configuring Jakarta Faces Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsf-ws/jsf-ws.html">Using WebSockets with Jakarta Faces Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../servlets/servlets.html">Jakarta Servlet Technology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../websocket/websocket.html">Jakarta WebSocket</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsonp/jsonp.html">JSON Processing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../jsonb/jsonb.html">JSON Binding</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../webi18n/webi18n.html">Internationalizing and Localizing Web Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Bean Validation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../beanvalidation/bean-validation/bean-validation.html">Introduction to Jakarta Bean Validation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../beanvalidation/bean-validation-advanced/bean-validation-advanced.html">Bean Validation: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Contexts and Dependency Injection</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-basic/cdi-basic.html">Introduction to Jakarta Contexts and Dependency Injection</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-basicexamples/cdi-basicexamples.html">Running the Basic Contexts and Dependency Injection Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-adv/cdi-adv.html">Jakarta Contexts and Dependency Injection: Advanced Topics</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-bootstrap-se8/cdi-bootstrap-se8.html">Bootstrapping a CDI Container in Java SE</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../cdi/cdi-adv-examples/cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Web Services</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/webservices-intro/webservices-intro.html">Introduction to Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/jaxws/jaxws.html">Building Web Services with Jakarta XML Web Services</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/jaxrs/jaxrs.html">Building RESTful Web Services with Jakarta REST</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/jaxrs-client/jaxrs-client.html">Accessing REST Resources with the Jakarta REST Client API</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../websvcs/jaxrs-advanced/jaxrs-advanced.html">Jakarta REST: Advanced Topics and an Example</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Enterprise Beans</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-intro/ejb-intro.html">Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-gettingstarted/ejb-gettingstarted.html">Getting Started with Enterprise Beans</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-basicexamples/ejb-basicexamples.html">Running the Enterprise Bean Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-embedded/ejb-embedded.html">Using the Embedded Enterprise Bean Container</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../entbeans/ejb-async/ejb-async.html">Using Asynchronous Method Invocation in Session Beans</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Persistence</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-intro/persistence-intro.html">Introduction to Jakarta Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-basicexamples/persistence-basicexamples.html">Running the Persistence Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-querylanguage/persistence-querylanguage.html">The Jakarta Persistence Query Language</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-criteria/persistence-criteria.html">Using the Criteria API to Create Queries</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-string-queries/persistence-string-queries.html">Creating and Using String-Based Criteria Queries</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-locking/persistence-locking.html">Controlling Concurrent Access to Entity Data with Locking</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-entitygraphs/persistence-entitygraphs.html">Creating Fetch Plans with Entity Graphs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../persist/persistence-cache/persistence-cache.html">Using a Second-Level Cache with Jakarta Persistence Applications</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Messaging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/jms-concepts/jms-concepts.html">Jakarta Messaging Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../messaging/jms-examples/jms-examples.html">Jakarta Messaging Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-intro/security-intro.html">Introduction to Security in the Jakarta EE Platform</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-webtier/security-webtier.html">Getting Started Securing Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-jakartaee/security-jakartaee.html">Getting Started Securing Enterprise Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-api/security-api.html">Using Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../security/security-advanced/security-advanced.html">Jakarta EE Security: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Jakarta EE Supporting Technologies</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/transactions/transactions.html">Transactions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/resources/resources.html">Resource Adapters and Contracts</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/connectorexample/connectorexample.html">The Resource Adapter Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/interceptors/interceptors.html">Using Jakarta EE Interceptors</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/batch-processing/batch-processing.html">Batch Processing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../supporttechs/concurrency-utilities/concurrency-utilities.html">Jakarta Concurrency</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Case Studies</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../casestudies/dukes-bookstore/dukes-bookstore.html">Duke&#8217;s Bookstore Case Study Example</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../casestudies/dukes-tutoring/dukes-tutoring.html">Duke&#8217;s Tutoring Case Study Example</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../casestudies/dukes-forest/dukes-forest.html">Duke&#8217;s Forest Case Study Example</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Tutorial</span>
+    <span class="version">9.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Tutorial</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">9.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/web/pages/jsf-facelets/jsf-facelets003.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_developing_a_simple_facelets_application_the_guessnumber_jsf_example_application"><a class="anchor" href="#_developing_a_simple_facelets_application_the_guessnumber_jsf_example_application"></a>Developing a Simple Facelets Application: The guessnumber-jsf Example Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes the general steps involved in developing a Jakarta Faces application.
+The following tasks are usually required:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Developing the managed beans</p>
+</li>
+<li>
+<p>Creating the pages using the component tags</p>
+</li>
+<li>
+<p>Defining page navigation</p>
+</li>
+<li>
+<p>Mapping the <code>FacesServlet</code> instance</p>
+</li>
+<li>
+<p>Adding managed bean declarations</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_creating_a_facelets_application"><a class="anchor" href="#_creating_a_facelets_application"></a>Creating a Facelets Application</h3>
+<div class="paragraph">
+<p>The example used in this tutorial is the <code>guessnumber-jsf</code> application.
+The application presents you with a page that asks you to guess a number from 0 to 10, validates your input against a random number, and responds with another page that informs you whether you guessed the number correctly or incorrectly.</p>
+</div>
+<div class="paragraph">
+<p>The source code for this application is in the <code><em>tut-install</em>/examples/web/jsf/guessnumber-jsf/</code> directory.</p>
+</div>
+<div class="sect3">
+<h4 id="_developing_a_managed_bean"><a class="anchor" href="#_developing_a_managed_bean"></a>Developing a Managed Bean</h4>
+<div class="paragraph">
+<p>In a typical Jakarta Faces application, each page of the application connects to a managed bean that serves as a backing bean.
+The backing bean defines the methods and properties that are associated with the components.
+In this example, both pages use the same backing bean.</p>
+</div>
+<div class="paragraph">
+<p>The following managed bean class, <code>UserNumberBean.java</code>, generates a random number from 0 to 10 inclusive:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package ee.jakarta.tutorial.guessnumber;
+
+import java.io.Serializable;
+import java.util.Random;
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.inject.Named;
+
+@Named
+@SessionScoped
+public class UserNumberBean implements Serializable {
+
+    private static final long serialVersionUID = 5443351151396868724L;
+    Integer randomInt = null;
+    Integer userNumber = null;
+    String response = null;
+    private int maximum = 10;
+    private int minimum = 0;
+
+    public UserNumberBean() {
+        Random randomGR = new Random();
+        randomInt = new Integer(randomGR.nextInt(maximum + 1));
+        // Print number to server log
+        System.out.println("Duke's number: " + randomInt);
+    }
+
+    public void setUserNumber(Integer user_number) {
+        userNumber = user_number;
+    }
+
+    public Integer getUserNumber() {
+        return userNumber;
+    }
+
+    public String getResponse() {
+        if ((userNumber == null) || (userNumber.compareTo(randomInt) != 0)) {
+            return "Sorry, " + userNumber + " is incorrect.";
+        } else {
+            return "Yay! You got it!";
+        }
+    }
+
+    public int getMaximum() {
+        return (this.maximum);
+    }
+
+    public void setMaximum(int maximum) {
+        this.maximum = maximum;
+    }
+
+    public int getMinimum() {
+        return (this.minimum);
+    }
+
+    public void setMinimum(int minimum) {
+        this.minimum = minimum;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note the use of the <code>@Named</code> annotation, which makes the managed bean accessible through the EL.
+The <code>@SessionScoped</code> annotation registers the bean scope as <code>session</code> to enable you to make multiple guesses as you run the application.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_creating_facelets_views"><a class="anchor" href="#_creating_facelets_views"></a>Creating Facelets Views</h4>
+<div class="paragraph">
+<p>To create a page or view, you add components to the pages, wire the components to backing bean values and properties, and register converters, validators, or listeners on the components.</p>
+</div>
+<div class="paragraph">
+<p>For the example application, XHTML web pages serve as the front end.
+The first page of the example application is a page called <code>greeting.xhtml</code>.
+A closer look at various sections of this web page provides more information.</p>
+</div>
+<div class="paragraph">
+<p>The first section of the web page declares the content type for the page, which is XHTML:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The next section specifies the language of the XHTML page and then declares the XML namespace for the tag libraries that are used in the web page:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The next section uses various tags to insert components into the web page:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">    &lt;h:head&gt;
+        &lt;h:outputStylesheet library="css" name="default.css"/&gt;
+        &lt;title&gt;Guess Number Facelets Application&lt;/title&gt;
+    &lt;/h:head&gt;
+    &lt;h:body&gt;
+        &lt;h:form&gt;
+            &lt;h:graphicImage value="#{resource['images:wave.med.gif']}"
+                            alt="Duke waving his hand"/&gt;
+            &lt;h2&gt;
+                Hi, my name is Duke. I am thinking of a number from
+                #{userNumberBean.minimum} to #{userNumberBean.maximum}.
+                Can you guess it?
+            &lt;/h2&gt;
+            &lt;p&gt;&lt;h:inputText id="userNo"
+                            title="Enter a number from 0 to 10:"
+                            value="#{userNumberBean.userNumber}"&gt;
+                   &lt;f:validateLongRange minimum="#{userNumberBean.minimum}"
+                                        maximum="#{userNumberBean.maximum}"/&gt;
+                &lt;/h:inputText&gt;
+                &lt;h:commandButton id="submit" value="Submit"
+                                 action="response"/&gt;
+            &lt;/p&gt;
+            &lt;h:message showSummary="true" showDetail="false"
+                       style="color: #d20005;
+                       font-family: 'New Century Schoolbook', serif;
+                       font-style: oblique;
+                       text-decoration: overline"
+                       id="errors1"
+                       for="userNo"/&gt;
+        &lt;/h:form&gt;
+    &lt;/h:body&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note the use of the following tags:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Facelets HTML tags (those beginning with <code>h:</code>) to add components</p>
+</li>
+<li>
+<p>The Facelets core tag <code>f:validateLongRange</code> to validate the user input</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>An <code>h:inputText</code> tag accepts user input and sets the value of the managed bean property <code>userNumber</code> through the EL expression <code>#{userNumberBean.userNumber}</code>.
+The input value is validated for value range by the Jakarta Faces standard validator tag <code>f:validateLongRange</code>.</p>
+</div>
+<div class="paragraph">
+<p>The image file, <code>wave.med.gif</code>, is added to the page as a resource, as is the style sheet.
+For more details about the resources facility, see <a href="#_web_resources">[_web_resources]</a>.</p>
+</div>
+<div class="paragraph">
+<p>An <code>h:commandButton</code> tag with the ID <code>submit</code> starts validation of the input data when a user clicks the button.
+Using implicit navigation, the tag redirects the client to another page, <code>response.xhtml</code>, which shows the response to your input.
+The page specifies only <code>response</code>, which by default causes the server to look for <code>response.xhtml</code>.</p>
+</div>
+<div class="paragraph">
+<p>You can now create the second page, <code>response.xhtml</code>, with the following content:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+
+&lt;html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"&gt;
+
+    &lt;h:head&gt;
+        &lt;h:outputStylesheet library="css" name="default.css"/&gt;
+        &lt;title&gt;Guess Number Facelets Application&lt;/title&gt;
+    &lt;/h:head&gt;
+    &lt;h:body&gt;
+        &lt;h:form&gt;
+            &lt;h:graphicImage value="#{resource['images:wave.med.gif']}"
+                            alt="Duke waving his hand"/&gt;
+            &lt;h2&gt;
+                &lt;h:outputText id="result" value="#{userNumberBean.response}"/&gt;
+            &lt;/h2&gt;
+            &lt;h:commandButton id="back" value="Back" action="greeting"/&gt;
+        &lt;/h:form&gt;
+    &lt;/h:body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This page also uses implicit navigation, setting the <code>action</code> attribute for the Back button to send the user to the <code>greeting.xhtml</code> page.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configuring_the_application"><a class="anchor" href="#_configuring_the_application"></a>Configuring the Application</h3>
+<div class="paragraph">
+<p>Configuring a Jakarta Faces application involves mapping the Faces Servlet in the web deployment descriptor file, such as a <code>web.xml</code> file, and possibly adding managed bean declarations, navigation rules, and resource bundle declarations to the application configuration resource file, <code>faces-config.xml</code>.</p>
+</div>
+<div class="paragraph">
+<p>If you are using NetBeans IDE, a web deployment descriptor file is automatically created for you.
+In such an IDE-created <code>web.xml</code> file, change the default greeting page, which is <code>index.xhtml</code>, to <code>greeting.xhtml</code>.
+Here is an example <code>web.xml</code> file, showing this change in bold.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;web-app version="5.0"
+    xmlns="https://jakarta.ee/xml/ns/jakartaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"&gt;
+    &lt;context-param&gt;
+        &lt;param-name&gt;jakarta.faces.PROJECT_STAGE&lt;/param-name&gt;
+        &lt;param-value&gt;Development&lt;/param-value&gt;
+    &lt;/context-param&gt;
+    &lt;servlet&gt;
+        &lt;servlet-name&gt;Faces Servlet&lt;/servlet-name&gt;
+        &lt;servlet-class&gt;jakarta.faces.webapp.FacesServlet&lt;/servlet-class&gt;
+        &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+    &lt;/servlet&gt;
+    &lt;servlet-mapping&gt;
+        &lt;servlet-name&gt;Faces Servlet&lt;/servlet-name&gt;
+        &lt;url-pattern&gt;*.xhtml&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
+    &lt;session-config&gt;
+        &lt;session-timeout&gt;
+            30
+        &lt;/session-timeout&gt;
+    &lt;/session-config&gt;
+    &lt;welcome-file-list&gt;
+        &lt;welcome-file&gt;greeting.xhtml&lt;/welcome-file&gt;
+    &lt;/welcome-file-list&gt;
+&lt;/web-app&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note the use of the context parameter <code>PROJECT_STAGE</code>.
+This parameter identifies the status of a Jakarta Faces application in the software lifecycle.</p>
+</div>
+<div class="paragraph">
+<p>The stage of an application can affect the behavior of the application.
+For example, if the project stage is defined as <code>Development</code>, debugging information is automatically generated for the user.
+If not defined by the user, the default project stage is <code>Production</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_running_the_guessnumber_jsf_facelets_example"><a class="anchor" href="#_running_the_guessnumber_jsf_facelets_example"></a>Running the guessnumber-jsf Facelets Example</h3>
+<div class="paragraph">
+<p>You can use either NetBeans IDE or Maven to build, package, deploy, and run the <code>guessnumber-jsf</code> example.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_build_package_and_deploy_the_guessnumber_jsf_example_using_netbeans_ide"><a class="anchor" href="#_to_build_package_and_deploy_the_guessnumber_jsf_example_using_netbeans_ide"></a>To Build, Package, and Deploy the guessnumber-jsf Example Using NetBeans IDE</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="#starting-and-stopping-glassfish-server">[starting-and-stopping-glassfish-server]</a>).</p>
+</li>
+<li>
+<p>From the <strong>File</strong> menu, choose <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the Open Project dialog box, navigate to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/web/jsf</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Select the <code>guessnumber-jsf</code> folder.</p>
+</li>
+<li>
+<p>Click <strong>Open Project</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Projects</strong> tab, right-click the <code>guessnumber-jsf</code> project and select <strong>Build</strong>.</p>
+<div class="paragraph">
+<p>This option builds the example application and deploys it to your GlassFish Server instance.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_build_package_and_deploy_the_guessnumber_jsf_example_using_maven"><a class="anchor" href="#_to_build_package_and_deploy_the_guessnumber_jsf_example_using_maven"></a>To Build, Package, and Deploy the guessnumber-jsf Example Using Maven</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that GlassFish Server has been started (see <a href="#starting-and-stopping-glassfish-server">[starting-and-stopping-glassfish-server]</a>).</p>
+</li>
+<li>
+<p>In a terminal window, go to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/web/jsf/guessnumber-jsf/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enter the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command builds and packages the application into a WAR file, <code>guessnumber-jsf.war</code>, that is located in the <code>target</code> directory.
+It then deploys it to the server.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_to_run_the_guessnumber_jsf_example"><a class="anchor" href="#_to_run_the_guessnumber_jsf_example"></a>To Run the guessnumber-jsf Example</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open a web browser.</p>
+</li>
+<li>
+<p>Enter the following URL in your web browser:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/guessnumber-jsf</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>In the field, enter a number from 0 to 10 and click Submit.</p>
+<div class="paragraph">
+<p>Another page appears, reporting whether your guess is correct or incorrect.</p>
+</div>
+</li>
+<li>
+<p>If you guessed incorrectly, click Back to return to the main page.</p>
+<div class="paragraph">
+<p>You can continue to guess until you get the correct answer, or you can look in the server log, where the <code>UserNumberBean</code> constructor displays the correct answer.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
