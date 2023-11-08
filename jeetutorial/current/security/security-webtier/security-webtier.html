@@ -74,6 +74,9 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../index.html">Preface</a>
   </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../intro/usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="0">
@@ -310,7 +313,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Full Profile</span>
+    <span class="nav-text">Jakarta EE Platform</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
@@ -349,7 +352,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Full Profile</span>
+    <span class="nav-text">Jakarta EE Platform</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
@@ -376,6 +379,9 @@
         <li class="version is-current is-latest">
           <a href="../../index.html">10</a>
         </li>
+        <li class="version">
+          <a href="../../../9.1/index.html">9.1</a>
+        </li>
       </ul>
     </li>
   </ul>
@@ -392,6 +398,13 @@
     <li><a href="security-webtier.html">Getting Started Securing Web Applications</a></li>
   </ul>
 </nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">10</button>
+  <div class="version-menu">
+    <a class="version is-current" href="security-webtier.html">10</a>
+    <a class="version" href="../../../9.1/security/security-webtier/security-webtier.html">9.1</a>
+  </div>
+</div>
   <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/security/pages/security-webtier/security-webtier.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
@@ -1519,7 +1532,7 @@ When a user submits his or her name and password, the server determines whether 
 <div class="paragraph">
 <p>In general, the following steps are necessary for adding basic authentication to an unsecured servlet, such as the ones described in <a href="../../web/webapp/webapp.html#<em>getting_started_with_web_applications" class="xref page">Getting Started with Web Applications</a>.
 In the example application included with this tutorial, many of these steps have been completed for you and are listed here simply to show what needs to be done should you wish to create a similar application.
-This application can be found in the <code>_tut-install</em>/examples/security/hello2-basicauth/</code> directory.</p>
+This application can be found in the <code>_jakartaee-examples</em>/tutorial/security/hello2-basicauth/</code> directory.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1610,7 +1623,7 @@ Use the deployment descriptor to specify settings for nondefault authentication 
 <p>In the Open Project dialog box, navigate to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/security</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/security</code></pre>
 </div>
 </div>
 </li>
@@ -1640,7 +1653,7 @@ Use the deployment descriptor to specify settings for nondefault authentication 
 <p>In a terminal window, go to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/security/hello2-basicauth/</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/security/hello2-basicauth/</code></pre>
 </div>
 </div>
 </li>
@@ -1734,7 +1747,7 @@ The major difference is that you must use a deployment descriptor to specify the
 In addition, you must create a login form page and a login error page, as described in <a href="#_creating_the_login_form_and_the_error_page">Creating the Login Form and the Error Page</a>.</p>
 </div>
 <div class="paragraph">
-<p>This application can be found in the <code><em>tut-install</em>/examples/security/hello1-formauth/</code> directory.</p>
+<p>This application can be found in the <code><em>jakartaee-examples</em>/tutorial/security/hello1-formauth/</code> directory.</p>
 </div>
 <div class="sect3">
 <h4 id="_creating_the_login_form_and_the_error_page"><a class="anchor" href="#_creating_the_login_form_and_the_error_page"></a>Creating the Login Form and the Error Page</h4>
@@ -1757,7 +1770,7 @@ The content of an HTML page or servlet for a login page should be coded as follo
 </div>
 </div>
 <div class="paragraph">
-<p>The full code for the login page used in this example can be found at <code><em>tut-install</em>/examples/security/hello1-formauth/src/main/webapp/login.html</code>.
+<p>The full code for the login page used in this example can be found at <code><em>jakartaee-examples</em>/tutorial/security/hello1-formauth/src/main/webapp/login.html</code>.
 Here is the code for this page:</p>
 </div>
 <div class="listingblock">
@@ -1792,7 +1805,7 @@ Here is the code for this page:</p>
 </div>
 <div class="paragraph">
 <p>The login error page is displayed if the user enters a user name and password combination that is not authorized to access the protected URI.
-For this example, the login error page can be found at <code><em>tut-install</em>/examples/security/hello1-formauth/src/main/webapp/error.html</code>.
+For this example, the login error page can be found at <code><em>jakartaee-examples</em>/tutorial/security/hello1-formauth/src/main/webapp/error.html</code>.
 For this example, the login error page explains the reason for receiving the error page and provides a link that will allow the user to try again.
 Here is the code for this page:</p>
 </div>
@@ -1822,7 +1835,7 @@ Here is the code for this page:</p>
 To specify form-based instead of basic authentication for a Jakarta Faces example, you must use the deployment descriptor.</p>
 </div>
 <div class="paragraph">
-<p>The following sample code shows the security elements added to the deployment descriptor for this example, which can be found in <code><em>tut-install</em>/examples/security/hello1-formauth/src/main/webapp/WEB-INF/web.xml</code>:</p>
+<p>The following sample code shows the security elements added to the deployment descriptor for this example, which can be found in <code><em>jakartaee-examples</em>/tutorial/security/hello1-formauth/src/main/webapp/WEB-INF/web.xml</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1869,7 +1882,7 @@ To specify form-based instead of basic authentication for a Jakarta Faces exampl
 <p>In the Open Project dialog box, navigate to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/security</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/security</code></pre>
 </div>
 </div>
 </li>
@@ -1899,7 +1912,7 @@ To specify form-based instead of basic authentication for a Jakarta Faces exampl
 <p>In a terminal window, go to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/security/hello1-formauth/</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/security/hello1-formauth/</code></pre>
 </div>
 </div>
 </li>

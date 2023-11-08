@@ -74,6 +74,9 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../index.html">Preface</a>
   </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../intro/usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="0">
@@ -310,7 +313,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Full Profile</span>
+    <span class="nav-text">Jakarta EE Platform</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
@@ -349,7 +352,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Full Profile</span>
+    <span class="nav-text">Jakarta EE Platform</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
@@ -376,6 +379,9 @@
         <li class="version is-current is-latest">
           <a href="../../index.html">10</a>
         </li>
+        <li class="version">
+          <a href="../../../9.1/index.html">9.1</a>
+        </li>
       </ul>
     </li>
   </ul>
@@ -394,6 +400,13 @@
     <li><a href="persistence-basicexamples.html">Running the Persistence Examples</a></li>
   </ul>
 </nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">10</button>
+  <div class="version-menu">
+    <a class="version is-current" href="persistence-basicexamples.html">10</a>
+    <a class="version" href="../../../9.1/persist/persistence-basicexamples/persistence-basicexamples.html">9.1</a>
+  </div>
+</div>
   <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/persist/pages/persistence-basicexamples/persistence-basicexamples.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
@@ -1132,7 +1145,7 @@ First, you will create the database tables in Apache Derby.</p>
 <p>In the <strong>Open Project</strong> dialog box, navigate to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/persistence</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/persistence</code></pre>
 </div>
 </div>
 </li>
@@ -1170,7 +1183,7 @@ First, you will create the database tables in Apache Derby.</p>
 <p>In a terminal window, go to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/persistence/order/</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/persistence/order/</code></pre>
 </div>
 </div>
 </li>
@@ -1182,7 +1195,7 @@ First, you will create the database tables in Apache Derby.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>This compiles the source files and packages the application into a WAR file located at <code><em>tut-install</em>/examples/persistence/order/target/order.war</code>.
+<p>This compiles the source files and packages the application into a WAR file located at <code><em>jakartaee-examples</em>/tutorial/persistence/order/target/order.war</code>.
 Then the WAR file is deployed to your GlassFish Server instance.</p>
 </div>
 </li>
@@ -1534,7 +1547,7 @@ This is done by setting the <code>jakarta.persistence.schema-generation.database
 <p>In the <strong>Open Project</strong> dialog box, navigate to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/persistence</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/persistence</code></pre>
 </div>
 </div>
 </li>
@@ -1595,7 +1608,7 @@ P25 Frank Fletcher defender 399.0</code></pre>
 <p>In a terminal window, go to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/persistence/roster/roster-ear/</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/persistence/roster/roster-ear/</code></pre>
 </div>
 </div>
 </li>
@@ -1607,7 +1620,7 @@ P25 Frank Fletcher defender 399.0</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This compiles the source files and packages the application into an EAR file located at <code><em>tut-install</em>/examples/persistence/roster/target/roster.ear</code>.
+<p>This compiles the source files and packages the application into an EAR file located at <code><em>jakartaee-examples</em>/tutorial/persistence/roster/target/roster.ear</code>.
 The EAR file is then deployed to GlassFish Server.
 GlassFish Server will then drop and create the database tables during deployment, as specified in <code>persistence.xml</code>.</p>
 </div>
@@ -1741,7 +1754,7 @@ protected String homePhone;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The constraints in <code>Contact</code>, however, are strings in the resource bundle <code>ValidationMessages.properties</code>, under <code><em>tut-install</em>/examples/persistence/address-book/src/java/</code>.
+<p>The constraints in <code>Contact</code>, however, are strings in the resource bundle <code>ValidationMessages.properties</code>, under <code><em>jakartaee-examples</em>/tutorial/persistence/address-book/src/main/java</code>.
 This allows the validation messages to be located in one single properties file and the messages to be easily localized.
 Overridden Bean Validation messages must be placed in a resource bundle properties file named <code>ValidationMessages.properties</code> in the default package, with localized resource bundles taking the form <code>ValidationMessages<em>_locale-prefix</em>.properties</code>.
 For example, <code>ValidationMessages_es.properties</code> is the resource bundle used in Spanish-speaking locales.</p>
@@ -1812,7 +1825,7 @@ The form doesn&#8217;t require any Jakarta Faces validation tags, however.</p>
 <p>In the <strong>Open Project</strong> dialog box, navigate to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/persistence</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/persistence</code></pre>
 </div>
 </div>
 </li>
@@ -1857,7 +1870,7 @@ Enter values in the fields; then click Save.</p>
 <p>In a terminal window, go to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/persistence/address-book/</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/persistence/address-book/</code></pre>
 </div>
 </div>
 </li>

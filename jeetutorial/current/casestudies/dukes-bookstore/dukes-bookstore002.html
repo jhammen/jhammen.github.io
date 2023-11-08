@@ -74,6 +74,9 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../index.html">Preface</a>
   </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../intro/usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="0">
@@ -310,7 +313,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Full Profile</span>
+    <span class="nav-text">Jakarta EE Platform</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
@@ -349,7 +352,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Full Profile</span>
+    <span class="nav-text">Jakarta EE Platform</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
@@ -376,6 +379,9 @@
         <li class="version is-current is-latest">
           <a href="../../index.html">10</a>
         </li>
+        <li class="version">
+          <a href="../../../9.1/index.html">9.1</a>
+        </li>
       </ul>
     </li>
   </ul>
@@ -388,6 +394,13 @@
 <button class="nav-toggle"></button>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
 </nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">10</button>
+  <div class="version-menu">
+    <a class="version is-current" href="dukes-bookstore002.html">10</a>
+    <a class="version" href="../../../9.1/casestudies/dukes-bookstore/dukes-bookstore002.html">9.1</a>
+  </div>
+</div>
   <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/casestudies/pages/dukes-bookstore/dukes-bookstore002.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
@@ -471,7 +484,7 @@ The Facelets pages interact with a set of CDI managed beans that act as backing 
 The front page also interacts with the custom components used by the application.</p>
 </div>
 <div class="paragraph">
-<p>The application uses the following Facelets pages, which are located in the <code><em>tut-install</em>/examples/case-studies/dukes-bookstore/src/main/webapp/</code> directory.</p>
+<p>The application uses the following Facelets pages, which are located in the <code><em>jakartaee-examples</em>/tutorial/case-studies/dukes-bookstore/src/main/webapp/</code> directory.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -527,7 +540,7 @@ The template also retrieves the language set in the web browser.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>The application uses the following managed beans, which are located in the <code><em>tut-install</em>/examples/case-studies/dukes-bookstore/src/main/java/ee/jakarta/tutorial/dukesbookstore/web/managedbeans/</code> directory.</p>
+<p>The application uses the following managed beans, which are located in the <code><em>jakartaee-examples</em>/tutorial/case-studies/dukes-bookstore/src/main/java/jakarta/tutorial/dukesbookstore/web/managedbeans/</code> directory.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -569,7 +582,7 @@ Specifies the name <code>showcart</code>.</p>
 <div class="sect2">
 <h3 id="_custom_components_and_other_custom_objects_used_in_dukes_bookstore"><a class="anchor" href="#_custom_components_and_other_custom_objects_used_in_dukes_bookstore"></a>Custom Components and Other Custom Objects Used in Duke&#8217;s Bookstore</h3>
 <div class="paragraph">
-<p>The map and area custom components for Duke&#8217;s Bookstore, along with associated renderer, listener, and model classes, are defined in the following packages in the <code><em>tut-install</em>/examples/case-studies/dukes-bookstore/src/main/java/ee/jakarta/tutorial/dukesbookstore/</code> directory.</p>
+<p>The map and area custom components for Duke&#8217;s Bookstore, along with associated renderer, listener, and model classes, are defined in the following packages in the <code><em>jakartaee-examples</em>/tutorial/case-studies/dukes-bookstore/src/main/java/jakarta/tutorial/dukesbookstore/</code> directory.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -592,7 +605,7 @@ See <a href="../../web/faces-custom/faces-custom.html#_delegating_rendering_to_a
 </ul>
 </div>
 <div class="paragraph">
-<p>The <code><em>tut-install</em>/examples/case-studies/dukes-bookstore/src/java/dukesbookstore/</code> directory also contains a custom converter and other custom listeners not specifically tied to the custom components.</p>
+<p>The <code><em>jakartaee-examples</em>/tutorial/case-studies/dukes-bookstore/src/main/java/jakarta/tutorial/dukesbookstore/</code> directory also contains a custom converter and other custom listeners not specifically tied to the custom components.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -611,7 +624,7 @@ See <a href="../../web/faces-custom/faces-custom.html#_implementing_an_event_lis
 <h3 id="_properties_files_used_in_dukes_bookstore"><a class="anchor" href="#_properties_files_used_in_dukes_bookstore"></a>Properties Files Used in Duke&#8217;s Bookstore</h3>
 <div class="paragraph">
 <p>The strings used in the Duke&#8217;s Bookstore application are encapsulated into resource bundles to allow the display of localized strings in multiple locales.
-The properties files, located in the <code><em>tut-install</em>/examples/case-studies/dukes-bookstore/src/main/java/ee/jakarta/tutorial/dukesbookstore/web/messages/</code> directory, consist of a default file containing English strings and three additional files for other locales.
+The properties files, located in the <code><em>jakartaee-examples</em>/tutorial/case-studies/dukes-bookstore/src/main/java/jakarta/tutorial/dukesbookstore/web/messages/</code> directory, consist of a default file containing English strings and three additional files for other locales.
 The files are as follows:</p>
 </div>
 <div class="ulist">

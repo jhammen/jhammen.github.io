@@ -74,6 +74,9 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../index.html">Preface</a>
   </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../intro/usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="0">
@@ -310,7 +313,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Full Profile</span>
+    <span class="nav-text">Jakarta EE Platform</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
@@ -349,7 +352,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Full Profile</span>
+    <span class="nav-text">Jakarta EE Platform</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
@@ -376,6 +379,9 @@
         <li class="version is-current is-latest">
           <a href="../../index.html">10</a>
         </li>
+        <li class="version">
+          <a href="../../../9.1/index.html">9.1</a>
+        </li>
       </ul>
     </li>
   </ul>
@@ -394,6 +400,13 @@
     <li><a href="faces-facelets.html">Introduction to Facelets</a></li>
   </ul>
 </nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">10</button>
+  <div class="version-menu">
+    <a class="version is-current" href="faces-facelets.html">10</a>
+    <a class="version" href="../../../9.1/web/faces-facelets/faces-facelets.html">9.1</a>
+  </div>
+</div>
   <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/web/pages/faces-facelets/faces-facelets.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
@@ -677,7 +690,7 @@ The following tasks are usually required:</p>
 The application presents you with a page that asks you to guess a number from 0 to 10, validates your input against a random number, and responds with another page that informs you whether you guessed the number correctly or incorrectly.</p>
 </div>
 <div class="paragraph">
-<p>The source code for this application is in the <code><em>tut-install</em>/examples/web/faces/guessnumber-faces/</code> directory.</p>
+<p>The source code for this application is in the <code><em>jakartaee-examples</em>/tutorial/web/faces/guessnumber-faces/</code> directory.</p>
 </div>
 <div class="sect3">
 <h4 id="_developing_a_managed_bean"><a class="anchor" href="#_developing_a_managed_bean"></a>Developing a Managed Bean</h4>
@@ -953,7 +966,7 @@ If not defined by the user, the default project stage is <code>Production</code>
 <p>In the Open Project dialog box, navigate to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/web/faces</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/web/faces</code></pre>
 </div>
 </div>
 </li>
@@ -983,7 +996,7 @@ If not defined by the user, the default project stage is <code>Production</code>
 <p>In a terminal window, go to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/web/faces/guessnumber-faces/</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/web/faces/guessnumber-faces/</code></pre>
 </div>
 </div>
 </li>
@@ -1518,7 +1531,7 @@ Each of the two pages in the application uses a different contract.</p>
 <p>The managed bean for <code>hello1-rlc</code>, <code>Hello.java</code>, is identical to the one for <code>hello1</code> (except that it replaces the <code>@Named</code> and <code>@RequestScoped</code> annotations with <code>@Model</code>).</p>
 </div>
 <div class="paragraph">
-<p>The source code for this application is in the <code><em>tut-install</em>/examples/web/faces/hello1-rlc/</code> directory.</p>
+<p>The source code for this application is in the <code><em>jakartaee-examples</em>/tutorial/web/faces/hello1-rlc/</code> directory.</p>
 </div>
 <div class="sect3">
 <h4 id="_configuring_the_hello1_rlc_example"><a class="anchor" href="#_configuring_the_hello1_rlc_example"></a>Configuring the hello1-rlc Example</h4>
@@ -1551,7 +1564,7 @@ The other contract, <code>hello</code>, is used for all other pages in the appli
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">hello1-rlc
     pom.xml
-    src/main/java/ee/jakarta/tutorial/hello1rlc/Hello.java
+    src/main/java/jakarta/tutorial/hello1rlc/Hello.java
     src/main/webapp
         WEB-INF
             faces-config.xml
@@ -1606,7 +1619,7 @@ Because it is not located under <code>src/main/webapp/reply</code>, this Facelet
 <p>In the Open Project dialog box, navigate to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/web/faces</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/web/faces</code></pre>
 </div>
 </div>
 </li>
@@ -1636,7 +1649,7 @@ Because it is not located under <code>src/main/webapp/reply</code>, this Facelet
 <p>In a terminal window, go to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/web/faces/hello1-rlc/</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/web/faces/hello1-rlc/</code></pre>
 </div>
 </div>
 </li>
@@ -2034,7 +2047,7 @@ It consists of two Facelets pages, <code>reservation.xhtml</code> and <code>conf
 The pages use both pass-through attributes and pass-through elements.</p>
 </div>
 <div class="paragraph">
-<p>The source code for this application is in the <code><em>tut-install</em>/examples/web/faces/reservation/</code> directory.</p>
+<p>The source code for this application is in the <code><em>jakartaee-examples</em>/tutorial/web/faces/reservation/</code> directory.</p>
 </div>
 <div class="sect3">
 <h4 id="_the_facelets_pages_for_the_reservation_application"><a class="anchor" href="#_the_facelets_pages_for_the_reservation_application"></a>The Facelets Pages for the reservation Application</h4>
@@ -2143,7 +2156,7 @@ It also contains two methods, <code>calculateTotal</code> and <code>clear</code>
 <p>In the Open Project dialog box, navigate to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/web/faces</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/web/faces</code></pre>
 </div>
 </div>
 </li>
@@ -2173,7 +2186,7 @@ It also contains two methods, <code>calculateTotal</code> and <code>clear</code>
 <p>In a terminal window, go to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/web/faces/reservation/</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/web/faces/reservation/</code></pre>
 </div>
 </div>
 </li>

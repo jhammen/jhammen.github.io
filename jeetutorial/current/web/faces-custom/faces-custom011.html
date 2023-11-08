@@ -74,6 +74,9 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../index.html">Preface</a>
   </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../intro/usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="0">
@@ -310,7 +313,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Full Profile</span>
+    <span class="nav-text">Jakarta EE Platform</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
@@ -349,7 +352,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Full Profile</span>
+    <span class="nav-text">Jakarta EE Platform</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
@@ -376,6 +379,9 @@
         <li class="version is-current is-latest">
           <a href="../../index.html">10</a>
         </li>
+        <li class="version">
+          <a href="../../../9.1/index.html">9.1</a>
+        </li>
       </ul>
     </li>
   </ul>
@@ -388,6 +394,13 @@
 <button class="nav-toggle"></button>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
 </nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">10</button>
+  <div class="version-menu">
+    <a class="version is-current" href="faces-custom011.html">10</a>
+    <a class="version" href="../../../9.1/web/faces-custom/faces-custom011.html">9.1</a>
+  </div>
+</div>
   <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/web/pages/faces-custom/faces-custom011.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
@@ -412,7 +425,7 @@ This implementation, at a minimum, must define how to convert data both ways bet
 This section explains how to implement this interface to perform a custom data conversion.</p>
 </div>
 <div class="paragraph">
-<p>The Duke&#8217;s Bookstore case study uses a custom <code>Converter</code> implementation, located in <code><em>tut-install</em>/examples/case-studies/dukes-bookstore/src/java/dukesbookstore/converters/CreditCardConverter.java</code>, to convert the data entered in the Credit Card Number field on the <code>bookcashier.xhtml</code> page.
+<p>The Duke&#8217;s Bookstore case study uses a custom <code>Converter</code> implementation, located in <code><em>jakarta-examples</em>/tutorial/case-studies/dukes-bookstore/src/main/java/jakarta/tutorial/dukesbookstore/converters/CreditCardConverter.java</code>, to convert the data entered in the Credit Card Number field on the <code>bookcashier.xhtml</code> page.
 It strips blanks and hyphens from the text string and formats it so that a blank space separates every four characters.</p>
 </div>
 <div class="paragraph">

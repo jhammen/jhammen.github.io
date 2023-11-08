@@ -74,6 +74,9 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../index.html">Preface</a>
   </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../intro/usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="0">
@@ -310,7 +313,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Full Profile</span>
+    <span class="nav-text">Jakarta EE Platform</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
@@ -349,7 +352,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Full Profile</span>
+    <span class="nav-text">Jakarta EE Platform</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
@@ -376,6 +379,9 @@
         <li class="version is-current is-latest">
           <a href="../../index.html">10</a>
         </li>
+        <li class="version">
+          <a href="../../../9.1/index.html">9.1</a>
+        </li>
       </ul>
     </li>
   </ul>
@@ -388,6 +394,13 @@
 <button class="nav-toggle"></button>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
 </nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">10</button>
+  <div class="version-menu">
+    <a class="version is-current" href="jms-examples005.html">10</a>
+    <a class="version" href="../../../9.1/messaging/jms-examples/jms-examples005.html">9.1</a>
+  </div>
+</div>
   <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/messaging/pages/jms-examples/jms-examples005.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
@@ -478,7 +491,7 @@ The end of the <code>try-with-resources</code> block automatically causes the <c
 In the first, go to the <code>simple/producer/</code> directory:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cd tut-install/examples/jms/simple/producer/</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cd jakartaee-examples/tutorial/jms/simple/producer/</code></pre>
 </div>
 </div>
 </li>
@@ -486,7 +499,7 @@ In the first, go to the <code>simple/producer/</code> directory:</p>
 <p>In the second and third command windows, go to the <code>shared/sharedconsumer/</code> directory:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cd tut-install/examples/jms/shared/sharedconsumer/</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cd jakartaee-examples/tutorial/jms/shared/sharedconsumer/</code></pre>
 </div>
 </div>
 </li>
@@ -543,7 +556,7 @@ It shows how shared durable subscriptions combine the advantages of durable subs
 </div>
 <div class="paragraph">
 <p>The example is much more similar to the <code>sharedconsumer</code> example than to the <code>DurableConsumer.java</code> client.
-It uses two classes, <code>SharedDurableConsumer.java</code> and <code>TextListener.java</code>, which can be found under the <code><em>tut-install</em>/examples/jms/shared/shareddurableconsumer/</code> directory.</p>
+It uses two classes, <code>SharedDurableConsumer.java</code> and <code>TextListener.java</code>, which can be found under the <code><em>jakartaee-examples</em>/tutorial/jms/shared/shareddurableconsumer/</code> directory.</p>
 </div>
 <div class="paragraph">
 <p>The client uses <code>java:comp/DefaultJMSConnectionFactory</code>, the connection factory that does not have a client identifier, as is recommended for shared durable subscriptions.
@@ -565,7 +578,7 @@ It uses the <code>createSharedDurableConsumer</code> method with a subscription 
 <p>In a terminal window, go to the following directory:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/jms/shared/shareddurableconsumer</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/jms/shared/shareddurableconsumer</code></pre>
 </div>
 </div>
 </li>
@@ -602,7 +615,7 @@ The subscription remains active, although the client is not running.</p>
 <p>Open another terminal window and go to the <code>producer</code> example directory:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cd tut-install/examples/jms/simple/producer</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cd jakartaee-examples/tutorial/jms/simple/producer</code></pre>
 </div>
 </div>
 </li>

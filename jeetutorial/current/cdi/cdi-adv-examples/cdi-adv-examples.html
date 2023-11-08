@@ -74,6 +74,9 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../index.html">Preface</a>
   </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../intro/usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="0">
@@ -310,7 +313,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Full Profile</span>
+    <span class="nav-text">Jakarta EE Platform</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
@@ -349,7 +352,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Full Profile</span>
+    <span class="nav-text">Jakarta EE Platform</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
@@ -376,6 +379,9 @@
         <li class="version is-current is-latest">
           <a href="../../index.html">10</a>
         </li>
+        <li class="version">
+          <a href="../../../9.1/index.html">9.1</a>
+        </li>
       </ul>
     </li>
   </ul>
@@ -394,6 +400,13 @@
     <li><a href="cdi-adv-examples.html">Running the Advanced Contexts and Dependency Injection Examples</a></li>
   </ul>
 </nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">10</button>
+  <div class="version-menu">
+    <a class="version is-current" href="cdi-adv-examples.html">10</a>
+    <a class="version" href="../../../9.1/cdi/cdi-adv-examples/cdi-adv-examples.html">9.1</a>
+  </div>
+</div>
   <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/cdi/pages/cdi-adv-examples/cdi-adv-examples.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
@@ -427,7 +440,7 @@
 <h2 id="_building_and_running_the_cdi_advanced_examples"><a class="anchor" href="#_building_and_running_the_cdi_advanced_examples"></a>Building and Running the CDI Advanced Examples</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The examples are in the <code><em>tut-install</em>/examples/cdi/</code> directory.
+<p>The examples are in the <code><em>jakartaee-examples</em>/tutorial/cdi/</code> directory.
 To build and run the examples, you will do the following.</p>
 </div>
 <div class="olist arabic">
@@ -453,7 +466,7 @@ To build and run the examples, you will do the following.</p>
 The example includes an interface and two implementations of it, a managed bean, a Facelets page, and configuration files.</p>
 </div>
 <div class="paragraph">
-<p>The source files are located in the <code><em>tut-install</em>/examples/cdi/encoder/src/main/java/ee/jakarta/tutorial/encoder/</code> directory.</p>
+<p>The source files are located in the <code><em>jakartaee-examples</em>/tutorial/cdi/encoder/src/main/java/jakarta/tutorial/encoder/</code> directory.</p>
 </div>
 <div class="sect2">
 <h3 id="_the_coder_interface_and_implementations"><a class="anchor" href="#_the_coder_interface_and_implementations"></a>The Coder Interface and Implementations</h3>
@@ -618,7 +631,7 @@ This method sets the <code>codedString</code> property to the value returned by 
 <p>In the <strong>Open Project</strong> dialog box, navigate to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/cdi</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/cdi</code></pre>
 </div>
 </div>
 </li>
@@ -719,7 +732,7 @@ For example, if you enter <code>Java</code> and <code>4</code>, the result is:</
 <p>In a terminal window, go to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/cdi/encoder/</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/cdi/encoder/</code></pre>
 </div>
 </div>
 </li>
@@ -767,7 +780,7 @@ For example, if you enter <code>Java</code> and <code>4</code>, the result is <c
 <p>In a text editor, open the following file:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/cdi/encoder/src/main/webapp/WEB-INF/beans.xml</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/cdi/encoder/src/main/webapp/WEB-INF/beans.xml</code></pre>
 </div>
 </div>
 </li>
@@ -932,7 +945,7 @@ Coder coder;</code></pre>
 <p>In the <strong>Open Project</strong> dialog box, navigate to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/cdi</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/cdi</code></pre>
 </div>
 </div>
 </li>
@@ -962,7 +975,7 @@ Coder coder;</code></pre>
 <p>In a terminal window, go to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/cdi/producermethods/</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/cdi/producermethods/</code></pre>
 </div>
 </div>
 </li>
@@ -1017,7 +1030,7 @@ It also contains a qualifier and a class that generates the entity manager.
 It also contains a single entity, a stateful session bean, a Facelets page, and a managed bean.</p>
 </div>
 <div class="paragraph">
-<p>The source files are located in the <code><em>tut-install</em>/examples/cdi/producerfields/src/main/java/ee/jakarta/tutorial/producerfields/</code> directory.</p>
+<p>The source files are located in the <code><em>jakartaee-examples</em>/tutorial/cdi/producerfields/src/main/java/jakarta/tutorial/producerfields/</code> directory.</p>
 </div>
 <div class="sect2">
 <h3 id="_the_producer_field_for_the_producerfields_example"><a class="anchor" href="#_the_producer_field_for_the_producerfields_example"></a>The Producer Field for the producerfields Example</h3>
@@ -1327,7 +1340,7 @@ Finally, a Back button returns the user to the <code>index.xhtml</code> page.</p
 <p>In the <strong>Open Project</strong> dialog box, navigate to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/cdi</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/cdi</code></pre>
 </div>
 </div>
 </li>
@@ -1360,7 +1373,7 @@ Finally, a Back button returns the user to the <code>index.xhtml</code> page.</p
 <p>In a terminal window, go to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/cdi/producerfields/</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/cdi/producerfields/</code></pre>
 </div>
 </div>
 </li>
@@ -1421,7 +1434,7 @@ Finally, a Back button returns the user to the <code>index.xhtml</code> page.</p
 <p>The <code>billpayment</code> example shows how to use both events and interceptors.</p>
 </div>
 <div class="paragraph">
-<p>The source files are located in the <code><em>tut-install</em>/examples/cdi/billpayment/src/main/java/ee/jakarta/tutorial/billpayment/</code> directory.</p>
+<p>The source files are located in the <code><em>jakartaee-examples</em>/tutorial/cdi/billpayment/src/main/java/jakarta/tutorial/billpayment/</code> directory.</p>
 </div>
 <div class="sect2">
 <h3 id="_overview_of_the_billpayment_example"><a class="anchor" href="#_overview_of_the_billpayment_example"></a>Overview of the billpayment Example</h3>
@@ -1746,7 +1759,7 @@ In <code>PaymentBean</code>, only the <code>pay</code> and <code>reset</code> me
 <p>In the <strong>Open Project</strong> dialog box, navigate to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/cdi</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/cdi</code></pre>
 </div>
 </div>
 </li>
@@ -1776,7 +1789,7 @@ In <code>PaymentBean</code>, only the <code>pay</code> and <code>reset</code> me
 <p>In a terminal window, go to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/cdi/billpayment/</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/cdi/billpayment/</code></pre>
 </div>
 </div>
 </li>
@@ -1866,7 +1879,7 @@ INFO: PaymentHandler - Debit Handler: Debit = $1234.56 at Tue Dec 14 14:50:28 ES
 <p>The <code>decorators</code> example, which is yet another variation on the <code>encoder</code> example, shows how to use a decorator to implement additional business logic for a bean.</p>
 </div>
 <div class="paragraph">
-<p>The source files are located in the <code><em>tut-install</em>/examples/cdi/decorators/src/main/java/ee/jakarta/tutorial/decorators/</code> directory.</p>
+<p>The source files are located in the <code><em>jakartaee-examples</em>/tutorial/cdi/decorators/src/main/java/jakarta/tutorial/decorators/</code> directory.</p>
 </div>
 <div class="sect2">
 <h3 id="_overview_of_the_decorators_example"><a class="anchor" href="#_overview_of_the_decorators_example"></a>Overview of the decorators Example</h3>
@@ -1950,7 +1963,7 @@ The interceptor code is unchanged; interceptors are usually reusable for differe
 <p>In the <strong>Open Project</strong> dialog box, navigate to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/cdi</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/cdi</code></pre>
 </div>
 </div>
 </li>
@@ -1980,7 +1993,7 @@ The interceptor code is unchanged; interceptors are usually reusable for differe
 <p>In a terminal window, go to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/cdi/decorators/</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/cdi/decorators/</code></pre>
 </div>
 </div>
 </li>

@@ -74,6 +74,9 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../index.html">Preface</a>
   </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../intro/usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="0">
@@ -310,7 +313,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Full Profile</span>
+    <span class="nav-text">Jakarta EE Platform</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
@@ -349,7 +352,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Full Profile</span>
+    <span class="nav-text">Jakarta EE Platform</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
@@ -376,6 +379,9 @@
         <li class="version is-current is-latest">
           <a href="../../index.html">10</a>
         </li>
+        <li class="version">
+          <a href="../../../9.1/index.html">9.1</a>
+        </li>
       </ul>
     </li>
   </ul>
@@ -388,6 +394,13 @@
 <button class="nav-toggle"></button>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
 </nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">10</button>
+  <div class="version-menu">
+    <a class="version is-current" href="faces-configure004.html">10</a>
+    <a class="version" href="../../../9.1/web/faces-configure/faces-configure004.html">9.1</a>
+  </div>
+</div>
   <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/web/pages/faces-configure/faces-configure004.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
@@ -478,7 +491,7 @@ For example, the files for the application shown in <a href="#_two_faces_flows_a
         flow-b-flow.xml
         next_b1.xhtml
         next_b2.xhtml
-src/main/java/ee/jakarta/tutorial/flowexample
+src/main/java/jakarta/tutorial/flowexample
             FlowA.java
             Flow_a_Bean.java
             Flow_b_Bean.java</code></pre>
@@ -499,7 +512,7 @@ You may want to start with a simple example like this one and build upon it.</p>
 A configuration file that has content, or a class annotated <code>@FlowDefinition</code>, provides an explicit flow definition.</p>
 </div>
 <div class="paragraph">
-<p>The source code for this application is in the <code><em>tut-install</em>/examples/web/faces/simple-flow/</code> directory.</p>
+<p>The source code for this application is in the <code><em>jakartaee-examples</em>/tutorial/web/faces/simple-flow/</code> directory.</p>
 </div>
 <div class="paragraph">
 <p>The file layout of the <code>simple-flow</code> example looks like this:</p>
@@ -603,7 +616,7 @@ This page displays the flow-scoped value, to show that it has no value outside o
 <p>In the Open Project dialog box, navigate to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/web/faces</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/web/faces</code></pre>
 </div>
 </div>
 </li>
@@ -634,7 +647,7 @@ It then deploys the application to the server.</p>
 <p>In a terminal window, go to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/web/faces/simple-flow/</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/web/faces/simple-flow/</code></pre>
 </div>
 </div>
 </li>
@@ -696,7 +709,7 @@ One flow, <code>checkoutFlow</code>, is specified programmatically.
 The other flow, <code>joinFlow</code>, is specified in a configuration file.</p>
 </div>
 <div class="paragraph">
-<p>The source code for this application is in the <code><em>tut-install</em>/examples/web/faces/checkout-module/</code> directory.</p>
+<p>The source code for this application is in the <code><em>jakartaee-examples</em>/tutorial/web/faces/checkout-module/</code> directory.</p>
 </div>
 <div class="paragraph">
 <p>For the <code>checkout-module</code> application, the directory structure is as follows (there is also a <code>src/main/webapp/resources</code> directory with a stylesheet and an image):</p>
@@ -718,7 +731,7 @@ The other flow, <code>joinFlow</code>, is specified in a configuration file.</p>
         joinFlow-flow.xml
         joinFlow.xhtml
         joinFlow2.xhtml
-src/main/java/ee/jakarta/tutorial/checkoutmodule
+src/main/java/jakarta/tutorial/checkoutmodule
     CheckoutBean.java
     CheckoutFlow.java
     CheckoutFlowBean.java
@@ -988,7 +1001,7 @@ For the <code>CheckoutFlowBean</code>, the return node is the <code>index.xhtml<
 <p>In the Open Project dialog box, navigate to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/web/faces</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/web/faces</code></pre>
 </div>
 </div>
 </li>
@@ -1019,7 +1032,7 @@ It then deploys the application to the server.</p>
 <p>In a terminal window, go to:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/web/faces/checkout-module/</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/web/faces/checkout-module/</code></pre>
 </div>
 </div>
 </li>

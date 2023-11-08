@@ -74,6 +74,9 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../index.html">Preface</a>
   </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../intro/usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="0">
@@ -310,7 +313,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Full Profile</span>
+    <span class="nav-text">Jakarta EE Platform</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../supporttechs/connectors/connectors.html">Jakarta Connectors</a>
@@ -349,7 +352,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Full Profile</span>
+    <span class="nav-text">Jakarta EE Platform</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../websvcs/xml-websvcs/xml-websvcs.html">XML Web Services</a>
@@ -376,6 +379,9 @@
         <li class="version is-current is-latest">
           <a href="../../index.html">10</a>
         </li>
+        <li class="version">
+          <a href="../../../9.1/index.html">9.1</a>
+        </li>
       </ul>
     </li>
   </ul>
@@ -388,6 +394,13 @@
 <button class="nav-toggle"></button>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
 </nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">10</button>
+  <div class="version-menu">
+    <a class="version is-current" href="jms-examples004.html">10</a>
+    <a class="version" href="../../../9.1/messaging/jms-examples/jms-examples004.html">9.1</a>
+  </div>
+</div>
   <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/messaging/pages/jms-examples/jms-examples004.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
@@ -414,7 +427,7 @@ It demonstrates that a durable subscription continues to exist and accumulate me
 <p>For information on durable subscriptions, see <a href="../jms-concepts/jms-concepts.html#_creating_durable_subscriptions" class="xref page">Creating Durable Subscriptions</a>.</p>
 </div>
 <div class="paragraph">
-<p>The main client, <code>DurableConsumer.java</code>, is under the <code><em>tut-install</em>/examples/jms/durablesubscriptionexample/durableconsumer</code> directory.</p>
+<p>The main client, <code>DurableConsumer.java</code>, is under the <code><em>jakartaee-examples</em>/tutorial/jms/durablesubscriptionexample/durableconsumer</code> directory.</p>
 </div>
 <div class="paragraph">
 <p>The example uses a connection factory, <code>jms/DurableConnectionFactory</code>, that has a client ID.</p>
@@ -462,7 +475,7 @@ The subscription is created only if it does not already exist, so the example ca
 <p>In a command window, go to the <code>durableconsumer</code> example.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cd tut-install/jms/durablesubscriptionexample/durableconsumer</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cd jakartaee-examples/tutorial/jms/durablesubscriptionexample/durableconsumer</code></pre>
 </div>
 </div>
 </li>
@@ -508,7 +521,7 @@ Command list-jms-resources executed successfully.</code></pre>
 <p>In a terminal window, go to the following directory:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/jms/durablesubscriptionexample/</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/jms/durablesubscriptionexample/</code></pre>
 </div>
 </div>
 </li>
@@ -550,7 +563,7 @@ To end program, enter Q or q, then &lt;return&gt;</code></pre>
 <p>In another terminal window, run the <code>Producer</code> client, sending some messages to the topic:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cd tut-install/examples/jms/simple/producer
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cd jakartaee-examples/tutorial/jms/simple/producer
 appclient -client target/producer.jar topic 3</code></pre>
 </div>
 </div>
@@ -602,7 +615,7 @@ Message is not a TextMessage</code></pre>
 <p>In a terminal window, go to the following directory:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/jms/durablesubscriptionexample/unsubscriber</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/jms/durablesubscriptionexample/unsubscriber</code></pre>
 </div>
 </div>
 </li>
@@ -626,8 +639,8 @@ Message is not a TextMessage</code></pre>
 <div class="paragraph">
 <p>The <code>transactedexample</code> example demonstrates the use of local transactions in a Messaging client application.
 It also demonstrates the use of the request/reply messaging pattern described in <a href="../jms-concepts/jms-concepts.html#<em>creating_temporary_destinations" class="xref page">Creating Temporary Destinations</a>, although it uses permanent rather than temporary destinations.
-The example consists of three modules, <code>genericsupplier</code>, <code>retailer</code>, and <code>vendor</code>, which can be found under the <code>_tut-install</em>/examples/jms/transactedexample/</code> directory.
-The source code can be found in the <code>src/main/java/ee.jakarta.tutorial</code> trees for each module.
+The example consists of three modules, <code>genericsupplier</code>, <code>retailer</code>, and <code>vendor</code>, which can be found under the <code>_jakartaee-examples</em>/tutorial/jms/transactedexample/</code> directory.
+The source code can be found in the <code>src/main/java/jakarta.tutorial</code> trees for each module.
 The <code>genericsupplier</code> and <code>retailer</code> modules each contain a single class, <code>genericsupplier/GenericSupplier.java</code> and <code>retailer/Retailer.java</code>, respectively.
 The <code>vendor</code> module is more complex, containing four classes: <code>vendor/Vendor.java</code>, <code>vendor/VendorMessageListener.java</code>, <code>vendor/Order.java</code>, and <code>vendor/SampleUtilities.java</code>.</p>
 </div>
@@ -638,7 +651,7 @@ The example represents a highly simplified e-commerce application in which the f
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>A retailer (<code>retailer/src/main/java/ee/jakarta/tutorial/retailer/Retailer.java</code>) sends a <code>MapMessage</code> to a vendor order queue, ordering a quantity of computers, and waits for the vendor&#8217;s reply:</p>
+<p>A retailer (<code>retailer/src/main/java/jakarta/tutorial/retailer/Retailer.java</code>) sends a <code>MapMessage</code> to a vendor order queue, ordering a quantity of computers, and waits for the vendor&#8217;s reply:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">outMessage = context.createMapMessage();
@@ -652,7 +665,7 @@ orderConfirmReceiver = context.createConsumer(retailerConfirmQueue);</code></pre
 </div>
 </li>
 <li>
-<p>The vendor (<code>vendor/src/main/java/ee/jakarta/tutorial/retailer/Vendor.java</code>) receives the retailer&#8217;s order message and sends an order message to the supplier order topic in one transaction.
+<p>The vendor (<code>vendor/src/main/java/jakarta/tutorial/vendor/Vendor.java</code>) receives the retailer&#8217;s order message and sends an order message to the supplier order topic in one transaction.
 This Jakarta Messaging transaction uses a single session, so you can combine a receive from a queue with a send to a topic.
 Here is the code that uses the same session to create a consumer for a queue:</p>
 <div class="listingblock">
@@ -680,7 +693,7 @@ context.commit();</code></pre>
 </div>
 </li>
 <li>
-<p>Each supplier (<code>genericsupplier/src/main/java/ee/jakarta/tutorial/retailer/GenericSupplier.java</code>) receives the order from the order topic, checks its inventory, and then sends the items ordered to the queue named in the order message&#8217;s <code>JMSReplyTo</code> field.
+<p>Each supplier (<code>genericsupplier/src/main/java/jakarta/tutorial/genericsupplier/GenericSupplier.java</code>) receives the order from the order topic, checks its inventory, and then sends the items ordered to the queue named in the order message&#8217;s <code>JMSReplyTo</code> field.
 If it does not have enough of the item in stock, the supplier sends what it has.
 The synchronous receive from the topic and the send to the queue take place in one Jakarta Messaging transaction:</p>
 <div class="listingblock">
@@ -774,7 +787,7 @@ These replies are processed asynchronously and demonstrate how to use transactio
 <p>In a command window, go to the <code>genericsupplier</code> example:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cd tut-install/jms/transactedexample/genericsupplier</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cd jakartaee-examples/tutorial/jms/transactedexample/genericsupplier</code></pre>
 </div>
 </div>
 </li>
@@ -825,7 +838,7 @@ Make sure that you start the clients in the correct order.</p>
 <p>In a terminal window, go to the following directory:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">tut-install/examples/jms/transactedexample/</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">jakartaee-examples/tutorial/jms/transactedexample/</code></pre>
 </div>
 </div>
 </li>
@@ -865,7 +878,7 @@ Make sure that you start the clients in the correct order.</p>
 <p>In a second terminal window, go to the <code>genericsupplier</code> directory:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cd tut-install/examples/jms/transactedexample/genericsupplier</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cd jakartaee-examples/tutorial/jms/transactedexample/genericsupplier</code></pre>
 </div>
 </div>
 </li>
@@ -889,7 +902,7 @@ Make sure that you start the clients in the correct order.</p>
 <p>In a third terminal window, go to the <code>vendor</code> directory:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cd tut-install/examples/jms/transactedexample/vendor</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cd jakartaee-examples/tutorial/jms/transactedexample/vendor</code></pre>
 </div>
 </div>
 </li>
@@ -913,7 +926,7 @@ Make sure that you start the clients in the correct order.</p>
 <p>In another terminal window, go to the <code>retailer</code> directory:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cd tut-install/examples/jms/transactedexample/retailer</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cd jakartaee-examples/tutorial/jms/transactedexample/retailer</code></pre>
 </div>
 </div>
 </li>
