@@ -73,13 +73,25 @@
     <span class="nav-text">Introduction</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../../index.html">Preface</a>
-  </li>
-  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../intro/overview/overview.html">Overview</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../intro/usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Platform Basics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/resource-creation/resource-creation.html">Resource Creation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/injection/injection.html">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/packaging/packaging.html">Packaging</a>
   </li>
 </ul>
   </li>
@@ -173,7 +185,7 @@
     <a class="nav-link" href="webapp.html">Getting Started with Web Applications</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../servlets/servlets.html">Jakarta Servlet Technology</a>
+    <a class="nav-link" href="../servlets/servlets.html">Jakarta Servlet</a>
   </li>
 </ul>
   </li>
@@ -406,8 +418,8 @@
     <a class="version" href="../../../9.1/web/webapp/webapp002.html">9.1</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/jhammen/jakartaee-tutorial/edit/main/src/main/antora/modules/web/pages/webapp/webapp002.adoc">Edit this Page</a></div>
-  </div>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/web/pages/webapp/webapp002.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
@@ -631,7 +643,7 @@ By default, the URL has the following form:</p>
 </div>
 <div class="paragraph">
 <p>By default, the <code>context-path</code> is represented by the base file name of the WAR file, without the extension.
-If there is no web component listening on the root of the context path, then you could face a HTTP 404 'Not Found' error page.
+If there is no web component listening on the root of the context path, then you could face an HTTP 404 'Not Found' error page.
 In that case you would need to use a more specific URL, depending on the configuration of the desired web component.
 This will be detailed in <a href="webapp.html#_mapping_urls_to_web_components" class="xref page">Mapping URLs to Web Components</a>.</p>
 </div>

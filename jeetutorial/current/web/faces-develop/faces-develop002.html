@@ -73,13 +73,25 @@
     <span class="nav-text">Introduction</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../../index.html">Preface</a>
-  </li>
-  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../intro/overview/overview.html">Overview</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../intro/usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Platform Basics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/resource-creation/resource-creation.html">Resource Creation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/injection/injection.html">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/packaging/packaging.html">Packaging</a>
   </li>
 </ul>
   </li>
@@ -173,7 +185,7 @@
     <a class="nav-link" href="../webapp/webapp.html">Getting Started with Web Applications</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../servlets/servlets.html">Jakarta Servlet Technology</a>
+    <a class="nav-link" href="../servlets/servlets.html">Jakarta Servlet</a>
   </li>
 </ul>
   </li>
@@ -406,8 +418,8 @@
     <a class="version" href="../../../9.1/web/faces-develop/faces-develop002.html">9.1</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/jhammen/jakartaee-tutorial/edit/main/src/main/antora/modules/web/pages/faces-develop/faces-develop002.adoc">Edit this Page</a></div>
-  </div>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/web/pages/faces-develop/faces-develop002.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
@@ -616,7 +628,7 @@ For example, here is the <code>h:outputText</code> tag that displays the book ti
 </div>
 <div class="paragraph">
 <p>The title is actually a link to the <code>bookdetails.xhtml</code> page.
-The <code>h:outputText</code> tag uses the value expression <code>#{item.item.title}</code> to bind its <code>UIOutput</code> component to the <code>title</code> property of the <code>Book</code> entity.
+The <code>h:outputText</code> tag uses the value expression <code>&#35;{item.item.title}</code> to bind its <code>UIOutput</code> component to the <code>title</code> property of the <code>Book</code> entity.
 The first item in the expression is the <code>ShoppingCartItem</code> instance that the <code>h:dataTable</code> tag is referencing while rendering the current row.
 The second item in expression refers to the <code>item</code> property of <code>ShoppingCartItem</code>, which returns an <code>Object</code> (in this case, a <code>Book</code>).
 The <code>title</code> part of the expression refers to the <code>title</code> property of <code>Book</code>.

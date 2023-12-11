@@ -72,14 +72,26 @@
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Introduction</span>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../../index.html">Preface</a>
-  </li>
   <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="overview.html">Overview</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Platform Basics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/resource-creation/resource-creation.html">Resource Creation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/injection/injection.html">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/packaging/packaging.html">Packaging</a>
   </li>
 </ul>
   </li>
@@ -173,7 +185,7 @@
     <a class="nav-link" href="../../web/webapp/webapp.html">Getting Started with Web Applications</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet Technology</a>
+    <a class="nav-link" href="../../web/servlets/servlets.html">Jakarta Servlet</a>
   </li>
 </ul>
   </li>
@@ -411,8 +423,8 @@
     <a class="version" href="../../../9.1/intro/overview/overview.html">9.1</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/jhammen/jakartaee-tutorial/edit/main/src/main/antora/modules/intro/pages/overview/overview.adoc">Edit this Page</a></div>
-  </div>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/intro/pages/overview/overview.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
@@ -429,1272 +441,471 @@
 </td>
 <td class="content">
 <div class="paragraph">
-<p>We are working on a fresh, updated Jakarta EE Tutorial. This section hasn&#8217;t yet been updated.</p>
+<p>This section is currently a draft, and is subject to change.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>This chapter introduces you to Jakarta EE enterprise application development.
-Here you will review development basics, learn about the Jakarta EE architecture and APIs, become acquainted with important terms and concepts, and find out how to approach Jakarta EE application programming, assembly, and deployment.</p>
+<p>This chapter explains what Jakarta EE is, what features it provides, common terms,
+and how Jakarta EE applications are structured.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_introduction_to_jakarta_ee"><a class="anchor" href="#_introduction_to_jakarta_ee"></a>Introduction to Jakarta EE</h2>
+<h2 id="_jakarta_ee_10_platform_highlights"><a class="anchor" href="#_jakarta_ee_10_platform_highlights"></a>Jakarta EE 10 Platform Highlights</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Developers today increasingly recognize the need for distributed, transactional, and portable applications that leverage the speed, security, and reliability of server-side technology.
-Enterprise applications provide the business logic for an enterprise.
-They are centrally managed and often interact with other enterprise software.
-In the world of information technology, enterprise applications must be designed, built, and produced for less money, with greater speed, and with fewer resources.</p>
+<p>Jakarta EE 10 is the first feature release of the platform since it moved to the Eclipse Foundation in 2017.
+The key emphasis of this release is better alignment with Java SE and creation of a new lightweight Core profile,
+which can be easily consumed by other standards such as <a href="https://microprofile.io/" target="_blank" rel="noopener">MicroProfile</a>.</p>
 </div>
 <div class="paragraph">
-<p>With Jakarta EE, development of Java enterprise applications has never been easier or faster.
-The aim of the Jakarta EE platform is to provide developers with a powerful set of APIs while shortening development time, reducing application complexity, and improving application performance.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE platform is developed through the Jakarta EE Specification Process.
-Expert groups composed of interested parties have created Jakarta Specifications to define the various Jakarta EE technologies.
-The work of the Jakarta Community under the Jakarta EE Specification Process program helps to ensure Java technology&#8217;s standards of stability and cross-platform compatibility.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE platform uses a simplified programming model. XML deployment descriptors are optional.
-Instead, a developer can simply enter the information as an annotation directly into a Java source file, and the Jakarta EE server will configure the component at deployment and runtime.
-These annotations are generally used to embed in a program data that would otherwise be furnished in a deployment descriptor.
-With annotations, you put the specification information in your code next to the program element affected.</p>
-</div>
-<div class="paragraph">
-<p>In the Jakarta EE platform, dependency injection can be applied to all resources a component needs, effectively hiding the creation and lookup of resources from application code.
-Dependency injection can be used in enterprise bean containers, web containers, and application clients.
-Dependency injection allows the Jakarta EE container to automatically insert references to other required components or resources, using annotations.</p>
-</div>
-<div class="paragraph">
-<p>This tutorial uses examples to describe the features available in the Jakarta EE platform for developing enterprise applications.
-Whether you are a new or experienced enterprise developer, you should find the examples and accompanying text a valuable and accessible knowledge base for creating your own solutions.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_jakarta_ee_9_platform_highlights"><a class="anchor" href="#_jakarta_ee_9_platform_highlights"></a>Jakarta EE 9 Platform Highlights</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The goal of the Jakarta EE 9 release is to deliver a set of specifications functionally similar to Jakarta EE 8 but in the new Jakarta EE 9 namespace jakarta.*.</p>
-</div>
-<div class="paragraph">
-<p>In addition, the Jakarta EE 9 release removes a small set of specifications from Jakarta EE 8 that were old, optional, or deprecated in order to reduce the surface area of the APIs to ensure that it is easier for new vendors to enter the ecosystem – as well as reduce the burden on implementation, migration, and maintenance of these old APIs.</p>
-</div>
-<div class="paragraph">
-<p>The following Jakarta EE Technologies were removed from the Jakarta EE Platform:</p>
+<p>Here are some highlights:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>XML Registries 1.0</p>
+<p>CDI Alignment</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>@Asynchronous</code> in Jakarta Concurrency</p>
 </li>
 <li>
-<p>XML RPC 1.1</p>
-</li>
-<li>
-<p>Deployment 1.7</p>
-</li>
-<li>
-<p>Management 1.1</p>
-</li>
-<li>
-<p>Distributed Interoperability (EJB 3.2 Core Specification, Chapter 10)</p>
+<p>Better CDI support in Jakarta Batch</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Aside from the removed technologies, some technologies in Jakarta EE 9 release are marked as optional.
-The reason for this is that some of the technologies originally included in Jakarta EE are no longer as relevant as they were when they were introduced to the platform.</p>
-</div>
-<div class="paragraph">
-<p>Platform Specification Project can decide to officially "remove" the "optional" feature from the Platform in the next (or beyond) releases.</p>
-</div>
-<div class="paragraph">
-<p>The following technologies are optional:</p>
-</div>
+</li>
+<li>
+<p>Java SE Alignment</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Jakarta Enterprise Beans 3.2 and earlier entity beans and associated Jakarta Enterprise Beans QL</p>
+<p>Support for Java SE 11 and 17</p>
 </li>
 <li>
-<p>Jakarta Enterprise Beans 2.x API group</p>
+<p><code>CompletionStage</code>, <code>ForkJoinPool</code>, parallel streams in Jakarta Concurrency</p>
 </li>
 <li>
-<p>Jakarta Enterprise Web Services 2.0</p>
+<p>Bootstrap APIs for Jakarta REST</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>Jakarta SOAP with Attachments 2.0</p>
+<p>Closing standardization gaps</p>
+<div class="ulist">
+<ul>
+<li>
+<p>OpenID Connect support in Jakarta Security</p>
 </li>
 <li>
-<p>Jakarta Web Services Metadata 3.0</p>
+<p>UUID as entity keys, more SQL support in Jakarta Persistence queries</p>
 </li>
 <li>
-<p>Jakarta XML Web Services 3.0</p>
+<p>Multipart/form-data support in Jakarta REST</p>
 </li>
 <li>
-<p>Jakarta XML Binding 3.0</p>
+<p><code>@ClientWindowScoped</code> and Facelet pure Java views in Jakarta Faces</p>
+</li>
+<li>
+<p>New Core Profile that includes Jakarta CDI Light to enable next generation cloud native runtimes; used by MicroProfile</p>
+</li>
+<li>
+<p>Jakarta Concurrency has moved to the Web Profile</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Deprecation/removal</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>@Context</code> annotation in Jakarta REST</p>
+</li>
+<li>
+<p>EJB Entity Beans</p>
+</li>
+<li>
+<p>Embeddable EJB container</p>
+</li>
+<li>
+<p>Deprecated features in Jakarta Servlet, Jakarta Faces, and Jakarta CDI</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_jakarta_ee_application_model"><a class="anchor" href="#_jakarta_ee_application_model"></a>Jakarta EE Application Model</h2>
+<h2 id="_what_is_jakarta_ee"><a class="anchor" href="#_what_is_jakarta_ee"></a>What is Jakarta EE?</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Jakarta EE application model begins with the Java programming language and the Java virtual machine.
-The proven portability, security, and developer productivity they provide form the basis of the application model.
-Jakarta EE is designed to support applications that implement enterprise services for customers, employees, suppliers, partners, and others who make demands on or contributions to the enterprise.
-Such applications are inherently complex, potentially accessing data from a variety of sources and distributing applications to a variety of clients.</p>
+<p>Jakarta EE is a collection of services that help you write enterprise applications that run on the Java Platform.
+It provides the infrastructure often required for these applications
+so you that you can focus on core features and business logic.</p>
 </div>
 <div class="paragraph">
-<p>To better control and manage these applications, the business functions to support these various users are conducted in the middle tier.
-The middle tier represents an environment that is closely controlled by an enterprise&#8217;s information technology department.
-The middle tier is typically run on dedicated server hardware and has access to the full services of the enterprise.</p>
+<p><strong>Enterprise applications</strong> support the high levels of security,
+scalability, and reliability that large organizations typically require.
+They can be web services, web applications, batch processes, and so on.</p>
 </div>
 <div class="paragraph">
-<p>The Jakarta EE application model defines an architecture for implementing services as multitier applications that deliver the scalability, accessibility, and manageability needed by enterprise-level applications.
-This model partitions the work needed to implement a multitier service into the following parts:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The business and presentation logic to be implemented by the developer</p>
-</li>
-<li>
-<p>The standard system services provided by the Jakarta EE platform</p>
-</li>
-</ul>
+<p>The <strong>Java Platform</strong> consists of the Java Virtual Machine, compiler,
+standard APIs, and several tools that help you build, deploy, and debug Java applications.
+Java is the primary programming language, although the Java Platform supports several others, including Kotlin and Scala.
+Most Jakarta EE applications, however, are written in Java. The <strong>Java Platform</strong> is also called <strong>Java Standard Edition (SE)</strong>.</p>
 </div>
 <div class="paragraph">
-<p>The developer can rely on the platform to provide solutions for the hard systems-level problems of developing a multitier service.</p>
+<p>With Jakarta EE, you can pick and choose which services you need,
+and you use them with or without other frameworks and libraries.
+One framework commonly used with Jakarta EE is <a href="https://microprofile.io" target="_blank" rel="noopener">MicroProfile</a>,
+which provides additional features commonly used in microservices.</p>
+</div>
+<div class="paragraph">
+<p>A key benefit of Jakarta EE is that it&#8217;s a set of open source standards supported by multiple vendors.
+Each vendor has their own implementation of the standards,
+and the vendors work together to update the standards over time.
+This means that you aren&#8217;t locked into a particular vendor,
+and each standard is well-thought-out and based on existing patterns and practices.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta EE is stable and mature, and used in tens of thousands of mission-critical enterprises applications worldwide;
+yet it has evolved over time to keep up with modern computing trends, such as cloud computing.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_distributed_multitiered_applications"><a class="anchor" href="#_distributed_multitiered_applications"></a>Distributed Multitiered Applications</h2>
+<h2 id="_jakarta_ee_services"><a class="anchor" href="#_jakarta_ee_services"></a>Jakarta EE Services</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Jakarta EE platform uses a distributed multitiered application model for enterprise applications.
-Application logic is divided into components according to function, and the application components that make up a Jakarta EE application are installed on various machines depending on the tier in the multitiered Jakarta EE environment to which the application component belongs.</p>
+<p>Jakarta EE provides a wide range of services, organized into three main categories.
+Each category is implemented by one of three profiles.
+The Core profile contains the foundational services.
+The Web profile contains the Core profile plus services for writing web applications.
+The Platform contains the Core and Web profiles, plus additional services for mail, batch processing,
+and messaging, and more.</p>
 </div>
 <div class="paragraph">
-<p><a href="#_multitiered_applications">Figure 1, &#8220;Multitiered Applications&#8221;</a> shows two multitiered Jakarta EE applications divided into the tiers described in the following list. The Jakarta EE application parts shown in <a href="#_multitiered_applications">Figure 1, &#8220;Multitiered Applications&#8221;</a> are presented in <a href="#_jakarta_ee_components">Jakarta EE Components</a>.</p>
+<p>The table below lists each high-level service, the specification that provides it, and the profile that contains it:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Client-tier components run on the client machine.</p>
-</li>
-<li>
-<p>Web-tier components run on the Jakarta EE server.</p>
-</li>
-<li>
-<p>Business-tier components run on the Jakarta EE server.</p>
-</li>
-<li>
-<p>Enterprise information system (EIS)-tier software runs on the EIS server.</p>
-</li>
-</ul>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Service</th>
+<th class="tableblock halign-left valign-top">Specification</th>
+<th class="tableblock halign-left valign-top">Profile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dependency injection</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Contexts and Dependency Injection (CDI) Lite</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Core</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RESTful web services</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta REST (formerly JAX-RS)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Core</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSON processing</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta JSON Binding (JSON-B) and Jakarta JSON Processing (JSON-P)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Core</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Advanced dependency injection</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Contexts and Dependency Injection (CDI) Full</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Validation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Validation (Bean Validation)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Security</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Security</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP request handling</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Servlet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Server-side web applications</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Faces (formerly JavaServer Faces, or JSF)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WebSocket request handling</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta WebSocket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Relational data persistence</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Persistence (formerly JPA)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Application components</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Enterprise Beans Lite (formerly EJB Lite)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Transactions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Transactions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Managed concurrency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Concurrency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Email handling</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Mail</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Platform</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Messaging</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Messaging</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Platform</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Batch processing</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Batch</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Platform</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>As you work with Jakarta EE, you&#8217;ll encounter other services that support the ones listed above.</p>
 </div>
 <div class="paragraph">
-<p>Although a Jakarta EE application can consist of all tiers shown in <a href="#_multitiered_applications">Figure 1, &#8220;Multitiered Applications&#8221;</a>, Jakarta EE multitiered applications are generally considered to be three-tiered applications because they are distributed over three locations: client machines, the Jakarta EE server machine, and the database or legacy machines at the back end.
-Three-tiered applications that run in this way extend the standard two-tiered client-and-server model by placing a multithreaded application server between the client application and back-end storage.</p>
+<p>Each service is provided by one or more APIs, which are defined in Jakarta EE specifications.
+The specifications provide details for users and implementors of the service.
+You can find a <a href="https://jakarta.ee/specifications/">full list of the Jakarta EE specifications</a> on the Jakarta EE site.</p>
 </div>
-<div id="_multitiered_applications" class="imageblock">
+</div>
+</div>
+<div class="sect1">
+<h2 id="_jakarta_ee_containers_and_servers"><a class="anchor" href="#_jakarta_ee_containers_and_servers"></a>Jakarta EE Containers and Servers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The services we discussed in <a href="#_jakarta_ee_services">Jakarta EE Services</a> section are provided by <strong>container<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup></strong>.
+A <strong>Jakarta EE Server</strong> is software that runs the container, deploys applications into into it, and provides administration and additional features.
+Jakarta EE Servers run stand-alone, but many implementations also support the ability to generate a single "fat",
+executable Java Archive (JAR) file that includes all the code necessary to run the application.</p>
+</div>
+<div class="sidebarblock">
 <div class="content">
-<img src="../../common/_images/jakartaeett_dt_001.svg" alt="Diagram of multitiered application structure, including client tier, web tier, business tier, and EIS tier.">
-</div>
-<div class="title">Figure 1. Multitiered Applications</div>
-</div>
-<div class="sect2">
-<h3 id="_security"><a class="anchor" href="#_security"></a>Security</h3>
+<div class="title">Jakarta EE Containers vs Docker Containers</div>
 <div class="paragraph">
-<p>Although other enterprise application models require platform-specific security measures in each application, the Jakarta EE security environment enables security constraints to be defined at deployment time.
-The Jakarta EE platform makes applications portable to a wide variety of security implementations by shielding application developers from the complexity of implementing security features.</p>
+<p><em>Container</em> is a commonly used term in computing, but it basically means "that which holds something".
+In the case of Jakarta EE, the container "holds," or more accurately,
+executes your code and provides low-level application services,
+such as dependency injection, transactions, HTTP request handling, REST support, and so on.
+In the case of Docker container (which is technically an Object Computing Initiative,
+or OCI container) your application is executed inside it,
+but the container provides operating system services, such as disk and network I/O.</p>
 </div>
 <div class="paragraph">
-<p>The Jakarta EE platform provides standard declarative access control rules that are defined by the developer and interpreted when the application is deployed on the server.
-Jakarta EE also provides standard login mechanisms so that application developers do not have to implement these mechanisms in their applications.
-The same application works in a variety of security environments without changing the source code.</p>
+<p>While the two container types are different,
+it&#8217;s entirely possible (and common) to run a Jakarta EE application inside a Docker container.</p>
 </div>
+</div>
+</div>
+<div class="paragraph">
+<p>The figure below shows how the application code, container, and Jakarta EE Server are related:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/container-services.svg" alt="Relationship between containers, serveris, and your code.">
+</div>
+</div>
+<div class="paragraph">
+<p>In a simple case, an application might look like this:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/simple-app.svg" alt="Simple Jakarta EE Application">
+</div>
+</div>
+<div class="paragraph">
+<p>However, a single Jakarta EE Server can run multiple applications,
+and applications can communicate with each other remotely.
+So you can create more complicated scenarios, as shown below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/multitier-app.svg" alt="More Complex Jakarta EE Application">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Even though the figures above show communication between multiple Jakarta EE applications,
+they can and often do communicate with non-Jakarta EE applications via messaging or streaming servers, REST, and so on.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Regardless of how simple or complicated your system architecture is,
+a key benefit of Jakarta EE is that container services are configurable.
+This means the same component can behave differently based on where it&#8217;s deployed.
+The container also manages non-configurable services, such as the lifecycle of components,
+database connection resource pooling, data persistence, and access to the Jakarta EE APIs.</p>
 </div>
 <div class="sect2">
 <h3 id="_jakarta_ee_components"><a class="anchor" href="#_jakarta_ee_components"></a>Jakarta EE Components</h3>
 <div class="paragraph">
-<p>Jakarta EE applications are made up of components.
-A Jakarta EE component is a self-contained functional software unit that is assembled into a Jakarta EE application with its related classes and files and that communicates with other components.</p>
+<p>Jakarta EE applications are made up of components. A <strong>Jakarta EE component</strong> is a self-contained functional unit that
+makes use of one or more container services.
+That usage could be as simple as injecting a single dependency
+or responding to REST requests, or as complicated as
+injecting multiple dependencies, querying a database, firing and event, and participating in distributed transactions.</p>
 </div>
 <div class="paragraph">
-<p>The Jakarta EE specification defines the following Jakarta EE components:</p>
+<p>Jakarta EE supports the following components:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Application clients and applets are components that run on the client.</p>
+<p><strong>Web components<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup></strong> interact with web standards (HTTPS, HTML, WebSocket, and so on) using Jakarta Servlet, Jakarta Faces, Jakarta WebSocket, and related technologies.</p>
 </li>
 <li>
-<p>Jakarta Servlet, Jakarta Faces, and Jakarta Server Pages technology components are web components that run on the server.</p>
-</li>
-<li>
-<p>Enterprise bean components (enterprise beans) are business components that run on the server.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Jakarta EE components are written in the Java programming language and are compiled in the same way as any program in the language.
-The differences between Jakarta EE components and "standard" Java classes are that Jakarta EE components are assembled into a Jakarta EE application, they are verified to be well formed and in compliance with the Jakarta EE specification, and they are deployed to production, where they are run and managed by the Jakarta EE server.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_ee_clients"><a class="anchor" href="#_jakarta_ee_clients"></a>Jakarta EE Clients</h3>
-<div class="paragraph">
-<p>A Jakarta EE client is usually either a web client or an application client.</p>
-</div>
-<div class="sect3">
-<h4 id="_web_clients"><a class="anchor" href="#_web_clients"></a>Web Clients</h4>
-<div class="paragraph">
-<p>A web client consists of two parts:</p>
-</div>
+<p>Business components implement logic necessary to support the business domain using either <strong>Enterprise bean components (enterprise beans)</strong><sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup> or CDI managed beans.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Dynamic web pages containing various types of markup language (HTML, XML, and so on), which are generated by web components running in the web tier</p>
+<p>For new applications, business components should be implemented using CDI managed beans,
+unless you need Enterprise bean-specific features such as transactions, role-based security,
+messaging driven beans, or remote execution.
+The two technologies play well together.</p>
 </li>
-<li>
-<p>A web browser, which renders the pages received from the server</p>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>A web client is sometimes called a thin client.
-Thin clients usually do not query databases, execute complex business rules, or connect to legacy applications.
-When you use a thin client, such heavyweight operations are off-loaded to enterprise beans executing on the Jakarta EE server, where they can leverage the security, speed, services, and reliability of Jakarta EE server-side technologies.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_application_clients"><a class="anchor" href="#_application_clients"></a>Application Clients</h4>
-<div class="paragraph">
-<p>An application client runs on a client machine and provides a way for users to handle tasks that require a richer user interface than can be provided by a markup language.
-An application client typically has a graphical user interface (GUI) created from the Swing API or the Abstract Window Toolkit (AWT) API, but a command-line interface is certainly possible.</p>
-</div>
-<div class="paragraph">
-<p>Application clients directly access enterprise beans running in the business tier.
-However, if application requirements warrant it, an application client can open an HTTP connection to establish communication with a servlet running in the web tier.
-Application clients written in languages other than Java can interact with Jakarta EE servers, enabling the Jakarta EE platform to interoperate with legacy systems, clients, and non-Java languages.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_applets"><a class="anchor" href="#_applets"></a>Applets</h4>
-<div class="paragraph">
-<p>A web page received from the web tier can include an embedded applet.
-Written in the Java programming language, an applet is a small client application that executes in the Java virtual machine installed in the web browser.
-However, client systems will likely need the Java Plug-in and possibly a security policy file for the applet to successfully execute in the web browser.</p>
-</div>
-<div class="paragraph">
-<p>Web components are the preferred API for creating a web client program because no plug-ins or security policy files are needed on the client systems.
-Also, web components enable cleaner and more modular application design because they provide a way to separate applications programming from web page design.
-Personnel involved in web page design thus do not need to understand Java programming language syntax to do their jobs.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_the_javabeans_component_architecture"><a class="anchor" href="#_the_javabeans_component_architecture"></a>The JavaBeans Component Architecture</h4>
-<div class="paragraph">
-<p>The server and client tiers might also include components based on the JavaBeans component architecture (JavaBeans components) to manage the data flow between the following:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>An application client or applet and components running on the Jakarta EE server</p>
-</li>
-<li>
-<p>Server components and a database</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>JavaBeans components are not considered Jakarta EE components by the Jakarta EE specification.</p>
-</div>
-<div class="paragraph">
-<p>JavaBeans components have properties and have <code>get</code> and <code>set</code> methods for accessing those properties.
-JavaBeans components used in this way are typically simple in design and implementation but should conform to the naming and design conventions outlined in the JavaBeans component architecture.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_jakarta_ee_server_communications"><a class="anchor" href="#_jakarta_ee_server_communications"></a>Jakarta EE Server Communications</h4>
-<div class="paragraph">
-<p><a href="#_server_communication">Figure 2, &#8220;Server Communication&#8221;</a> shows the various elements that can make up the client tier.
-The client communicates with the business tier running on the Jakarta EE server either directly or, as in the case of a client running in a browser, by going through web pages or servlets running in the web tier.</p>
-</div>
-<div id="_server_communication" class="imageblock">
-<div class="content">
-<img src="../../common/_images/jakartaeett_dt_002.svg" alt="Diagram of client-server communication. Application clients access the business tier directly. Browsers, web pages, and applets access the web tier.">
-</div>
-<div class="title">Figure 2. Server Communication</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_web_components"><a class="anchor" href="#_web_components"></a>Web Components</h3>
-<div class="paragraph">
-<p>Jakarta EE web components are either servlets or web pages created using Jakarta Faces technology and/or Jakarta Server Pages technology.
-Servlets are Java programming language classes that dynamically process requests and construct responses.
-Jakarta Server Pages are text-based documents that execute as servlets but allow a more natural approach to creating static content.
-Jakarta Faces technology builds on servlets and Jakarta Server Pages technology and provides a user interface component framework for web applications.</p>
-</div>
-<div class="paragraph">
-<p>Static HTML pages and applets are bundled with web components during application assembly but are not considered web components by the Jakarta EE specification.
-Server-side utility classes can also be bundled with web components and, like HTML pages, are not considered web components.</p>
-</div>
-<div class="paragraph">
-<p>As shown in <a href="#_web_tier_and_jakarta_ee_applications">Figure 3, &#8220;Web Tier and Jakarta EE Applications&#8221;</a>, the web tier, like the client tier, might include a JavaBeans component to manage the user input and send that input to enterprise beans running in the business tier for processing.</p>
-</div>
-<div id="_web_tier_and_jakarta_ee_applications" class="imageblock">
-<div class="content">
-<img src="../../common/_images/jakartaeett_dt_003.svg" alt="Diagram of client-server communication showing detail of JavaBeans components and web pages in the web tier.">
-</div>
-<div class="title">Figure 3. Web Tier and Jakarta EE Applications</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_business_components"><a class="anchor" href="#_business_components"></a>Business Components</h3>
-<div class="paragraph">
-<p>Business code, which is logic that solves or meets the needs of a particular business domain such as banking, retail, or finance, is handled by enterprise beans running in either the business tier or the web tier.
-<a href="#_business_and_eis_tiers">Figure 4, &#8220;Business and EIS Tiers&#8221;</a> shows how an enterprise bean receives data from client programs, processes it (if necessary), and sends it to the enterprise information system tier for storage.
-An enterprise bean also retrieves data from storage, processes it (if necessary), and sends it back to the client program.</p>
-</div>
-<div id="_business_and_eis_tiers" class="imageblock">
-<div class="content">
-<img src="../../common/_images/jakartaeett_dt_004.svg" alt="Diagram of client-server communication showing detail of entities, session beans, and message-driven beans in the business tier.">
-</div>
-<div class="title">Figure 4. Business and EIS Tiers</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_enterprise_information_system_tier"><a class="anchor" href="#_enterprise_information_system_tier"></a>Enterprise Information System Tier</h3>
-<div class="paragraph">
-<p>The enterprise information system tier handles EIS software and includes enterprise infrastructure systems, such as enterprise resource planning (ERP), mainframe transaction processing, database systems, and other legacy information systems.
-For example, Jakarta EE application components might need access to enterprise information systems for database connectivity.</p>
+<p>All of these components run on the <strong>server<sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup></strong>,
+and are ordinary Java classes written with Jakarta EE annotations (or optionally,
+external configuration files called deployment descriptors).</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_jakarta_ee_containers"><a class="anchor" href="#_jakarta_ee_containers"></a>Jakarta EE Containers</h2>
+<h2 id="_usage_of_java_standard_edition_se_apis"><a class="anchor" href="#_usage_of_java_standard_edition_se_apis"></a>Usage of Java Standard Edition (SE) APIs</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Normally, thin-client multitiered applications are hard to write because they involve many lines of intricate code to handle transaction and state management, multithreading, resource pooling, and other complex low-level details.
-The component-based and platform-independent Jakarta EE architecture makes applications easy to write because business logic is organized into reusable components.
-In addition, the Jakarta EE server provides underlying services in the form of a container for every component type.
-Because you do not have to develop these services yourself, you are free to concentrate on solving the business problem at hand.</p>
-</div>
-<div class="sect2">
-<h3 id="_container_services"><a class="anchor" href="#_container_services"></a>Container Services</h3>
-<div class="paragraph">
-<p>Containers are the interface between a component and the low-level, platform-specific functionality that supports the component.
-Before it can be executed, a web, enterprise bean, or application client component must be assembled into a Jakarta EE module and deployed into its container.</p>
-</div>
-<div class="paragraph">
-<p>The assembly process involves specifying container settings for each component in the Jakarta EE application and for the Jakarta EE application itself.
-Container settings customize the underlying support provided by the Jakarta EE server, including such services as security, transaction management, Java Naming and Directory Interface (JNDI) API lookups, and remote connectivity.
-Here are some of the highlights.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The Jakarta EE security model lets you configure a web component or enterprise bean so that system resources are accessed only by authorized users.</p>
-</li>
-<li>
-<p>The Jakarta EE transaction model lets you specify relationships among methods that make up a single transaction so that all methods in one transaction are treated as a single unit.</p>
-</li>
-<li>
-<p>JNDI lookup services provide a unified interface to multiple naming and directory services in the enterprise so that application components can access these services.</p>
-</li>
-<li>
-<p>The Jakarta EE remote connectivity model manages low-level communications between clients and enterprise beans.
-After an enterprise bean is created, a client invokes methods on it as if it were in the same virtual machine.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Because the Jakarta EE architecture provides configurable services, components within the same application can behave differently based on where they are deployed.
-For example, an enterprise bean can have security settings that allow it a certain level of access to database data in one production environment and another level of database access in another production environment.</p>
-</div>
-<div class="paragraph">
-<p>The container also manages nonconfigurable services, such as enterprise bean and servlet lifecycles, database connection resource pooling, data persistence, and access to the Jakarta EE platform APIs (see <a href="#_jakarta_ee_apis">Jakarta EE APIs</a>).</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_container_types"><a class="anchor" href="#_container_types"></a>Container Types</h3>
-<div class="paragraph">
-<p>The deployment process installs Jakarta EE application components in the Jakarta EE containers, as illustrated in <a href="#_jakarta_ee_server_and_containers">Figure 5, &#8220;Jakarta EE Server and Containers&#8221;</a>.</p>
-</div>
-<div id="_jakarta_ee_server_and_containers" class="imageblock">
-<div class="content">
-<img src="../../common/_images/jakartaeett_dt_005.svg" alt="Diagram of client-server communication showing servlets and web pages in the web tier and enterprise beans in the business tier.">
-</div>
-<div class="title">Figure 5. Jakarta EE Server and Containers</div>
-</div>
-<div class="paragraph">
-<p>The server and containers are as follows:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Jakarta EE server: The runtime portion of a Jakarta EE product.
-A Jakarta EE server provides enterprise and web containers.</p>
-</li>
-<li>
-<p>Jakarta Enterprise Bean container: Manages the execution of enterprise beans for Jakarta EE applications.
-Jakarta Enterprise Beans and their container run on the Jakarta EE server.</p>
-</li>
-<li>
-<p>Web container: Manages the execution of web pages, servlets, and some enterprise bean components for Jakarta EE applications.
-Web components and their container run on the Jakarta EE server.</p>
-</li>
-<li>
-<p>Application client container: Manages the execution of application client components.
-Application clients and their container run on the client.</p>
-</li>
-<li>
-<p>Applet container: Manages the execution of applets.
-Consists of a web browser and a Java Plug-in running on the client together.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_web_services_support"><a class="anchor" href="#_web_services_support"></a>Web Services Support</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Web services are web-based enterprise applications that use open, XML-based standards and transport protocols to exchange data with calling clients.
-The Jakarta EE platform provides the XML APIs and tools you need to quickly design, develop, test, and deploy web services and clients that fully interoperate with other web services and clients running on Java-based or non-Java-based platforms.</p>
-</div>
-<div class="paragraph">
-<p>To write web services and clients with the Jakarta EE XML APIs, all you need to do is pass parameter data to the method calls and process the data returned; for document-oriented web services, you send documents containing the service data back and forth.
-No low-level programming is needed because the XML API implementations do the work of translating the application data to and from an XML-based data stream that is sent over the standardized XML-based transport protocols.
-These XML-based standards and protocols are introduced in the following sections.</p>
-</div>
-<div class="paragraph">
-<p>The translation of data to a standardized XML-based data stream is what makes web services and clients written with the Jakarta EE XML APIs fully interoperable.
-This does not necessarily mean that the data being transported includes XML tags, because the transported data can itself be plain text, XML data, or any kind of binary data, such as audio, video, maps, program files, computer-aided design (CAD) documents, and the like.
-The next section introduces XML and explains how parties doing business can use XML tags and schemas to exchange data in a meaningful way.</p>
-</div>
-<div class="sect2">
-<h3 id="_xml"><a class="anchor" href="#_xml"></a>XML</h3>
-<div class="paragraph">
-<p>Extensible Markup Language (XML) is a cross-platform, extensible, text-based standard for representing data.
-Parties that exchange XML data can create their own tags to describe the data, set up schemas to specify which tags can be used in a particular kind of XML document, and use XML style sheets to manage the display and handling of the data.</p>
-</div>
-<div class="paragraph">
-<p>For example, a web service can use XML and a schema to produce price lists, and companies that receive the price lists and schema can have their own style sheets to handle the data in a way that best suits their needs. Here are examples.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>One company might put XML pricing information through a program to translate the XML into HTML so that it can post the price lists to its intranet.</p>
-</li>
-<li>
-<p>A partner company might put the XML pricing information through a tool to create a marketing presentation.</p>
-</li>
-<li>
-<p>Another company might read the XML pricing information into an application for processing.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_soap_transport_protocol"><a class="anchor" href="#_soap_transport_protocol"></a>SOAP Transport Protocol</h3>
-<div class="paragraph">
-<p>Client requests and web service responses are transmitted as Simple Object Access Protocol (SOAP) messages over HTTP to enable a completely interoperable exchange between clients and web services, all running on different platforms and at various locations on the Internet.
-HTTP is a familiar request-and-response standard for sending messages over the Internet, and SOAP is an XML-based protocol that follows the HTTP request-and-response model.</p>
-</div>
-<div class="paragraph">
-<p>The SOAP portion of a transported message does the following:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Defines an XML-based envelope to describe what is in the message and explain how to process the message</p>
-</li>
-<li>
-<p>Includes XML-based encoding rules to express instances of application-defined data types within the message</p>
-</li>
-<li>
-<p>Defines an XML-based convention for representing the request to the remote service and the resulting response</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_wsdl_standard_format"><a class="anchor" href="#_wsdl_standard_format"></a>WSDL Standard Format</h3>
-<div class="paragraph">
-<p>The Web Services Description Language (WSDL) is a standardized XML format for describing network services.
-The description includes the name of the service, the location of the service, and ways to communicate with the service.
-WSDL service descriptions can be published on the Web.
-Eclipse GlassFish Server provides a tool for generating the WSDL specification of a web service that uses remote procedure calls to communicate with clients.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_jakarta_ee_application_assembly_and_deployment"><a class="anchor" href="#_jakarta_ee_application_assembly_and_deployment"></a>Jakarta EE Application Assembly and Deployment</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>A Jakarta EE application is packaged into one or more standard units for deployment to any Jakarta EE platform-compliant system.
-Each unit contains</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A functional component or components, such as an enterprise bean, web page, servlet, or applet</p>
-</li>
-<li>
-<p>An optional deployment descriptor that describes its content</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Once a Jakarta EE unit has been produced, it is ready to be deployed.
-Deployment typically involves using a platform&#8217;s deployment tool to specify location-specific information, such as a list of local users who can access it and the name of the local database.
-Once deployed on a local platform, the application is ready to run.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_jakarta_ee_apis"><a class="anchor" href="#_jakarta_ee_apis"></a>Jakarta EE APIs</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><a href="#_jakarta_ee_containers_2">Figure 6, &#8220;Jakarta EE Containers&#8221;</a> shows the relationships among the Jakarta EE
-containers.</p>
-</div>
-<div id="_jakarta_ee_containers_2" class="imageblock">
-<div class="content">
-<img src="../../common/_images/jakartaeett_dt_006.svg" alt="Diagram of Jakarta EE containers and their relationships">
-</div>
-<div class="title">Figure 6. Jakarta EE Containers</div>
-</div>
-<div class="paragraph">
-<p><a href="#_jakarta_ee_apis_in_the_web_container">Figure 7, &#8220;Jakarta EE APIs in the Web Container&#8221;</a> shows the availability of the Jakarta EE APIs in the web container.</p>
-</div>
-<div id="_jakarta_ee_apis_in_the_web_container" class="imageblock">
-<div class="content">
-<img src="../../common/_images/jakartaeett_dt_007.svg" alt="Diagram of Jakarta EE APIs in the web container">
-</div>
-<div class="title">Figure 7. Jakarta EE APIs in the Web Container</div>
-</div>
-<div class="paragraph">
-<p><a href="#_jakarta_ee_apis_in_the_enterprise_bean_container">Figure 8, &#8220;Jakarta EE APIs in the enterprise bean Container&#8221;</a> shows the availability of the Jakarta EE APIs in the enterprise bean container.</p>
-</div>
-<div id="_jakarta_ee_apis_in_the_enterprise_bean_container" class="imageblock">
-<div class="content">
-<img src="../../common/_images/jakartaeett_dt_008.svg" alt="Diagram of Jakarta EE APIs in the enterprise bean container">
-</div>
-<div class="title">Figure 8. Jakarta EE APIs in the enterprise bean Container</div>
-</div>
-<div class="paragraph">
-<p><a href="#_jakarta_ee_apis_in_the_application_client_container">Figure 9, &#8220;Jakarta EE APIs in the Application Client Container&#8221;</a> shows the availability of the Jakarta EE APIs in the application client container.</p>
-</div>
-<div id="_jakarta_ee_apis_in_the_application_client_container" class="imageblock">
-<div class="content">
-<img src="../../common/_images/jakartaeett_dt_009.svg" alt="Diagram of Jakarta EE APIs in the application client container">
-</div>
-<div class="title">Figure 9. Jakarta EE APIs in the Application Client Container</div>
-</div>
-<div class="paragraph">
-<p>The following sections give a brief summary of the technologies required by the Jakarta EE platform and the APIs used in Jakarta EE applications.</p>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_enterprise_beans_technology"><a class="anchor" href="#_jakarta_enterprise_beans_technology"></a>Jakarta Enterprise Beans Technology</h3>
-<div class="paragraph">
-<p>An enterprise bean component, or enterprise bean, is a body of code that has fields and methods to implement modules of business logic.
-You can think of an enterprise bean as a building block that can be used alone or with other enterprise beans to execute business logic on the Jakarta EE server.</p>
-</div>
-<div class="paragraph">
-<p>Enterprise beans are either session beans or message-driven beans.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A session bean represents a transient conversation with a client.
-When the client finishes executing, the session bean and its data are gone.</p>
-</li>
-<li>
-<p>A message-driven bean combines features of a session bean and a message listener, allowing a business component to receive messages asynchronously.
-Commonly, these are Jakarta Messaging messages.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta Enterprise Beans 4.0 and Jakarta Interceptors 2.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_servlet_technology"><a class="anchor" href="#_jakarta_servlet_technology"></a>Jakarta Servlet Technology</h3>
-<div class="paragraph">
-<p>Jakarta Servlet technology lets you define HTTP-specific servlet classes.
-A servlet class extends the capabilities of servers that host applications accessed by way of a request-response programming model. Although servlets can respond to any type of request, they are commonly used to extend the applications hosted by web servers.</p>
-</div>
-<div class="paragraph">
-<p>In the Jakarta EE 8 platform, new Jakarta Servlet technology features include the following:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Server Push</p>
-</li>
-<li>
-<p>HTTP Trailer</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Servlet 5.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_faces_technology"><a class="anchor" href="#_jakarta_faces_technology"></a>Jakarta Faces Technology</h3>
-<div class="paragraph">
-<p>Jakarta Faces technology is a user interface framework for building web applications.
-The main components of Jakarta Faces technology are as follows:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A GUI component framework.</p>
-</li>
-<li>
-<p>A flexible model for rendering components in different kinds of HTML or different markup languages and technologies.
-A <code>Renderer</code> object generates the markup to render the component and converts the data stored in a model object to types that can be represented in a view.</p>
-</li>
-<li>
-<p>A standard <code>RenderKit</code> for generating HTML 4.01 markup.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The following features support the GUI components:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Input validation</p>
-</li>
-<li>
-<p>Event handling</p>
-</li>
-<li>
-<p>Data conversion between model objects and components</p>
-</li>
-<li>
-<p>Managed model object creation</p>
-</li>
-<li>
-<p>Page navigation configuration</p>
-</li>
-<li>
-<p>Jakarta Expression Language</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>All this functionality is available using standard Java APIs and XML-based configuration files.</p>
-</div>
-<div class="paragraph">
-<p>In the Jakarta EE 8 platform, new features of Jakarta Faces technology include the following:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Direct support for WebSockets via the new <code>&lt;f:websocket&gt;</code> tag</p>
-</li>
-<li>
-<p>Class-level bean validation via the new <code>&lt;f:validateWholeBean&gt;</code> tag</p>
-</li>
-<li>
-<p>A Jakarta Contexts and Dependency Injection compatible <code>@ManagedProperty</code> annotation</p>
-</li>
-<li>
-<p>Enhanced component search expression framework</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta Faces 3.0 and Jakarta Expression Language 4.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_server_pages_technology"><a class="anchor" href="#_jakarta_server_pages_technology"></a>Jakarta Server Pages Technology</h3>
-<div class="paragraph">
-<p>Jakarta Server Pages technology lets you put snippets of servlet code directly into a text-based document.
-A Jakarta Server Pages page is a text-based document that contains two types of text:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Static data, which can be expressed in any text-based format, such as HTML or XML</p>
-</li>
-<li>
-<p>JSP elements, which determine how the page constructs dynamic content</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The Jakarta Server Pages technology is derived from and compatible with the JavaServer Pages (JSP) technology.</p>
-</div>
-<div class="paragraph">
-<p>For information about JSP technology, see <em>The Java EE 5 Tutorial</em> at <a href="https://docs.oracle.com/javaee/5/tutorial/doc/" class="bare" target="_blank" rel="noopener">https://docs.oracle.com/javaee/5/tutorial/doc/</a>.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta Server Pages 3.0 for compatibility with earlier releases but recommends the use of Facelets as the display technology in new applications.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_standard_tag_library"><a class="anchor" href="#_jakarta_standard_tag_library"></a>Jakarta Standard Tag Library</h3>
-<div class="paragraph">
-<p>The Jakarta Standard Tag Library encapsulates core functionality common to many Jakarta Server Pages applications.
-Instead of mixing tags from numerous vendors in your Jakarta Server Pages applications, you use a single, standard set of tags.
-This standardization allows you to deploy your applications on any Jakarta Server Pages container that supports Jakarta Standard Tag Library and makes it more likely that the implementation of the tags is optimized.</p>
-</div>
-<div class="paragraph">
-<p>Jakarta Standard Tag Library has iterator and conditional tags for handling flow control, tags for manipulating XML documents, internationalization tags, tags for accessing databases using SQL, and tags for commonly used functions.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta Standard Tag Library 2.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_persistence"><a class="anchor" href="#_jakarta_persistence"></a>Jakarta Persistence</h3>
-<div class="paragraph">
-<p>Jakarta Persistence is a Java standards–based solution for persistence.
-Persistence uses an object/relational mapping approach to bridge the gap between an object-oriented model and a relational database.
-The Jakarta Persistence can also be used in Java SE applications outside of the Jakarta EE environment.
-Jakarta Persistence consists of the following areas:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The Jakarta Persistence</p>
-</li>
-<li>
-<p>The query language</p>
-</li>
-<li>
-<p>Object/relational mapping metadata</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta Persistence 3.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_transactions"><a class="anchor" href="#_jakarta_transactions"></a>Jakarta Transactions</h3>
-<div class="paragraph">
-<p>Jakarta Transactions provides a standard interface for demarcating transactions.
-The Jakarta EE architecture provides a default auto commit to handle transaction commits and rollbacks.
-An auto commit means that any other applications that are viewing data will see the updated data after each database read or write operation.
-However, if your application performs two separate database access operations that depend on each other, you will want to use the Jakarta Transactions to demarcate where the entire transaction, including both operations, begins, rolls back, and commits.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta Transactions 2.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_restful_web_services"><a class="anchor" href="#_jakarta_restful_web_services"></a>Jakarta RESTful Web Services</h3>
-<div class="paragraph">
-<p>Jakarta RESTful Web Services defines APIs for the development of web services built according to the Representational State Transfer (REST) architectural style.
-A Jakarta RESTful application is a web application that consists of classes packaged as a servlet in a WAR file along with required libraries.</p>
-</div>
-<div class="paragraph">
-<p>In the Jakarta EE 8 platform, new RESTful web services features include the following:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Reactive Client API<br>
-When the results of an invocation on a target resource are received, enhancements to the completion stage APIs in Java SE allow the sequence of those results to be specified, prioritized, combined, or concatenated, and how exceptions can be handled.</p>
-</li>
-<li>
-<p>Enhancements in support for server-sent events<br>
-Clients may subscribe to server-issued event notifications using a long-running connection. Support for a new media type, text/event-stream, has been added.</p>
-</li>
-<li>
-<p>Support for Jakarta JSON Binding objects, and improved integration with Jakarta Contexts and Dependency Injection, Jakarta Servlet, and Jakarta Bean Validation technologies</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta RESTful Web Services 3.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_managed_beans"><a class="anchor" href="#_jakarta_managed_beans"></a>Jakarta Managed Beans</h3>
-<div class="paragraph">
-<p>Jakarta Managed Beans, lightweight container-managed objects (POJOs) with minimal requirements, support a small set of basic services, such as resource injection, lifecycle callbacks, and interceptors.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta Managed Beans specification is part of the Jakarta EE 9 platform specification.
-The Jakarta EE 9 platform requires Jakarta Managed Beans 2.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_contexts_and_dependency_injection"><a class="anchor" href="#_jakarta_contexts_and_dependency_injection"></a>Jakarta Contexts and Dependency Injection</h3>
-<div class="paragraph">
-<p>Jakarta Contexts and Dependency Injection (CDI) defines a set of contextual services, provided by Jakarta EE containers, that make it easy for developers to use enterprise beans along with Jakarta Faces technology in web applications.
-Designed for use with stateful objects, CDI also has many broader uses, allowing developers a great deal of flexibility to integrate different kinds of components in a loosely coupled but typesafe way.</p>
-</div>
-<div class="paragraph">
-<p>In the Jakarta EE 8 platform, new CDI features include the following:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>An API for bootstrapping a CDI container in Java SE 8</p>
-</li>
-<li>
-<p>Support for observer ordering, which determines the order in which the observer methods for a particular event are invoked, and support for firing events asynchronously</p>
-</li>
-<li>
-<p>Configurators interfaces, which are used for dynamically defining and modifying CDI objects</p>
-</li>
-<li>
-<p>Built-in annotation literals, a convenience feature for creating instances of annotations, and more</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta Contexts and Dependency Injection 3.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_dependency_injection"><a class="anchor" href="#_jakarta_dependency_injection"></a>Jakarta Dependency Injection</h3>
-<div class="paragraph">
-<p>Jakarta Dependency Injection defines a standard set of annotations (and one interface) for use on injectable classes.</p>
-</div>
-<div class="paragraph">
-<p>In the Jakarta EE platform, CDI provides support for Dependency Injection.
-Specifically, you can use injection points only in a CDI-enabled application.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta Dependency Injection 2.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_bean_validation"><a class="anchor" href="#_jakarta_bean_validation"></a>Jakarta Bean Validation</h3>
-<div class="paragraph">
-<p>The Jakarta Bean Validation specification defines a metadata model and API for validating data in JavaBeans components.
-Instead of distributing validation of data over several layers, such as the browser and the server side, you can define the validation constraints in one place and share them across the different layers.</p>
-</div>
-<div class="paragraph">
-<p>In the Jakarta EE 8 platform, new Jakarta Bean Validation features include the following:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Support for new features in Java SE 8, such as the Date-Time API</p>
-</li>
-<li>
-<p>Addition of new built-in Jakarta Bean Validation constraints</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta Bean Validation 3.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_messaging"><a class="anchor" href="#_jakarta_messaging"></a>Jakarta Messaging</h3>
-<div class="paragraph">
-<p>Jakarta Messaging is a messaging standard that allows Jakarta EE application components to create, send, receive, and read messages.
-It enables distributed communication that is loosely coupled, reliable, and asynchronous.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta Messaging 3.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_connectors"><a class="anchor" href="#_jakarta_connectors"></a>Jakarta Connectors</h3>
-<div class="paragraph">
-<p>The Jakarta Connectors is used by tools vendors and system integrators to create resource adapters that support access to enterprise information systems that can be plugged in to any Jakarta EE product.
-A resource adapter is a software component that allows Jakarta EE application components to access and interact with the underlying resource manager of the EIS.
-Because a resource adapter is specific to its resource manager, a different resource adapter typically exists for each type of database or enterprise information system.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta Connectors also provides a performance-oriented, secure, scalable, and message-based transactional integration of Jakarta EE platform-based web services with existing EISs that can be either synchronous or asynchronous.
-Existing applications and EISs integrated through the Jakarta Connectors into the Jakarta EE platform can be exposed as XML-based web services by using Jakarta XML Web Services and Jakarta EE component models.
-Thus Jakarta XML Web Services and the Jakarta Connectors are complementary technologies for enterprise application integration (EAI) and end-to-end business integration.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta Connectors 2.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_mail"><a class="anchor" href="#_jakarta_mail"></a>Jakarta Mail</h3>
-<div class="paragraph">
-<p>Jakarta EE applications use the Jakarta Mail to send email notifications.
-The Jakarta Mail has two parts:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>An application-level interface used by the application components to send mail</p>
-</li>
-<li>
-<p>A service provider interface</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE platform includes the Jakarta Mail with a service provider that allows application components to send Internet mail.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta Mail 2.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_authorization"><a class="anchor" href="#_jakarta_authorization"></a>Jakarta Authorization</h3>
-<div class="paragraph">
-<p>The Jakarta Authorization specification defines a contract between a Jakarta EE application server and an authorization policy provider.
-All Jakarta EE containers support this contract.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta Authorization specification defines <code>java.security.Permission</code> classes that satisfy the Jakarta EE authorization model.
-The specification defines the binding of container-access decisions to operations on instances of these permission classes.
-It defines the semantics of policy providers that use the new permission classes to address the authorization requirements of the Jakarta EE platform, including the definition and use of roles.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta Authorization 2.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_authentication"><a class="anchor" href="#_jakarta_authentication"></a>Jakarta Authentication</h3>
-<div class="paragraph">
-<p>The Jakarta Authentication specification defines a service provider interface (SPI) by which authentication providers that implement message authentication mechanisms may be integrated in client or server message-processing containers or runtimes.
-Authentication providers integrated through this interface operate on network messages provided to them by their calling containers.
-The authentication providers transform outgoing messages so that the source of each message can be authenticated by the receiving container, and the recipient of the message can be authenticated by the message sender.
-Authentication providers authenticate each incoming message and return to their calling containers the identity established as a result of the message authentication.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta Authentication 2.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_security"><a class="anchor" href="#_jakarta_security"></a>Jakarta Security</h3>
-<div class="paragraph">
-<p>Jakarta Security specification defines portable, plug-in interfaces for HTTP authentication and identity stores, and an injectable <code>SecurityContext</code> interface that provides an API for programmatic security.</p>
-</div>
-<div class="paragraph">
-<p>Implementations of the <code>HttpAuthenticationMechanism</code> interface can be used to authenticate callers of web applications.
-An application can supply its own <code>HttpAuthenticationMechanism</code>, or use one of the default implementations provided by the container.</p>
-</div>
-<div class="paragraph">
-<p>Implementations of the <code>IdentityStore</code> interface can be used to validate user credentials and retrieve group information.
-An application can provide its own <code>IdentityStore</code>, or use the built in LDAP or Database store.</p>
-</div>
-<div class="paragraph">
-<p>The <code>HttpAuthenticationMechanism</code> and <code>IdentityStore</code> APIs provide an advantage over container-provided implementations in that they allow an application to control the authentication process, and the identity stores used for authentication, in a standard, portable way.</p>
-</div>
-<div class="paragraph">
-<p>The <code>SecurityContext</code> API is intended for use by application code to query and interact with the current security context.
-The specification also provides for default group-to-role mapping, and defines a principal type called <code>CallerPrincipal</code> that can represent the identity of an application caller.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta Security 2.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_websocket"><a class="anchor" href="#_jakarta_websocket"></a>Jakarta WebSocket</h3>
-<div class="paragraph">
-<p>WebSocket is an application protocol that provides full-duplex communications between two peers over TCP.
-Jakarta WebSocket enables Jakarta EE applications to create endpoints using annotations that specify the configuration parameters of the endpoint and designate its lifecycle callback methods.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta WebSocket 2.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_json_processing"><a class="anchor" href="#_jakarta_json_processing"></a>Jakarta JSON Processing</h3>
-<div class="paragraph">
-<p>JavaScript Object Notation (JSON) is a text-based data exchange format derived from JavaScript that is used in web services and other connected applications.
-Jakarta JSON Processing enables Jakarta EE applications to parse, transform, and query JSON data using the object model or the streaming model.</p>
-</div>
-<div class="paragraph">
-<p>In the Jakarta EE 8 platform, new features of Jakarta JSON Processing include support for the following:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>JSON Pointer<br>
-Defines a string syntax for referencing a specific value within a JSON document. JSON Pointer includes APIs for extracting values from a target document and transforming them to create a new JSON document.</p>
-</li>
-<li>
-<p>JSON Patch<br>
-Defines a format for expressing a sequence of operations to be applied to a JSON document.</p>
-</li>
-<li>
-<p>JSON Merge Patch<br>
-Defines a format and processing rules for applying operations to a JSON document that are based upon specific content of the target document.</p>
-</li>
-<li>
-<p>The addition of editing and transformation functions to basic JSON document processing.</p>
-</li>
-<li>
-<p>Helper classes and methods, called JSON Collectors, which leverage features of the Stream API that was introduced in Java SE 8.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta JSON Processing 2.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_json_binding"><a class="anchor" href="#_jakarta_json_binding"></a>Jakarta JSON Binding</h3>
-<div class="paragraph">
-<p>Jakarta JSON Binding provides a binding layer for converting Java objects to and from JSON messages.
-Jakarta JSON Binding also supports the ability to customize the default mapping process used in this binding layer through the use of Java annotations for a given field, JavaBean property, type or package, or by providing an implementation of a property naming strategy.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta JSON Binding 2.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_concurrency"><a class="anchor" href="#_jakarta_concurrency"></a>Jakarta Concurrency</h3>
-<div class="paragraph">
-<p>Jakarta Concurrency is a standard API for providing asynchronous capabilities to Jakarta EE application components through the following types of objects: managed executor service, managed scheduled executor service, managed thread factory, and context service.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta Concurrency 2.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_batch"><a class="anchor" href="#_jakarta_batch"></a>Jakarta Batch</h3>
-<div class="paragraph">
-<p>Batch jobs are tasks that can be executed without user interaction.
-The Batch Applications for the Java Platform specification is a batch framework that provides support for creating and running batch jobs in Java applications.
-The batch framework consists of a batch runtime, a job specification language based on XML, a Java API to interact with the batch runtime, and a Java API to implement batch artifacts.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta Batch 2.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_activation"><a class="anchor" href="#_jakarta_activation"></a>Jakarta Activation</h3>
-<div class="paragraph">
-<p>The Jakarta Activation is used by the Jakarta Mail.
-Jakarta Activation provides standard services to determine the type of an arbitrary piece of data, encapsulate access to it, discover the operations available on it, and create the appropriate JavaBeans component to perform those operations.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta Activation 2.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_xml_binding"><a class="anchor" href="#_jakarta_xml_binding"></a>Jakarta XML Binding</h3>
-<div class="paragraph">
-<p>The Jakarta XML Binding provides a convenient way to bind an XML schema to a representation in Java language programs.
-XML Binding can be used independently or in combination with Jakarta XML Web Services, in which case it provides a standard data binding for web service messages.
-All Jakarta EE application client containers, web containers, and Jakarta Enterprise Beans containers support the XML Binding API.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta XML Binding 3.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_xml_web_services"><a class="anchor" href="#_jakarta_xml_web_services"></a>Jakarta XML Web Services</h3>
-<div class="paragraph">
-<p>The Jakarta XML Web Services specification provides support for web services that use the Jakarta XML Binding API for binding XML data to Java objects.
-The Jakarta XML Web Services specification defines client APIs for accessing web services as well as techniques for implementing web service endpoints.
-The Enterprise Web Services specification describes the deployment of Jakarta XML Web Services based services and clients.
-The Jakarta Enterprise Beans and Jakarta Servlet specifications also describe aspects of such deployment.
-Jakarta XML Web Services based applications can be deployed using any of these deployment models.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta XML Web Services specification describes the support for message handlers that can process message requests and responses.
-In general, these message handlers execute in the same container and with the same privileges and execution context as the Jakarta XML Web Services client or endpoint component with which they are associated.
-These message handlers have access to the same JNDI namespace as their associated component.
-Custom serializers and deserializers, if supported, are treated in the same way as message handlers.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta XML Web Services 3.0.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_soap_with_attachments"><a class="anchor" href="#_jakarta_soap_with_attachments"></a>Jakarta SOAP with Attachments</h3>
-<div class="paragraph">
-<p>The Jakarta SOAP with Attachments is a low-level API on which Jakarta XML Web Services depends.
-Jakarta SOAP with Attachments enables the production and consumption of messages that conform to the SOAP 1.1 and 1.2 specifications and the Jakarta SOAP with Attachments note.
-Most developers do not use the Jakarta SOAP with Attachments, instead using the higher-level Jakarta XML Web Services API.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_jakarta_annotations"><a class="anchor" href="#_jakarta_annotations"></a>Jakarta Annotations</h3>
-<div class="paragraph">
-<p>Annotations enable a declarative style of programming in the Java platform.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires Jakarta Annotations 2.0.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_jakarta_ee_9_apis_in_the_java_platform_standard_edition_8"><a class="anchor" href="#_jakarta_ee_9_apis_in_the_java_platform_standard_edition_8"></a>Jakarta EE 9 APIs in the Java Platform, Standard Edition 8</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Several APIs that are required by the Jakarta EE 9 platform are included in the Java Platform, Standard Edition 8 (Java SE 8) and are thus available to Jakarta EE applications.</p>
+<p>In addition to many of the core Java programming language APIs,
+there are a couple of key APIs you may encounter when working with Jakarta EE:
+Java Database Connectivity (JDBC) and Java Naming and Directory Interface (JNDI).</p>
 </div>
 <div class="sect2">
 <h3 id="_java_database_connectivity_api"><a class="anchor" href="#_java_database_connectivity_api"></a>Java Database Connectivity API</h3>
 <div class="paragraph">
-<p>The Java Database Connectivity (JDBC) API lets you invoke SQL commands from Java programming language methods.
-You use the JDBC API in an enterprise bean when you have a session bean access the database.
-You can also use the JDBC API from a servlet or a JSP page to access the database directly without going through an enterprise bean.</p>
-</div>
-<div class="paragraph">
-<p>The JDBC API has two parts:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>An application-level interface used by the application components to access a database</p>
-</li>
-<li>
-<p>A service provider interface to attach a JDBC driver to the Jakarta EE platform</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The Jakarta EE 9 platform requires JDBC 4.1.</p>
+<p>The Java Database Connectivity (JDBC) API lets you work with SQL databases.
+You can use the JDBC API directly from within a Jakarta EE component,
+but most Jakarta EE applications use <a href="../../persist/persistence-intro/persistence-intro.html" class="xref page">Jakarta Persistence</a>
+to map between objects and database tables.
+Jakarta EE servers also support managed JDBC data sources, which can be configured for one or more applications.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_java_naming_and_directory_interface_api"><a class="anchor" href="#_java_naming_and_directory_interface_api"></a>Java Naming and Directory Interface API</h3>
 <div class="paragraph">
-<p>The Java Naming and Directory Interface (JNDI) API provides naming and directory functionality, enabling applications to access multiple naming and directory services, such as LDAP, DNS, and NIS.
-The JNDI API provides applications with methods for performing standard directory operations, such as associating attributes with objects and searching for objects using their attributes.
+<p>The Java Naming and Directory Interface (JNDI) API allows you to work with multiple naming and directory services,
+such as LDAP, DNS, and NIS.
+The API has methods for performing standard directory operations,
+such as associating attributes with objects and searching for objects using their attributes.
 Using JNDI, a Jakarta EE application can store and retrieve any type of named Java object, allowing Jakarta EE applications to coexist with many legacy applications and systems.</p>
 </div>
 <div class="paragraph">
-<p>Jakarta EE naming services provide application clients, enterprise beans, and web components with access to a JNDI naming environment.
-A naming environment allows a component to be customized without the need to access or change the component&#8217;s source code.
+<p>Jakarta EE servers provide a naming environment for Jakarta EE components.
+This environment allows a component to be customized without the need to access or change the component&#8217;s source code.
 A container implements the component&#8217;s environment and provides it to the component as a JNDI naming context.</p>
 </div>
 <div class="paragraph">
 <p>The naming environment provides four logical namespaces: <code>java:comp</code>, <code>java:module</code>, <code>java:app</code>, and <code>java:global</code> for objects available to components, modules, or applications or shared by all deployed applications.
-A Jakarta EE component can access named system-provided and user-defined objects. The names of some system-provided objects, such as a default JDBC <code>DataSource</code> object, a default Messaging connection factory, and a Transactions <code>UserTransaction</code> object, are stored in the <code>java:comp</code> namespace.
-The Jakarta EE platform allows a component to name user-defined objects, such as enterprise beans, environment entries, JDBC <code>DataSource</code> objects, and messaging destinations.</p>
+A Jakarta EE component can access named system-provided and user-defined objects. The names of some system-provided objects, such as a default JDBC <code>DataSource</code> object, a default Messaging connection factory, and a Transactions <code>UserTransaction</code> object, are stored in the <code>java:comp</code> namespace.</p>
 </div>
 <div class="paragraph">
-<p>A Jakarta EE component can also locate its environment naming context by using JNDI interfaces.
-A component can create a <code>javax.naming.InitialContext</code> object and look up the environment naming context in <code>InitialContext</code> under the name <code>java:comp/env</code>.
-A component&#8217;s naming environment is stored directly in the environment naming context or in any of its direct or indirect subcontexts.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_java_api_for_xml_processing"><a class="anchor" href="#_java_api_for_xml_processing"></a>Java API for XML Processing</h3>
-<div class="paragraph">
-<p>The Java API for XML Processing (JAXP), part of the Java SE platform, supports the processing of XML documents using Document Object Model (DOM), Simple API for XML (SAX), and Extensible Stylesheet Language Transformations (XSLT).
-JAXP enables applications to parse and transform XML documents independently of a particular XML-processing implementation.</p>
-</div>
-<div class="paragraph">
-<p>JAXP also provides namespace support, which lets you work with schemas that might otherwise have naming conflicts.
-Designed to be flexible, JAXP lets you use any XML-compliant parser or XSL processor from within your application and supports the Worldwide Web Consortium (W3C) schema.
-You can find information on the W3C schema at <a href="https://www.w3.org/XML/Schema" class="bare" target="_blank" rel="noopener">https://www.w3.org/XML/Schema</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_java_authentication_and_authorization_service"><a class="anchor" href="#_java_authentication_and_authorization_service"></a>Java Authentication and Authorization Service</h3>
-<div class="paragraph">
-<p>The Java Authentication and Authorization Service (JAAS) provides a way for a Jakarta EE application to authenticate and authorize a specific user or group of users to run it.</p>
-</div>
-<div class="paragraph">
-<p>JAAS is a Java programming language version of the standard Pluggable Authentication Module (PAM) framework, which extends the Java platform security architecture to support user-based authorization.</p>
+<p>You can also create your own objects, such as enterprise beans, environment entries, JDBC <code>DataSource</code> objects, and messaging destinations.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_eclipse_glassfish_server_tools"><a class="anchor" href="#_eclipse_glassfish_server_tools"></a>Eclipse GlassFish Server Tools</h2>
+<h2 id="_how_do_i_get_jakarta_ee"><a class="anchor" href="#_how_do_i_get_jakarta_ee"></a>How do I get Jakarta EE?</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Eclipse GlassFish Server is a compliant implementation of the Jakarta EE platform.
-In addition to supporting all the APIs described in the previous sections, Eclipse GlassFish Server includes a number of Jakarta EE tools that are not part of the Jakarta EE platform but are provided as a convenience to the developer.</p>
+<p>Since Jakarta EE is an open-source industry standard, there are multiple implementations.
+A good place to start is the <a href="https://start.jakarta.ee/">Jakarta EE Starter</a>,
+which lets you quickly generate a sample starter app using one of the supported Jakarta EE servers.
+You can also find the most recent list of servers on the <a href="https://jakarta.ee/compatibility/">Jakarta EE website</a>.</p>
 </div>
 <div class="paragraph">
-<p>This section briefly summarizes the tools that make up Eclipse GlassFish Server.
-Instructions for starting and stopping Eclipse GlassFish Server, starting the Administration Console, and starting and stopping Apache Derby are in <a href="../usingexamples/usingexamples.html#_using_the_tutorial_examples" class="xref page">Using the Tutorial Examples</a>.</p>
+<p>If you are working with a Open Container Initiative (OCI)-compliant (i.e., Docker-compatible) containers,
+most of these vendors also provide images.</p>
 </div>
 <div class="paragraph">
-<p>Eclipse GlassFish Server contains the tools listed in <a href="#_glassfish_server_tools">Eclipse GlassFish Server Tools</a>.
-Basic usage information for many of the tools appears throughout the tutorial.
-For detailed information, see the online help in the GUI tools.</p>
+<p>If you are using a cloud provider,
+you may also want to check to see if they have additional support, guides, or managed Jakarta EE servers.</p>
 </div>
-<table id="_glassfish_server_tools" class="tableblock frame-all grid-all" style="width: 85%;">
-<caption class="title">Eclipse GlassFish Server Tools</caption>
-<colgroup>
-<col style="width: 23.5294%;">
-<col style="width: 76.4706%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Tool</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Administration Console</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A web-based GUI Eclipse GlassFish Server administration utility.
-Used to stop Eclipse GlassFish Server and to manage users, resources, and applications.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>asadmin</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A command-line Eclipse GlassFish Server administration utility.
-Used to start and stop Eclipse GlassFish Server and to manage users, resources, and applications.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>appclient</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A command-line tool that launches the application client container and invokes the client application packaged in the application client JAR file.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>capture-schema</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A command-line tool to extract schema information from a database, producing a schema file that Eclipse GlassFish Server can use for container-managed persistence.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>package-appclient</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A command-line tool to package the application client container libraries and JAR files.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Apache Derby</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A copy of Apache Derby database.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>xjc</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A command-line tool to transform, or bind, a source XML schema to a set of JAXB content classes in the Java programming language.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>schemagen</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A command-line tool to create a schema file for each namespace referenced in your Java classes.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>wsimport</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A command-line tool to generate Jakarta XML Web Services portable artifacts for a given WSDL file.
-After generation, these artifacts can be packaged in a WAR file with the WSDL and schema documents, along with the endpoint implementation, and then deployed.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>wsgen</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A command-line tool to read a web service endpoint class and generate all the required Jakarta XML Web Services portable artifacts for web service deployment and invocation.</p></td>
-</tr>
-</tbody>
-</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_further_reading"><a class="anchor" href="#_further_reading"></a>Further Reading</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://jakarta.ee/">Jakarta EE Home Page</a></p>
+</li>
+<li>
+<p><a href="https://jakarta.ee/about/jesp/">Jakarta EE Specification Process</a></p>
+</li>
+<li>
+<p><a href="https://jakarta.ee/specifications/">Jakarta EE Specifications</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. Technically, there are multiple containers (Web, CDI, Enterprise Beans), but the distinction about which container is providing the services isn&#8217;t terribly important. Jakarta EE also supports an Application Client container for Java clients, but this is rarely used.
+</div>
+<div class="footnote" id="_footnotedef_2">
+<a href="#_footnoteref_2">2</a>. Not to be confused with the web browser standard, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Components">Web Components</a>, or user interface widgets in general, which are often called UI components.
+</div>
+<div class="footnote" id="_footnotedef_3">
+<a href="#_footnoteref_3">3</a>. Enterprise Beans previously supported persistence via Entity Beans, but that has been deprecated in favor of Jakarta Persistence
+</div>
+<div class="footnote" id="_footnotedef_4">
+<a href="#_footnoteref_4">4</a>. Application Clients are technically supported as well, although they are rarely used.
 </div>
 </div>
 </article>

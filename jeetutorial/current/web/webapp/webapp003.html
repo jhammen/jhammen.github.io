@@ -73,13 +73,25 @@
     <span class="nav-text">Introduction</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../../index.html">Preface</a>
-  </li>
-  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../intro/overview/overview.html">Overview</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../intro/usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Platform Basics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/resource-creation/resource-creation.html">Resource Creation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/injection/injection.html">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/packaging/packaging.html">Packaging</a>
   </li>
 </ul>
   </li>
@@ -173,7 +185,7 @@
     <a class="nav-link" href="webapp.html">Getting Started with Web Applications</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../servlets/servlets.html">Jakarta Servlet Technology</a>
+    <a class="nav-link" href="../servlets/servlets.html">Jakarta Servlet</a>
   </li>
 </ul>
   </li>
@@ -406,8 +418,8 @@
     <a class="version" href="../../../9.1/web/webapp/webapp003.html">9.1</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/jhammen/jakartaee-tutorial/edit/main/src/main/antora/modules/web/pages/webapp/webapp003.adoc">Edit this Page</a></div>
-  </div>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/web/pages/webapp/webapp003.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
@@ -480,7 +492,7 @@ We&#8217;ll briefly go through the CDI annotations that are used here:</p>
 <li>
 <p><code>@Named</code>&#8201;&#8212;&#8201;gives the backing bean a managed bean name, which is primarily used to reference it in Expression Language (EL).
 Without any attributes this defaults to the simple class name with the first letter in lowercase.
-This backing bean will thus be available as a managed bean via <code>#{hello}</code> in EL.</p>
+This backing bean will thus be available as a managed bean via <code>&#35;{hello}</code> in EL.</p>
 </li>
 <li>
 <p><code>@RequestScoped</code>&#8201;&#8212;&#8201;gives the backing bean a managed bean scope, which essentially represents its lifespan.
@@ -564,13 +576,13 @@ This is the one being updated on completion of the Ajax submit and it will displ
 </ul>
 </div>
 <div class="paragraph">
-<p>The <code>&lt;h:&#8230;&#8203;&gt;</code> tags basically define standard HTML components.
-The <code>&lt;f:&#8230;&#8203;&gt;</code> tags basically define behavior.</p>
+<p>The <code>&lt;h:&#8230;&#8203;&gt;</code> tags define standard HTML components.
+The <code>&lt;f:&#8230;&#8203;&gt;</code> tags define behavior.</p>
 </div>
 <div class="paragraph">
-<p>The input value is via EL value expression <code><mark>{hello.name}</code> connected to the <code>name</code> property of the <code>Hello</code> backing bean via its getter and setter.
-The output value is via EL value expression <code></mark>{hello.greeting}</code> connected to the <code>greeting</code> property of the <code>Hello</code> backing bean via its getter.
-The command button is via EL method expression <code>#{hello.submit}</code> connected to the <code>submit</code> method of the <code>Hello</code> backing bean.</p>
+<p>The input value is via EL value expression <code>&#35;{hello.name}</code> connected to the <code>name</code> property of the <code>Hello</code> backing bean via its getter and setter.
+The output value is via EL value expression <code>&#35;{hello.greeting}</code> connected to the <code>greeting</code> property of the <code>Hello</code> backing bean via its getter.
+The command button is via EL method expression <code>&#35;{hello.submit}</code> connected to the <code>submit</code> method of the <code>Hello</code> backing bean.</p>
 </div>
 <div class="paragraph">
 <p>Note that for EL value expressions the physical field representing the property doesn&#8217;t need to have exactly the same name nor that it needs to exist at all.

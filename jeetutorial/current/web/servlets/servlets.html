@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Jakarta Servlet Technology :: Jakarta EE Documentation</title>
+    <title>Jakarta Servlet :: Jakarta EE Documentation</title>
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../../_/css/site.css">
     <script>var uiRootPath = '../../../../_'</script>
@@ -73,13 +73,25 @@
     <span class="nav-text">Introduction</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../../index.html">Preface</a>
-  </li>
-  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../intro/overview/overview.html">Overview</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../intro/usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Platform Basics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/resource-creation/resource-creation.html">Resource Creation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/injection/injection.html">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/packaging/packaging.html">Packaging</a>
   </li>
 </ul>
   </li>
@@ -173,7 +185,7 @@
     <a class="nav-link" href="../webapp/webapp.html">Getting Started with Web Applications</a>
   </li>
   <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="servlets.html">Jakarta Servlet Technology</a>
+    <a class="nav-link" href="servlets.html">Jakarta Servlet</a>
   </li>
 </ul>
   </li>
@@ -402,7 +414,7 @@
     <li><a href="../../index.html">Jakarta EE Tutorial</a></li>
     <li>Jakarta EE Web Profile</li>
     <li>Jakarta Servlets</li>
-    <li><a href="servlets.html">Jakarta Servlet Technology</a></li>
+    <li><a href="servlets.html">Jakarta Servlet</a></li>
   </ul>
 </nav>
 <div class="page-versions">
@@ -412,15 +424,291 @@
     <a class="version" href="../../../9.1/web/servlets/servlets.html">9.1</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/jhammen/jakartaee-tutorial/edit/main/src/main/antora/modules/web/pages/servlets/servlets.adoc">Edit this Page</a></div>
-  </div>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/web/pages/servlets/servlets.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Jakarta Servlet Technology</h1>
+<h1 class="page">Jakarta Servlet</h1>
 <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Jakarta Servlet is a corner stone web framework that can act as a presentation-oriented as well as a service-oriented web application.
+Jakarta Servlet intends to reduce the boilerplate code needed to convert the HTTP request into a Java object and to offer a Java object as an HTTP response, and to manage all the lifecycle around them.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_is_a_servlet"><a class="anchor" href="#_what_is_a_servlet"></a>What Is a Servlet?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A servlet is a Java programming language class that directly or indirectly implements the <code>jakarta.servlet.Servlet</code> interface.
+The <code>jakarta.servlet</code> and <code>jakarta.servlet.http</code> packages provide interfaces and classes for writing servlets.
+All servlets must implement the <code>jakarta.servlet.Servlet</code> interface, which defines lifecycle methods such as <code>init</code>, <code>service</code>, and <code>destroy</code>.
+When implementing a generic service, you can extend the <code>jakarta.servlet.GenericServlet</code> class which already implements the <code>Servlet</code> interface.
+When implementing an HTTP service, you can extend the <code>jakarta.servlet.http.HttpServlet</code> class which already extends the <code>GenericServlet</code> class.</p>
+</div>
+<div class="paragraph">
+<p>In a typical Jakarta Servlet based web application, the class must extend <code>jakarta.servlet.http.HttpServlet</code> and override one of the <code>doXxx</code> methods where <code>Xxx</code> represents the HTTP method of interest.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_servlet_lifecycle"><a class="anchor" href="#_servlet_lifecycle"></a>Servlet Lifecycle</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The lifecycle of a servlet is controlled by the servlet container in which the servlet has been deployed.
+When a request is mapped to a servlet, the servlet container performs the following steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If an instance of the servlet does not exist, the servlet container:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Loads the servlet class</p>
+</li>
+<li>
+<p>Creates an instance of the servlet class</p>
+</li>
+<li>
+<p>Initializes the servlet instance by calling the <code>init</code> method</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The servlet container invokes the <code>service</code> method, passing request and response objects.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Initialization is covered in <a href="#creating-and-initializing-a-servlet">[creating-and-initializing-a-servlet]</a>.
+Service methods are discussed in <a href="#writing-service-methods">[writing-service-methods]</a>.</p>
+</div>
+<div class="paragraph">
+<p>If it needs to remove the servlet, the servlet container finalizes the servlet by calling the servlet&#8217;s <code>destroy</code> method.
+For more information, see <a href="#finalizing-a-servlet">[finalizing-a-servlet]</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sharing_information"><a class="anchor" href="#_sharing_information"></a>Sharing Information</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Web components, like most objects, usually work with data to accomplish their tasks.
+Web components can store this information in a data store or in a scoped bean, among others.</p>
+</div>
+<div class="sect2">
+<h3 id="_using_cdi_managed_beans"><a class="anchor" href="#_using_cdi_managed_beans"></a>Using CDI Managed Beans</h3>
+<div class="paragraph">
+<p>CDI can be used to define scoped beans which can be injected in any container-managed objects such as web components.
+These scoped beans can then be used to store and transfer information.</p>
+</div>
+<div class="paragraph">
+<p>CDI defines three basic scopes which can be used for this:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>@jakarta.enterprise.context.RequestScoped</code></dt>
+<dd>
+<p>In a servlet container, this is mapped to the <code>jakarta.servlet.ServletRequest</code>.
+It lives from the time that the client has sent the request until it has retrieved the corresponding response.
+It is not shared elsewhere.</p>
+</dd>
+<dt class="hdlist1"><code>@jakarta.enterprise.context.SessionScoped</code></dt>
+<dd>
+<p>In a servlet container, this is mapped to the <code>jakarta.servlet.http.HttpSession</code>.
+It lives for as long as the client is interacting with the web application with the same browser instance, and the session hasn&#8217;t timed out at the server side.
+It is shared among all requests in the same session.</p>
+</dd>
+<dt class="hdlist1"><code>@jakarta.enterprise.context.ApplicationScoped</code></dt>
+<dd>
+<p>In a servlet container, this is mapped to the <code>jakarta.servlet.ServletContext</code>.
+It lives for as long as the web application lives.
+It is shared among all requests in all sessions.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The below example illustrates how CDI <code>@SessionScoped</code> can be used to define a session scoped bean which stores the user preferences.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Named
+@SessionScoped
+public class UserPreferences implements Serializable {
+
+    private Locale language;
+    private ZoneId timeZone;
+    private boolean darkMode;
+
+    // ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It can be injected in any web component.
+The below example illustrates how a servlet can be used to take a time zone offset in minutes and update the user preferences with it.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@WebServlet("/timeZoneHandler")
+public class TimeZoneHandler extends HttpServlet {
+
+    @Inject
+    private UserPreferences userPreferences;
+
+    @Override
+    public void doPost
+        (HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException
+    {
+        var offsetInMinutes = request.getParameter("offsetInMinutes");
+
+        if (offsetInMinutes == null || !offsetInMinutes.matches("\\-?[0-9]{1,3}")) {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+            return;
+        }
+
+        var offsetInSeconds = TimeUnit.MINUTES.toSeconds(Long.valueOf(offsetInMinutes));
+        ZoneId timeZone = ZoneOffset.ofTotalSeconds((int) offsetInSeconds);
+        userPreferences.setTimeZone(timeZone);
+        response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For example JavaScript&#8217;s <code>new Date().getTimeZoneOffset()</code> returns the local (negative) time zone offset in minutes.
+This servlet can then be invoked as follows in JavaScript in order to inform the server about the client&#8217;s time zone:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">fetch("/context-path/timeZoneHandler", {
+    method: "POST",
+    body: new URLSearchParams({
+        offsetInMinutes: -new Date().getTimezoneOffset()
+    })
+});</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_scope_objects_directly"><a class="anchor" href="#_using_scope_objects_directly"></a>Using Scope Objects Directly</h3>
+<div class="paragraph">
+<p>If CDI is not available, an alternative is to use Jakarta Servlet&#8217;s own scope objects directly.
+You can use <code>getAttribute</code> and <code>setAttribute</code> methods of the Jakarta Servlet class representing the scope.
+<a href="#scope-objects">Scope Objects</a> lists the scope objects.</p>
+</div>
+<table id="scope-objects" class="tableblock frame-all grid-all" style="width: 90%;">
+<caption class="title">Scope Objects</caption>
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 27.7777%;">
+<col style="width: 55.5557%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scope Object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Class</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accessible From</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.ServletContext</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web components within the web application.
+See <a href="#accessing-the-web-context">[accessing-the-web-context]</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Session</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.http.HttpSession</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web components handling a request that belongs to the session.
+See <a href="#maintaining-client-state">[maintaining-client-state]</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.ServletRequest</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web components handling the request.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The below example illustrates how the previously shown servlet needs to be adjusted to manually manage the <code>UserPreferences</code> bean.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@WebServlet("/timeZoneHandler")
+public class TimeZoneHandler extends HttpServlet {
+
+    @Override
+    public void doPost
+        (HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException
+    {
+        var offsetInMinutes = request.getParameter("offsetInMinutes");
+
+        if (offsetInMinutes == null || !offsetInMinutes.matches("\\-?[0-9]{1,3}")) {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+            return;
+        }
+
+        var offsetInSeconds = TimeUnit.MINUTES.toSeconds(Long.valueOf(offsetInMinutes));
+        ZoneId timeZone = ZoneOffset.ofTotalSeconds((int) offsetInSeconds);
+        HttpSession session = request.getSession();
+        UserPreferenes userPreferences = session.getAttribute("userPreferences");
+
+        if (userPreferences == null) {
+            userPreferences = new UserPreferences();
+            session.setAttribute("userPreferences", userPreferences);
+        }
+
+        userPreferences.setTimeZone(timeZone);
+        response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_controlling_concurrent_access_to_shared_resources"><a class="anchor" href="#_controlling_concurrent_access_to_shared_resources"></a>Controlling Concurrent Access to Shared Resources</h3>
+<div class="paragraph">
+<p>In a multithreaded server, shared resources can be accessed concurrently.
+In addition to scope object attributes, shared resources include in-memory data, such as instance or class variables, and external objects, such as files, database connections, and network connections.</p>
+</div>
+<div class="paragraph">
+<p>Concurrent access can arise in several situations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Multiple web components accessing objects stored in the application scope.</p>
+</li>
+<li>
+<p>Multiple web components accessing objects stored in the session scope.</p>
+</li>
+<li>
+<p>Multiple threads within a web component accessing instance variables.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A web container will typically create a thread to handle each request.
+When resources can be accessed concurrently, they can be used in an inconsistent fashion.
+First step is to ensure that the variable representing the resource has the correct scope and use a as narrow as possible scope.
+For example, request scoped information should not be stored in a session scoped bean nor be assigned as an instance variable of a servlet, and session scoped information should not be stored in an application scoped bean.</p>
+</div>
+<div class="paragraph">
+<p>If concurrent access is inevitable, then you prevent this by using synchronized or atomic objects such as wrapping a <code>Map</code> in <code>Collections.synchronizedMap()</code> before assigning it to a property of a session scoped bean.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creating_and_initializing_a_servlet"><a class="anchor" href="#_creating_and_initializing_a_servlet"></a>Creating and Initializing a Servlet</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
 <table>
@@ -436,282 +724,6 @@
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Jakarta Servlet technology provides dynamic, user-oriented content in web applications using a request-response programming model.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_what_is_a_servlet"><a class="anchor" href="#_what_is_a_servlet"></a>What Is a Servlet?</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>A servlet is a Java programming language class used to extend the capabilities of servers that host applications accessed by means of a request-response programming model.
-Although servlets can respond to any type of request, they are commonly used to extend the applications hosted by web servers.
-For such applications, Jakarta Servlet technology defines HTTP-specific servlet classes.</p>
-</div>
-<div class="paragraph">
-<p>The <code>jakarta.servlet</code> and <code>jakarta.servlet.http</code> packages provide interfaces and classes for writing servlets.
-All servlets must implement the <code>Servlet</code> interface, which defines lifecycle methods.
-When implementing a generic service, you can use or extend the <code>GenericServlet</code> class provided with the Jakarta Servlet API.
-The <code>HttpServlet</code> class provides methods, such as <code>doGet</code> and <code>doPost</code>, for handling HTTP-specific services.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_servlet_lifecycle"><a class="anchor" href="#_servlet_lifecycle"></a>Servlet Lifecycle</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The lifecycle of a servlet is controlled by the container in which the servlet has been deployed.
-When a request is mapped to a servlet, the container performs the following steps.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>If an instance of the servlet does not exist, the web container:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Loads the servlet class</p>
-</li>
-<li>
-<p>Creates an instance of the servlet class</p>
-</li>
-<li>
-<p>Initializes the servlet instance by calling the <code>init</code> method (initialization is covered in <a href="#_creating_and_initializing_a_servlet">Creating and Initializing a Servlet</a>)</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>The container invokes the <code>service</code> method, passing request and response objects.
-Service methods are discussed in <a href="#_writing_service_methods">Writing Service Methods</a>.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>If it needs to remove the servlet, the container finalizes the servlet by calling the servlet&#8217;s <code>destroy</code> method.
-For more information, see <a href="#_finalizing_a_servlet">Finalizing a Servlet</a>.</p>
-</div>
-<div class="sect2">
-<h3 id="_handling_servlet_lifecycle_events"><a class="anchor" href="#_handling_servlet_lifecycle_events"></a>Handling Servlet Lifecycle Events</h3>
-<div class="paragraph">
-<p>You can monitor and react to events in a servlet&#8217;s lifecycle by defining listener objects whose methods get invoked when lifecycle events occur.
-To use these listener objects, you must define and specify the listener class.</p>
-</div>
-<div class="sect3">
-<h4 id="_defining_the_listener_class"><a class="anchor" href="#_defining_the_listener_class"></a>Defining the Listener Class</h4>
-<div class="paragraph">
-<p>You define a listener class as an implementation of a listener interface.
-<a href="#_servlet_lifecycle_events">Servlet Lifecycle Events</a> lists the events that can be monitored and the corresponding interface that must be implemented.
-When a listener method is invoked, it is passed an event that contains information appropriate to the event.
-For example, the methods in the <code>HttpSessionListener</code> interface are passed an <code>HttpSessionEvent</code>, which contains an <code>HttpSession</code>.</p>
-</div>
-<table id="_servlet_lifecycle_events" class="tableblock frame-all grid-all" style="width: 90%;">
-<caption class="title">Servlet Lifecycle Events</caption>
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 33.3333%;">
-<col style="width: 50.0001%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Object</th>
-<th class="tableblock halign-left valign-top">Event</th>
-<th class="tableblock halign-left valign-top">Listener Interface and Event Class</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Web context</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Initialization and destruction</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.ServletContextListener</code> and <code>ServletContextEvent</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Web context</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Attribute added, removed, or replaced</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.ServletContextAttributeListener</code> and <code>ServletContextAttributeEvent</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Session</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Creation, invalidation, activation, passivation, and timeout</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.http.HttpSessionListener</code>, <code>jakarta.servlet.http.HttpSessionActivationListener</code>, and <code>HttpSessionEvent</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Session</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Attribute added, removed, or replaced</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.http.HttpSessionAttributeListener</code> and <code>HttpSessionBindingEvent</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Request</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A servlet request has started being processed by web components</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.ServletRequestListener</code> and <code>ServletRequestEvent</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Request</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Attribute added, removed, or replaced</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.ServletRequestAttributeListener</code> and <code>ServletRequestAttributeEvent</code></p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>Use the <code>@WebListener</code> annotation to define a listener to get events for various operations on the particular web application context.
-Classes annotated with <code>@WebListener</code> must implement one of the following interfaces:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">jakarta.servlet.ServletContextListener
-jakarta.servlet.ServletContextAttributeListener
-jakarta.servlet.ServletRequestListener
-jakarta.servlet.ServletRequestAttributeListener
-jakarta.servlet..http.HttpSessionListener
-jakarta.servlet..http.HttpSessionAttributeListener</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>For example, the following code snippet defines a listener that implements two of these interfaces:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import jakarta.servlet.ServletContextAttributeListener;
-import jakarta.servlet.ServletContextListener;
-import jakarta.servlet.annotation.WebListener;
-
-@WebListener()
-public class SimpleServletListener implements ServletContextListener,
-        ServletContextAttributeListener {
-    ...
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_handling_servlet_errors"><a class="anchor" href="#_handling_servlet_errors"></a>Handling Servlet Errors</h3>
-<div class="paragraph">
-<p>Any number of exceptions can occur when a servlet executes.
-When an exception occurs, the web container generates a default page containing the following message:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">A Servlet Exception Has Occurred</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>But you can also specify that the container should return a specific error page for a given exception.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_sharing_information"><a class="anchor" href="#_sharing_information"></a>Sharing Information</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Web components, like most objects, usually work with other objects to accomplish their tasks.
-Web components can do so by doing the following.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Using private helper objects (for example, JavaBeans components).</p>
-</li>
-<li>
-<p>Sharing objects that are attributes of a public scope.</p>
-</li>
-<li>
-<p>Using a database.</p>
-</li>
-<li>
-<p>Invoking other web resources.
-The Jakarta Servlet technology mechanisms that allow a web component to invoke other web resources are described in <a href="#_invoking_other_web_resources">Invoking Other Web Resources</a>.</p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="_using_scope_objects"><a class="anchor" href="#_using_scope_objects"></a>Using Scope Objects</h3>
-<div class="paragraph">
-<p>Collaborating web components share information by means of objects that are maintained as attributes of four scope objects.
-You access these attributes by using the <code>getAttribute</code> and <code>setAttribute</code> methods of the class representing the scope.
-<a href="#_scope_objects">Scope Objects</a> lists the scope objects.</p>
-</div>
-<table id="_scope_objects" class="tableblock frame-all grid-all" style="width: 90%;">
-<caption class="title">Scope Objects</caption>
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 27.7777%;">
-<col style="width: 55.5557%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Scope Object</th>
-<th class="tableblock halign-left valign-top">Class</th>
-<th class="tableblock halign-left valign-top">Accessible From</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Web context</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.ServletContext</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Web components within a web context.
-See <a href="#_accessing_the_web_context">Accessing the Web Context</a>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Session</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.http.HttpSession</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Web components handling a request that belongs to the session.
-See <a href="#_maintaining_client_state">Maintaining Client State</a>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Request</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Subtype of <code>jakarta.servlet.ServletRequest</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Web components handling the request.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Page</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.jsp.JspContext</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Jakarta Server Pages page that creates the object.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_controlling_concurrent_access_to_shared_resources"><a class="anchor" href="#_controlling_concurrent_access_to_shared_resources"></a>Controlling Concurrent Access to Shared Resources</h3>
-<div class="paragraph">
-<p>In a multithreaded server, shared resources can be accessed concurrently.
-In addition to scope object attributes, shared resources include in-memory data, such as instance or class variables, and external objects, such as files, database connections, and network connections.</p>
-</div>
-<div class="paragraph">
-<p>Concurrent access can arise in several situations.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Multiple web components accessing objects stored in the web context.</p>
-</li>
-<li>
-<p>Multiple web components accessing objects stored in a session.</p>
-</li>
-<li>
-<p>Multiple threads within a web component accessing instance variables.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>A web container will typically create a thread to handle each request.
-To ensure that a servlet instance handles only one request at a time, a servlet can implement the <code>SingleThreadModel</code> interface.
-If a servlet implements this interface, no two threads will execute concurrently in the servlet&#8217;s service method.
-A web container can implement this guarantee by synchronizing access to a single instance of the servlet or by maintaining a pool of web component instances and dispatching each new request to a free instance.
-This interface does not prevent synchronization problems that result from web components' accessing shared resources, such as static class variables or external objects.</p>
-</div>
-<div class="paragraph">
-<p>When resources can be accessed concurrently, they can be used in an inconsistent fashion.
-You prevent this by controlling the access using the synchronization techniques described in the Threads lesson at <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/" class="bare" target="_blank" rel="noopener">https://docs.oracle.com/javase/tutorial/essential/concurrency/</a>.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_creating_and_initializing_a_servlet"><a class="anchor" href="#_creating_and_initializing_a_servlet"></a>Creating and Initializing a Servlet</h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>Use the <code>@WebServlet</code> annotation to define a servlet component in a web application.
 This annotation is specified on a class and contains metadata about the servlet being declared.
@@ -896,6 +908,118 @@ Sometimes, cookies are used to maintain an identifier for tracking a user&#8217;
 </li>
 </ul>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_handling_servlet_lifecycle_events"><a class="anchor" href="#_handling_servlet_lifecycle_events"></a>Handling Servlet Lifecycle Events</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can monitor and react to events in a servlet&#8217;s lifecycle by defining listener objects whose methods get invoked when lifecycle events occur.
+To use these listener objects, you must define and specify the listener class.</p>
+</div>
+<div class="sect2">
+<h3 id="_defining_the_listener_class"><a class="anchor" href="#_defining_the_listener_class"></a>Defining the Listener Class</h3>
+<div class="paragraph">
+<p>You define a listener class as an implementation of a listener interface.
+<a href="#servlet-lifecycle-events">Servlet Lifecycle Events</a> lists the events that can be monitored and the corresponding interface that must be implemented.
+When a listener method is invoked, it is passed an event that contains information appropriate to the event.
+For example, the methods in the <code>HttpSessionListener</code> interface are passed an <code>HttpSessionEvent</code>, which contains an <code>HttpSession</code>.</p>
+</div>
+<table id="servlet-lifecycle-events" class="tableblock frame-all grid-all" style="width: 90%;">
+<caption class="title">Servlet Lifecycle Events</caption>
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object</th>
+<th class="tableblock halign-left valign-top">Event</th>
+<th class="tableblock halign-left valign-top">Listener Interface and Event Class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web context</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Initialization and destruction</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.ServletContextListener</code> and <code>ServletContextEvent</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web context</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attribute added, removed, or replaced</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.ServletContextAttributeListener</code> and <code>ServletContextAttributeEvent</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Session</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creation, invalidation, activation, passivation, and timeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.http.HttpSessionListener</code>, <code>jakarta.servlet.http.HttpSessionActivationListener</code>, and <code>HttpSessionEvent</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Session</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attribute added, removed, or replaced</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.http.HttpSessionAttributeListener</code> and <code>HttpSessionBindingEvent</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A servlet request has started being processed by web components</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.ServletRequestListener</code> and <code>ServletRequestEvent</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attribute added, removed, or replaced</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.ServletRequestAttributeListener</code> and <code>ServletRequestAttributeEvent</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Use the <code>@WebListener</code> annotation to define a listener to get events for various operations on the particular web application context.
+Classes annotated with <code>@WebListener</code> must implement one of the following interfaces:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">jakarta.servlet.ServletContextListener
+jakarta.servlet.ServletContextAttributeListener
+jakarta.servlet.ServletRequestListener
+jakarta.servlet.ServletRequestAttributeListener
+jakarta.servlet..http.HttpSessionListener
+jakarta.servlet..http.HttpSessionAttributeListener</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For example, the following code snippet defines a listener that implements two of these interfaces:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import jakarta.servlet.ServletContextAttributeListener;
+import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.annotation.WebListener;
+
+@WebListener()
+public class SimpleServletListener implements ServletContextListener,
+        ServletContextAttributeListener {
+    ...
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_handling_servlet_errors"><a class="anchor" href="#_handling_servlet_errors"></a>Handling Servlet Errors</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Any number of exceptions can occur when a servlet executes.
+When an exception occurs, the web container generates a default page containing the following message:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">A Servlet Exception Has Occurred</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>But you can also specify that the container should return a specific error page for a given exception.</p>
 </div>
 </div>
 </div>
@@ -2960,24 +3084,7 @@ function makeAjaxRequest() {
 <h2 id="_further_information_about_jakarta_servlet_technology"><a class="anchor" href="#_further_information_about_jakarta_servlet_technology"></a>Further Information about Jakarta Servlet Technology</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information on Jakarta Servlet technology, see the Jakarta Servlet 6.0 specification at <a href="https://jakarta.ee/specifications/servlet/6.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/servlet/6.0/</a>.</p>
-</div>
-<div class="paragraph">
-<p>The Jakarta Servlet 6.0 specification was released with Jakarta EE 10. For more about the changes in this release please see
-<a href="https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/Top-5-things-to-know-about-the-Jakarta-Servlet-60-API-release" target="_blank" rel="noopener">this article</a>.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-As part of the Servlet 6.0 specification several deprecated methods and classes were permanently removed, please see the list here:
-<a href="https://jakarta.ee/specifications/servlet/5.0/apidocs/deprecated-list.html" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/servlet/5.0/apidocs/deprecated-list.html</a>.
-</td>
-</tr>
-</table>
+<p>For more information on Jakarta Servlet technology, see the Jakarta Servlet 5.0 specification at <a href="https://jakarta.ee/specifications/servlet/5.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/servlet/5.0/</a>.</p>
 </div>
 </div>
 </div>

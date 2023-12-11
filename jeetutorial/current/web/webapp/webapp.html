@@ -73,13 +73,25 @@
     <span class="nav-text">Introduction</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../../index.html">Preface</a>
-  </li>
-  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../intro/overview/overview.html">Overview</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../intro/usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Platform Basics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/resource-creation/resource-creation.html">Resource Creation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/injection/injection.html">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/packaging/packaging.html">Packaging</a>
   </li>
 </ul>
   </li>
@@ -173,7 +185,7 @@
     <a class="nav-link" href="webapp.html">Getting Started with Web Applications</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../servlets/servlets.html">Jakarta Servlet Technology</a>
+    <a class="nav-link" href="../servlets/servlets.html">Jakarta Servlet</a>
   </li>
 </ul>
   </li>
@@ -412,8 +424,8 @@
     <a class="version" href="../../../9.1/web/webapp/webapp.html">9.1</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/jhammen/jakartaee-tutorial/edit/main/src/main/antora/modules/web/pages/webapp/webapp.adoc">Edit this Page</a></div>
-  </div>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/web/pages/webapp/webapp.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
@@ -488,7 +500,7 @@ A web component can be represented by Jakarta Servlet, Jakarta Faces or Jakarta 
 </div>
 <div class="paragraph">
 <p>Jakarta Servlet can be used to build both presentation and service-oriented web applications.
-It intends to reduce the boilerplate code needed to convert the HTTP request into a Java object and to offer a Java object as a HTTP response, and to manage all the lifecycle around them.</p>
+It intends to reduce the boilerplate code needed to convert the HTTP request into a Java object and to offer a Java object as an HTTP response, and to manage all the lifecycle around them.</p>
 </div>
 <div class="paragraph">
 <p>Jakarta Faces is a component-based MVC framework that can be executed on a servlet container and act as a presentation-oriented web application.
@@ -731,7 +743,7 @@ By default, the URL has the following form:</p>
 </div>
 <div class="paragraph">
 <p>By default, the <code>context-path</code> is represented by the base file name of the WAR file, without the extension.
-If there is no web component listening on the root of the context path, then you could face a HTTP 404 'Not Found' error page.
+If there is no web component listening on the root of the context path, then you could face an HTTP 404 'Not Found' error page.
 In that case you would need to use a more specific URL, depending on the configuration of the desired web component.
 This will be detailed in <a href="#_mapping_urls_to_web_components">Mapping URLs to Web Components</a>.</p>
 </div>
@@ -817,7 +829,7 @@ Therefore, when the servlet is deployed to a local server listening on <code><a 
 </div>
 </div>
 <div class="paragraph">
-<p>The Hello World example will return a HTTP 400 error as response indicating a 'Bad Request'.
+<p>The Hello World example will return an HTTP 400 error as response indicating a 'Bad Request'.
 When specifying the name as a request parameter in the following URL:</p>
 </div>
 <div class="listingblock">
@@ -924,7 +936,7 @@ We&#8217;ll briefly go through the CDI annotations that are used here:</p>
 <li>
 <p><code>@Named</code>&#8201;&#8212;&#8201;gives the backing bean a managed bean name, which is primarily used to reference it in Expression Language (EL).
 Without any attributes this defaults to the simple class name with the first letter in lowercase.
-This backing bean will thus be available as a managed bean via <code>#{hello}</code> in EL.</p>
+This backing bean will thus be available as a managed bean via <code>&#35;{hello}</code> in EL.</p>
 </li>
 <li>
 <p><code>@RequestScoped</code>&#8201;&#8212;&#8201;gives the backing bean a managed bean scope, which essentially represents its lifespan.
@@ -1008,13 +1020,13 @@ This is the one being updated on completion of the Ajax submit and it will displ
 </ul>
 </div>
 <div class="paragraph">
-<p>The <code>&lt;h:&#8230;&#8203;&gt;</code> tags basically define standard HTML components.
-The <code>&lt;f:&#8230;&#8203;&gt;</code> tags basically define behavior.</p>
+<p>The <code>&lt;h:&#8230;&#8203;&gt;</code> tags define standard HTML components.
+The <code>&lt;f:&#8230;&#8203;&gt;</code> tags define behavior.</p>
 </div>
 <div class="paragraph">
-<p>The input value is via EL value expression <code><mark>{hello.name}</code> connected to the <code>name</code> property of the <code>Hello</code> backing bean via its getter and setter.
-The output value is via EL value expression <code></mark>{hello.greeting}</code> connected to the <code>greeting</code> property of the <code>Hello</code> backing bean via its getter.
-The command button is via EL method expression <code>#{hello.submit}</code> connected to the <code>submit</code> method of the <code>Hello</code> backing bean.</p>
+<p>The input value is via EL value expression <code>&#35;{hello.name}</code> connected to the <code>name</code> property of the <code>Hello</code> backing bean via its getter and setter.
+The output value is via EL value expression <code>&#35;{hello.greeting}</code> connected to the <code>greeting</code> property of the <code>Hello</code> backing bean via its getter.
+The command button is via EL method expression <code>&#35;{hello.submit}</code> connected to the <code>submit</code> method of the <code>Hello</code> backing bean.</p>
 </div>
 <div class="paragraph">
 <p>Note that for EL value expressions the physical field representing the property doesn&#8217;t need to have exactly the same name nor that it needs to exist at all.
@@ -1148,7 +1160,7 @@ It are those variables which you&#8217;d normally define as constants in a Java 
 <p>The welcome files mechanism allows you to specify a list of files that the servlet container can return as a default resource when any folder is requested which does not map to an existing web component.
 For example, suppose that you define two welcome files <code>index.xhtml</code> and <code>index.html</code>.
 So, if for example the <code>/</code> folder is requested, and it does not map to a web component, then it&#8217;ll search for <code>/index.xhtml</code> and <code>/index.html</code> files and return the first found one.
-Or if there is none, then the servlet container will continue to perform the default behavior, which is usually displaying a HTTP 404 error page.
+Or if there is none, then the servlet container will continue to perform the default behavior, which is usually displaying an HTTP 404 error page.
 Note that this also applies to sub folders, so if for example the <code>/foo</code> folder is requested, then it&#8217;ll search for <code>/foo/index.xhtml</code> and <code>/foo/index.html</code> files and return the first found one.
 You specify welcome files in the <code>web.xml</code> file.</p>
 </div>

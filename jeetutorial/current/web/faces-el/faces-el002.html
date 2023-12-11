@@ -73,13 +73,25 @@
     <span class="nav-text">Introduction</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../../index.html">Preface</a>
-  </li>
-  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../intro/overview/overview.html">Overview</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../intro/usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Platform Basics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/resource-creation/resource-creation.html">Resource Creation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/injection/injection.html">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/packaging/packaging.html">Packaging</a>
   </li>
 </ul>
   </li>
@@ -173,7 +185,7 @@
     <a class="nav-link" href="../webapp/webapp.html">Getting Started with Web Applications</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../servlets/servlets.html">Jakarta Servlet Technology</a>
+    <a class="nav-link" href="../servlets/servlets.html">Jakarta Servlet</a>
   </li>
 </ul>
   </li>
@@ -406,8 +418,8 @@
     <a class="version" href="../../../9.1/web/faces-el/faces-el002.html">9.1</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/jhammen/jakartaee-tutorial/edit/main/src/main/antora/modules/web/pages/faces-el/faces-el002.adoc">Edit this Page</a></div>
-  </div>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/web/pages/faces-el/faces-el002.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
@@ -422,7 +434,7 @@ Immediate evaluation means that the expression is evaluated and the result retur
 Deferred evaluation means that the technology using the expression language can use its own machinery to evaluate the expression sometime later during the page&#8217;s lifecycle, whenever it is appropriate to do so.</p>
 </div>
 <div class="paragraph">
-<p>Those expressions that are evaluated immediately use the <code>${}</code> syntax. Expressions whose evaluation is deferred use the <code>#{}</code> syntax.</p>
+<p>Those expressions that are evaluated immediately use the <code>${}</code> syntax. Expressions whose evaluation is deferred use the <code>&#35;{}</code> syntax.</p>
 </div>
 <div class="paragraph">
 <p>Because of its multiphase lifecycle, Jakarta Faces technology uses mostly deferred evaluation expressions.
@@ -453,7 +465,7 @@ These expressions can appear as part of a template (static) text or as the value
 <div class="sect2">
 <h3 id="_deferred_evaluation"><a class="anchor" href="#_deferred_evaluation"></a>Deferred Evaluation</h3>
 <div class="paragraph">
-<p>Deferred evaluation expressions take the form <code>#{expr}</code> and can be evaluated at other phases of a page lifecycle as defined by whatever technology is using the expression.
+<p>Deferred evaluation expressions take the form <code>&#35;{expr}</code> and can be evaluated at other phases of a page lifecycle as defined by whatever technology is using the expression.
 In the case of Jakarta Faces technology, its controller can evaluate the expression at different phases of the lifecycle, depending on how the expression is being used in the page.</p>
 </div>
 <div class="paragraph">
@@ -466,7 +478,7 @@ The <code>h:inputText</code> tag&#8217;s <code>value</code> attribute references
 </div>
 </div>
 <div class="paragraph">
-<p>For an initial request of the page containing this tag, the Jakarta Faces implementation evaluates the <code>#{customer.name}</code> expression during the render-response phase of the lifecycle.
+<p>For an initial request of the page containing this tag, the Jakarta Faces implementation evaluates the <code>&#35;{customer.name}</code> expression during the render-response phase of the lifecycle.
 During this phase, the expression merely accesses the value of <code>name</code> from the <code>customer</code> bean, as is done in immediate evaluation.</p>
 </div>
 <div class="paragraph">

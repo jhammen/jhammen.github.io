@@ -73,13 +73,25 @@
     <span class="nav-text">Introduction</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../../index.html">Preface</a>
-  </li>
-  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../intro/overview/overview.html">Overview</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../intro/usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Platform Basics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/resource-creation/resource-creation.html">Resource Creation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/injection/injection.html">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/packaging/packaging.html">Packaging</a>
   </li>
 </ul>
   </li>
@@ -173,7 +185,7 @@
     <a class="nav-link" href="../webapp/webapp.html">Getting Started with Web Applications</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="servlets.html">Jakarta Servlet Technology</a>
+    <a class="nav-link" href="servlets.html">Jakarta Servlet</a>
   </li>
 </ul>
   </li>
@@ -406,8 +418,8 @@
     <a class="version" href="../../../9.1/web/servlets/servlets001.html">9.1</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/jhammen/jakartaee-tutorial/edit/main/src/main/antora/modules/web/pages/servlets/servlets001.adoc">Edit this Page</a></div>
-  </div>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/web/pages/servlets/servlets001.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
@@ -417,15 +429,14 @@
 <h2 id="_what_is_a_servlet"><a class="anchor" href="#_what_is_a_servlet"></a>What Is a Servlet?</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A servlet is a Java programming language class used to extend the capabilities of servers that host applications accessed by means of a request-response programming model.
-Although servlets can respond to any type of request, they are commonly used to extend the applications hosted by web servers.
-For such applications, Jakarta Servlet technology defines HTTP-specific servlet classes.</p>
+<p>A servlet is a Java programming language class that directly or indirectly implements the <code>jakarta.servlet.Servlet</code> interface.
+The <code>jakarta.servlet</code> and <code>jakarta.servlet.http</code> packages provide interfaces and classes for writing servlets.
+All servlets must implement the <code>jakarta.servlet.Servlet</code> interface, which defines lifecycle methods such as <code>init</code>, <code>service</code>, and <code>destroy</code>.
+When implementing a generic service, you can extend the <code>jakarta.servlet.GenericServlet</code> class which already implements the <code>Servlet</code> interface.
+When implementing an HTTP service, you can extend the <code>jakarta.servlet.http.HttpServlet</code> class which already extends the <code>GenericServlet</code> class.</p>
 </div>
 <div class="paragraph">
-<p>The <code>jakarta.servlet</code> and <code>jakarta.servlet.http</code> packages provide interfaces and classes for writing servlets.
-All servlets must implement the <code>Servlet</code> interface, which defines lifecycle methods.
-When implementing a generic service, you can use or extend the <code>GenericServlet</code> class provided with the Jakarta Servlet API.
-The <code>HttpServlet</code> class provides methods, such as <code>doGet</code> and <code>doPost</code>, for handling HTTP-specific services.</p>
+<p>In a typical Jakarta Servlet based web application, the class must extend <code>jakarta.servlet.http.HttpServlet</code> and override one of the <code>doXxx</code> methods where <code>Xxx</code> represents the HTTP method of interest.</p>
 </div>
 </div>
 </div>

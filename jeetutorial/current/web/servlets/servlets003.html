@@ -73,13 +73,25 @@
     <span class="nav-text">Introduction</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../../index.html">Preface</a>
-  </li>
-  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../intro/overview/overview.html">Overview</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../intro/usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Platform Basics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/resource-creation/resource-creation.html">Resource Creation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/injection/injection.html">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../platform/packaging/packaging.html">Packaging</a>
   </li>
 </ul>
   </li>
@@ -173,7 +185,7 @@
     <a class="nav-link" href="../webapp/webapp.html">Getting Started with Web Applications</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="servlets.html">Jakarta Servlet Technology</a>
+    <a class="nav-link" href="servlets.html">Jakarta Servlet</a>
   </li>
 </ul>
   </li>
@@ -406,8 +418,8 @@
     <a class="version" href="../../../9.1/web/servlets/servlets003.html">9.1</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/jhammen/jakartaee-tutorial/edit/main/src/main/antora/modules/web/pages/servlets/servlets003.adoc">Edit this Page</a></div>
-  </div>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/web/pages/servlets/servlets003.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
@@ -417,72 +429,179 @@
 <h2 id="_sharing_information"><a class="anchor" href="#_sharing_information"></a>Sharing Information</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Web components, like most objects, usually work with other objects to accomplish their tasks.
-Web components can do so by doing the following.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Using private helper objects (for example, JavaBeans components).</p>
-</li>
-<li>
-<p>Sharing objects that are attributes of a public scope.</p>
-</li>
-<li>
-<p>Using a database.</p>
-</li>
-<li>
-<p>Invoking other web resources.
-The Jakarta Servlet technology mechanisms that allow a web component to invoke other web resources are described in <a href="servlets.html#_invoking_other_web_resources" class="xref page">Invoking Other Web Resources</a>.</p>
-</li>
-</ul>
+<p>Web components, like most objects, usually work with data to accomplish their tasks.
+Web components can store this information in a data store or in a scoped bean, among others.</p>
 </div>
 <div class="sect2">
-<h3 id="_using_scope_objects"><a class="anchor" href="#_using_scope_objects"></a>Using Scope Objects</h3>
+<h3 id="_using_cdi_managed_beans"><a class="anchor" href="#_using_cdi_managed_beans"></a>Using CDI Managed Beans</h3>
 <div class="paragraph">
-<p>Collaborating web components share information by means of objects that are maintained as attributes of four scope objects.
-You access these attributes by using the <code>getAttribute</code> and <code>setAttribute</code> methods of the class representing the scope.
-<a href="#_scope_objects">Scope Objects</a> lists the scope objects.</p>
+<p>CDI can be used to define scoped beans which can be injected in any container-managed objects such as web components.
+These scoped beans can then be used to store and transfer information.</p>
 </div>
-<table id="_scope_objects" class="tableblock frame-all grid-all" style="width: 90%;">
+<div class="paragraph">
+<p>CDI defines three basic scopes which can be used for this:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>@jakarta.enterprise.context.RequestScoped</code></dt>
+<dd>
+<p>In a servlet container, this is mapped to the <code>jakarta.servlet.ServletRequest</code>.
+It lives from the time that the client has sent the request until it has retrieved the corresponding response.
+It is not shared elsewhere.</p>
+</dd>
+<dt class="hdlist1"><code>@jakarta.enterprise.context.SessionScoped</code></dt>
+<dd>
+<p>In a servlet container, this is mapped to the <code>jakarta.servlet.http.HttpSession</code>.
+It lives for as long as the client is interacting with the web application with the same browser instance, and the session hasn&#8217;t timed out at the server side.
+It is shared among all requests in the same session.</p>
+</dd>
+<dt class="hdlist1"><code>@jakarta.enterprise.context.ApplicationScoped</code></dt>
+<dd>
+<p>In a servlet container, this is mapped to the <code>jakarta.servlet.ServletContext</code>.
+It lives for as long as the web application lives.
+It is shared among all requests in all sessions.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The below example illustrates how CDI <code>@SessionScoped</code> can be used to define a session scoped bean which stores the user preferences.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Named
+@SessionScoped
+public class UserPreferences implements Serializable {
+
+    private Locale language;
+    private ZoneId timeZone;
+    private boolean darkMode;
+
+    // ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It can be injected in any web component.
+The below example illustrates how a servlet can be used to take a time zone offset in minutes and update the user preferences with it.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@WebServlet("/timeZoneHandler")
+public class TimeZoneHandler extends HttpServlet {
+
+    @Inject
+    private UserPreferences userPreferences;
+
+    @Override
+    public void doPost
+        (HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException
+    {
+        var offsetInMinutes = request.getParameter("offsetInMinutes");
+
+        if (offsetInMinutes == null || !offsetInMinutes.matches("\\-?[0-9]{1,3}")) {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+            return;
+        }
+
+        var offsetInSeconds = TimeUnit.MINUTES.toSeconds(Long.valueOf(offsetInMinutes));
+        ZoneId timeZone = ZoneOffset.ofTotalSeconds((int) offsetInSeconds);
+        userPreferences.setTimeZone(timeZone);
+        response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For example JavaScript&#8217;s <code>new Date().getTimeZoneOffset()</code> returns the local (negative) time zone offset in minutes.
+This servlet can then be invoked as follows in JavaScript in order to inform the server about the client&#8217;s time zone:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">fetch("/context-path/timeZoneHandler", {
+    method: "POST",
+    body: new URLSearchParams({
+        offsetInMinutes: -new Date().getTimezoneOffset()
+    })
+});</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_scope_objects_directly"><a class="anchor" href="#_using_scope_objects_directly"></a>Using Scope Objects Directly</h3>
+<div class="paragraph">
+<p>If CDI is not available, an alternative is to use Jakarta Servlet&#8217;s own scope objects directly.
+You can use <code>getAttribute</code> and <code>setAttribute</code> methods of the Jakarta Servlet class representing the scope.
+<a href="#scope-objects">Scope Objects</a> lists the scope objects.</p>
+</div>
+<table id="scope-objects" class="tableblock frame-all grid-all" style="width: 90%;">
 <caption class="title">Scope Objects</caption>
 <colgroup>
 <col style="width: 16.6666%;">
 <col style="width: 27.7777%;">
 <col style="width: 55.5557%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Scope Object</th>
-<th class="tableblock halign-left valign-top">Class</th>
-<th class="tableblock halign-left valign-top">Accessible From</th>
-</tr>
-</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Web context</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scope Object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Class</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accessible From</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Application</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.ServletContext</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Web components within a web context.
-See <a href="servlets.html#_accessing_the_web_context" class="xref page">Accessing the Web Context</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web components within the web application.
+See <a href="#accessing-the-web-context">[accessing-the-web-context]</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Session</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.http.HttpSession</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Web components handling a request that belongs to the session.
-See <a href="servlets.html#_maintaining_client_state" class="xref page">Maintaining Client State</a>.</p></td>
+See <a href="#maintaining-client-state">[maintaining-client-state]</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Request</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Subtype of <code>jakarta.servlet.ServletRequest</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.ServletRequest</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Web components handling the request.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Page</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jakarta.servlet.jsp.JspContext</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Jakarta Server Pages page that creates the object.</p></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>The below example illustrates how the previously shown servlet needs to be adjusted to manually manage the <code>UserPreferences</code> bean.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@WebServlet("/timeZoneHandler")
+public class TimeZoneHandler extends HttpServlet {
+
+    @Override
+    public void doPost
+        (HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException
+    {
+        var offsetInMinutes = request.getParameter("offsetInMinutes");
+
+        if (offsetInMinutes == null || !offsetInMinutes.matches("\\-?[0-9]{1,3}")) {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+            return;
+        }
+
+        var offsetInSeconds = TimeUnit.MINUTES.toSeconds(Long.valueOf(offsetInMinutes));
+        ZoneId timeZone = ZoneOffset.ofTotalSeconds((int) offsetInSeconds);
+        HttpSession session = request.getSession();
+        UserPreferenes userPreferences = session.getAttribute("userPreferences");
+
+        if (userPreferences == null) {
+            userPreferences = new UserPreferences();
+            session.setAttribute("userPreferences", userPreferences);
+        }
+
+        userPreferences.setTimeZone(timeZone);
+        response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+    }
+}</code></pre>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_controlling_concurrent_access_to_shared_resources"><a class="anchor" href="#_controlling_concurrent_access_to_shared_resources"></a>Controlling Concurrent Access to Shared Resources</h3>
@@ -496,10 +615,10 @@ In addition to scope object attributes, shared resources include in-memory data,
 <div class="ulist">
 <ul>
 <li>
-<p>Multiple web components accessing objects stored in the web context.</p>
+<p>Multiple web components accessing objects stored in the application scope.</p>
 </li>
 <li>
-<p>Multiple web components accessing objects stored in a session.</p>
+<p>Multiple web components accessing objects stored in the session scope.</p>
 </li>
 <li>
 <p>Multiple threads within a web component accessing instance variables.</p>
@@ -508,14 +627,12 @@ In addition to scope object attributes, shared resources include in-memory data,
 </div>
 <div class="paragraph">
 <p>A web container will typically create a thread to handle each request.
-To ensure that a servlet instance handles only one request at a time, a servlet can implement the <code>SingleThreadModel</code> interface.
-If a servlet implements this interface, no two threads will execute concurrently in the servlet&#8217;s service method.
-A web container can implement this guarantee by synchronizing access to a single instance of the servlet or by maintaining a pool of web component instances and dispatching each new request to a free instance.
-This interface does not prevent synchronization problems that result from web components' accessing shared resources, such as static class variables or external objects.</p>
+When resources can be accessed concurrently, they can be used in an inconsistent fashion.
+First step is to ensure that the variable representing the resource has the correct scope and use a as narrow as possible scope.
+For example, request scoped information should not be stored in a session scoped bean nor be assigned as an instance variable of a servlet, and session scoped information should not be stored in an application scoped bean.</p>
 </div>
 <div class="paragraph">
-<p>When resources can be accessed concurrently, they can be used in an inconsistent fashion.
-You prevent this by controlling the access using the synchronization techniques described in the Threads lesson at <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/" class="bare" target="_blank" rel="noopener">https://docs.oracle.com/javase/tutorial/essential/concurrency/</a>.</p>
+<p>If concurrent access is inevitable, then you prevent this by using synchronized or atomic objects such as wrapping a <code>Map</code> in <code>Collections.synchronizedMap()</code> before assigning it to a property of a session scoped bean.</p>
 </div>
 </div>
 </div>

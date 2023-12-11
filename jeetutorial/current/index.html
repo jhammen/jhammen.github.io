@@ -72,14 +72,26 @@
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Introduction</span>
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="index.html">Preface</a>
-  </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="intro/overview/overview.html">Overview</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="intro/usingexamples/usingexamples.html">Using the Tutorial Examples</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Platform Basics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="platform/resource-creation/resource-creation.html">Resource Creation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="platform/injection/injection.html">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="platform/packaging/packaging.html">Packaging</a>
   </li>
 </ul>
   </li>
@@ -173,7 +185,7 @@
     <a class="nav-link" href="web/webapp/webapp.html">Getting Started with Web Applications</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="web/servlets/servlets.html">Jakarta Servlet Technology</a>
+    <a class="nav-link" href="web/servlets/servlets.html">Jakarta Servlet</a>
   </li>
 </ul>
   </li>
@@ -400,7 +412,6 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Jakarta EE Tutorial</a></li>
-    <li>Introduction</li>
     <li><a href="index.html">Preface</a></li>
   </ul>
 </nav>
@@ -411,8 +422,8 @@
     <a class="version" href="../9.1/index.html">9.1</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/jhammen/jakartaee-tutorial/edit/main/src/main/antora/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
-  </div>
+  <div class="edit-this-page"><a href="file:///home/john/workspace/virtua/jakartaee-tutorial/src/main/antora/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
@@ -421,57 +432,61 @@
 <h1 class="page">Preface</h1>
 <div id="preamble">
 <div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>This tutorial is a guide to developing enterprise applications for the Jakarta EE 9 Platform, using Eclipse GlassFish Server.</p>
+<p>This section is currently a draft, and is subject to change.</p>
 </div>
-<div class="paragraph">
-<p>Eclipse GlassFish Server is the leading open-source and open-community platform for building and deploying next-generation applications and services.
-Eclipse GlassFish Server, developed by the Eclipse GlassFish project open-source community at <a href="https://projects.eclipse.org/projects/ee4j.glassfish" class="bare" target="_blank" rel="noopener">https://projects.eclipse.org/projects/ee4j.glassfish</a>, is a compatible implementation of the Jakarta EE 9 platform specification.
-This lightweight, flexible, and open-source application server enables organizations not only to leverage the new capabilities introduced within the Jakarta EE 9 specification, but also to add to their existing capabilities through a faster and more streamlined development and deployment cycle.
-Eclipse GlassFish Server is hereafter referred to as GlassFish Server.</p>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_audience"><a class="anchor" href="#_audience"></a>Audience</h2>
+<h2 id="_legal"><a class="anchor" href="#_legal"></a>Legal</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This tutorial is intended for programmers interested in developing and deploying Jakarta EE 9 applications.
-It covers the technologies comprising the Jakarta EE platform and describes how to develop Jakarta EE components and deploy them on the Eclipse GlassFish.</p>
+<p>This documentation and the accompanying materials are made available under the terms of the Eclipse Public License v. 2.0,
+which is available at <a href="https://www.eclipse.org/legal/epl-2.0" class="bare">https://www.eclipse.org/legal/epl-2.0</a>.</p>
+</div>
+<div class="paragraph">
+<p>SPDX-License-Identifier: EPL-2.0</p>
+</div>
+<div class="paragraph">
+<p>Oracle and Java are registered trademarks of Oracle and/or its affiliates. Other names may be trademarks of their respective owners.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_before_you_read_this_book"><a class="anchor" href="#_before_you_read_this_book"></a>Before You Read This Book</h2>
+<h2 id="_about_this_tutorial"><a class="anchor" href="#_about_this_tutorial"></a>About this Tutorial</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Before proceeding with this tutorial, you should have a good knowledge of the Java programming language.
-A good way to get to that point is to work through the Java&#8482; Tutorials <a href="https://docs.oracle.com/javase/tutorial/index.html" class="bare" target="_blank" rel="noopener">https://docs.oracle.com/javase/tutorial/index.html</a>.</p>
+<p>This tutorial explains how to use the features of the Jakarta EE Platform to build cloud-native applications,
+such as microservices, "right sized" services, and server-based web applications.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_related_documentation"><a class="anchor" href="#_related_documentation"></a>Related Documentation</h2>
+<h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The GlassFish Server documentation set describes deployment planning and system installation.
-To obtain the GlassFish Server documentation, go to <a href="https://glassfish.org/docs" class="bare" target="_blank" rel="noopener">https://glassfish.org/docs</a>.</p>
+<p>Jakarta EE applications use the Java Platform, and are usually written in the Java programming language.
+All the examples in this tutorial are written in Java.
+If you&#8217;re new to Java, spend some time getting up to speed on the language and platform;
+a good place to start is <a href="https://dev.java/learn/">dev.java/learn</a>.</p>
 </div>
 <div class="paragraph">
-<p>The Jakarta EE 9 API specification can be viewed at <a href="https://jakarta.ee/specifications/platform/9/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/platform/9/</a>.</p>
-</div>
-<div class="paragraph">
-<p>Additionally, the Jakarta EE Specifications at <a href="https://jakarta.ee/specifications" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications</a> might be useful.</p>
-</div>
-<div class="paragraph">
-<p>For information about creating enterprise applications in the NetBeans Integrated Development Environment (IDE), see <a href="https://netbeans.apache.org/kb/" class="bare" target="_blank" rel="noopener">https://netbeans.apache.org/kb/</a>.</p>
-</div>
-<div class="paragraph">
-<p>For information about Apache Derby for use with GlassFish Server, see <a href="https://db.apache.org/derby/docs/10.14/adminguide/" class="bare" target="_blank" rel="noopener">https://db.apache.org/derby/docs/10.14/adminguide/</a>.</p>
-</div>
-<div class="paragraph">
-<p>The GlassFish Samples project is a collection of sample applications that demonstrate a broad range of Jakarta EE technologies.
-The GlassFish Samples are available from the GlassFish Samples project page at <a href="https://github.com/eclipse-ee4j/glassfish-samples/" class="bare" target="_blank" rel="noopener">https://github.com/eclipse-ee4j/glassfish-samples/</a>.</p>
+<p>Each topic in this tutorial provides some background information,
+but in general,
+we assume you have a basic understanding of the technologies each Jakarta EE feature works with.
+For example, in the Jakarta Persistence chapter,
+we assume you have a basic understanding of relational databases.</p>
 </div>
 </div>
 </div>
@@ -479,7 +494,7 @@ The GlassFish Samples are available from the GlassFish Samples project page at <
 <h2 id="_conventions"><a class="anchor" href="#_conventions"></a>Conventions</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The following table describes the typographic conventions that are used in this book.</p>
+<p>Throughout this tutorial, we use the following typographic conventions:</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 99%;">
 <colgroup>
@@ -497,9 +512,9 @@ The GlassFish Samples are available from the GlassFish Samples project page at <
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Boldface</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Boldface type indicates graphical user interface elements associated with an action or terms defined in text.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">From the <strong>File</strong> menu, choose <strong>Open Project</strong>.</p>
-<p class="tableblock">A <strong>cache</strong> is a copy that is stored locally.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boldface type indicates a term defined in text or graphical user interface elements associated with an action.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A <strong>cache</strong> is a copy stored locally.</p>
+<p class="tableblock">From the <strong>File</strong> menu, choose <strong>Open Project</strong>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Monospace</code></p></td>
@@ -522,6 +537,20 @@ The GlassFish Samples are available from the GlassFish Samples project page at <
 <div class="sect1">
 <h2 id="_default_paths_and_file_names"><a class="anchor" href="#_default_paths_and_file_names"></a>Default Paths and File Names</h2>
 <div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We are working on a fresh, updated Jakarta EE Tutorial. This section hasn&#8217;t yet been updated.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>The following table describes the default paths and file names that are
 used in this book.</p>
@@ -543,7 +572,7 @@ used in this book.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><em>as-install</em></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Represents the base installation directory for GlassFish Server.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Installations on the Solaris operating system, Linux operating system, and Mac operating system:</p>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Installations on the Linux, UNIX, or macOS:</p>
 <p class="tableblock"><code><em>user&#8217;s-home-directory</em>/glassfish6/glassfish</code></p>
 <p class="tableblock">Windows, all installations:</p>
 <p class="tableblock"><code><em>SystemDrive</em>:\glassfish6\glassfish</code></p></td>
@@ -551,9 +580,9 @@ used in this book.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><em>as-install-parent</em></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Represents the parent of the base installation directory for GlassFish Server.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Installations on the Solaris operating system, Linux operating system, and Mac operating system:</p>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Installations on UNIX/Linux/macOS:</p>
 <p class="tableblock"><code><em>user&#8217;s-home-directory</em>/glassfish6</code></p>
-<p class="tableblock">Windows, all installations:</p>
+<p class="tableblock">Windows:</p>
 <p class="tableblock"><code><em>SystemDrive</em>:\glassfish6</code></p></td>
 </tr>
 <tr>
