@@ -497,40 +497,38 @@ If a <code>composite:interface</code> element appears, there must be a correspon
 <p>For more information and a complete list of Facelets composite tags, see the Jakarta Faces Facelets Tag Library documentation.</p>
 </div>
 <div class="paragraph">
-<p>The following example shows a composite component that accepts an email address as input:</p>
+<p>The following example shows a composite component that renders an form field with a label, input and message component:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
-&lt;html xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:composite="jakarta.faces.composite"
-  xmlns:h="jakarta.faces.html"&gt;
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;ui:component xmlns:ui="jakarta.faces.facelets"
+              xmlns:cc="jakarta.faces.composite"
+              xmlns:h="jakarta.faces.html"&gt;
+    &lt;cc:interface&gt;
+        &lt;cc:attribute name="label" required="true" /&gt;
+        &lt;cc:attribute name="value" required="true" /&gt;
+    &lt;/cc:interface&gt;
 
-    &lt;h:head&gt;
-        &lt;title&gt;This content will not be displayed&lt;/title&gt;
-    &lt;/h:head&gt;
-    &lt;h:body&gt;
-        &lt;composite:interface&gt;
-            &lt;composite:attribute name="value" required="false"/&gt;
-        &lt;/composite:interface&gt;
-
-        &lt;composite:implementation&gt;
-            &lt;h:outputLabel value="Email id: "&gt;&lt;/h:outputLabel&gt;
-            &lt;h:inputText value="#{cc.attrs.value}"&gt;&lt;/h:inputText&gt;
-        &lt;/composite:implementation&gt;
-    &lt;/h:body&gt;
-&lt;/html&gt;</code></pre>
+    &lt;cc:implementation&gt;
+        &lt;div id="#{cc.clientId}" class="field"&gt;
+            &lt;h:outputLabel for="input" value="#{cc.attrs.label}" /&gt;
+            &lt;h:inputText id="input" value="#{cc.attrs.value}" /&gt;
+            &lt;h:message for="input" /&gt;
+        &lt;/div&gt;
+    &lt;/cc:implementation&gt;
+&lt;/ui:component&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Note the use of <code>cc.attrs.value</code> when defining the value of the <code>inputText</code> component.
+<p>Note the use of <code>cc.attrs.value</code> when defining the value of the <code>outputLabel</code> and <code>inputText</code> components.
 The word <code>cc</code> in Jakarta Faces is a reserved word for composite components.
 The <code>&#35;{cc.attrs.<em>attribute-name</em>}</code> expression is used to access the attributes defined for the composite component&#8217;s interface, which in this case happens to be <code>value</code>.</p>
 </div>
 <div class="paragraph">
-<p>The preceding example content is stored as a file named <code>email.xhtml</code> in a folder named <code>resources/emcomp</code>, under the application web root directory.
-This directory is considered a library by Jakarta Faces, and a component can be accessed from such a library. For more information on resources, see <a href="faces-facelets.html#_web_resources" class="xref page">Web Resources</a>.</p>
+<p>The preceding example content is stored as a file named <code>field.xhtml</code> in a folder named <code>resources/mycomponents</code>, under the application web root directory.
+This directory is considered a library by Jakarta Faces, and a component can be accessed from such a library.
+The <code>mycomponents</code> folder name is free to your choice.
+For more information on resources, see <a href="faces-facelets.html#_web_resources" class="xref page">Web Resources</a>.</p>
 </div>
 <div class="paragraph">
 <p>The web page that uses this composite component is generally called a using page.
@@ -538,33 +536,34 @@ The using page includes a reference to the composite component, in the <code>xml
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
-&lt;html xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:h="jakarta.faces.html"
-  xmlns:em="jakarta.faces.composite/emcomp"&gt;
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;!DOCTYPE html&gt;
+&lt;html xmlns:h="jakarta.faces.html"
+      xmlns:my="jakarta.faces.composite/mycomponents"&gt;
 
     &lt;h:head&gt;
         &lt;title&gt;Using a sample composite component&lt;/title&gt;
     &lt;/h:head&gt;
 
-    &lt;body&gt;
+    &lt;h:body&gt;
         &lt;h:form&gt;
-            &lt;em:email value="Enter your email id" /&gt;
+            &lt;my:field id="email"
+                      label="Enter your email address"
+                      value="#{bean.email}" /&gt;
         &lt;/h:form&gt;
-    &lt;/body&gt;
+    &lt;/h:body&gt;
 &lt;/html&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The local composite component library is defined in the <code>xmlns</code> namespace with the declaration <code>xmlns:em="jakarta.faces.composite.emcomp"</code>.
-The component itself is accessed through the <code>em:email</code> tag.
-The preceding example content can be stored as a web page named <code>emuserpage.xhtml</code> under the web root directory.
+<p>The local composite component library is defined in the <code>xmlns</code> namespace with the declaration <code>xmlns:my="jakarta.faces.composite/mycomponents"</code>.
+The <code>my</code> XML namespace are free to your choice. The <code>/mycomponents</code> part must represent the folder name where the composite component files are located.
+The component itself is accessed through the <code>my:field</code> tag.
+The preceding example content can be stored as a web page named <code>userpage.xhtml</code> under the web root directory.
 When compiled and deployed on a server, it can be accessed with the following URL:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/application-name/emuserpage.xhtml</code></pre>
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">http://localhost:8080/application-name/userpage.xhtml</code></pre>
 </div>
 </div>
 <div class="paragraph">

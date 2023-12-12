@@ -611,7 +611,7 @@ It then fires the event.</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Logged
 public String pay() {
-    this.setDatetime(Calendar.getInstance().getTime());
+    this.setDatetime(LocalDateTime.now());
     switch (paymentOption) {
         case DEBIT:
             PaymentEvent debitPayload = new PaymentEvent();

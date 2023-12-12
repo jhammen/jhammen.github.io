@@ -660,10 +660,10 @@ There is a Jakarta REST-specific type that is also named <a href="https://jakart
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;web-app version="6.0"
-    xmlns="https://jakarta.ee/xml/ns/jakartaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"&gt;
+&lt;web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0"&gt;
 
     &lt;security-constraint&gt;
         &lt;web-resource-collection&gt;
@@ -1381,10 +1381,10 @@ There is a Jakarta REST-specific type that is also named <a href="https://jakart
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;web-app version="6.0"
-    xmlns="https://jakarta.ee/xml/ns/jakartaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"&gt;
+&lt;web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0"&gt;
 
     &lt;security-constraint&gt;
         &lt;web-resource-collection&gt;
@@ -1460,17 +1460,20 @@ public class ApplicationConfig extends Application {
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">&lt;!DOCTYPE html&gt;
-
-&lt;html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;&lt;title&gt;Login to continue&lt;/title&gt;&lt;/head&gt;
     &lt;body&gt;
-        Login to continue
-        &lt;form method="POST" action="j_security_check"&gt;
-            &lt;p&gt;
-                &lt;strong&gt;Username &lt;/strong&gt; &lt;input type="text" name="j_username"&gt;
-            &lt;p&gt;
-                &lt;strong&gt;Password &lt;/strong&gt; &lt;input type="password" name="j_password"&gt;
-            &lt;p&gt;
+        &lt;h1&gt;Login to continue&lt;/h1&gt;
+        &lt;form method="post" action="j_security_check"&gt;
+            &lt;div&gt;
+                &lt;label&gt;Username: &lt;input type="text" name="j_username"&gt;&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;label&gt;Password: &lt;input type="password" name="j_password"&gt;&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
                 &lt;input type="submit" value="Submit"&gt;
+            &lt;/div&gt;
         &lt;/form&gt;
     &lt;/body&gt;
 &lt;/html&gt;</code></pre>
@@ -1479,11 +1482,13 @@ public class ApplicationConfig extends Application {
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">&lt;!DOCTYPE html&gt;
-
-&lt;html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;&lt;title&gt;Login failed!&lt;/title&gt;&lt;/head&gt;
     &lt;body&gt;
-        Login failed!
-        &lt;a href="login.html"&gt;Try again&lt;/a&gt;
+        &lt;h1&gt;Login failed!&lt;/h1&gt;
+        &lt;div&gt;
+            &lt;a href="login.html"&gt;Try again&lt;/a&gt;
+        &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 </div>
@@ -2241,10 +2246,10 @@ There is a Jakarta REST-specific type that is also named <a href="https://jakart
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;web-app version="6.0"
-    xmlns="https://jakarta.ee/xml/ns/jakartaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"&gt;
+&lt;web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0"&gt;
 
     &lt;security-constraint&gt;
         &lt;web-resource-collection&gt;
@@ -2968,10 +2973,10 @@ There is a Jakarta REST-specific type that is also named <a href="https://jakart
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;web-app version="6.0"
-    xmlns="https://jakarta.ee/xml/ns/jakartaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"&gt;
+&lt;web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0"&gt;
 
     &lt;security-constraint&gt;
         &lt;web-resource-collection&gt;
@@ -3626,10 +3631,10 @@ There is a Jakarta REST-specific type that is also named <a href="https://jakart
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;web-app version="6.0"
-    xmlns="https://jakarta.ee/xml/ns/jakartaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"&gt;
+&lt;web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0"&gt;
 
     &lt;security-constraint&gt;
         &lt;web-resource-collection&gt;
@@ -3715,13 +3720,12 @@ public class ApplicationConfig extends Application {
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;!DOCTYPE html&gt;
-&lt;html lang="en" xmlns:h="jakarta.faces.html" &gt;
-    &lt;h:head/&gt;
-
+&lt;html lang="en" xmlns:h="jakarta.faces.html"&gt;
+    &lt;h:head&gt;
+        &lt;title&gt;Login to continue&lt;/title&gt;
+    &lt;/h:head&gt;
     &lt;h:body&gt;
-        &lt;h1&gt;
-            Login to continue
-        &lt;/h1&gt;
+        &lt;h1&gt;Login to continue&lt;/h1&gt;
 
         &lt;h:messages /&gt;
 

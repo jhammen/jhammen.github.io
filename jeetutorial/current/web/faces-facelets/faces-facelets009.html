@@ -779,8 +779,7 @@ The pages use both pass-through attributes and pass-through elements.</p>
 <h4 id="_the_facelets_pages_for_the_reservation_application"><a class="anchor" href="#_the_facelets_pages_for_the_reservation_application"></a>The Facelets Pages for the reservation Application</h4>
 <div class="paragraph">
 <p>The first important feature of the Facelets pages for the <code>reservation</code> application is the <code>DOCTYPE</code> header.
-Most Facelets pages in Jakarta Faces applications refer to the XHTML DTD.
-The facelets pages for this application begin simply with the following <code>DOCTYPE</code> header, which indicates an HTML5 page:</p>
+The facelets pages for this application begin simply with the following <code>DOCTYPE</code> header, which indicates that the XHTML-generated result is an HTML5 page:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -793,63 +792,59 @@ The facelets pages for this application begin simply with the following <code>DO
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;html lang="en"
-      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:faces="jakarta.faces"
       xmlns:f="jakarta.faces.core"
       xmlns:h="jakarta.faces.html"
-      xmlns:p="jakarta.faces.passthrough"
-      xmlns:faces="jakarta.faces"&gt;</code></pre>
+      xmlns:p="jakarta.faces.passthrough"&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Next, an empty <code>h:head</code> tag followed by an <code>h:outputStylesheet</code> tag within the <code>h:body</code> tag illustrates the use of a relocatable resource (as described in <a href="faces-facelets.html#_relocatable_resources" class="xref page">Relocatable Resources</a>):</p>
+<p>Next, an <code>h:head</code> tag followed by an <code>h:outputStylesheet</code> tag within the <code>h:body</code> tag illustrates the use of a relocatable resource (as described in <a href="faces-facelets.html#_relocatable_resources" class="xref page">Relocatable Resources</a>):</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h:head&gt;
+    &lt;title&gt;Reservation Application&lt;/title&gt;
 &lt;/h:head&gt;
 &lt;h:body&gt;
-    &lt;h:outputStylesheet name="css/stylesheet.css" target="head"/&gt;</code></pre>
+    &lt;h:outputStylesheet name="css/stylesheet.css" target="head" /&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>reservation.xhtml</code> page uses pass-through elements for most of the form fields on the page.
-This allows it to use some HTML5-specific <code>input</code> element types, such as <code>date</code> and <code>email</code>.
-For example, the following element renders both a date format and a calendar from which you can choose a date.
-The <code>faces</code> prefix on the <code>id</code> attribute makes the element a pass-through one:</p>
+<p>The <code>reservation.xhtml</code> page uses a HTML5-specific <code>input</code> element type on <code>h:inputText</code>, which is <code>date</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">    &lt;input type="date" faces:id="date" name="date"
-           value="#{reservationBean.date}" required="required"
-           title="Enter or choose a date."/&gt;</code></pre>
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">    &lt;h:inputText id="date" type="date"
+                 value="#{reservationBean.date}" required="true"
+                 title="Enter or choose a date." /&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The field for the number of tickets, however, uses the <code>h:passThroughAttributes</code> tag to pass a <code>Map</code> defined in the managed bean.
+<p>The field for the number of tickets uses the <code>f:passThroughAttributes</code> tag to pass a <code>Map</code> defined in the managed bean.
 It also recalculates the total in response to a change in the field:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">    &lt;h:inputText id="tickets" value="#{reservationBean.tickets}"&gt;
         &lt;f:passThroughAttributes value="#{reservationBean.ticketAttrs}"/&gt;
-        &lt;f:ajax event="change" render="total"
-                listener="#{reservationBean.calculateTotal}"/&gt;
+        &lt;f:ajax listener="#{reservationBean.calculateTotal}"
+                render="total" /&gt;
     &lt;/h:inputText&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The field for the price specifies the <code>number</code> type as a pass-through attribute of the <code>h:inputText</code> element, offering a range of four ticket prices.
+<p>The field for the price specifies the <code>min</code>, <code>max</code> and <code>step</code> as a pass-through attribute of the <code>h:inputText</code> element, offering a range of four ticket prices.
 Here, the <code>p</code> prefix on the HTML5 attributes passes them through to the browser uninterpreted by the Jakarta Faces input component:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">    &lt;h:inputText id="price" p:type="number"
-                 value="#{reservationBean.price}"
-                 p:min="80" p:max="120"
-                 p:step="20" p:required="required"
-                 p:title="Enter a price: 80, 100, 120, or 140."&gt;
-        &lt;f:ajax event="change" render="total"
-                listener="#{reservationBean.calculateTotal}"/&gt;
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">    &lt;h:inputText id="price" type="number"
+                 value="#{reservationBean.price}" required="true"
+                 p:min="80" p:max="120" p:step="20"
+                 title="Enter a price: 80, 100, 120, or 140."&gt;
+        &lt;f:ajax listener="#{reservationBean.calculateTotal}"
+                render="total" /&gt;
     &lt;/h:inputText&gt;</code></pre>
 </div>
 </div>

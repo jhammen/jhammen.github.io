@@ -536,17 +536,20 @@ You can specify one of the following scopes for a bean class.</p>
 <p>Application (<code>jakarta.enterprise.context.ApplicationScoped</code>): Application scope persists across all users' interactions with a web application.</p>
 </li>
 <li>
-<p>Session (<code>jakarta.enterprise.context.SessionScoped</code>): Session scope persists across multiple HTTP requests in a web application.</p>
+<p>Session (<code>jakarta.enterprise.context.SessionScoped</code>): Session scope persists across multiple HTTP requests during a single HTTP session in a web application.</p>
 </li>
 <li>
-<p>Flow (<code>jakarta.faces.flows.FlowScoped</code>): Flow scope persists during a user&#8217;s interaction with a specific flow of a web application.
+<p>Flow (<code>jakarta.faces.flow.FlowScoped</code>): Flow scope persists during a user&#8217;s interaction with a specific flow during a single HTTP session in a web application.
 See <a href="#_using_faces_flows">Using Faces Flows</a> for more information.</p>
+</li>
+<li>
+<p>View (<code>jakarta.faces.view.ViewScoped</code>): View scope persists across multiple HTTP postbacks on a single view during a single HTTP session in a web application.</p>
 </li>
 <li>
 <p>Request (<code>jakarta.enterprise.context.RequestScoped</code>): Request scope persists during a single HTTP request in a web application.</p>
 </li>
 <li>
-<p>Dependent (<code>jakarta.enterprise.context.Dependent</code>): Indicates that the bean depends on some other bean.</p>
+<p>Dependent (<code>jakarta.enterprise.context.Dependent</code>): Indicates that the bean scope depends on the other bean where it&#8217;s injected.</p>
 </li>
 </ul>
 </div>

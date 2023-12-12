@@ -465,38 +465,33 @@ The example includes four source files, a Facelets page and template, and config
 <li>
 <p>Use a very simple template file and <code>index.xhtml</code> page.</p>
 <div class="paragraph">
-<p>The template page, <code>template.xhtml</code>, looks like this:</p>
+<p>The template page, <code>/WEB-INF/templates/template.xhtml</code>, looks like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version='1.0' encoding='UTF-8' ?&gt;
-&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;!DOCTYPE html&gt;
 &lt;html lang="en"
-      xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="jakarta.faces.html"
       xmlns:ui="jakarta.faces.facelets"&gt;
     &lt;h:head&gt;
-        &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/&gt;
-        &lt;h:outputStylesheet library="css" name="default.css"/&gt;
         &lt;title&gt;&lt;ui:insert name="title"&gt;Default Title&lt;/ui:insert&gt;&lt;/title&gt;
+        &lt;h:outputStylesheet name="css/default.css" /&gt;
     &lt;/h:head&gt;
+    &lt;h:body&gt;
+        &lt;main&gt;
+            &lt;header&gt;
+                &lt;h1&gt;
+                    &lt;ui:insert name="head"&gt;
+                        &lt;ui:insert name="title"&gt;Default Header&lt;/ui:insert&gt;
+                    &lt;/ui:insert&gt;
+                &lt;/h1&gt;
+            &lt;/header&gt;
 
-    &lt;body&gt;
-        &lt;div id="container"&gt;
-            &lt;div id="header"&gt;
-                &lt;h2&gt;&lt;ui:insert name="head"&gt;Head&lt;/ui:insert&gt;&lt;/h2&gt;
-            &lt;/div&gt;
-
-            &lt;div id="space"&gt;
-                &lt;p&gt;&lt;/p&gt;
-            &lt;/div&gt;
-
-            &lt;div id="content"&gt;
-                &lt;ui:insert name="content"/&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/body&gt;
+            &lt;article&gt;
+                &lt;ui:insert name="content" /&gt;
+            &lt;/article&gt;
+        &lt;/main&gt;
+    &lt;/h:body&gt;
 &lt;/html&gt;</code></pre>
 </div>
 </div>
@@ -505,29 +500,32 @@ The example includes four source files, a Facelets page and template, and config
 <p>To create the Facelets page, redefine the title and head, then add a small form to the content:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version='1.0' encoding='UTF-8' ?&gt;
-&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
-&lt;html lang="en"
-      xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="jakarta.faces.facelets"
-      xmlns:h="jakarta.faces.html"&gt;
-    &lt;ui:composition template="/template.xhtml"&gt;
-
-        &lt;ui:define name="title"&gt;Simple Greeting&lt;/ui:define&gt;
-        &lt;ui:define name="head"&gt;Simple Greeting&lt;/ui:define&gt;
-        &lt;ui:define name="content"&gt;
-            &lt;h:form id="greetme"&gt;
-               &lt;p&gt;&lt;h:outputLabel value="Enter your name: " for="name"/&gt;
-                  &lt;h:inputText id="name" value="#{printer.name}"/&gt;&lt;/p&gt;
-               &lt;p&gt;&lt;h:commandButton value="Say Hello"
-                                   action="#{printer.createSalutation}"/&gt;&lt;/p&gt;
-               &lt;p&gt;&lt;h:outputText value="#{printer.salutation}"/&gt; &lt;/p&gt;
-            &lt;/h:form&gt;
-        &lt;/ui:define&gt;
-
-    &lt;/ui:composition&gt;
-&lt;/html&gt;</code></pre>
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;ui:composition template="/WEB-INF/templates/template.xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:h="jakarta.faces.html"&gt;
+    &lt;ui:define name="title"&gt;Simple Greeting&lt;/ui:define&gt;
+    &lt;ui:define name="content"&gt;
+        &lt;h:form id="simpleGreetingForm"&gt;
+            &lt;div class="input"&gt;
+                &lt;h:outputLabel for="name" value="Enter your name" /&gt;
+                &lt;h:inputText id="name" value="#{printer.name}"/&gt;
+            &lt;/div&gt;
+            &lt;div class="actions"&gt;
+                &lt;h:commandButton id="createSalutation"
+                                 value="Say Hello"
+                                 action="#{printer.createSalutation}"&gt;
+                    &lt;f:ajax execute="@form" render="salutation" /&gt;
+                &lt;/h:commandButton&gt;
+            &lt;/div&gt;
+            &lt;div class="output"&gt;
+                &lt;p&gt;
+                    &lt;h:outputText id="salutation"
+                                  value="#{printer.salutation}" /&gt;
+                &lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/h:form&gt;
+    &lt;/ui:define&gt;
+&lt;/ui:composition&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">

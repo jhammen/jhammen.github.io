@@ -2540,16 +2540,18 @@ Pressing the Upload button at the bottom of the form posts the data to the servl
 &lt;html lang="en"&gt;
     &lt;head&gt;
         &lt;title&gt;File Upload&lt;/title&gt;
-        &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;
     &lt;/head&gt;
     &lt;body&gt;
-        &lt;form method="POST" action="upload" enctype="multipart/form-data" &gt;
-            File:
-            &lt;input type="file" name="file" id="file" /&gt; &lt;br/&gt;
-            Destination:
-            &lt;input type="text" value="/tmp" name="destination"/&gt;
-            &lt;br/&gt;
-            &lt;input type="submit" value="Upload" name="upload" id="upload" /&gt;
+        &lt;form method="post" action="upload" enctype="multipart/form-data"&gt;
+            &lt;div&gt;
+                &lt;label&gt;File: &lt;input type="file" name="file" /&gt;&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;label&gt;Destination: &lt;input name="destination" value="/tmp" /&gt;&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;input type="submit" name="upload" value="Upload" /&gt;
+            &lt;/div&gt;
         &lt;/form&gt;
     &lt;/body&gt;
 &lt;/html&gt;</code></pre>
